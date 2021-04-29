@@ -241,7 +241,7 @@
             this.tsmSeguridad.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tsmSeguridad.Image = global::CapaPresentacion.Properties.Resources.Security_1_24x24_32;
             this.tsmSeguridad.Name = "tsmSeguridad";
-            this.tsmSeguridad.Size = new System.Drawing.Size(128, 22);
+            this.tsmSeguridad.Size = new System.Drawing.Size(180, 22);
             this.tsmSeguridad.Text = "Usuarios";
             this.tsmSeguridad.Click += new System.EventHandler(this.seguridadToolStripMenuItem_Click);
             // 
@@ -250,19 +250,19 @@
             this.tsmInventario.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tsmInventario.Image = global::CapaPresentacion.Properties.Resources.producto_16x16;
             this.tsmInventario.Name = "tsmInventario";
-            this.tsmInventario.Size = new System.Drawing.Size(128, 22);
+            this.tsmInventario.Size = new System.Drawing.Size(180, 22);
             this.tsmInventario.Text = "Inventario";
             this.tsmInventario.Click += new System.EventHandler(this.productosToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(125, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(177, 6);
             // 
             // tsmSalir
             // 
             this.tsmSalir.Name = "tsmSalir";
-            this.tsmSalir.Size = new System.Drawing.Size(128, 22);
+            this.tsmSalir.Size = new System.Drawing.Size(180, 22);
             this.tsmSalir.Text = "Salir";
             this.tsmSalir.Click += new System.EventHandler(this.tsmSalir_Click);
             // 
@@ -283,7 +283,7 @@
             this.tsmVentas.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tsmVentas.Image = global::CapaPresentacion.Properties.Resources.Shopping_cart_24x24;
             this.tsmVentas.Name = "tsmVentas";
-            this.tsmVentas.Size = new System.Drawing.Size(113, 22);
+            this.tsmVentas.Size = new System.Drawing.Size(180, 22);
             this.tsmVentas.Text = "Vender";
             this.tsmVentas.Click += new System.EventHandler(this.tsmVentas_Click);
             // 
@@ -292,7 +292,7 @@
             this.tsmMesas.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tsmMesas.Image = global::CapaPresentacion.Properties.Resources._new;
             this.tsmMesas.Name = "tsmMesas";
-            this.tsmMesas.Size = new System.Drawing.Size(113, 22);
+            this.tsmMesas.Size = new System.Drawing.Size(180, 22);
             this.tsmMesas.Text = "Mesas";
             this.tsmMesas.Click += new System.EventHandler(this.tsmMesas_Click);
             // 
@@ -312,14 +312,14 @@
             // 
             this.tsmConsultaProd.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tsmConsultaProd.Name = "tsmConsultaProd";
-            this.tsmConsultaProd.Size = new System.Drawing.Size(130, 22);
+            this.tsmConsultaProd.Size = new System.Drawing.Size(180, 22);
             this.tsmConsultaProd.Text = "Productos";
             // 
             // tsmConsultaVenta
             // 
             this.tsmConsultaVenta.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tsmConsultaVenta.Name = "tsmConsultaVenta";
-            this.tsmConsultaVenta.Size = new System.Drawing.Size(130, 22);
+            this.tsmConsultaVenta.Size = new System.Drawing.Size(180, 22);
             this.tsmConsultaVenta.Text = "Ventas";
             this.tsmConsultaVenta.Click += new System.EventHandler(this.ventasToolStripMenuItem2_Click);
             // 
@@ -340,21 +340,21 @@
             // 
             this.tsmreporteventas.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tsmreporteventas.Name = "tsmreporteventas";
-            this.tsmreporteventas.Size = new System.Drawing.Size(146, 22);
+            this.tsmreporteventas.Size = new System.Drawing.Size(180, 22);
             this.tsmreporteventas.Text = "R. Ventas";
             // 
             // tsmreporteproductos
             // 
             this.tsmreporteproductos.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tsmreporteproductos.Name = "tsmreporteproductos";
-            this.tsmreporteproductos.Size = new System.Drawing.Size(146, 22);
+            this.tsmreporteproductos.Size = new System.Drawing.Size(180, 22);
             this.tsmreporteproductos.Text = "R. Productos";
             // 
             // tsmReporteMesas
             // 
             this.tsmReporteMesas.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tsmReporteMesas.Name = "tsmReporteMesas";
-            this.tsmReporteMesas.Size = new System.Drawing.Size(146, 22);
+            this.tsmReporteMesas.Size = new System.Drawing.Size(180, 22);
             this.tsmReporteMesas.Text = "R. Mesas";
             // 
             // acercaDeToolStripMenuItem
@@ -365,14 +365,14 @@
             this.acercaDeToolStripMenuItem.ForeColor = System.Drawing.Color.Navy;
             this.acercaDeToolStripMenuItem.Image = global::CapaPresentacion.Properties.Resources.user_comment_32x32_32;
             this.acercaDeToolStripMenuItem.Name = "acercaDeToolStripMenuItem";
-            this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(70, 58);
+            this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(122, 58);
             this.acercaDeToolStripMenuItem.Text = "Ayuda";
             // 
             // acercaDeToolStripMenuItem1
             // 
             this.acercaDeToolStripMenuItem1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.acercaDeToolStripMenuItem1.Name = "acercaDeToolStripMenuItem1";
-            this.acercaDeToolStripMenuItem1.Size = new System.Drawing.Size(128, 22);
+            this.acercaDeToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.acercaDeToolStripMenuItem1.Text = "Acerca de";
             this.acercaDeToolStripMenuItem1.Click += new System.EventHandler(this.acercaDeToolStripMenuItem1_Click);
             // 

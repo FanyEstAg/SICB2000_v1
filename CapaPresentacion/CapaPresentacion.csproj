@@ -70,6 +70,12 @@
     <Compile Include="frmBoletaVenta.Designer.cs">
       <DependentUpon>frmBoletaVenta.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCobroMesa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCobroMesa.Designer.cs">
+      <DependentUpon>frmCobroMesa.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmConsultaVenta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,6 +153,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmBoletaVenta.resx">
       <DependentUpon>frmBoletaVenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCobroMesa.resx">
+      <DependentUpon>frmCobroMesa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmConsultaVenta.resx">
       <DependentUpon>frmConsultaVenta.cs</DependentUpon>
