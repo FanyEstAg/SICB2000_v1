@@ -156,7 +156,7 @@ namespace CapaPresentacion
                 throw;
             }
         }
-        // funcion validar entrada solo caracteres validos 
+        // funcion validar entrada solo caracteres validos jojojo
         private bool EntradaDecimales(KeyPressEventArgs e)
         {
             try
@@ -169,7 +169,7 @@ namespace CapaPresentacion
                 }
                 else
                 {
-                    MessageBox.Show("Esta intentando ingresar un caracter no válido", "Aviso",
+                    MessageBox.Show("Esta intentando ingresar un caracter inválido", "Aviso",
                  MessageBoxButtons.OK, MessageBoxIcon.Warning); result = false;
                 }
                 return result;
@@ -886,6 +886,10 @@ namespace CapaPresentacion
                 MessageBox.Show(ex.Message, "Error",
                                                   MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+        public void estoesunaprueba()
+        {
+
         }
     }
 }
