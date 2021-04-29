@@ -70,12 +70,6 @@
     <Compile Include="frmCobroMesa.Designer.cs">
       <DependentUpon>frmCobroMesa.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmConsultaVenta.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmConsultaVenta.Designer.cs">
-      <DependentUpon>frmConsultaVenta.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmInfoApp.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,12 +94,6 @@
     <Compile Include="frmMesas.Designer.cs">
       <DependentUpon>frmMesas.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmNotaVenta.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmNotaVenta.Designer.cs">
-      <DependentUpon>frmNotaVenta.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,12 +105,6 @@
     </Compile>
     <Compile Include="frmInventario.Designer.cs">
       <DependentUpon>frmInventario.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmUsuario.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmUsuario.Designer.cs">
-      <DependentUpon>frmUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="frmUsuariosConf.cs">
       <SubType>Form</SubType>
@@ -141,9 +123,6 @@
     <EmbeddedResource Include="frmCobroMesa.resx">
       <DependentUpon>frmCobroMesa.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmConsultaVenta.resx">
-      <DependentUpon>frmConsultaVenta.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmInfoApp.resx">
       <DependentUpon>frmInfoApp.cs</DependentUpon>
     </EmbeddedResource>
@@ -156,17 +135,11 @@
     <EmbeddedResource Include="frmMesas.resx">
       <DependentUpon>frmMesas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmNotaVenta.resx">
-      <DependentUpon>frmNotaVenta.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmInventario.resx">
       <DependentUpon>frmInventario.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmUsuario.resx">
-      <DependentUpon>frmUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmUsuariosConf.resx">
       <DependentUpon>frmUsuariosConf.cs</DependentUpon>

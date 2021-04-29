@@ -21,7 +21,7 @@ namespace CapaAccesoDatos
 
         #region metodos
 
-        public entTipo LstVentaTipoMesa()
+        public entTipo LstTipoMesa()
         {
             SqlCommand cmd = null;
             IDataReader idr = null;

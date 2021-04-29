@@ -21,22 +21,7 @@ namespace CapaNegocio
         #region metodos
 
        
-        public List<entProducto> BuscarprodAvanzadaIndicador(String name)
-        {
-            try
-            {
-                List<entProducto> Lista = null;
-                Lista = datProducto.Instancia.LstProdIndicadorAvanzada(name);
-                return Lista;
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
-
-       
+            
         public entProducto BuscarProducto(int id_producto)
         {
             try

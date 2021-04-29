@@ -21,29 +21,29 @@ namespace CapaAccesoDatos
         #region metodos
 
         
-        public int MantenimientoUsuario(String cadXml) {//Oendiente
-            SqlCommand cmd = null;
+        //public int MantenimientoUsuario(String cadXml) {//Oendiente
+        //    SqlCommand cmd = null;
             
-            try
-            {
-                SqlConnection cn = Conexion.Instancia.Conectar();
-                cmd = new SqlCommand("spInsEditElimUsario", cn);
-                cmd.Parameters.AddWithValue("@Cadxml", cadXml);
-                cmd.CommandType = CommandType.StoredProcedure;
+        //    try
+        //    {
+        //        SqlConnection cn = Conexion.Instancia.Conectar();
+        //        cmd = new SqlCommand("spInsEditElimUsario", cn);
+        //        cmd.Parameters.AddWithValue("@Cadxml", cadXml);
+        //        cmd.CommandType = CommandType.StoredProcedure;
 
-                SqlParameter p = new SqlParameter("@retorno", DbType.Int32);
-                p.Direction = ParameterDirection.ReturnValue;
-                cmd.Parameters.Add(p);
-                cn.Open();
-                var result =  cmd.ExecuteNonQuery();
-                cn.Close();
-                return result;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
+        //        SqlParameter p = new SqlParameter("@retorno", DbType.Int32);
+        //        p.Direction = ParameterDirection.ReturnValue;
+        //        cmd.Parameters.Add(p);
+        //        cn.Open();
+        //        var result =  cmd.ExecuteNonQuery();
+        //        cn.Close();
+        //        return result;
+        //    }
+        //    catch (Exception)
+        //    {
+        //        throw;
+        //    }
+        //}
 
         public entUsuario BuscarUsuario(String valor){//listo
             SqlCommand cmd = null;
