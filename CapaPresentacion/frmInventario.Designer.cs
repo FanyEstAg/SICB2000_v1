@@ -157,6 +157,7 @@
             this.btnCargarMarca.TabIndex = 115;
             this.btnCargarMarca.Text = "Cargar...";
             this.btnCargarMarca.UseVisualStyleBackColor = false;
+            this.btnCargarMarca.Click += new System.EventHandler(this.btnCargarMarca_Click);
             // 
             // btnGrabarMarca
             // 
@@ -389,7 +390,7 @@
             this.dgvUnidadMedida.Size = new System.Drawing.Size(661, 281);
             this.dgvUnidadMedida.TabIndex = 68;
             this.dgvUnidadMedida.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUnidadMedida_CellClick);
-             
+            // 
             // label20
             // 
             this.label20.AutoSize = true;

@@ -100,6 +100,18 @@
     <Compile Include="frmInicioSesion.Designer.cs">
       <DependentUpon>frmInicioSesion.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmMesaAgregarTipo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMesaAgregarTipo.Designer.cs">
+      <DependentUpon>frmMesaAgregarTipo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMesas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMesas.Designer.cs">
+      <DependentUpon>frmMesas.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmNotaVenta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -150,6 +162,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmInicioSesion.resx">
       <DependentUpon>frmInicioSesion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMesaAgregarTipo.resx">
+      <DependentUpon>frmMesaAgregarTipo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMesas.resx">
+      <DependentUpon>frmMesas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmNotaVenta.resx">
       <DependentUpon>frmNotaVenta.cs</DependentUpon>

@@ -891,5 +891,10 @@ namespace CapaPresentacion
         {
 
         }
+
+        private void btnCargarMarca_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
