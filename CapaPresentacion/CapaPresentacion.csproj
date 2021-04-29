@@ -94,11 +94,11 @@
     <Compile Include="frmInfoApp.Designer.cs">
       <DependentUpon>frmInfoApp.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmLogeo.cs">
+    <Compile Include="frmInicioSesion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmLogeo.Designer.cs">
-      <DependentUpon>frmLogeo.cs</DependentUpon>
+    <Compile Include="frmInicioSesion.Designer.cs">
+      <DependentUpon>frmInicioSesion.cs</DependentUpon>
     </Compile>
     <Compile Include="frmNotaVenta.cs">
       <SubType>Form</SubType>
@@ -148,8 +148,8 @@
     <EmbeddedResource Include="frmInfoApp.resx">
       <DependentUpon>frmInfoApp.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmLogeo.resx">
-      <DependentUpon>frmLogeo.cs</DependentUpon>
+    <EmbeddedResource Include="frmInicioSesion.resx">
+      <DependentUpon>frmInicioSesion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmNotaVenta.resx">
       <DependentUpon>frmNotaVenta.cs</DependentUpon>

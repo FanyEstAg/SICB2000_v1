@@ -139,6 +139,9 @@
   <data name="anular" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\ImgAplicacion\anular.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Shopping cart_32x32-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ImgAplicacion\Shopping cart_32x32-32.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="guardar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\ImgAplicacion\guardar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -157,8 +160,8 @@
   <data name="anular__32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\ImgAplicacion\anular__32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="search-add_24x24-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\ImgAplicacion\search-add_24x24-32.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="circulorojo_24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ImgAplicacion\circulorojo_24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="accept_24x24-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\ImgAplicacion\accept_24x24-32.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -196,11 +199,11 @@
   <data name="window-remove_24x24-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\ImgAplicacion\window-remove_24x24-32.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Logo CLUB BILLAR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Logo CLUB BILLAR.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="producto_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\ImgAplicacion\producto_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="printer" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\ImgAplicacion\printer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="add_24x24-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\ImgAplicacion\add_24x24-32.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -208,22 +211,22 @@
   <data name="CirculoNaranja24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\ImgAplicacion\CirculoNaranja24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="circulorojo_24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\ImgAplicacion\circulorojo_24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="printer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ImgAplicacion\printer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="accept_16x16-321" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\ImgAplicacion\accept_16x16-32.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="search-add_24x24-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ImgAplicacion\search-add_24x24-32.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="add_16x16-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\ImgAplicacion\add_16x16-32.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Shopping cart_32x32-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\ImgAplicacion\Shopping cart_32x32-32.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="accept_16x16-321" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ImgAplicacion\accept_16x16-32.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Delete_16x16-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\ImgAplicacion\Delete_16x16-32.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Logo CLUB BILLAR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="Logo CLUB BILLAR1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Logo CLUB BILLAR.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -96,7 +96,7 @@ namespace CapaPresentacion
             try
             {
                 // recorre todos los formularios abiertos en busca de frmLogeo
-                Form frmlogin = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is frmLogeo);
+                Form frmlogin = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is frmInicioSesion);
                 // si existe una instancia de frmlogeo:  visible = false (oculta)
                 if (frmlogin != null)
                 {

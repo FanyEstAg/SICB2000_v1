@@ -11,9 +11,9 @@ using CapaNegocio;
 using Entidades;
 namespace CapaPresentacion
 {
-    public partial class frmLogeo : Form
+    public partial class frmInicioSesion : Form
     {
-        public frmLogeo()
+        public frmInicioSesion()
         {
             InitializeComponent();
             
@@ -60,13 +60,47 @@ namespace CapaPresentacion
 
         private void button1_Click(object sender, EventArgs e)
         {
-             this.Dispose(); // Cierra formulario libera recursos
-           // Application.Exit(); - Cierra todo la aplicacion liberando recursos
-        }
+                }
 
         private void label2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                String usuario = txtUsuario.Text;
+                String password = txtPassword.Text;
+                entUsuario u = null;//crear un objeto tipo usuario(entidad)
+                u = negSeguridad.Instancia.IngresoSisema(usuario, password); //Ir  a la capa del negocio
+
+                frmPrincipal frmprincipal = new frmPrincipal(u);//mandar el usuario a la venta principal
+                frmprincipal.Show();
+            }
+            catch (ApplicationException ae)
+            {//en caos de errores
+
+                MessageBox.Show(ae.Message, "Aviso",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            this.Dispose(); // Cierra formulario libera recursos
+                            // Application.Exit(); - Cierra todo la aplicacion liberando recursos
         }
     }
 }
