@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Entidades
 {
-    class entCobroMesa
+    public class entCobroMesa
     {
         public int Id_pagoMesa { get; set; }
         public DateTime fecha { get; set; }

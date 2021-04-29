@@ -42,23 +42,19 @@ namespace CapaAccesoDatos
                 {
                     entProducto p = new entProducto();
                     p.Id_Prod = Convert.ToInt32(dr["Id_Prod"]);
-                    p.Codigo_Prod = dr["Codigo_Prod"].ToString();
-                    p.Nombre_Prod = dr["Nombre_Prod"].ToString();
-                    p.PrecioCompra_Prod = Convert.ToDouble(dr["PrecioCompra_Prod"]);
-                    p.Precio_Prod = Convert.ToDouble(dr["Precio_Prod"]);
-                    p.Stock_Prod = Convert.ToInt32(dr["Stock_Prod"]);
-                    p.StockProm_Prod = Convert.ToInt32(dr["StockProm_Prod"]);
-                    p.StockMin_Prod = Convert.ToInt32(dr["StockMin_Prod"]);
-
-                    entCategoria c = new entCategoria();
-                    c.Nombre_Cat = dr["Nombre_Cat"].ToString();
-                    p.categoria = c;
+                    p.Nombre_Prod = dr["Nom_producto"].ToString();
+                    p.existencia= Convert.ToInt32(dr["Existencia"]);
+                    p.Costo_Prod = Convert.ToDouble(dr["Costo"]);
+                    p.Precio_Prod = Convert.ToDouble(dr["Precio"]);
+                    p.Descripcion_Prod = dr["Descrp_producto"].ToString();
                     entUnidadMedida um = new entUnidadMedida();
+                    um.Id_Umed = Convert.ToInt32(dr.["Id_Umed"]);
                     um.Abreviatura_Umed = dr["Abreviatura_Umed"].ToString();
-                    p.unidmedida = um;
-                    entMaterial M = new entMaterial();
-                    M.Nombre = dr["Nombre_Material"].ToString();
-                    p.material = M;
+                    p.Id_umed = um;
+                    entMarca m = new entMarca();
+                    m.Id_Marca = Convert.ToInt32(dr["Id_Marca"]);
+                    m.Nombre_Marca = dr["Nom_marca"].ToString();
+                    //p.Marca_Prod = m;--verificar error
                     Lista.Add(p);
                 }
             }
@@ -71,46 +67,22 @@ namespace CapaAccesoDatos
             return Lista;
         }
 
-        public List<entProducto> ListarProductoIndicador(String codigo,int id_cat,int rango)
+        public DataTable ProductoExistencia(int id)//revisar
         {
             SqlCommand cmd = null;
-            List<entProducto> Lista = null;
+            DataTable dt;
             SqlDataReader dr = null;
             try
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();
-                cmd = new SqlCommand("spListarProdStatus", cn);
-                cmd.Parameters.AddWithValue("@prmCodigo",codigo);
-                cmd.Parameters.AddWithValue("@prmcat",id_cat);
-                cmd.Parameters.AddWithValue("@prmstockrango",rango);
+                cmd = new SqlCommand("uspListarProdExistencia", cn);
+                cmd.Parameters.AddWithValue("@prmId", id);
 
                 cmd.CommandType = CommandType.StoredProcedure;
                 cn.Open();
-                dr = cmd.ExecuteReader();
-                Lista = new List<entProducto>();
-                while (dr.Read())
-                {
-                    entProducto p = new entProducto();
-                    p.Id_Prod = Convert.ToInt32(dr["Id_Prod"]);
-                    p.Codigo_Prod = dr["Codigo_Prod"].ToString();
-                    p.Nombre_Prod = dr["Nombre_Prod"].ToString();
-                    p.PrecioCompra_Prod = Convert.ToDouble(dr["PrecioCompra_Prod"]);
-                    p.Precio_Prod = Convert.ToDouble(dr["Precio_Prod"]);
-                    p.Stock_Prod = Convert.ToInt32(dr["Stock_Prod"]);
-                    p.StockProm_Prod = Convert.ToInt32(dr["StockProm_Prod"]);
-                    p.StockMin_Prod = Convert.ToInt32(dr["StockMin_Prod"]);
+                 dt = new DataTable();
+                dt.Load(cmd.ExecuteReader());
 
-                    entCategoria c = new entCategoria();
-                    c.Nombre_Cat = dr["Nombre_Cat"].ToString();
-                    p.categoria = c;
-                    entUnidadMedida um = new entUnidadMedida();
-                    um.Abreviatura_Umed = dr["Abreviatura_Umed"].ToString();
-                    p.unidmedida = um;
-                    entMaterial m = new entMaterial();
-                    m.Nombre = dr["Nombre_Material"].ToString();
-                    p.material = m;
-                    Lista.Add(p);
-                }
             }
             catch (Exception)
             {
@@ -118,56 +90,11 @@ namespace CapaAccesoDatos
                 throw;
             }
             finally { cmd.Connection.Close(); }
-            return Lista;
+            return dt;
         }
 
 
-        public List<entProducto> BuscarProductoAvanzada(int tip_entrada, String valor_entrada)
-        {
-            SqlCommand cmd = null;
-            SqlDataReader dr = null;
-           List<entProducto> Lista = null;
-            try
-            {
-                SqlConnection cn = Conexion.Instancia.Conectar();
-                cmd = new SqlCommand("spBuscarProdAvanzada", cn);
-                cmd.Parameters.AddWithValue("@prmTipEntrada", tip_entrada);
-                cmd.Parameters.AddWithValue("@prmValorEntrada", valor_entrada);
-
-                cmd.CommandType = CommandType.StoredProcedure;
-                cn.Open();
-                dr = cmd.ExecuteReader();
-                Lista = new List<entProducto>();
-                while (dr.Read())
-                {
-                    entProducto p = new entProducto();
-                    p.Id_Prod = Convert.ToInt32(dr["Id_Prod"]);
-                    p.Codigo_Prod = dr["Codigo_Prod"].ToString();
-                    p.Nombre_Prod = dr["Nombre_Prod"].ToString();
-                    p.Marca_Prod = dr["Marca_Prod"].ToString();
-                    p.Precio_Prod = Convert.ToDouble(dr["Precio_Prod"].ToString());
-                    p.Stock_Prod = Convert.ToInt32(dr["Stock_Prod"]);
-                    entCategoria c = new entCategoria();
-                    c.Nombre_Cat = dr["Nombre_Cat"].ToString();
-                    p.categoria = c;
-                    entUnidadMedida um = new entUnidadMedida();
-                    um.Descripcion_Umed = dr["Descripcion_Umed"].ToString();
-                    p.unidmedida = um;
-                    entMaterial m = new entMaterial();
-                    m.Nombre = dr["Nombre_Material"].ToString();
-                    p.material = m;
-                    Lista.Add(p);
-
-                }
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            finally { cmd.Connection.Close(); }
-            return Lista;
-        }
-
+       
         public entProducto BuscarProducto(int id_producto)
         {
             SqlCommand cmd = null;
@@ -176,37 +103,29 @@ namespace CapaAccesoDatos
             try
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();
-                cmd = new SqlCommand("spBuscarProducto", cn);
+                cmd = new SqlCommand("uspBuscarProducto", cn);
                 cmd.Parameters.AddWithValue("@prmId_Prod", id_producto);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cn.Open();
                 dr = cmd.ExecuteReader();
                 if (dr.Read())
                 {
-                    p = new entProducto();
+                    entProducto p = new entProducto();
                     p.Id_Prod = Convert.ToInt32(dr["Id_Prod"]);
-                    p.Codigo_Prod = dr["Codigo_Prod"].ToString();
-                    p.Nombre_Prod = dr["Nombre_Prod"].ToString();
-                    p.Marca_Prod = dr["Marca_Prod"].ToString();
-                    p.PrecioCompra_Prod =Convert.ToDouble(dr["PrecioCompra_Prod"].ToString());
-                    p.Precio_Prod = Convert.ToDouble(dr["Precio_Prod"].ToString());
-                    p.Stock_Prod = Convert.ToInt32(dr["Stock_Prod"]);
-                    p.StockProm_Prod = Convert.ToInt32(dr["StockProm_Prod"]);
-                    p.StockMin_Prod = Convert.ToInt32(dr["StockMin_Prod"]);
-                    entCategoria c = new entCategoria();
-                    c.Id_Cat = Convert.ToInt32(dr["Id_Cat"]);
-                    p.categoria = c;
+                    p.Nombre_Prod = dr["Nom_producto"].ToString();
+                    p.existencia = Convert.ToInt32(dr["Existencia"]);
+                    p.Costo_Prod = Convert.ToDouble(dr["Costo"]);
+                    p.Precio_Prod = Convert.ToDouble(dr["Precio"]);
+                    p.Descripcion_Prod = dr["Descrp_producto"].ToString();
                     entUnidadMedida um = new entUnidadMedida();
-                    um.Id_Umed = Convert.ToInt32(dr["Id_Umed"]);
-                    p.unidmedida = um;
-                    entProveedor pr = new entProveedor();
-                    pr.Id_Proveedor = Convert.ToInt32(dr["Id_Proveedor"]);
-                    p.proveedor = pr;
-                    entMaterial m = new entMaterial();
-                    m.Id = Convert.ToInt32(dr["Id_Material"]);
-                    p.material = m;
-
-                       
+                    um.Id_Umed = Convert.ToInt32(dr.["Id_Umed"]);
+                    um.Abreviatura_Umed = dr["Abreviatura_Umed"].ToString();
+                    p.Id_umed = um;
+                    entMarca m = new entMarca();
+                    m.Id_Marca = Convert.ToInt32(dr["Id_Marca"]);
+                    m.Nombre_Marca = dr["Nom_marca"].ToString();
+                    //p.Marca_Prod = m;--verificar error
+                    
                 }
             }
             catch (Exception)
@@ -217,7 +136,7 @@ namespace CapaAccesoDatos
             return p;
         }
 
-        public List<entProducto> ListarProducto()
+        public List<entProducto> ListarProducto()//modificar
         {
             SqlCommand cmd = null;
             List<entProducto> Lista = null;
@@ -234,18 +153,19 @@ namespace CapaAccesoDatos
                 {
                     entProducto p = new entProducto();
                     p.Id_Prod = Convert.ToInt32(dr["Id_Prod"]);
-                    p.Codigo_Prod = dr["Codigo_Prod"].ToString();
-                    p.Nombre_Prod = dr["Nombre_Prod"].ToString();
-                    p.Marca_Prod = dr["Marca_Prod"].ToString();
-                    entCategoria c = new entCategoria();
-                    c.Nombre_Cat = dr["Nombre_Cat"].ToString();
-                    p.categoria = c;
+                    p.Nombre_Prod = dr["Nom_producto"].ToString();
+                    p.existencia = Convert.ToInt32(dr["Existencia"]);
+                    p.Costo_Prod = Convert.ToDouble(dr["Costo"]);
+                    p.Precio_Prod = Convert.ToDouble(dr["Precio"]);
+                    p.Descripcion_Prod = dr["Descrp_producto"].ToString();
                     entUnidadMedida um = new entUnidadMedida();
-                    um.Descripcion_Umed = dr["Descripcion_Umed"].ToString();
-                    p.unidmedida = um;
-                    entProveedor pr = new entProveedor();
-                    pr.RazSocial_Proveedor = dr["RazSocial_Proveedor"].ToString();
-                    p.proveedor = pr;
+                    um.Id_Umed = Convert.ToInt32(dr.["Id_Umed"]);
+                    um.Abreviatura_Umed = dr["Abreviatura_Umed"].ToString();
+                    p.Id_umed = um;
+                    entMarca m = new entMarca();
+                    m.Id_Marca = Convert.ToInt32(dr["Id_Marca"]);
+                    m.Nombre_Marca = dr["Nom_marca"].ToString();
+                    //p.Marca_Prod = m;--verificar error
                     Lista.Add(p);
                 }
             }
@@ -258,83 +178,79 @@ namespace CapaAccesoDatos
             return Lista;
         }
 
-        public int MantenimientoProducto(String cadXml)
-        {
-            SqlCommand cmd = null;
-            var result = 0;
-            try
-            {
-                SqlConnection cn = Conexion.Instancia.Conectar();
-                cmd = new SqlCommand("spInsEditElimProducto", cn);
-                cmd.Parameters.AddWithValue("@prmCadXml", cadXml);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cn.Open();
-                result = cmd.ExecuteNonQuery();
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            finally { cmd.Connection.Close(); }
-            return result;
-        }
+        //public int MantenimientoProducto(String cadXml)
+        //{
+        //    SqlCommand cmd = null;
+        //    var result = 0;
+        //    try
+        //    {
+        //        SqlConnection cn = Conexion.Instancia.Conectar();
+        //        cmd = new SqlCommand("spInsEditElimProducto", cn);
+        //        cmd.Parameters.AddWithValue("@prmCadXml", cadXml);
+        //        cmd.CommandType = CommandType.StoredProcedure;
+        //        cn.Open();
+        //        result = cmd.ExecuteNonQuery();
+        //    }
+        //    catch (Exception)
+        //    {
+        //        throw;
+        //    }
+        //    finally { cmd.Connection.Close(); }
+        //    return result;
+        //}
 
-       
-
-        public int MantenimientoUnidMedida(String cadXml)
-        {
-            SqlCommand cmd = null;
-            var result = 0;
-            try
-            {
-                SqlConnection cn = Conexion.Instancia.Conectar();
-                cmd = new SqlCommand("spInsEditElimUnidMed", cn);
-                cmd.Parameters.AddWithValue("@prmCadXml", cadXml);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cn.Open();
-                result = cmd.ExecuteNonQuery();
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            finally { cmd.Connection.Close(); }
-            return result;
-        }
+        //public int MantenimientoUnidMedida(String cadXml)
+        //{
+        //    SqlCommand cmd = null;
+        //    var result = 0;
+        //    try
+        //    {
+        //        SqlConnection cn = Conexion.Instancia.Conectar();
+        //        cmd = new SqlCommand("spInsEditElimUnidMed", cn);
+        //        cmd.Parameters.AddWithValue("@prmCadXml", cadXml);
+        //        cmd.CommandType = CommandType.StoredProcedure;
+        //        cn.Open();
+        //        result = cmd.ExecuteNonQuery();
+        //    }
+        //    catch (Exception)
+        //    {
+        //        throw;
+        //    }
+        //    finally { cmd.Connection.Close(); }
+        //    return result;
+        //}
 
         
-        public entUnidadMedida BuscarUniMedida(int id_unMed)
-        {
-            SqlCommand cmd = null;
-            SqlDataReader dr = null;
-            entUnidadMedida um = null;
-            try
-            {
-                SqlConnection cn = Conexion.Instancia.Conectar();
-                cmd = new SqlCommand("spBuscarUnMedida", cn);
-                cmd.Parameters.AddWithValue("@prmidUniMed", id_unMed);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cn.Open();
-                dr = cmd.ExecuteReader();
-                if (dr.Read())
-                {
-                    um = new entUnidadMedida();
-                    um.Id_Umed = Convert.ToInt32(dr["Id_Umed"]);
-                    um.Codigo_Umed = dr["Codigo_Umed"].ToString();
-                    um.Descripcion_Umed = dr["Descripcion_Umed"].ToString();
-                    um.Abreviatura_Umed = dr["Abreviatura_Umed"].ToString();
-                }
-            }
-            catch (Exception)
-            {
+        //public entUnidadMedida BuscarUniMedida(int id_unMed)
+        //{
+        //    SqlCommand cmd = null;
+        //    SqlDataReader dr = null;
+        //    entUnidadMedida um = null;
+        //    try
+        //    {
+        //        SqlConnection cn = Conexion.Instancia.Conectar();
+        //        cmd = new SqlCommand("spBuscarUnMedida", cn);
+        //        cmd.Parameters.AddWithValue("@prmidUniMed", id_unMed);
+        //        cmd.CommandType = CommandType.StoredProcedure;
+        //        cn.Open();
+        //        dr = cmd.ExecuteReader();
+        //        if (dr.Read())
+        //        {
+        //            um = new entUnidadMedida();
+        //            um.Id_Umed = Convert.ToInt32(dr["Id_Umed"]);
+        //            um.Codigo_Umed = dr["Codigo_Umed"].ToString();
+        //            um.Descripcion_Umed = dr["Descripcion_Umed"].ToString();
+        //            um.Abreviatura_Umed = dr["Abreviatura_Umed"].ToString();
+        //        }
+        //    }
+        //    catch (Exception)
+        //    {
 
-                throw;
-            }
-            finally { cmd.Connection.Close(); }
-            return um;
-        }
-
-        
+        //        throw;
+        //    }
+        //    finally { cmd.Connection.Close(); }
+        //    return um;
+        //}
 
         public List<entUnidadMedida> ListarUniMedida()
         {
@@ -344,7 +260,7 @@ namespace CapaAccesoDatos
             try
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();
-                cmd = new SqlCommand("spListarUnidMed", cn);
+                cmd = new SqlCommand("uspListarUnidMed", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cn.Open();
                 dr = cmd.ExecuteReader();
@@ -353,10 +269,8 @@ namespace CapaAccesoDatos
                 {
                     entUnidadMedida um = new entUnidadMedida();
                     um.Id_Umed = Convert.ToInt32(dr["Id_Umed"]);
-                    um.Codigo_Umed = dr["Codigo_Umed"].ToString();
-                    um.Descripcion_Umed = dr["Descripcion_Umed"].ToString();
+                    um.Descripcion_Umed = dr["Descrp_Umed"].ToString();
                     um.Abreviatura_Umed = dr["Abreviatura_Umed"].ToString();
-                    um.Estado_Umed = Convert.ToInt32(dr["Estado_Umed"]);
                     Lista.Add(um);
                 }
             }
