@@ -136,7 +136,6 @@
     <Compile Include="frmUsuariosConf.Designer.cs">
       <DependentUpon>frmUsuariosConf.cs</DependentUpon>
     </Compile>
-    <Compile Include="LocalBD.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmBoletaVenta.resx">

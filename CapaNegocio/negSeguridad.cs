@@ -17,37 +17,37 @@ namespace CapaNegocio
         }
 
         #endregion singleton
-        public int MantenimientoUsuario(entUsuario u,int tipoedicion) {
-            try
-            {
-                String cadXml = "";
-                cadXml += "<usuario ";
-                cadXml += "idusuario='" + u.Id_Usuario + "' ";
-                cadXml += "idnivelacceso='" + u.nivel_acceso.Id_NivelAcc + "' ";
-                cadXml+= "idsucusuario='"+u.sucursal.Id_Suc+"' ";
-                cadXml += "nombre='" + u.Nombre_Usuario + "' ";
-                cadXml += "logeo='" + u.Login_Usuario + "' ";
-                cadXml += "pass='" + u.Password_Usuario + "' ";
-                cadXml += "telefono='" + u.Telefono_Usuario + "' ";
-                cadXml += "celular='" + u.Celular_Usuario + "' ";
-                cadXml += "correo='" + u.Correo_Usuario + "' ";
-                cadXml += "estado='" + u.Estado_Usuario + "' ";
-                cadXml += "usuariocreacion='" + u.UsuarioCreacion_Usuario + "' ";
-                cadXml += "expiracion='" + u.Expiracion_Usuario + "' ";
-                cadXml += "tipoedicion='" + tipoedicion + "'/>";
+        //public int MantenimientoUsuario(entUsuario u,int tipoedicion) {
+        //    try
+        //    {
+        //        String cadXml = "";
+        //        cadXml += "<usuario ";
+        //        cadXml += "idusuario='" + u.Id_Usuario + "' ";
+        //        cadXml += "idnivelacceso='" + u.nivel_acceso.Id_NivelAcc + "' ";
+        //        cadXml+= "idsucusuario='"+u.sucursal.Id_Suc+"' ";
+        //        cadXml += "nombre='" + u.Nombre_Usuario + "' ";
+        //        cadXml += "logeo='" + u.Login_Usuario + "' ";
+        //        cadXml += "pass='" + u.Password_Usuario + "' ";
+        //        cadXml += "telefono='" + u.Telefono_Usuario + "' ";
+        //        cadXml += "celular='" + u.Celular_Usuario + "' ";
+        //        cadXml += "correo='" + u.Correo_Usuario + "' ";
+        //        cadXml += "estado='" + u.Estado_Usuario + "' ";
+        //        cadXml += "usuariocreacion='" + u.UsuarioCreacion_Usuario + "' ";
+        //        cadXml += "expiracion='" + u.Expiracion_Usuario + "' ";
+        //        cadXml += "tipoedicion='" + tipoedicion + "'/>";
 
-                cadXml = "<root>" + cadXml + "</root>";
-                int result = datSeguridad.Instancia.MantenimientoUsuario(cadXml);
-                if (result == 0) throw new ApplicationException("Ocurrio un error al registrar, intentelo nuevamente");
+        //        cadXml = "<root>" + cadXml + "</root>";
+        //        int result = datSeguridad.Instancia.MantenimientoUsuario(cadXml);
+        //        if (result == 0) throw new ApplicationException("Ocurrio un error al registrar, intentelo nuevamente");
 
-                return result;
-            }
-            catch (Exception)
-            {
+        //        return result;
+        //    }
+        //    catch (Exception)
+        //    {
 
-                throw;
-            }
-        }
+        //        throw;
+        //    }
+        //}
 
 
         public entUsuario BuscarUsuario( String valor) {
