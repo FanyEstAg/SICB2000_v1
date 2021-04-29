@@ -120,7 +120,7 @@
             // lblMesas
             // 
             this.lblMesas.AutoSize = true;
-            this.lblMesas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(35)))), ((int)(((byte)(107)))));
+            this.lblMesas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(158)))), ((int)(((byte)(50)))));
             this.lblMesas.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMesas.Location = new System.Drawing.Point(12, 14);
             this.lblMesas.Name = "lblMesas";
@@ -131,7 +131,7 @@
             // lblInventario
             // 
             this.lblInventario.AutoSize = true;
-            this.lblInventario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(35)))), ((int)(((byte)(107)))));
+            this.lblInventario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(158)))), ((int)(((byte)(50)))));
             this.lblInventario.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInventario.Location = new System.Drawing.Point(12, 208);
             this.lblInventario.Name = "lblInventario";
@@ -142,7 +142,7 @@
             // lblConfiguracion
             // 
             this.lblConfiguracion.AutoSize = true;
-            this.lblConfiguracion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(35)))), ((int)(((byte)(107)))));
+            this.lblConfiguracion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(158)))), ((int)(((byte)(50)))));
             this.lblConfiguracion.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblConfiguracion.Location = new System.Drawing.Point(10, 292);
             this.lblConfiguracion.Name = "lblConfiguracion";
@@ -153,7 +153,7 @@
             // lblReporte
             // 
             this.lblReporte.AutoSize = true;
-            this.lblReporte.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(35)))), ((int)(((byte)(107)))));
+            this.lblReporte.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(158)))), ((int)(((byte)(50)))));
             this.lblReporte.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblReporte.Location = new System.Drawing.Point(11, 250);
             this.lblReporte.Name = "lblReporte";
@@ -164,7 +164,7 @@
             // lblVentaProducto
             // 
             this.lblVentaProducto.AutoSize = true;
-            this.lblVentaProducto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(35)))), ((int)(((byte)(107)))));
+            this.lblVentaProducto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(158)))), ((int)(((byte)(50)))));
             this.lblVentaProducto.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblVentaProducto.Location = new System.Drawing.Point(12, 131);
             this.lblVentaProducto.Name = "lblVentaProducto";
@@ -175,7 +175,7 @@
             // lblCobroMesa
             // 
             this.lblCobroMesa.AutoSize = true;
-            this.lblCobroMesa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(35)))), ((int)(((byte)(107)))));
+            this.lblCobroMesa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(158)))), ((int)(((byte)(50)))));
             this.lblCobroMesa.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCobroMesa.Location = new System.Drawing.Point(12, 56);
             this.lblCobroMesa.Name = "lblCobroMesa";
