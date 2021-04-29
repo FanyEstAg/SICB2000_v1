@@ -109,7 +109,7 @@ namespace CapaPresentacion
         #endregion comvertirenletras
 
       
-        public void LlenarCboMoneda(Control control)
+        public void LlenarCboMarca(Control control)
         {
             try
             {
@@ -119,8 +119,8 @@ namespace CapaPresentacion
                     {
                         if (CboMoneda.Name == "CboMoneda")
                         {
-                            List<entMoneda> Lista = negVenta.Intancia.ListarMoneda();
-                            ((ComboBox)CboMoneda).ValueMember = "Id_Moneda";
+                            List<entMarca> Lista = negVenta.Intancia.ListarMarca();
+                            ((ComboBox)CboMoneda).ValueMember = "Id_Marca";
                             ((ComboBox)CboMoneda).DisplayMember = "Descripcion_Moneda";
                             ((ComboBox)CboMoneda).DataSource = Lista;
                         }

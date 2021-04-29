@@ -20,34 +20,8 @@ namespace CapaAccesoDatos
 
         #region metodos
 
-        //public bool Iniciar_Sesion()
-        //{
-        //    try
-        //    {
-        //        SqlConnection cn = Conexion.Instancia.Conectar();
-        //        SqlCommand cmd = new SqlCommand("usp_Iniciar_Sesion", cn);
-        //        cmd.Parameters.Add("@usuario", SqlDbType.VarChar, 8).Value = suario;
-        //        cmd.Parameters.Add("@contrasena", SqlDbType.VarChar, 8).Value = _Contrasena;
-
-        //        cmd.CommandType = CommandType.StoredProcedure;
-        //        DataSet ds = new DataSet();
-        //        SqlDataAdapter da = new SqlDataAdapter(cmd);
-        //        da.Fill(ds, "Cuenta_Usuario");
-        //        if (ds.Tables[0].Rows.Count > 0)
-        //        {
-        //            return true;
-        //        }
-        //        else
-        //        {
-        //            return false;
-        //        }
-        //    }
-        //    catch (Exception)
-        //    {
-        //        throw;
-        //    }
-        //}
-        public int MantenimientoUsuario(String cadXml) {
+        
+        public int MantenimientoUsuario(String cadXml) {//Oendiente
             SqlCommand cmd = null;
             
             try

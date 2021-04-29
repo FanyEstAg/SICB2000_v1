@@ -20,12 +20,12 @@ namespace CapaPresentacion
         String ser, corr;
         // intancia clase global
         AccionesEnControles ac = new AccionesEnControles();
-        entSerie serie = new entSerie();
         public frmBoletaVenta(int id_user)
         {
             InitializeComponent();
             this.id_user = id_user;
         }
+        
 
 
         private void ControlBotones(Boolean nuevo, Boolean guardar, Boolean imprimir, Boolean quitaritem)

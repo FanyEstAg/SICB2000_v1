@@ -23,7 +23,6 @@ namespace CapaNegocio
             {
                 entVenta v = datVenta.Instancia.LstVentaDetalle(id_venta);
                 if (v == null) throw new ApplicationException("Ocurrio un error al tratar de mostrar detalle");
-                //else if (v.detalleventa.Count == 0 || v.detalleventa == null) { throw new ApplicationException("No se encontraron items");return v; }
                 return v;
             }
             catch (Exception)

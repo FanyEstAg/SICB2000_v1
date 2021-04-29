@@ -82,18 +82,6 @@
     <Compile Include="frmConsultaVenta.Designer.cs">
       <DependentUpon>frmConsultaVenta.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmDetalleVenta.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmDetalleVenta.Designer.cs">
-      <DependentUpon>frmDetalleVenta.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmIndicadorProducto.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmIndicadorProducto.Designer.cs">
-      <DependentUpon>frmIndicadorProducto.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmInfoApp.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -136,12 +124,6 @@
     <Compile Include="frmInventario.Designer.cs">
       <DependentUpon>frmInventario.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmProductoBuscar.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmProductoBuscar.Designer.cs">
-      <DependentUpon>frmProductoBuscar.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -166,12 +148,6 @@
     <EmbeddedResource Include="frmConsultaVenta.resx">
       <DependentUpon>frmConsultaVenta.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmDetalleVenta.resx">
-      <DependentUpon>frmDetalleVenta.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmIndicadorProducto.resx">
-      <DependentUpon>frmIndicadorProducto.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmInfoApp.resx">
       <DependentUpon>frmInfoApp.cs</DependentUpon>
     </EmbeddedResource>
@@ -192,9 +168,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmInventario.resx">
       <DependentUpon>frmInventario.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmProductoBuscar.resx">
-      <DependentUpon>frmProductoBuscar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmUsuario.resx">
       <DependentUpon>frmUsuario.cs</DependentUpon>

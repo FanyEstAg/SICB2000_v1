@@ -17,7 +17,7 @@ namespace CapaAccesoDatos
             get { return datVenta._intancia; }
         }
         #endregion singleton
-
+        
 
         #region metodos
 
@@ -102,13 +102,33 @@ namespace CapaAccesoDatos
             finally { cmd.Connection.Close(); }return v;
         }
 
-        public int AnularVentaXid(int id_venta) {
+        public int obtenerIDVenta()
+        {//verificar-1/2 listo
+            SqlCommand cmd = null;
+            try
+            {
+                int id;
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("uspObtenerID",cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cn.Open();
+                id = Convert.ToInt32(cmd.ExecuteScalar());
+                return id;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally { cmd.Connection.Close(); }
+        }
+        public int EliminarVentaXid(int id_venta) {//verificar-1/2 listo
             SqlCommand cmd = null;
             var retorno=0;
             try
             {
+                
                 SqlConnection cn = Conexion.Instancia.Conectar();
-                cmd = new SqlCommand("spAnularBoletaXid", cn);
+                cmd = new SqlCommand("uspEliminarVentaXid", cn);
                 cmd.Parameters.AddWithValue("@prmId_venta", id_venta);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cn.Open();
@@ -122,72 +142,19 @@ namespace CapaAccesoDatos
             finally { cmd.Connection.Close(); }
         }
 
-        public List<entVenta> ListarVenta(String fechadesde, String fechahasta,int idSucursal)
-        {
+        public int ModificarVentaXid(int id_venta)
+        {//verificar-1/2 listo
             SqlCommand cmd = null;
-            List<entVenta> Lista = null;
-            SqlDataReader dr = null;
+            var retorno = 0;
             try
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();
-                cmd = new SqlCommand("spListaVenta", cn);
-                cmd.Parameters.AddWithValue("@prmfinicio", fechadesde);
-                cmd.Parameters.AddWithValue("@prmfin", fechahasta);
-                cmd.Parameters.AddWithValue("@prmidsucursal", idSucursal);
+                cmd = new SqlCommand("uspModificarVentaXid", cn);
+                cmd.Parameters.AddWithValue("@prmId_venta", id_venta);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cn.Open();
-                dr = cmd.ExecuteReader();
-                Lista = new List<entVenta>();
-                while (dr.Read())
-                {
-                    entVenta v = new entVenta();
-                    v.Id_Venta = Convert.ToInt32(dr["Id_Venta"]);
-                    v.Codigo_Venta = dr["Codigo_Venta"].ToString();
-                    v.Estado_Venta = dr["Estado_Venta"].ToString();
-                    v.Correlativo_Venta = dr["Correlativo_Venta"].ToString();
-                    v.FechaVenta = Convert.ToDateTime(dr["FechaVenta"]);
-                    v.Igv_Venta = Convert.ToInt32(dr["Igv_Venta"]);
-                    v.Total = Convert.ToDouble(dr["Total"].ToString());
-                    v.Descuento_Venta = Convert.ToDouble(dr["Descuento_Venta"]);
-                    v.Utilidad = Convert.ToDouble(dr["Utilidad"]);
-                    v.Inversion = Convert.ToDouble(dr["Inversion"]);
-
-                    entTipComprobante tc = new entTipComprobante();
-                    tc.Id_TipCom = Convert.ToInt32(dr["Id_TipCom"]);
-                    tc.Nombre_TipCom = dr["Nombre_TipCom"].ToString();
-                    v.tipocomprobante = tc;
-
-                    entTipoPago tp = new entTipoPago();
-                    tp.Id_TipPago = Convert.ToInt32(dr["Id_TipPago"]);
-                    v.tipopago = tp;
-                    Lista.Add(v);
-                }
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            finally { cmd.Connection.Close(); }
-            return Lista;
-        }
-
-       
-        public int AnularComprobante(String serie, String correlativo,int tipComprobante)
-        {
-            SqlCommand cmd = null;
-            var result = 0;
-            try
-            {
-                SqlConnection cn = Conexion.Instancia.Conectar();
-                cmd = new SqlCommand("spAnularComprobante", cn);
-                cmd.Parameters.AddWithValue("@Serie", serie);
-                cmd.Parameters.AddWithValue("@correlativo", correlativo);
-                cmd.Parameters.AddWithValue("@idtipcom", tipComprobante);
-
-                cmd.CommandType = CommandType.StoredProcedure;
-                cn.Open();
-                result = cmd.ExecuteNonQuery();
-                return result;
+                retorno = cmd.ExecuteNonQuery();
+                return retorno;
             }
             catch (Exception)
             {
@@ -196,8 +163,8 @@ namespace CapaAccesoDatos
             finally { cmd.Connection.Close(); }
         }
 
-      
-       
+
+
 
         public int GuardarVenta(String cadXml, int id_tipdocventa)
         {
@@ -207,8 +174,7 @@ namespace CapaAccesoDatos
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();
                 cmd = new SqlCommand("spGuardarVenta", cn);
-                cmd.Parameters.AddWithValue("@Cadxml", cadXml);
-                cmd.Parameters.AddWithValue("@TIPO_DOC_VENTA", id_tipdocventa);
+                //añadir lineas de parametros
                 cmd.CommandType = CommandType.StoredProcedure;
                 cn.Open();
                 result = cmd.ExecuteNonQuery();
