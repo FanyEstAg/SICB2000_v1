@@ -266,5 +266,16 @@ namespace CapaPresentacion
         {
 
         }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            this.Dispose(); // Cierra formulario libera recursos
+
+        }
     }
 }
