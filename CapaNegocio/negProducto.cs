@@ -137,8 +137,64 @@ namespace CapaNegocio
             }
         }
 
-     
+        public int EliminarProducto(int id_producto)
+        {
+            try
+            {
+                int retorno = datProducto.Instancia.EliminarProducto(id_producto);
+                if (retorno == 0) throw new ApplicationException("No se pudo completar la acción");
+                //Excepción en caso de no haberse eliminado
+                return retorno;//en caso contrario regresa el valor
+            }
+            catch (Exception)
+            {
 
+                throw;
+            }
+        }
+
+        public int insertarProducto(entProducto p)
+        {
+            try
+            {
+                String cadXml = "";//se creara la cadena del xml
+                cadXml += "<producto ";
+                cadXml += "nomproducto='" + p.Nombre_Prod + "' ";
+                cadXml += "idumed='" + p.Id_umed.Id_Umed + "' ";
+                cadXml += "existencia='" + p.existencia + "' ";
+                cadXml += "idmarca='" + p.id_marca.Id_Marca + "' ";
+                cadXml += "costo='" + p.Costo_Prod + "' ";
+                cadXml += "precio='" + p.Precio_Prod + "' ";
+                cadXml += "descripcion='" + p.Descripcion_Prod + "'/>";
+                cadXml = "<root>" + cadXml + "</root>";
+                int result = datProducto.Instancia.insertarProducto(cadXml);
+                if (result == 0) throw new ApplicationException("Ocurrio un error al registrar, intentelo nuevamente");
+
+                return result;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public int insertarMarca(string m)
+        {
+            try
+            {
+
+                int result = datProducto.Instancia.insertarMarca(m);
+                if (result == 0) throw new ApplicationException("Ocurrio un error al registrar, intentelo nuevamente");
+
+                return result;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
         #endregion metodos
 
     }

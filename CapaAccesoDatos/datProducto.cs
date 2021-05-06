@@ -178,6 +178,7 @@ namespace CapaAccesoDatos
             return Lista;
         }
 
+       
         //public int MantenimientoProducto(String cadXml)
         //{
         //    SqlCommand cmd = null;
@@ -283,7 +284,76 @@ namespace CapaAccesoDatos
             return Lista;
         }
 
-      
+
+        public int EliminarProducto(int id_producto)
+        {//LISTO
+            SqlCommand cmd = null;
+            var retorno = 0;
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("uspEliminarProducto", cn);
+                cmd.Parameters.AddWithValue("@prmId_Producto", id_producto);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cn.Open();
+                retorno = cmd.ExecuteNonQuery();
+                return retorno;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally { cmd.Connection.Close(); }
+        }
+
+        public int insertarProducto(String cadXml)
+        {
+            SqlCommand cmd = null;
+
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("uspInsertarProducto", cn);
+                cmd.Parameters.AddWithValue("@Cadxml", cadXml);
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlParameter p = new SqlParameter("@retorno", DbType.Int32);
+                p.Direction = ParameterDirection.ReturnValue;
+                cmd.Parameters.Add(p);
+                cn.Open();
+                var result = cmd.ExecuteNonQuery();
+                cn.Close();
+                return result;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public int insertarMarca(String nom)
+        {
+            SqlCommand cmd = null;
+
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("uspInsertarMarca", cn);
+                cmd.Parameters.AddWithValue("@prmNombre", nom);
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlParameter p = new SqlParameter("@retorno", DbType.Int32);
+                p.Direction = ParameterDirection.ReturnValue;
+                cmd.Parameters.Add(p);
+                cn.Open();
+                var result = cmd.ExecuteNonQuery();
+                cn.Close();
+                return result;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         #endregion metodos
 
 
