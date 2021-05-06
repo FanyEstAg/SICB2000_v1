@@ -9,8 +9,7 @@ namespace Entidades
     public class entProducto
     {
         public int Id_Prod { get; set; }
-        public string Nombre_Prod { get; set; }
-        public string Marca_Prod { get; set; }
+        public string Nombre_Prod { get; set; } 
         public double Costo_Prod { get; set; }
         public double Precio_Prod { get; set; }
         public int existencia { get; set; }

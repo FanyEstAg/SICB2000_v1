@@ -137,23 +137,8 @@ namespace CapaNegocio
             }
         }
 
-        public int EliminarProducto(int id_producto)
-        {
-            try
-            {
-                int retorno = datProducto.Instancia.EliminarProducto(id_producto);
-                if (retorno == 0) throw new ApplicationException("No se pudo completar la acción");
-                //Excepción en caso de no haberse eliminado
-                return retorno;//en caso contrario regresa el valor
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
-
-        public int insertarProducto(entProducto p)
+       
+        public int insertarProducto(entProducto p)//listo
         {
             try
             {
@@ -179,6 +164,21 @@ namespace CapaNegocio
             }
         }
 
+        public int EliminarProducto(int id_producto)
+        {
+            try
+            {
+                int retorno = datProducto.Instancia.EliminarProducto(id_producto);
+                if (retorno == 0) throw new ApplicationException("No se pudo completar la acción");
+                //Excepción en caso de no haberse eliminado
+                return retorno;//en caso contrario regresa el valor
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
         public int insertarMarca(string m)
         {
             try

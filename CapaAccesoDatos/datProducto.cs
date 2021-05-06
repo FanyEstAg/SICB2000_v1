@@ -284,7 +284,6 @@ namespace CapaAccesoDatos
             return Lista;
         }
 
-
         public int EliminarProducto(int id_producto)
         {//LISTO
             SqlCommand cmd = null;
