@@ -30,12 +30,9 @@ namespace CapaPresentacion
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Registrar = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnAgregarTipo = new System.Windows.Forms.PictureBox();
             this.cbxTipoMesa = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.IdMesaRegistrar = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -114,12 +111,12 @@ namespace CapaPresentacion
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.button2 = new System.Windows.Forms.Button();
             this.label19 = new System.Windows.Forms.Label();
+            this.btnAgregarTipo = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.Registrar.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnAgregarTipo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage3.SuspendLayout();
@@ -133,6 +130,9 @@ namespace CapaPresentacion
             this.tabPage5.SuspendLayout();
             this.tabPage6.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAgregarTipo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -145,16 +145,6 @@ namespace CapaPresentacion
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(688, 62);
             this.panel1.TabIndex = 0;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::CapaPresentacion.Properties.Resources.Delete_16x16_32;
-            this.pictureBox3.Location = new System.Drawing.Point(656, 4);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(27, 25);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 14;
-            this.pictureBox3.TabStop = false;
             // 
             // label4
             // 
@@ -170,16 +160,6 @@ namespace CapaPresentacion
             this.label4.TabIndex = 9;
             this.label4.Text = "Mesas";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::CapaPresentacion.Properties.Resources.Logo_CLUB_BILLAR;
-            this.pictureBox1.Location = new System.Drawing.Point(0, -1);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(74, 62);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // Registrar
             // 
@@ -211,17 +191,6 @@ namespace CapaPresentacion
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(648, 310);
             this.panel2.TabIndex = 0;
-            // 
-            // btnAgregarTipo
-            // 
-            this.btnAgregarTipo.Image = global::CapaPresentacion.Properties.Resources.add_24x24_32;
-            this.btnAgregarTipo.Location = new System.Drawing.Point(290, 128);
-            this.btnAgregarTipo.Name = "btnAgregarTipo";
-            this.btnAgregarTipo.Size = new System.Drawing.Size(34, 28);
-            this.btnAgregarTipo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnAgregarTipo.TabIndex = 19;
-            this.btnAgregarTipo.TabStop = false;
-            this.btnAgregarTipo.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // cbxTipoMesa
             // 
@@ -1073,6 +1042,38 @@ namespace CapaPresentacion
             this.label19.TabIndex = 27;
             this.label19.Text = "Id Mesa:";
             // 
+            // btnAgregarTipo
+            // 
+            this.btnAgregarTipo.Image = global::CapaPresentacion.Properties.Resources.add_24x24_32;
+            this.btnAgregarTipo.Location = new System.Drawing.Point(290, 128);
+            this.btnAgregarTipo.Name = "btnAgregarTipo";
+            this.btnAgregarTipo.Size = new System.Drawing.Size(34, 28);
+            this.btnAgregarTipo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnAgregarTipo.TabIndex = 19;
+            this.btnAgregarTipo.TabStop = false;
+            this.btnAgregarTipo.Click += new System.EventHandler(this.pictureBox2_Click);
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::CapaPresentacion.Properties.Resources.Delete_16x16_32;
+            this.pictureBox3.Location = new System.Drawing.Point(656, 4);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(27, 25);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 14;
+            this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::CapaPresentacion.Properties.Resources.Logo_CLUB_BILLAR;
+            this.pictureBox1.Location = new System.Drawing.Point(0, -1);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(74, 62);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
             // frmMesas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1085,12 +1086,9 @@ namespace CapaPresentacion
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmMesas";
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.Registrar.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnAgregarTipo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
@@ -1109,6 +1107,9 @@ namespace CapaPresentacion
             this.tabPage6.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAgregarTipo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

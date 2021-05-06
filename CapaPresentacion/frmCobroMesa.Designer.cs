@@ -32,37 +32,37 @@ namespace CapaPresentacion
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.MesasOcupadas = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.IdMesaRegistrar = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EstadoMesa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TipoMesa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnRegresar = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.ConsultarTiempo = new System.Windows.Forms.TabPage();
             this.dataGridView4 = new System.Windows.Forms.DataGridView();
-            this.button3 = new System.Windows.Forms.Button();
-            this.Registrar = new System.Windows.Forms.TabPage();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.button5 = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.IdMesaRegistrar = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EstadoMesa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TipoMesa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HoraInc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HoraFin = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.Registrar = new System.Windows.Forms.TabPage();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TiempoTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabControl1.SuspendLayout();
             this.MesasOcupadas.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -71,10 +71,10 @@ namespace CapaPresentacion
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
             this.Registrar.SuspendLayout();
             this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -114,6 +114,40 @@ namespace CapaPresentacion
             this.panel2.Size = new System.Drawing.Size(648, 310);
             this.panel2.TabIndex = 0;
             // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15"});
+            this.comboBox2.Location = new System.Drawing.Point(262, 49);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(121, 24);
+            this.comboBox2.TabIndex = 25;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(127, 49);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(73, 19);
+            this.label1.TabIndex = 24;
+            this.label1.Text = "Id Mesa:";
+            // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -125,6 +159,21 @@ namespace CapaPresentacion
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(360, 150);
             this.dataGridView1.TabIndex = 17;
+            // 
+            // IdMesaRegistrar
+            // 
+            this.IdMesaRegistrar.HeaderText = "ID";
+            this.IdMesaRegistrar.Name = "IdMesaRegistrar";
+            // 
+            // EstadoMesa
+            // 
+            this.EstadoMesa.HeaderText = "Estado";
+            this.EstadoMesa.Name = "EstadoMesa";
+            // 
+            // TipoMesa
+            // 
+            this.TipoMesa.HeaderText = "Tipo de mesa";
+            this.TipoMesa.Name = "TipoMesa";
             // 
             // btnRegresar
             // 
@@ -173,6 +222,31 @@ namespace CapaPresentacion
             this.dataGridView4.Size = new System.Drawing.Size(542, 210);
             this.dataGridView4.TabIndex = 24;
             // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "ID";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "Tipo de mesa";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // HoraInc
+            // 
+            this.HoraInc.HeaderText = "Hora de inicio";
+            this.HoraInc.Name = "HoraInc";
+            // 
+            // HoraFin
+            // 
+            this.HoraFin.HeaderText = "Hora fin";
+            this.HoraFin.Name = "HoraFin";
+            // 
+            // TotalTime
+            // 
+            this.TotalTime.HeaderText = "Tiempo total (min)";
+            this.TotalTime.Name = "TotalTime";
+            // 
             // button3
             // 
             this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(35)))), ((int)(((byte)(107)))));
@@ -209,138 +283,38 @@ namespace CapaPresentacion
             this.panel5.TabIndex = 0;
             this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
             // 
-            // button5
+            // dataGridView3
             // 
-            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(35)))), ((int)(((byte)(107)))));
-            this.button5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button5.Location = new System.Drawing.Point(421, 270);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(124, 38);
-            this.button5.TabIndex = 25;
-            this.button5.Text = "Imprimir";
-            this.button5.UseVisualStyleBackColor = false;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn3,
+            this.Tipo,
+            this.TiempoTotal,
+            this.TotalPrecio});
+            this.dataGridView3.Location = new System.Drawing.Point(111, 61);
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.Size = new System.Drawing.Size(440, 194);
+            this.dataGridView3.TabIndex = 31;
             // 
-            // panel1
+            // dataGridViewTextBoxColumn3
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(98)))), ((int)(((byte)(135)))));
-            this.panel1.Controls.Add(this.pictureBox3);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Location = new System.Drawing.Point(-1, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(688, 62);
-            this.panel1.TabIndex = 2;
+            this.dataGridViewTextBoxColumn3.HeaderText = "ID";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             // 
-            // pictureBox3
+            // Tipo
             // 
-            this.pictureBox3.Image = global::CapaPresentacion.Properties.Resources.Delete_16x16_32;
-            this.pictureBox3.Location = new System.Drawing.Point(656, 4);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(27, 25);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 14;
-            this.pictureBox3.TabStop = false;
+            this.Tipo.HeaderText = "Tipo";
+            this.Tipo.Name = "Tipo";
             // 
-            // label4
+            // TiempoTotal
             // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(98)))), ((int)(((byte)(135)))));
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(144, -7);
-            this.label4.Margin = new System.Windows.Forms.Padding(0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(400, 77);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Cobro de mesas";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.TiempoTotal.HeaderText = "Tiempo total (min)";
+            this.TiempoTotal.Name = "TiempoTotal";
             // 
-            // pictureBox1
+            // TotalPrecio
             // 
-            this.pictureBox1.Image = global::CapaPresentacion.Properties.Resources.Logo_CLUB_BILLAR;
-            this.pictureBox1.Location = new System.Drawing.Point(0, -1);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(74, 62);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
-            "01",
-            "02",
-            "03",
-            "04",
-            "05",
-            "06",
-            "07",
-            "08",
-            "09",
-            "10",
-            "11",
-            "12",
-            "13",
-            "14",
-            "15"});
-            this.comboBox2.Location = new System.Drawing.Point(262, 49);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 24);
-            this.comboBox2.TabIndex = 25;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(127, 49);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(73, 19);
-            this.label1.TabIndex = 24;
-            this.label1.Text = "Id Mesa:";
-            // 
-            // IdMesaRegistrar
-            // 
-            this.IdMesaRegistrar.HeaderText = "ID";
-            this.IdMesaRegistrar.Name = "IdMesaRegistrar";
-            // 
-            // EstadoMesa
-            // 
-            this.EstadoMesa.HeaderText = "Estado";
-            this.EstadoMesa.Name = "EstadoMesa";
-            // 
-            // TipoMesa
-            // 
-            this.TipoMesa.HeaderText = "Tipo de mesa";
-            this.TipoMesa.Name = "TipoMesa";
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "ID";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "Tipo de mesa";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // HoraInc
-            // 
-            this.HoraInc.HeaderText = "Hora de inicio";
-            this.HoraInc.Name = "HoraInc";
-            // 
-            // HoraFin
-            // 
-            this.HoraFin.HeaderText = "Hora fin";
-            this.HoraFin.Name = "HoraFin";
-            // 
-            // TotalTime
-            // 
-            this.TotalTime.HeaderText = "Tiempo total (min)";
-            this.TotalTime.Name = "TotalTime";
+            this.TotalPrecio.HeaderText = "Total $";
+            this.TotalPrecio.Name = "TotalPrecio";
             // 
             // comboBox3
             // 
@@ -388,38 +362,65 @@ namespace CapaPresentacion
             this.button1.Text = "Registrar";
             this.button1.UseVisualStyleBackColor = false;
             // 
-            // dataGridView3
+            // button5
             // 
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn3,
-            this.Tipo,
-            this.TiempoTotal,
-            this.TotalPrecio});
-            this.dataGridView3.Location = new System.Drawing.Point(111, 61);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(440, 194);
-            this.dataGridView3.TabIndex = 31;
+            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(35)))), ((int)(((byte)(107)))));
+            this.button5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button5.Location = new System.Drawing.Point(421, 270);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(124, 38);
+            this.button5.TabIndex = 25;
+            this.button5.Text = "Imprimir";
+            this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
-            // dataGridViewTextBoxColumn3
+            // panel1
             // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "ID";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(98)))), ((int)(((byte)(135)))));
+            this.panel1.Controls.Add(this.pictureBox3);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Location = new System.Drawing.Point(-1, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(688, 62);
+            this.panel1.TabIndex = 2;
             // 
-            // Tipo
+            // pictureBox3
             // 
-            this.Tipo.HeaderText = "Tipo";
-            this.Tipo.Name = "Tipo";
+            this.pictureBox3.Image = global::CapaPresentacion.Properties.Resources.Delete_16x16_32;
+            this.pictureBox3.Location = new System.Drawing.Point(656, 4);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(27, 25);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 14;
+            this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
             // 
-            // TiempoTotal
+            // label4
             // 
-            this.TiempoTotal.HeaderText = "Tiempo total (min)";
-            this.TiempoTotal.Name = "TiempoTotal";
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(98)))), ((int)(((byte)(135)))));
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(144, -7);
+            this.label4.Margin = new System.Windows.Forms.Padding(0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(400, 77);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Cobro de mesas";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // TotalPrecio
+            // pictureBox1
             // 
-            this.TotalPrecio.HeaderText = "Total $";
-            this.TotalPrecio.Name = "TotalPrecio";
+            this.pictureBox1.Image = global::CapaPresentacion.Properties.Resources.Logo_CLUB_BILLAR;
+            this.pictureBox1.Location = new System.Drawing.Point(0, -1);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(74, 62);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // frmCobroMesa
             // 
@@ -442,10 +443,10 @@ namespace CapaPresentacion
             this.Registrar.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             this.ResumeLayout(false);
 
         }
