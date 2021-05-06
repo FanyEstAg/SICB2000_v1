@@ -402,6 +402,7 @@ namespace CapaPresentacion
             this.cbxCantidad.Name = "cbxCantidad";
             this.cbxCantidad.Size = new System.Drawing.Size(121, 24);
             this.cbxCantidad.TabIndex = 23;
+            this.cbxCantidad.SelectedIndexChanged += new System.EventHandler(this.cbxCantidad_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -430,6 +431,7 @@ namespace CapaPresentacion
             this.btnRegresar.TabIndex = 16;
             this.btnRegresar.Text = "Imprimir";
             this.btnRegresar.UseVisualStyleBackColor = false;
+            this.btnRegresar.Click += new System.EventHandler(this.btnRegresar_Click);
             // 
             // btnCancelar
             // 
@@ -498,9 +500,9 @@ namespace CapaPresentacion
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.pictureBox3);
             this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Location = new System.Drawing.Point(2, 1);
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(918, 62);
+            this.panel1.Size = new System.Drawing.Size(927, 62);
             this.panel1.TabIndex = 3;
             // 
             // label9
@@ -575,9 +577,9 @@ namespace CapaPresentacion
             this.ClientSize = new System.Drawing.Size(922, 528);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.tabControl1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmVenta";
             this.Text = "Venta de Productos";
-            //this.Load += new System.EventHandler(this.frmVenta_Load);
             this.tabPage1.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();

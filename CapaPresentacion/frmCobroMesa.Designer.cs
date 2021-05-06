@@ -29,6 +29,7 @@ namespace CapaPresentacion
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.MesasOcupadas = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -50,19 +51,22 @@ namespace CapaPresentacion
             this.button3 = new System.Windows.Forms.Button();
             this.Registrar = new System.Windows.Forms.TabPage();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.dgvRegistrar = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TiempoTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnRegistrar = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.txtIdMesa = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lblHora = new System.Windows.Forms.Label();
+            this.horaFecha = new System.Windows.Forms.Timer(this.components);
             this.tabControl1.SuspendLayout();
             this.MesasOcupadas.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -71,7 +75,7 @@ namespace CapaPresentacion
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
             this.Registrar.SuspendLayout();
             this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRegistrar)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -271,10 +275,12 @@ namespace CapaPresentacion
             // 
             // panel5
             // 
-            this.panel5.Controls.Add(this.dataGridView3);
-            this.panel5.Controls.Add(this.comboBox3);
+            this.panel5.Controls.Add(this.lblHora);
+            this.panel5.Controls.Add(this.label3);
+            this.panel5.Controls.Add(this.txtIdMesa);
+            this.panel5.Controls.Add(this.dgvRegistrar);
             this.panel5.Controls.Add(this.label2);
-            this.panel5.Controls.Add(this.button1);
+            this.panel5.Controls.Add(this.btnRegistrar);
             this.panel5.Controls.Add(this.button5);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(0, 0);
@@ -283,18 +289,18 @@ namespace CapaPresentacion
             this.panel5.TabIndex = 0;
             this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
             // 
-            // dataGridView3
+            // dgvRegistrar
             // 
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvRegistrar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvRegistrar.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn3,
             this.Tipo,
             this.TiempoTotal,
             this.TotalPrecio});
-            this.dataGridView3.Location = new System.Drawing.Point(111, 61);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(440, 194);
-            this.dataGridView3.TabIndex = 31;
+            this.dgvRegistrar.Location = new System.Drawing.Point(111, 61);
+            this.dgvRegistrar.Name = "dgvRegistrar";
+            this.dgvRegistrar.Size = new System.Drawing.Size(440, 194);
+            this.dgvRegistrar.TabIndex = 31;
             // 
             // dataGridViewTextBoxColumn3
             // 
@@ -316,30 +322,6 @@ namespace CapaPresentacion
             this.TotalPrecio.HeaderText = "Total $";
             this.TotalPrecio.Name = "TotalPrecio";
             // 
-            // comboBox3
-            // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
-            "01",
-            "02",
-            "03",
-            "04",
-            "05",
-            "06",
-            "07",
-            "08",
-            "09",
-            "10",
-            "11",
-            "12",
-            "13",
-            "14",
-            "15"});
-            this.comboBox3.Location = new System.Drawing.Point(228, 22);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(121, 24);
-            this.comboBox3.TabIndex = 30;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -350,17 +332,18 @@ namespace CapaPresentacion
             this.label2.TabIndex = 29;
             this.label2.Text = "Id Mesa:";
             // 
-            // button1
+            // btnRegistrar
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(35)))), ((int)(((byte)(107)))));
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button1.Location = new System.Drawing.Point(415, 17);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(124, 38);
-            this.button1.TabIndex = 28;
-            this.button1.Text = "Registrar";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnRegistrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(35)))), ((int)(((byte)(107)))));
+            this.btnRegistrar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegistrar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnRegistrar.Location = new System.Drawing.Point(415, 17);
+            this.btnRegistrar.Name = "btnRegistrar";
+            this.btnRegistrar.Size = new System.Drawing.Size(124, 38);
+            this.btnRegistrar.TabIndex = 28;
+            this.btnRegistrar.Text = "Registrar";
+            this.btnRegistrar.UseVisualStyleBackColor = false;
+            this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
             // 
             // button5
             // 
@@ -422,6 +405,37 @@ namespace CapaPresentacion
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // txtIdMesa
+            // 
+            this.txtIdMesa.Location = new System.Drawing.Point(220, 27);
+            this.txtIdMesa.Name = "txtIdMesa";
+            this.txtIdMesa.Size = new System.Drawing.Size(100, 23);
+            this.txtIdMesa.TabIndex = 32;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(15, 283);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(43, 16);
+            this.label3.TabIndex = 33;
+            this.label3.Text = "Hora:";
+            // 
+            // lblHora
+            // 
+            this.lblHora.AutoSize = true;
+            this.lblHora.Location = new System.Drawing.Point(64, 283);
+            this.lblHora.Name = "lblHora";
+            this.lblHora.Size = new System.Drawing.Size(49, 16);
+            this.lblHora.TabIndex = 34;
+            this.lblHora.Text = "label6";
+            this.lblHora.Click += new System.EventHandler(this.lblHora_Click);
+            // 
+            // horaFecha
+            // 
+            this.horaFecha.Enabled = true;
+            this.horaFecha.Tick += new System.EventHandler(this.horaFecha_Tick);
+            // 
             // frmCobroMesa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -443,7 +457,7 @@ namespace CapaPresentacion
             this.Registrar.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRegistrar)).EndInit();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -479,13 +493,16 @@ namespace CapaPresentacion
         private System.Windows.Forms.DataGridViewTextBoxColumn HoraInc;
         private System.Windows.Forms.DataGridViewTextBoxColumn HoraFin;
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalTime;
-        private System.Windows.Forms.DataGridView dataGridView3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Tipo;
         private System.Windows.Forms.DataGridViewTextBoxColumn TiempoTotal;
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalPrecio;
-        private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnRegistrar;
+        private System.Windows.Forms.TextBox txtIdMesa;
+        public System.Windows.Forms.DataGridView dgvRegistrar;
+        private System.Windows.Forms.Label lblHora;
+        private System.Windows.Forms.Label label3;
+        public System.Windows.Forms.Timer horaFecha;
     }
 }

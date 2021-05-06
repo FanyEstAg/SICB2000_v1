@@ -203,6 +203,16 @@ namespace CapaPresentacion
             cancelar();
         }
 
+        private void btnRegresar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbxCantidad_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
         //private void frmVenta_Load(object sender, EventArgs e)
         //{
         //    try
@@ -229,6 +239,6 @@ namespace CapaPresentacion
         //        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         //    }
         //}
-    //}
+        //}
     }
 }

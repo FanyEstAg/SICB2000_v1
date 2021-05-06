@@ -11,7 +11,7 @@ namespace Entidades
         public DateTime fecha { get; set; }
         public TimeSpan Tiempo_inicio { get; set; }
         public TimeSpan Tiempo_fin { get; set; }
-        public TimeSpan Tiempo_total { get; set; }//calculo automatico
+        public int Tiempo_total { get; set; }//calculo automatico
         public double PagoTotal { get; set; }
         // Relaciones
         public entUsuario Id_Usuario { get; set; }
