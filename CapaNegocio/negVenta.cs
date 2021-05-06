@@ -25,11 +25,66 @@ namespace CapaNegocio
             {
                 int retorno = datVenta.Instancia.EliminarVentaXid(id_venta);
                 if (retorno == 0) throw new ApplicationException("No se pudo completar la acción");
-                return retorno;
+                //En caos de que no haya ningun cambio en la BD se envía excepción
+                return retorno;//si no se devuelve el valor
             }
             catch (Exception)
             {
 
+                throw;
+            }
+        }
+        
+        public int GuardarVenta(entVenta v)//listo
+        {//Método en el que se hace Altas a partir de un xml
+            try
+            {
+                String Cadxml = "";//Variable donde se guardar la generación del texto xml
+                Cadxml += "<venta ";//Se añaden todos los parametros con estrustura xml
+                Cadxml += "idusuario='" + v.usuario.Id_Usuario + "' ";
+                Cadxml += "fecha='" + DateTime.Now.ToString() + "' ";
+                Cadxml += "idestado='" + v.Estado_Venta+ "'>";
+                foreach (entVenta pr in v.productos)//Se añade cada producto de la lista de productos
+                {
+                    Cadxml += "<detalle ";
+                    Cadxml += "idproducto='" + pr.Id_producto + "' ";
+                    Cadxml += "cantidad='" + pr.cantidad + "' ";
+                    Cadxml += "subtotal='" + v.Subtotal_Venta +  "'/>";
+                }
+                Cadxml += "</venta>";
+                Cadxml = "<root>" + Cadxml + "</root>";
+                int i = datVenta.Instancia.GuardarVenta(Cadxml);// se envia la cadena y se guarda el resultado en i
+                if (i <= 0) throw new ApplicationException("Ocurrio un error al guardar venta actual");
+                //si es 0 se envia excepción
+                return i;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        //Modificaicón de ventas a aprtir de XML
+        public int ModificarVenta(entVenta v)//listo
+        {
+            try
+            {
+                String Cadxml = "";//Variable donde se guardar la generaicon del texto xml
+                Cadxml += "<venta ";
+                Cadxml += "idventa='" + v.Id_Venta + "' ";
+                Cadxml += "idusuario='" + v.usuario.Id_Usuario + "' ";
+                Cadxml += "fecha='" + DateTime.Now.ToString() + "' ";
+                Cadxml += "idproducto='" + v.Id_producto + "' ";
+                Cadxml += "cantidad='" + v.cantidad + "' ";
+                Cadxml += "subtotal='" + v.Subtotal_Venta + "' ";
+                Cadxml += "idestado='" + v.Estado_Venta + "'/>";
+                Cadxml += "</venta>";
+                Cadxml = "<root>" + Cadxml + "</root>";
+                int i = datVenta.Instancia.GuardarVenta(Cadxml);// se envia la cadena
+                if (i <= 0) throw new ApplicationException("Ocurrio un error al guardar venta actual");
+                return i;
+            }
+            catch (Exception)
+            {
                 throw;
             }
         }
@@ -50,12 +105,12 @@ namespace CapaNegocio
         //    }
         //}
 
-       
-       
+
+
         //public int GuardarVenta(entVenta v,int id_tipdocventa,String serie) {
         //    try
         //    {
-                
+
         //        String Cadxml = "";
         //        Cadxml += "<venta ";
         //        Cadxml += "idcliente='"+v.cliente.Id_Cliente +"' ";
@@ -90,6 +145,6 @@ namespace CapaNegocio
 
         #endregion metodos
 
-        
+
     }
 }

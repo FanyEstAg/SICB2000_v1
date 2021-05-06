@@ -21,34 +21,34 @@ namespace CapaAccesoDatos
 
         #region metodos
 
-        public entTipo LstTipoMesa()
-        {
-            SqlCommand cmd = null;
-            IDataReader idr = null;
+        //public entTipo LstTipoMesa()
+        //{
+        //    SqlCommand cmd = null;
+        //    IDataReader idr = null;
            
-            List<entTipo> t = null;
-            try
-            {
-                SqlConnection cn = Conexion.Instancia.Conectar();
-                cmd.CommandType = CommandType.StoredProcedure;
-                cn.Open();
-                idr = cmd.ExecuteReader();
-                if (idr.Read())
-                {
+        //    List<entTipo> t = null;
+        //    try
+        //    {
+        //        SqlConnection cn = Conexion.Instancia.Conectar();
+        //        cmd.CommandType = CommandType.StoredProcedure;
+        //        cn.Open();
+        //        idr = cmd.ExecuteReader();
+        //        if (idr.Read())
+        //        {
                    
 
-                    //falta
-                }
+        //            //falta
+        //        }
 
-            }
-            catch (Exception)
-            {
+        //    }
+        //    catch (Exception)
+        //    {
 
-                throw;
-            }
-            finally { cmd.Connection.Close(); }
-            return v;
-        }
+        //        throw;
+        //    }
+        //    finally { cmd.Connection.Close(); }
+        //    return v;
+        //}
 
         public int EliminarCobroMesaXid(int id)//verificar
         {

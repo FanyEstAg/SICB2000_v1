@@ -243,7 +243,7 @@
             this.tsmSeguridad.Name = "tsmSeguridad";
             this.tsmSeguridad.Size = new System.Drawing.Size(180, 22);
             this.tsmSeguridad.Text = "Usuarios";
-            this.tsmSeguridad.Click += new System.EventHandler(this.seguridadToolStripMenuItem_Click);
+            //this.tsmSeguridad.Click += new System.EventHandler(this.seguridadToolStripMenuItem_Click);
             // 
             // tsmInventario
             // 
@@ -285,7 +285,7 @@
             this.tsmVentas.Name = "tsmVentas";
             this.tsmVentas.Size = new System.Drawing.Size(180, 22);
             this.tsmVentas.Text = "Vender";
-            this.tsmVentas.Click += new System.EventHandler(this.tsmVentas_Click);
+            //this.tsmVentas.Click += new System.EventHandler(this.tsmVentas_Click);
             // 
             // tsmMesas
             // 
@@ -321,7 +321,7 @@
             this.tsmConsultaVenta.Name = "tsmConsultaVenta";
             this.tsmConsultaVenta.Size = new System.Drawing.Size(180, 22);
             this.tsmConsultaVenta.Text = "Ventas";
-            this.tsmConsultaVenta.Click += new System.EventHandler(this.ventasToolStripMenuItem2_Click);
+            //this.tsmConsultaVenta.Click += new System.EventHandler(this.ventasToolStripMenuItem2_Click);
             // 
             // reportesToolStripMenuItem
             // 

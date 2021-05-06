@@ -109,32 +109,8 @@ namespace CapaPresentacion
         #endregion comvertirenletras
 
       
-        public void LlenarCboMarca(Control control)//por terminar
-        {
-            try
-            {
-                foreach (Control CboMoneda in control.Controls)
-                {
-                    if (CboMoneda is ComboBox)
-                    {
-                        if (CboMoneda.Name == "CboMoneda")
-                        {
-                            //List<entMarca> Lista = negVenta.Intancia.ListarMarca();
-                            ((ComboBox)CboMoneda).ValueMember = "Id_Marca";
-                            ((ComboBox)CboMoneda).DisplayMember = "Descripcion_Moneda";
-                            ((ComboBox)CboMoneda).DataSource = Lista;
-                        }
-                    }
-                }
-            }
-            catch (ApplicationException) { throw; }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
-
+        //public void LlenarCboMarca(Control control)//por terminar
+        
         
         //public Boolean EntradaSoloNumerosDgv(KeyEventArgs e)
         //{

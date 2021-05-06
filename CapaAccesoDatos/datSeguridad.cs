@@ -20,30 +20,74 @@ namespace CapaAccesoDatos
 
         #region metodos
 
-        
-        //public int MantenimientoUsuario(String cadXml) {//Oendiente
-        //    SqlCommand cmd = null;
-            
-        //    try
-        //    {
-        //        SqlConnection cn = Conexion.Instancia.Conectar();
-        //        cmd = new SqlCommand("spInsEditElimUsario", cn);
-        //        cmd.Parameters.AddWithValue("@Cadxml", cadXml);
-        //        cmd.CommandType = CommandType.StoredProcedure;
 
-        //        SqlParameter p = new SqlParameter("@retorno", DbType.Int32);
-        //        p.Direction = ParameterDirection.ReturnValue;
-        //        cmd.Parameters.Add(p);
-        //        cn.Open();
-        //        var result =  cmd.ExecuteNonQuery();
-        //        cn.Close();
-        //        return result;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        throw;
-        //    }
-        //}
+        public int insertarUsuario(String cadXml)
+        {
+            SqlCommand cmd = null;
+
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("uspInsertarUsuario", cn);
+                cmd.Parameters.AddWithValue("@Cadxml", cadXml);
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlParameter p = new SqlParameter("@retorno", DbType.Int32);
+                p.Direction = ParameterDirection.ReturnValue;
+                cmd.Parameters.Add(p);
+                cn.Open();
+                var result = cmd.ExecuteNonQuery();
+                cn.Close();
+                return result;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public int insertarEmpleado(String cadXml)
+        {
+            SqlCommand cmd = null;
+
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("uspInsertarEmpleado", cn);
+                cmd.Parameters.AddWithValue("@Cadxml", cadXml);
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlParameter p = new SqlParameter("@retorno", DbType.Int32);
+                p.Direction = ParameterDirection.ReturnValue;
+                cmd.Parameters.Add(p);
+                cn.Open();
+                var result = cmd.ExecuteNonQuery();
+                cn.Close();
+                return result;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        public int EliminarUsuarioXid(int id_usuario)
+        {//LISTO
+            SqlCommand cmd = null;
+            var retorno = 0;
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("uspEliminarUsuario", cn);
+                cmd.Parameters.AddWithValue("@prmId_Usuario", id_usuario);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cn.Open();
+                retorno = cmd.ExecuteNonQuery();
+                return retorno;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally { cmd.Connection.Close(); }
+        }
 
         public entUsuario BuscarUsuario(String valor){//listo
             SqlCommand cmd = null;

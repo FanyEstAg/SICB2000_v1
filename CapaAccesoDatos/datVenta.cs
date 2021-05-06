@@ -41,12 +41,11 @@ namespace CapaAccesoDatos
             }
             finally { cmd.Connection.Close(); }
         }
-        public int EliminarVentaXid(int id_venta) {//verificar-1/2 listo
+        public int EliminarVentaXid(int id_venta) {//LISTO
             SqlCommand cmd = null;
             var retorno=0;
             try
             {
-                
                 SqlConnection cn = Conexion.Instancia.Conectar();
                 cmd = new SqlCommand("uspEliminarVentaXid", cn);
                 cmd.Parameters.AddWithValue("@prmId_venta", id_venta);
@@ -71,7 +70,11 @@ namespace CapaAccesoDatos
                 SqlConnection cn = Conexion.Instancia.Conectar();
                 cmd = new SqlCommand("uspModificarVentaXid", cn);
                 cmd.Parameters.AddWithValue("@prmId_venta", id_venta);
+                cmd.Parameters.AddWithValue("@prmId_venta", id_venta);
+                cmd.Parameters.AddWithValue("@prmId_venta", id_venta);
+                cmd.Parameters.AddWithValue("@prmId_venta", id_venta);
                 cmd.CommandType = CommandType.StoredProcedure;
+
                 cn.Open();
                 retorno = cmd.ExecuteNonQuery();
                 return retorno;
@@ -83,15 +86,36 @@ namespace CapaAccesoDatos
             finally { cmd.Connection.Close(); }
         }
 
-        public int GuardarVenta(String cadXml, int id_tipdocventa)
+        public int GuardarVenta(String cadXml)//LISTO
         {
             SqlCommand cmd = null;
             var result = 0;
             try
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();
-                cmd = new SqlCommand("spGuardarVenta", cn);
-                //añadir lineas de parametros
+                cmd = new SqlCommand("uspGuardarVenta", cn);
+                cmd.Parameters.AddWithValue("@Cadxml", cadXml);//se envia el xml
+                cmd.CommandType = CommandType.StoredProcedure;
+                cn.Open();
+                result = cmd.ExecuteNonQuery();//Se ve si algun registro fue afectado
+                return result;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally { cmd.Connection.Close(); }
+        }
+
+        public int  ModificarVenta(String cadXml)//LISTO
+        {
+            SqlCommand cmd = null;
+            var result = 0;
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("uspModificarVenta", cn);
+                cmd.Parameters.AddWithValue("@Cadxml", cadXml);//se envia el xml
                 cmd.CommandType = CommandType.StoredProcedure;
                 cn.Open();
                 result = cmd.ExecuteNonQuery();
@@ -104,7 +128,7 @@ namespace CapaAccesoDatos
             finally { cmd.Connection.Close(); }
         }
 
-       
+
 
         #endregion metodos
 

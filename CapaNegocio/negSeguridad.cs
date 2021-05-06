@@ -17,45 +17,77 @@ namespace CapaNegocio
         }
 
         #endregion singleton
-        //public int MantenimientoUsuario(entUsuario u,int tipoedicion) {
-        //    try
-        //    {
-        //        String cadXml = "";
-        //        cadXml += "<usuario ";
-        //        cadXml += "idusuario='" + u.Id_Usuario + "' ";
-        //        cadXml += "idnivelacceso='" + u.nivel_acceso.Id_NivelAcc + "' ";
-        //        cadXml+= "idsucusuario='"+u.sucursal.Id_Suc+"' ";
-        //        cadXml += "nombre='" + u.Nombre_Usuario + "' ";
-        //        cadXml += "logeo='" + u.Login_Usuario + "' ";
-        //        cadXml += "pass='" + u.Password_Usuario + "' ";
-        //        cadXml += "telefono='" + u.Telefono_Usuario + "' ";
-        //        cadXml += "celular='" + u.Celular_Usuario + "' ";
-        //        cadXml += "correo='" + u.Correo_Usuario + "' ";
-        //        cadXml += "estado='" + u.Estado_Usuario + "' ";
-        //        cadXml += "usuariocreacion='" + u.UsuarioCreacion_Usuario + "' ";
-        //        cadXml += "expiracion='" + u.Expiracion_Usuario + "' ";
-        //        cadXml += "tipoedicion='" + tipoedicion + "'/>";
-
-        //        cadXml = "<root>" + cadXml + "</root>";
-        //        int result = datSeguridad.Instancia.MantenimientoUsuario(cadXml);
-        //        if (result == 0) throw new ApplicationException("Ocurrio un error al registrar, intentelo nuevamente");
-
-        //        return result;
-        //    }
-        //    catch (Exception)
-        //    {
-
-        //        throw;
-        //    }
-        //}
 
 
+        
+        public int insertarEmpleado( entEmpleado e)
+        {
+            try
+            {
+                String cadXml = "";//se creara la cadena del xml
+                cadXml += "<empleado ";
+                cadXml += "nombre='" + e.Nombre_empleado + "' ";
+                cadXml += "apepat='" + e.Nombre_empleado + "' ";
+                cadXml += "apemat='" + e.Nombre_empleado + "' ";
+                cadXml += "telefono='" + e.telefono_empleado + "' ";
+                cadXml += "direccion='" + e.direccion_empleado + "' ";
+                cadXml += "idrol='" + e.Id_rol +  "'/>";
+                cadXml = "<root>" + cadXml + "</root>";
+                int result = datSeguridad.Instancia.insertarEmpleado(cadXml);
+                if (result == 0) throw new ApplicationException("Ocurrio un error al registrar, intentelo nuevamente");
+
+                return result;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public int EliminarUsuarioxId(int id_usuario)
+        {
+            try
+            {
+                int retorno = datSeguridad.Instancia.EliminarUsuarioXid(id_usuario);
+                if (retorno == 0) throw new ApplicationException("No se pudo completar la acción");
+                //Excepción en caso de no haberse eliminado
+                return retorno;//en caso contrario regresa el valor
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        public int insertarUsuario(entUsuario u)
+        {
+            try
+            {
+                String cadXml = "";//se creara la cadena del xml
+                cadXml += "<usuario ";
+                cadXml += "usuario='" + u.Nombre_Usuario + "' ";
+                cadXml += "contrasena='" + u.Password_Usuario + "' ";
+                cadXml += "idempleado='" + u.Id_empleado.Id_empleado + "'/>";
+                cadXml = "<root>" + cadXml + "</root>";
+                int result = datSeguridad.Instancia.insertarUsuario(cadXml);
+                if (result == 0) throw new ApplicationException("Ocurrio un error al registrar, intentelo nuevamente");
+
+                return result;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        
         public entUsuario BuscarUsuario( String valor) {
             try
             {
                 
                 entUsuario u = null;
-                u = datSeguridad.Instancia.BuscarUsuario(valor);
+                //u = datSeguridad.Instancia.BuscarUsuario(valor);
                 if (u == null) {
                     throw new ApplicationException("No se encontraron registros");
                 }

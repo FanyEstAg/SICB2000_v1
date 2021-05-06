@@ -18,5 +18,6 @@ namespace Entidades
         public entUsuario usuario { get; set; }
         public entProducto Id_producto { get; set; }
         public entEstado Estado_Venta { get; set; }
+        public List<entVenta> productos { get; set; }
     }
 }

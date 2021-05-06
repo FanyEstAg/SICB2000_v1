@@ -48,7 +48,7 @@ namespace CapaAccesoDatos
                     p.Precio_Prod = Convert.ToDouble(dr["Precio"]);
                     p.Descripcion_Prod = dr["Descrp_producto"].ToString();
                     entUnidadMedida um = new entUnidadMedida();
-                    um.Id_Umed = Convert.ToInt32(dr.["Id_Umed"]);
+                    //um.Id_Umed = Convert.ToInt32(dr.["Id_Umed"]);
                     um.Abreviatura_Umed = dr["Abreviatura_Umed"].ToString();
                     p.Id_umed = um;
                     entMarca m = new entMarca();
@@ -110,7 +110,7 @@ namespace CapaAccesoDatos
                 dr = cmd.ExecuteReader();
                 if (dr.Read())
                 {
-                    entProducto p = new entProducto();
+                    p = new entProducto();
                     p.Id_Prod = Convert.ToInt32(dr["Id_Prod"]);
                     p.Nombre_Prod = dr["Nom_producto"].ToString();
                     p.existencia = Convert.ToInt32(dr["Existencia"]);
@@ -118,7 +118,7 @@ namespace CapaAccesoDatos
                     p.Precio_Prod = Convert.ToDouble(dr["Precio"]);
                     p.Descripcion_Prod = dr["Descrp_producto"].ToString();
                     entUnidadMedida um = new entUnidadMedida();
-                    um.Id_Umed = Convert.ToInt32(dr.["Id_Umed"]);
+                    //um.Id_Umed = Convert.ToInt32(dr.["Id_Umed"]);
                     um.Abreviatura_Umed = dr["Abreviatura_Umed"].ToString();
                     p.Id_umed = um;
                     entMarca m = new entMarca();
@@ -159,7 +159,7 @@ namespace CapaAccesoDatos
                     p.Precio_Prod = Convert.ToDouble(dr["Precio"]);
                     p.Descripcion_Prod = dr["Descrp_producto"].ToString();
                     entUnidadMedida um = new entUnidadMedida();
-                    um.Id_Umed = Convert.ToInt32(dr.["Id_Umed"]);
+                    //um.Id_Umed = Convert.ToInt32(dr.["Id_Umed"]);
                     um.Abreviatura_Umed = dr["Abreviatura_Umed"].ToString();
                     p.Id_umed = um;
                     entMarca m = new entMarca();
