@@ -78,5 +78,12 @@ namespace CapaPresentacion
         {
             this.Dispose(); // Cierra formulario libera recursos
         }
+
+        private void btnAgregarMarca_Click(object sender, EventArgs e)
+        {
+            frmNuevaMarca nm  = new frmNuevaMarca();
+            nm.Show();
+            this.Hide();
+        }
     }
 }

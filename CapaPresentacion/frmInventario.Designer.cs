@@ -47,14 +47,16 @@
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
-            this.btnAgregarTipo = new System.Windows.Forms.PictureBox();
+            this.btnAgregarMarca = new System.Windows.Forms.PictureBox();
             this.cbxTipoMesa = new System.Windows.Forms.ComboBox();
             this.btnRegresar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnRegistrar = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.txtIdMesa = new System.Windows.Forms.TextBox();
             this.Consultar = new System.Windows.Forms.TabPage();
             this.label28 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
@@ -116,7 +118,7 @@
             this.tabControl1.SuspendLayout();
             this.Registrar.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnAgregarTipo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAgregarMarca)).BeginInit();
             this.Consultar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
             this.Modificar.SuspendLayout();
@@ -212,14 +214,16 @@
             this.panel2.Controls.Add(this.textBox4);
             this.panel2.Controls.Add(this.label19);
             this.panel2.Controls.Add(this.textBox3);
-            this.panel2.Controls.Add(this.btnAgregarTipo);
+            this.panel2.Controls.Add(this.btnAgregarMarca);
             this.panel2.Controls.Add(this.cbxTipoMesa);
             this.panel2.Controls.Add(this.btnRegresar);
             this.panel2.Controls.Add(this.btnCancelar);
             this.panel2.Controls.Add(this.btnRegistrar);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.label3);
+            this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.txtIdMesa);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
@@ -311,15 +315,16 @@
             this.textBox3.Size = new System.Drawing.Size(121, 22);
             this.textBox3.TabIndex = 20;
             // 
-            // btnAgregarTipo
+            // btnAgregarMarca
             // 
-            this.btnAgregarTipo.Image = global::CapaPresentacion.Properties.Resources.add_24x24_32;
-            this.btnAgregarTipo.Location = new System.Drawing.Point(267, 132);
-            this.btnAgregarTipo.Name = "btnAgregarTipo";
-            this.btnAgregarTipo.Size = new System.Drawing.Size(34, 28);
-            this.btnAgregarTipo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnAgregarTipo.TabIndex = 19;
-            this.btnAgregarTipo.TabStop = false;
+            this.btnAgregarMarca.Image = global::CapaPresentacion.Properties.Resources.add_24x24_32;
+            this.btnAgregarMarca.Location = new System.Drawing.Point(267, 132);
+            this.btnAgregarMarca.Name = "btnAgregarMarca";
+            this.btnAgregarMarca.Size = new System.Drawing.Size(34, 28);
+            this.btnAgregarMarca.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnAgregarMarca.TabIndex = 19;
+            this.btnAgregarMarca.TabStop = false;
+            this.btnAgregarMarca.Click += new System.EventHandler(this.btnAgregarTipo_Click);
             // 
             // cbxTipoMesa
             // 
@@ -386,6 +391,15 @@
             this.label3.TabIndex = 3;
             this.label3.Text = "Marca:";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(28, 63);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(91, 16);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Id Producto:";
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -395,6 +409,13 @@
             this.label1.Size = new System.Drawing.Size(69, 20);
             this.label1.TabIndex = 1;
             this.label1.Text = "DATOS";
+            // 
+            // txtIdMesa
+            // 
+            this.txtIdMesa.Location = new System.Drawing.Point(136, 63);
+            this.txtIdMesa.Name = "txtIdMesa";
+            this.txtIdMesa.Size = new System.Drawing.Size(121, 22);
+            this.txtIdMesa.TabIndex = 0;
             // 
             // Consultar
             // 
@@ -910,7 +931,7 @@
             this.Registrar.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnAgregarTipo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAgregarMarca)).EndInit();
             this.Consultar.ResumeLayout(false);
             this.Consultar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
@@ -934,14 +955,16 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage Registrar;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.PictureBox btnAgregarTipo;
+        private System.Windows.Forms.PictureBox btnAgregarMarca;
         private System.Windows.Forms.ComboBox cbxTipoMesa;
         private System.Windows.Forms.Button btnRegresar;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnRegistrar;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtIdMesa;
         private System.Windows.Forms.TabPage Consultar;
         private System.Windows.Forms.DataGridView dataGridView4;
         private System.Windows.Forms.TabPage Modificar;
