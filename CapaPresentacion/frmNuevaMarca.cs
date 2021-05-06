@@ -9,21 +9,11 @@ using System.Windows.Forms;
 
 namespace CapaPresentacion
 {
-    public partial class frmCobroMesa : Form
+    public partial class frmNuevaMarca : Form
     {
-        public frmCobroMesa()
+        public frmNuevaMarca()
         {
             InitializeComponent();
-        }
-
-        private void panel5_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            //Mostrar notificación de qye se ha imprimido correctamente
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
