@@ -8,7 +8,7 @@ using Entidades;
 
 namespace CapaAccesoDatos
 {
-    class datMesa
+    public class datMesa
     {
         #region singleton
         private static readonly datMesa _intancia = new datMesa();
@@ -18,14 +18,84 @@ namespace CapaAccesoDatos
         }
         #endregion singleton
 
+        #region metodos mesa
+        public int insertarMesa(String cadXml)
+        {
+            SqlCommand cmd = null;
 
-        #region metodos
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("uspInsertarMesa", cn);
+                cmd.Parameters.AddWithValue("@Cadxml", cadXml);
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlParameter p = new SqlParameter("@retorno", DbType.Int32);
+                p.Direction = ParameterDirection.ReturnValue;
+                cmd.Parameters.Add(p);
+                cn.Open();
+                var result = cmd.ExecuteNonQuery();
+                cn.Close();
+                return result;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        public int EliminarMesa(int id_mesa)
+        {//LISTO
+            SqlCommand cmd = null;
+            var retorno = 0;
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("uspEliminarMesa", cn);
+                cmd.Parameters.AddWithValue("@prmId_Mesa", id_mesa);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cn.Open();
+                retorno = cmd.ExecuteNonQuery();
+                return retorno;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally { cmd.Connection.Close(); }
+        }
+
+
+        public int insertarTipoMesa(String nom)
+        {
+            SqlCommand cmd = null;
+
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("uspInsertarTipoMesa", cn);
+                cmd.Parameters.AddWithValue("@prmNombre", nom);
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlParameter p = new SqlParameter("@retorno", DbType.Int32);
+                p.Direction = ParameterDirection.ReturnValue;
+                cmd.Parameters.Add(p);
+                cn.Open();
+                var result = cmd.ExecuteNonQuery();
+                cn.Close();
+                return result;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        #endregion mesa
+
+        #region metodos Cobro
 
         //public entTipo LstTipoMesa()
         //{
         //    SqlCommand cmd = null;
         //    IDataReader idr = null;
-           
+
         //    List<entTipo> t = null;
         //    try
         //    {
@@ -35,7 +105,7 @@ namespace CapaAccesoDatos
         //        idr = cmd.ExecuteReader();
         //        if (idr.Read())
         //        {
-                   
+
 
         //            //falta
         //        }
@@ -131,6 +201,6 @@ namespace CapaAccesoDatos
 
 
 
-        #endregion metodos
+        #endregion metodos Cobro
     }
 }
