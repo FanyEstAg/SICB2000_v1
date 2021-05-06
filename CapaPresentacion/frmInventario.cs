@@ -911,5 +911,10 @@ namespace CapaPresentacion
         {
             this.Dispose(); // Cierra formulario libera recursos
         }
+
+        private void btnAgregarTipo_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
