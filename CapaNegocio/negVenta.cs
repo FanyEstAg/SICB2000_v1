@@ -18,8 +18,12 @@ namespace CapaNegocio
 
         #region metodos
 
-        
 
+        //  Método para eliminar Venta - Capa Negocio
+        //--Fecha de creación 04.05.2021
+        //--Fecha de entrega 06.05.2021
+        //--Número de equipo Equipo #6
+        // By Fay Estrada
         public int EliminarVentaxId(int id_venta) {
             try
             {
@@ -34,7 +38,10 @@ namespace CapaNegocio
                 throw;
             }
         }
-        
+
+        //  Método para registrar Venta - Capa Negocio
+        //--Fecha de creación 04.05.2021      //--Fecha de entrega 06.05.2021
+        //--Número de equipo Equipo #6         // By Fany Estrada
         public int GuardarVenta(entVenta v)//listo
         {//Método en el que se hace Altas a partir de un xml
             try

@@ -35,6 +35,7 @@ namespace CapaPresentacion
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Registrar = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnAgregarMarca = new System.Windows.Forms.PictureBox();
             this.cbxTipoMesa = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.IdMesaRegistrar = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -113,12 +114,12 @@ namespace CapaPresentacion
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.button2 = new System.Windows.Forms.Button();
             this.label19 = new System.Windows.Forms.Label();
-            this.btnAgregarMarca = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.Registrar.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAgregarMarca)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage3.SuspendLayout();
@@ -132,7 +133,6 @@ namespace CapaPresentacion
             this.tabPage5.SuspendLayout();
             this.tabPage6.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnAgregarMarca)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -213,6 +213,17 @@ namespace CapaPresentacion
             this.panel2.Size = new System.Drawing.Size(648, 310);
             this.panel2.TabIndex = 0;
             // 
+            // btnAgregarMarca
+            // 
+            this.btnAgregarMarca.Image = global::CapaPresentacion.Properties.Resources.add_24x24_32;
+            this.btnAgregarMarca.Location = new System.Drawing.Point(280, 108);
+            this.btnAgregarMarca.Name = "btnAgregarMarca";
+            this.btnAgregarMarca.Size = new System.Drawing.Size(34, 28);
+            this.btnAgregarMarca.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnAgregarMarca.TabIndex = 20;
+            this.btnAgregarMarca.TabStop = false;
+            this.btnAgregarMarca.Click += new System.EventHandler(this.btnAgregarMarca_Click);
+            // 
             // cbxTipoMesa
             // 
             this.cbxTipoMesa.FormattingEnabled = true;
@@ -251,7 +262,7 @@ namespace CapaPresentacion
             this.btnRegresar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(35)))), ((int)(((byte)(107)))));
             this.btnRegresar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegresar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnRegresar.Location = new System.Drawing.Point(492, 258);
+            this.btnRegresar.Location = new System.Drawing.Point(506, 259);
             this.btnRegresar.Name = "btnRegresar";
             this.btnRegresar.Size = new System.Drawing.Size(124, 38);
             this.btnRegresar.TabIndex = 16;
@@ -263,7 +274,7 @@ namespace CapaPresentacion
             this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(35)))), ((int)(((byte)(107)))));
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnCancelar.Location = new System.Drawing.Point(265, 258);
+            this.btnCancelar.Location = new System.Drawing.Point(376, 259);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(124, 38);
             this.btnCancelar.TabIndex = 15;
@@ -275,7 +286,7 @@ namespace CapaPresentacion
             this.btnRegistrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(35)))), ((int)(((byte)(107)))));
             this.btnRegistrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegistrar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnRegistrar.Location = new System.Drawing.Point(31, 258);
+            this.btnRegistrar.Location = new System.Drawing.Point(246, 259);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(124, 38);
             this.btnRegistrar.TabIndex = 14;
@@ -1063,17 +1074,6 @@ namespace CapaPresentacion
             this.label19.TabIndex = 27;
             this.label19.Text = "Id Mesa:";
             // 
-            // btnAgregarMarca
-            // 
-            this.btnAgregarMarca.Image = global::CapaPresentacion.Properties.Resources.add_24x24_32;
-            this.btnAgregarMarca.Location = new System.Drawing.Point(280, 108);
-            this.btnAgregarMarca.Name = "btnAgregarMarca";
-            this.btnAgregarMarca.Size = new System.Drawing.Size(34, 28);
-            this.btnAgregarMarca.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnAgregarMarca.TabIndex = 20;
-            this.btnAgregarMarca.TabStop = false;
-            this.btnAgregarMarca.Click += new System.EventHandler(this.btnAgregarMarca_Click);
-            // 
             // frmMesas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1091,6 +1091,7 @@ namespace CapaPresentacion
             this.Registrar.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAgregarMarca)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
@@ -1109,7 +1110,6 @@ namespace CapaPresentacion
             this.tabPage6.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnAgregarMarca)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -120,11 +120,15 @@ namespace CapaPresentacion
         //    }
         //}
 
+        //  Método para registrar Venta - Capa Presentación
+        //--Fecha de creación 04.05.2021        //--Fecha de entrega 06.05.2021
+        //--Número de equipo Equipo #6        // By Fany Estrada
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             try
             {
-                DialogResult r = MessageBox.Show("¿Desea guardar la venta?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult r = MessageBox.Show("¿Desea guardar la venta?", "Confirmar", 
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (r == DialogResult.Yes)
                 {
                     double total = 0;
@@ -151,13 +155,19 @@ namespace CapaPresentacion
                     lblTotal.Text =  total.ToString();
                 }
             }//Excepción de la app
-            catch (ApplicationException ae) { MessageBox.Show(ae.Message, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
+            catch (ApplicationException ae) { MessageBox.Show(ae.Message, "Aviso", MessageBoxButtons.OK, 
+                MessageBoxIcon.Warning); }
             catch (Exception ex)//Cualqueir excepción
             {
                 MessageBox.Show(ex.Message, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
+        //  Método para eliminar Venta - Capa Presentación
+        //--Fecha de creación 04.05.2021
+        //--Fecha de entrega 06.05.2021
+        //--Número de equipo Equipo #6 
+        // By Fany Estrada
         private void button7_Click(object sender, EventArgs e)//boton de eliminación //Listo
         {
             try//en caso de excepciones

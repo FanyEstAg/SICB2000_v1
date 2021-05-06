@@ -41,6 +41,12 @@ namespace CapaAccesoDatos
             }
             finally { cmd.Connection.Close(); }
         }
+
+        //  Método para eliminar Venta - Capa Acceso de Datos
+        //--Fecha de creación 04.05.2021
+        //--Fecha de entrega 06.05.2021
+        //--Número de equipo Equipo #6 
+        // By Fany Estrada
         public int EliminarVentaXid(int id_venta) {//LISTO
             SqlCommand cmd = null;
             var retorno=0;
@@ -86,6 +92,11 @@ namespace CapaAccesoDatos
             finally { cmd.Connection.Close(); }
         }
 
+        //  Método para eliminar Venta - Capa Acceso a Datos
+        //--Fecha de creación 04.05.2021
+        //--Fecha de entrega 06.05.2021
+        //--Número de equipo Equipo #6 
+        // By Fany Estrada
         public int GuardarVenta(String cadXml)//LISTO
         {
             SqlCommand cmd = null;

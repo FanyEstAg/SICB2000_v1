@@ -285,27 +285,7 @@ namespace CapaAccesoDatos
         }
 
 
-        public int EliminarProducto(int id_producto)
-        {//LISTO
-            SqlCommand cmd = null;
-            var retorno = 0;
-            try
-            {
-                SqlConnection cn = Conexion.Instancia.Conectar();
-                cmd = new SqlCommand("uspEliminarProducto", cn);
-                cmd.Parameters.AddWithValue("@prmId_Producto", id_producto);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cn.Open();
-                retorno = cmd.ExecuteNonQuery();
-                return retorno;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            finally { cmd.Connection.Close(); }
-        }
-
+       
         public int insertarProducto(String cadXml)
         {
             SqlCommand cmd = null;
