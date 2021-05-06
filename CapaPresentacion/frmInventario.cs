@@ -956,5 +956,32 @@ namespace CapaPresentacion
                                  MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void button4_Click(object sender, EventArgs e)//Agregar existencia
+        {
+
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult r = MessageBox.Show("¿Desea eliminar el producto?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (r == DialogResult.Yes)
+                {
+                    int i = negProducto.Instancia.EliminarProducto(Convert.ToInt32(txtIdEliminar.Text));
+                    MessageBox.Show("Producto eliminado", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+                //ControlBotones("P", true, false, false, false, false, true);
+                //ac.BloquearText(this.tbcProducto, false);
+            }
+            catch (ApplicationException ae) { MessageBox.Show(ae.Message, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information); }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error",
+                                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
