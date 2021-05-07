@@ -30,7 +30,7 @@ namespace CapaNegocio
                 cadXml += "idtipo='" + m.id_tipo + "' ";
                 cadXml += "iddisponibilidad='" + m.Id_disponibilidad +  "'/>";
                 cadXml = "<root>" + cadXml + "</root>";
-                int result = datMesa.Instancia.insertarMesa(cadXml);
+                int result = datMesa.Instancia.GuardarCobroMesa(cadXml);
                 if (result == 0) throw new ApplicationException("Ocurrio un error al registrar, intentelo nuevamente");
 
                 return result;
@@ -65,6 +65,28 @@ namespace CapaNegocio
                 if (retorno == 0) throw new ApplicationException("No se pudo completar la acción");
                 //Excepción en caso de no haberse eliminado
                 return retorno;//en caso contrario regresa el valor
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        public int GuardarCobroMesa(entCobroMesa co)
+        {
+            try
+            {
+                String cadXml = "";//se creara la cadena del xml
+                cadXml += "<mesa ";
+                cadXml += "idmesa='" + co.Id_mesa + "'/>";
+                cadXml += "idtipo='" + co.Id_mesa.id_tipo + "'/>";
+                cadXml += "tiempoTotal='" + co.Tiempo_total + "'/>";
+                cadXml += "pagoTotal='" + co.PagoTotal + "'/>";
+                cadXml = "<root>" + cadXml + "</root>";
+                int result = datMesa.Instancia.GuardarCobroMesa(cadXml);
+                if (result == 0) throw new ApplicationException("Ocurrio un error al registrar, intentelo nuevamente");
+
+                return result;
             }
             catch (Exception)
             {

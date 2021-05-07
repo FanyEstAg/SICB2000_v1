@@ -51,6 +51,8 @@ namespace CapaPresentacion
             this.button3 = new System.Windows.Forms.Button();
             this.Registrar = new System.Windows.Forms.TabPage();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.lblHora = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.dgvRegistrar = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -63,10 +65,8 @@ namespace CapaPresentacion
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.txtIdMesa = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.lblHora = new System.Windows.Forms.Label();
             this.horaFecha = new System.Windows.Forms.Timer(this.components);
+            this.cbxIdMesa = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.MesasOcupadas.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -275,9 +275,9 @@ namespace CapaPresentacion
             // 
             // panel5
             // 
+            this.panel5.Controls.Add(this.cbxIdMesa);
             this.panel5.Controls.Add(this.lblHora);
             this.panel5.Controls.Add(this.label3);
-            this.panel5.Controls.Add(this.txtIdMesa);
             this.panel5.Controls.Add(this.dgvRegistrar);
             this.panel5.Controls.Add(this.label2);
             this.panel5.Controls.Add(this.btnRegistrar);
@@ -288,6 +288,25 @@ namespace CapaPresentacion
             this.panel5.Size = new System.Drawing.Size(654, 316);
             this.panel5.TabIndex = 0;
             this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
+            // 
+            // lblHora
+            // 
+            this.lblHora.AutoSize = true;
+            this.lblHora.Location = new System.Drawing.Point(64, 283);
+            this.lblHora.Name = "lblHora";
+            this.lblHora.Size = new System.Drawing.Size(23, 16);
+            this.lblHora.TabIndex = 34;
+            this.lblHora.Text = "---";
+            this.lblHora.Click += new System.EventHandler(this.lblHora_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(15, 283);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(43, 16);
+            this.label3.TabIndex = 33;
+            this.label3.Text = "Hora:";
             // 
             // dgvRegistrar
             // 
@@ -405,36 +424,27 @@ namespace CapaPresentacion
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // txtIdMesa
-            // 
-            this.txtIdMesa.Location = new System.Drawing.Point(220, 27);
-            this.txtIdMesa.Name = "txtIdMesa";
-            this.txtIdMesa.Size = new System.Drawing.Size(100, 23);
-            this.txtIdMesa.TabIndex = 32;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(15, 283);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(43, 16);
-            this.label3.TabIndex = 33;
-            this.label3.Text = "Hora:";
-            // 
-            // lblHora
-            // 
-            this.lblHora.AutoSize = true;
-            this.lblHora.Location = new System.Drawing.Point(64, 283);
-            this.lblHora.Name = "lblHora";
-            this.lblHora.Size = new System.Drawing.Size(49, 16);
-            this.lblHora.TabIndex = 34;
-            this.lblHora.Text = "label6";
-            this.lblHora.Click += new System.EventHandler(this.lblHora_Click);
-            // 
             // horaFecha
             // 
             this.horaFecha.Enabled = true;
             this.horaFecha.Tick += new System.EventHandler(this.horaFecha_Tick);
+            // 
+            // cbxIdMesa
+            // 
+            this.cbxIdMesa.FormattingEnabled = true;
+            this.cbxIdMesa.Items.AddRange(new object[] {
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08"});
+            this.cbxIdMesa.Location = new System.Drawing.Point(231, 22);
+            this.cbxIdMesa.Name = "cbxIdMesa";
+            this.cbxIdMesa.Size = new System.Drawing.Size(121, 24);
+            this.cbxIdMesa.TabIndex = 35;
             // 
             // frmCobroMesa
             // 
@@ -499,10 +509,10 @@ namespace CapaPresentacion
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalPrecio;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnRegistrar;
-        private System.Windows.Forms.TextBox txtIdMesa;
         public System.Windows.Forms.DataGridView dgvRegistrar;
         private System.Windows.Forms.Label lblHora;
         private System.Windows.Forms.Label label3;
         public System.Windows.Forms.Timer horaFecha;
+        private System.Windows.Forms.ComboBox cbxIdMesa;
     }
 }

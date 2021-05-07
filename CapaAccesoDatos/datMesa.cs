@@ -19,7 +19,7 @@ namespace CapaAccesoDatos
         #endregion singleton
 
         #region metodos mesa
-        public int insertarMesa(String cadXml)
+        public int GuardarCobroMesa(String cadXml)
         {
             SqlCommand cmd = null;
 
