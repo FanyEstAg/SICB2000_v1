@@ -1,24 +1,54 @@
 ---PROCEDIMEINTOS ALMACENADOS
-
-CREATE PROC usp_Iniciar_Sesion--LISTO
-@prmUsuario VARCHAR(8),
-@prmContrasena VARCHAR(8)
-AS
-SELECT * FROM Usuario where nombre_Usuario=@prmUsuario and Contrasena_Usuario=@prmContrasena
+---DROP PROC uspIniciar_Sesion
 GO
-
+CREATE PROC uspIniciar_Sesion--LISTO
+@prmUsuario VARCHAR(25),
+@prmContrasena VARCHAR(10)
+	AS
+		SELECT * FROM Usuario AS u
+		INNER JOIN Empleado AS e ON u.Id_Empleado=e.Id_empleado
+		INNER JOIN Rol AS r ON e.Id_Rol=r.Id_Rol
+		WHERE  u.nombre_Usuario=@prmUsuario AND u.Contrasena_Usuario=@prmContrasena
+GO
+--SELECT * FROM Empleado
 --------------------------------------------------------
 
-CREATE PROCEDURE [dbo].[uspAnularBoletaXid]---falta
+CREATE PROCEDURE [dbo].[uspEliminarVentaXid]---LISTO
 		@prmId_venta int
 		AS
 		 BEGIN
-			 UPDATE Venta set Id_Estado='A'
+			 UPDATE Venta set Id_Estado='A'--Anulado
 			 WHERE Id_Venta=@prmId_venta
 		 END
 
 GO
-CREATE PROCEDURE [dbo].[uspBuscarProdAvanzada] --3,'15.20' MODIFICAR
+CREATE PROCEDURE [dbo].[uspEliminarUsuario]---LISTO----
+		@prmId_Usuario int
+		AS
+		 BEGIN
+			DELETE Usuario WHERE Id_Usuario=@prmId_Usuario
+		 END
+GO
+CREATE PROCEDURE [dbo].[uspEliminarMesa]---LISTO----
+		@prmId_Mesa	 int
+		AS
+		 BEGIN
+			DELETE Mesa WHERE Id_mesa=@prmId_Mesa
+		 END
+GO
+CREATE PROCEDURE [dbo].[uspEliminarProducto]---LISTO----
+		@prmId_Producto	 int
+		AS
+		 BEGIN
+			DELETE Producto WHERE Id_Prod=@prmId_Producto
+		 END
+GO
+--DROP PROCEDURE  [dbo].[uspEliminarProducto]
+SELECT * FROM Producto
+SELECT * FROM Mesa
+SELECT * FROM Usuario
+GO
+CREATE PROCEDURE [dbo].[uspBuscarProd] --3,'15.20' MODIFICAR
 	@prmTipEntrada int,
 	@prmValorEntrada nvarchar(50)
 	as  
@@ -72,39 +102,75 @@ CREATE PROCEDURE [dbo].[uspBuscarProducto] --MODIFICAR
 
 GO
 GO
- CREATE PROCEDURE [dbo].[uspBuscarUsuario] --'Id','4' ---LISTO
-	 @prmValor varchar(25)
+CREATE PROCEDURE [dbo].[uspBuscarUsuario] ---LISTO
+	 @prmBusqueda varchar(25)
 	 AS
 	   BEGIN
-		
-		SELECT u.nombre_Usuario, Contrasena_Usuario,
-		e.Id_empleado, e.Nom_empleado, e.apepatEmpleado, e.apematEmpleado, e.telefonoEmpleado, e.direccionEmpleado
-		r.Id_Rol, r.Nom_puesto, r.Descrp_rol
+		SELECT u.nombre_Usuario AS Usuario, Contrasena_Usuario AS Contraseña,
+		e.Id_empleado, e.Nom_empleado AS Nnombre, e.apepatEmpleado AS Apellido_Pat, 
+		e.apematEmpleado AS Apellido_Mat, e.telefonoEmpleado AS Teléfono, e.direccionEmpleado AS Dirección,
+		 r.Nom_puesto AS Rol, r.Descrp_rol AS Descripción
 		FROM Usuario u 
 		INNER JOIN Empleado AS e ON u.Id_Empleado=e.Id_empleado
-		INNER JOIN Rol AS r ON  r.IdRol=e.Id_Rol
-		WHERE u.nombre_Usuario = @prmValor OR u.Id_Usuario=@prmValor OR e.Nom_empleado=@prmValor
+		INNER JOIN Rol AS r ON  r.Id_Rol=e.Id_Rol
+		WHERE u.nombre_Usuario = @prmBusqueda OR u.Id_Usuario=@prmBusqueda OR e.Nom_empleado=@prmBusqueda
 
+	END
+GO
+CREATE PROCEDURE [dbo].[uspBuscarMesa] ---LISTO
+	 @prmBusqueda varchar(25)
+	 AS
+	   BEGIN
+		SELECT m.Id_mesa,t.Nom_tipo,d.Id_Disponibilidad
+		FROM Mesa m 
+		INNER JOIN Tipo AS t ON m.Id_tipo=t.Id_tipo
+		INNER JOIN Disponibilidad AS d ON  m.Id_Disponibilidad=d.Id_Disponibilidad
+		WHERE m.Id_mesa = @prmBusqueda OR t.Nom_tipo=@prmBusqueda OR d.Descp_disponibilidad=@prmBusqueda
+
+	END
+GO
+CREATE PROCEDURE [dbo].[uspCargarUsuarios]  ---LISTO
+	 
+	 AS
+	   BEGIN
+		SELECT u.nombre_Usuario AS Usuario, Contrasena_Usuario AS Contraseña,
+		e.Id_empleado, e.Nom_empleado AS Nnombre, e.apepatEmpleado AS Apellido_Pat, 
+		e.apematEmpleado AS Apellido_Mat, e.telefonoEmpleado AS Teléfono, e.direccionEmpleado AS Dirección,
+		 r.Nom_puesto AS Rol, r.Descrp_rol AS Descripción
+		FROM Usuario u 
+		INNER JOIN Empleado AS e ON u.Id_Empleado=e.Id_empleado
+		INNER JOIN Rol AS r ON  r.Id_Rol=e.Id_Rol
+		
 	END
 
 GO
+CREATE PROCEDURE [dbo].[uspCargarMesas]  ---LISTO
+	 
+	 AS
+	   BEGIN
+		SELECT m.Id_mesa,t.Nom_tipo AS Tipo,d.Id_Disponibilidad AS Disponibilidad
+		FROM Mesa m 
+		INNER JOIN Tipo AS t ON m.Id_tipo=t.Id_tipo
+		INNER JOIN Disponibilidad AS d ON  m.Id_Disponibilidad=d.Id_Disponibilidad
+		
+	END
 
+GO
 CREATE PROCEDURE [dbo].[uspGuardarVenta]----MODIFICAR
-	@Cadxml varchar(max),
-	@TIPO_DOC_VENTA int
-	as
+	@Cadxml varchar(max)--se recibe el xml
+	AS
 	 BEGIN
-	  DECLARE @h int, @smsmError nvarchar(500),@idVenta int
-	   EXEC SP_XML_PREPAREDOCUMENT @h output, @Cadxml
-	    BEGIN TRY
-		 BEGIN TRANSACTION
+	  DECLARE @out int, @smsmError nvarchar(500),@idVenta int --se declaran variables que se requeriran
+	   EXEC SP_XML_PREPAREDOCUMENT @out output, @Cadxml --permite procesar un documento XML y obtener una representación del mismo,
+	    BEGIN TRY--inicio de la excepción
+		 BEGIN TRANSACTION--se inicia una transacción
 		 -- Control para venta no sea mayor que stock
-		 IF(SELECT COUNT(*) FROM OpenXML(@h,'root/venta/detalle',1)WITH(
+		 IF(SELECT COUNT(*) FROM OpenXML(@out,'root/venta/detalle',1)WITH(
 		   idproducto int,
 		   cantidad int
 		   )dt INNER JOIN Producto p on p.Id_Prod=dt.idproducto WHERE p.Stock_Prod<dt.cantidad)>0
 		  BEGIN
-		   RAISERROR('Uno � mas productos no cuentan con el stock suficiente',16,1)
+		   RAISERROR('Uno ó mas productos no cuentan con el stock suficiente',16,1)
 		  END
 
 		  INSERT INTO Venta(Codigo_Venta, Id_Cliente_Venta, Id_Usuario_Venta, Id_Suc_Venta, Id_TipCom_Venta, Id_Moneda_Venta, 
@@ -273,48 +339,44 @@ GO
 	 END
 
 GO
-CREATE PROCEDURE [dbo].[uspInsEditElimUsario] ---MODIFICAR
+
+CREATE PROCEDURE [dbo].[uspInsertarUsuario] ---LISTO
   @Cadxml varchar(max)
   as
   BEGIN
-    DECLARE @h int,@smsError nvarchar(300)
-	EXEC SP_XML_PREPAREDOCUMENT @h output, @Cadxml
+    DECLARE @out int,@smsError nvarchar(300)
+	EXEC SP_XML_PREPAREDOCUMENT @out output, @Cadxml--Crear el xml
 	  BEGIN TRY
 	   BEGIN TRANSACTION
 	      -- Insertando nuevo usuario
-		  INSERT INTO Usuario(Codigo_Usuario, Id_nivelAcc_Usuario, Id_Suc_Usuario, Nombre_Usuario, Login_Usuario,
-		                      Password_Usuario, Telefono_Usuario, Celular_Usuario, Correo_Usuario, Estado_Usuario, 
-							  Expiracion_Usuario, FechCreacion_Usuario, UsuarioCreacion_Usuario)-- end
-		  SELECT dbo.fnGenCodUsuario(),u.idnivelacceso, u.idsucusuario, u.nombre, u.logeo,dbo.fnEncriptarPass(u.pass), u.telefono,
-		         u.celular, u.correo, u.estado,u.expiracion,GETDATE(), u.usuariocreacion --end
-		  FROM OpenXML(@h,'root/usuario',1)WITH(
-		  idnivelacceso int, idsucusuario int, nombre nvarchar(200), logeo nchar(8), pass nvarchar(50),
-		  telefono nchar(8), celular nchar(9), correo nvarchar(100), estado bit, expiracion datetime,
-		  usuariocreacion int, tipoedicion int)u WHERE tipoedicion=1 --end
+		  INSERT INTO Usuario(nombre_Usuario, Contrasena_Usuario,Id_Empleado)
+		  SELECT  u.usuario, u.contrasena, u.idempleado --seleccionar ciertas partes del XML
+		  FROM OpenXML(@out,'root/usuario', 1) WITH(
+		 usuario varchar(25), contrasena varchar(10), idempleado int) u 
 		
 		  -- editando usuario
-		  UPDATE u 
-		      SET u.Id_nivelAcc_Usuario = us.idnivelacceso,
-			      u.Id_Suc_Usuario = us.idsucusuario,
-				  u.Nombre_Usuario = us.nombre,
-				  u.Login_Usuario = us.logeo,
-				  u.Password_Usuario = dbo.fnEncriptarPass(us.pass),
-				  u.Telefono_Usuario = us.telefono,
-				  u.Celular_Usuario = us.celular,
-				  u.Correo_Usuario = us.correo,
-				  u.Estado_Usuario = us.estado,
-				  u.Expiracion_Usuario = us.expiracion,
-				  u.UsuarioCreacion_Usuario = us.usuariocreacion
-		  FROM OpenXML(@h,'root/usuario',1)WITH(
-		  idusuario int,idnivelacceso int, idsucusuario int, nombre nvarchar(200), logeo nchar(8), pass nvarchar(50),
-		  telefono nchar(8), celular nchar(9), correo nvarchar(100), estado bit, expiracion datetime,
-		  usuariocreacion int, tipoedicion int)us INNER JOIN Usuario u ON us.idusuario=u.Id_Usuario WHERE tipoedicion=2--end
+		  --UPDATE u 
+		  --    SET u.Id_nivelAcc_Usuario = us.idnivelacceso,
+			 --     u.Id_Suc_Usuario = us.idsucusuario,
+				--  u.Nombre_Usuario = us.nombre,
+				--  u.Login_Usuario = us.logeo,
+				--  u.Password_Usuario = dbo.fnEncriptarPass(us.pass),
+				--  u.Telefono_Usuario = us.telefono,
+				--  u.Celular_Usuario = us.celular,
+				--  u.Correo_Usuario = us.correo,
+				--  u.Estado_Usuario = us.estado,
+				--  u.Expiracion_Usuario = us.expiracion,
+				--  u.UsuarioCreacion_Usuario = us.usuariocreacion
+		  --FROM OpenXML(@h,'root/usuario',1)WITH(
+		  --idusuario int,idnivelacceso int, idsucusuario int, nombre nvarchar(200), logeo nchar(8), pass nvarchar(50),
+		  --telefono nchar(8), celular nchar(9), correo nvarchar(100), estado bit, expiracion datetime,
+		  --usuariocreacion int, tipoedicion int)us INNER JOIN Usuario u ON us.idusuario=u.Id_Usuario WHERE tipoedicion=2--end
 
 		  --Eliminando usuario(Cambio estado)
-		   UPDATE u 
-		      SET u.Estado_Usuario = 0
-		  FROM OpenXML(@h,'root/usuario',1)WITH(
-		  idusuario int, tipoedicion int)us INNER JOIN Usuario u ON us.idusuario=u.Id_Usuario WHERE tipoedicion=3--end
+		  -- --DELETE Usuario WHERE  Id_Usuario=u.
+		  -- --   SET u.Estado_Usuario = 0
+		  --FROM OpenXML(@h,'root/usuario',1)WITH(
+		  --idusuario int, tipoedicion int)us INNER JOIN Usuario u ON us.idusuario=u.Id_Usuario WHERE tipoedicion=3--end
 
 		 IF @@TRANCOUNT > 0 COMMIT TRANSACTION
 		
@@ -329,7 +391,159 @@ CREATE PROCEDURE [dbo].[uspInsEditElimUsario] ---MODIFICAR
 
 
 GO
-CREATE PROCEDURE [dbo].[uspListaRol] ----verificar si se usar�
+
+CREATE PROCEDURE [dbo].[uspInsertarEmpleado] ---LISTO
+  @Cadxml varchar(max)
+  AS
+  BEGIN
+    DECLARE @out int,@smsError nvarchar(300)
+	EXEC SP_XML_PREPAREDOCUMENT @out output, @Cadxml--Crear el xml
+	  BEGIN TRY
+	   BEGIN TRANSACTION
+	      -- Insertando nuevo usuario
+		  INSERT INTO Empleado(Nom_empleado,apepatEmpleado,apematEmpleado,telefonoEmpleado,direccionEmpleado,Id_Rol)
+		  SELECT  e.nombre, e.apepat, e.apemat, e.telefono, e.direccion, e.idrol  --seleccionar ciertas partes del XML
+		  FROM OpenXML(@out,'root/empleado', 1) WITH(nombre varchar(25), apepat varchar(25), apemat varchar(25), telefono varchar(25), direccion varchar(25), idrol int) e 
+		SELECT* FROM Empleado
+		 
+		 IF @@TRANCOUNT > 0 COMMIT TRANSACTION
+		
+	  END TRY
+
+	  BEGIN CATCH
+	    IF @@TRANCOUNT>0 ROLLBACK TRANSACTION
+		SET @smsError= ERROR_MESSAGE()
+		RAISERROR(@smsError,16,1)
+	  END CATCH
+  END
+
+
+GO
+CREATE PROCEDURE [dbo].[uspInsertarMesa] ---LISTO
+  @Cadxml varchar(max)
+  AS
+  BEGIN
+    DECLARE @out int,@smsError nvarchar(300)
+	EXEC SP_XML_PREPAREDOCUMENT @out output, @Cadxml--Crear el xml
+	  BEGIN TRY
+	   BEGIN TRANSACTION
+	      -- Insertando nuevo usuario
+		  INSERT INTO Mesa(Id_tipo,Id_Disponibilidad)
+		  SELECT  m.idtipo, m.iddisponibilidad --seleccionar ciertas partes del XML
+		  FROM OpenXML(@out,'root/mesa', 1) WITH( idtipo int, iddisponibilidad varchar(2)) m
+		--SELECT* FROM Mesa
+		 
+		 IF @@TRANCOUNT > 0 COMMIT TRANSACTION
+		
+	  END TRY
+
+	  BEGIN CATCH
+	    IF @@TRANCOUNT>0 ROLLBACK TRANSACTION
+		SET @smsError= ERROR_MESSAGE()
+		RAISERROR(@smsError,16,1)
+	  END CATCH
+  END
+GO
+CREATE PROCEDURE [dbo].[uspTipoMesa] ---LISTO
+  @prmNombreTipo varchar(15)
+  AS
+  DECLARE @smsError nvarchar(300)
+  BEGIN
+	  BEGIN TRY
+	   BEGIN TRANSACTION
+	      -- Insertando nuevo usuario
+		  INSERT INTO Tipo(Nom_tipo)
+		  VALUES (@prmNombreTipo)
+		--SELECT* FROM Tipo
+		 
+		 IF @@TRANCOUNT > 0 COMMIT TRANSACTION
+		
+	  END TRY
+
+	  BEGIN CATCH
+	    IF @@TRANCOUNT>0 ROLLBACK TRANSACTION
+		SET @smsError= ERROR_MESSAGE()
+		RAISERROR(@smsError,16,1)
+	  END CATCH
+  END
+GO
+CREATE PROCEDURE [dbo].[uspActualizarMesa] ---LISTO
+  @Cadxml varchar(max)
+  AS
+  BEGIN
+    DECLARE @out int,@smsError nvarchar(300)
+	EXEC SP_XML_PREPAREDOCUMENT @out output, @Cadxml--Crear el xml
+	  BEGIN TRY
+	   BEGIN TRANSACTION
+		  -- editando usuario
+		  UPDATE m
+		      SET 
+			  m.Id_tipo=cm.idtipo,
+			  m.Id_Disponibilidad=cm.iddisponibilidad
+			  FROM OpenXML(@out,'root/actMesa',1)WITH(
+		  idmesa int, idtipo int, iddisponibilidad varchar(2)) cm 
+		  INNER JOIN Mesa m ON cm.idmesa=m.Id_mesa
+		  WHERE m.Id_mesa = cm.idmesa
+		 
+		 IF @@TRANCOUNT > 0 COMMIT TRANSACTION
+		
+	  END TRY
+
+	  BEGIN CATCH
+	    IF @@TRANCOUNT>0 ROLLBACK TRANSACTION
+		SET @smsError= ERROR_MESSAGE()
+		RAISERROR(@smsError,16,1)
+	  END CATCH
+  END
+
+
+GO
+SELECT * FROM 
+GO
+CREATE PROCEDURE [dbo].[uspCambiarContrasena] ---LISTO
+  @Cadxml varchar(max)
+  AS
+  BEGIN
+    DECLARE @out int,@smsError nvarchar(300)
+	EXEC SP_XML_PREPAREDOCUMENT @out output, @Cadxml--Crear el xml
+	  BEGIN TRY
+	   BEGIN TRANSACTION
+		  -- editando usuario
+		  UPDATE u 
+		      SET 
+			  u.Contrasena_Usuario = us.nuevaContrasena
+			  FROM OpenXML(@out,'root/cambioContra',1)WITH(
+		  usuario int,contrasena varchar(10), nuevaContrasena varchar(10))us 
+		  INNER JOIN Usuario u ON us.usuario=u.Id_Usuario
+		  WHERE u.Id_Usuario = us.usuario
+		 
+		 IF @@TRANCOUNT > 0 COMMIT TRANSACTION
+		
+	  END TRY
+
+	  BEGIN CATCH
+	    IF @@TRANCOUNT>0 ROLLBACK TRANSACTION
+		SET @smsError= ERROR_MESSAGE()
+		RAISERROR(@smsError,16,1)
+	  END CATCH
+  END
+
+
+GO
+--DROP PROC uspVerificarDatosCambioContrasena
+CREATE PROC uspVerificarDatosCambioContrasena--LISTO
+@prmUsuario INT,
+@prmContrasena VARCHAR(10)
+	AS
+		SELECT * FROM Usuario AS u
+		WHERE  u.Id_Usuario=@prmUsuario AND u.Contrasena_Usuario=@prmContrasena
+GO
+SET NOCOUNT ON
+SELECT COUNT(*) FROM Usuario AS u
+		WHERE  u.Id_Usuario=1 AND u.Contrasena_Usuario='A12'
+GO
+
+CREATE PROCEDURE [dbo].[uspListaRol] ----Listo
   AS
 	  BEGIN
 		SET NOCOUNT ON
@@ -338,7 +552,60 @@ CREATE PROCEDURE [dbo].[uspListaRol] ----verificar si se usar�
 	  END 
 
 GO
+CREATE PROCEDURE [dbo].[uspListaTipo] ----Listo
+  AS
+	  BEGIN
+		SET NOCOUNT ON
+			SELECT * FROM Tipo
+		SET NOCOUNT OFF
+	  END 
 
+GO
+CREATE PROCEDURE [dbo].[uspObtenerIdMesa] ----Listo
+  AS
+	  BEGIN
+		SET NOCOUNT ON
+			SELECT TOP 1 Id_mesa FROM Mesa ORDER BY Id_mesa DESC
+		SET NOCOUNT OFF
+	  END 
+GO
+CREATE PROCEDURE [dbo].[uspObtenerIdEmpleado] ----Listo
+  AS
+	  BEGIN
+		SET NOCOUNT ON
+			SELECT TOP 1 Id_empleado FROM Empleado ORDER BY Id_empleado DESC
+		SET NOCOUNT OFF
+	  END 
+GO
+SELECT * FROM Disponibilidad
+
+--DELETE Empleado WHERE Id_empleado= (SELECT TOP 1 Id_empleado FROM Empleado ORDER BY Id_empleado DESC)
+GO
+CREATE PROCEDURE [dbo].[uspInsertarMarca] ---LISTO
+  @Cadxml varchar(max)
+  AS
+  BEGIN
+    DECLARE @out int,@smsError nvarchar(300)
+	EXEC SP_XML_PREPAREDOCUMENT @out output, @Cadxml--Crear el xml
+	  BEGIN TRY
+	   BEGIN TRANSACTION
+	      -- Insertando nuevo usuario
+		  INSERT INTO Marca(Nom_marca)
+		  SELECT  m.nombre --seleccionar ciertas partes del XML
+		  FROM OpenXML(@out,'root/marca', 1) WITH(nombre varchar(25)) m 
+		--SELECT* FROM Marca
+		 
+		 IF @@TRANCOUNT > 0 COMMIT TRANSACTION
+		
+	  END TRY
+
+	  BEGIN CATCH
+	    IF @@TRANCOUNT>0 ROLLBACK TRANSACTION
+		SET @smsError= ERROR_MESSAGE()
+		RAISERROR(@smsError,16,1)
+	  END CATCH
+  END
+GO
 CREATE PROCEDURE [dbo].[usplistarProdIndicador]--modificar
 		  @prmname nvarchar(100)
 		  as
@@ -460,21 +727,23 @@ CREATE PROCEDURE [dbo].[uspMostrarCabeceraVenta] ---MODIFICAR
 			WHERE dv.Id_Venta_Det = @prmid_venta
 		  END
 GO
- CREATE PROCEDURE [dbo].[UspMostrarDescpRol] --LISTO
+CREATE PROCEDURE [dbo].[uspMostrarDescrpRol] --LISTO
  @prmRol int
- as
- BEGIN
-  SELECT r.Descrp_rol FROM Rol AS r 
-  WHERE r.=@prmNivelAcceso
- END
+ AS
+	 BEGIN
+		  SELECT r.Descrp_rol FROM Rol AS r 
+		  WHERE r.Id_Rol=@prmRol
+	 END
  GO
+
+ SELECT * FROM Rol
 
 CREATE PROCEDURE [dbo].[uspVerificarAcceso] --LISTO
   @prmUsuario varchar(25),
   @prmpassword varchar(10)
   AS
    BEGIN
-     SET NOCOUNT ON--sin mostrar filas afectadas - menos segundos de ejecuci�n
+     SET NOCOUNT ON--sin mostrar filas afectadas - menos segundos de ejecución
 	   SELECT u.Id_Usuario, nombre_Usuario,e.Id_Rol, r.Nom_puesto, e.Id_empleado, e.Id_Rol 
 	   FROM Usuario AS u
 	   INNER JOIN Empleado AS e ON Id_Usuario=@prmUsuario 
