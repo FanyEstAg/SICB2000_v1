@@ -20,78 +20,60 @@ namespace CapaPresentacion
             InitializeComponent();
             u = usuario;//recibimoas al usuario de la ventana anterior
         }
-        //private void RestriccionesUsuario() {//Acessos--modificar
-        //    try
-        //    {
-        //        if (u.Id_empleado.Id_rol.Nom_Puesto == "Admin")
-        //        {
-        //            tsmRegmovimientos.Enabled = true;
-        //            tsmInventario.Enabled = true;
-        //            tsmMesas.Enabled = true;
-        //            tsmVentas.Enabled = true;
-        //            tsmreporteproductos.Enabled = true;
-        //            tsmreporteventas.Enabled = true;
-        //            tsmReporteMesas.Enabled = true;
-        //            //-------------------
-        //            tsmfactura.Enabled = true;
-        //            tsmnotacargo.Enabled = false;
-        //            tsmreporteproductos.Enabled = false;
-        //            tsmreporteventas.Enabled = false;
-        //        }
-        //        if (u.Id_empleado.Id_rol.Nom_Puesto == "Cajero")
-        //        {
-        //            tsmSeguridad.Enabled = false;
-        //            tsmInventario.Enabled = false;
-        //            tsmMesas.Enabled = true;
-        //            tsmVentas.Enabled = true;
-        //            tsmreporteproductos.Enabled = false;
-        //            tsmreporteventas.Enabled = false;
-        //            tsmReporteMesas.Enabled = false;
-        //            //----------------------
-        //            tsmConsultaProd.Enabled = true;
-        //            tsmConsultaVenta.Enabled = false;
+        private void RestriccionesUsuario()
+        {//Acessos--modificar
+            try
+            {
+                if (u.Id_empleado.Id_Rol.Nom_Puesto == "Admin")
+                {
+                    tsmSeguridad.Enabled = true;
+                    tsmInventario.Enabled = true;
+                    tsmMesas.Enabled = true;
+                    tsmVentas.Enabled = true;
+                    tsmConsultaProd.Enabled = true;
+                    tsmConsultaVenta.Enabled = true;
+                    tsmreporteproductos.Enabled = true;
+                    tsmreporteventas.Enabled = true;
+                    tsmReporteMesas.Enabled = true;
+                    //-------------------Acceso a todo
+                }
+                if (u.Id_empleado.Id_Rol.Nom_Puesto == "Cajero")
+                {
+                    tsmSeguridad.Enabled = false;
+                    tsmInventario.Enabled = false;
+                    tsmMesas.Enabled = true;
+                    tsmVentas.Enabled = true;
+                    tsmConsultaProd.Enabled = true;
+                    tsmConsultaVenta.Enabled = false;
+                    tsmreporteproductos.Enabled = false;
+                    tsmreporteventas.Enabled = false;
+                    tsmReporteMesas.Enabled = false;
 
-        //            tsmRegmovimientos.Enabled = false;
-        //            tsmordencompra.Enabled = false;
-        //            tsmfactura.Enabled = false;
-        //            tsmnotacargo.Enabled = false;
-        //            tsmnotacredito.Enabled = false;
-        //            tsmreporteproductos.Enabled = false;
-        //            tsmreporteventas.Enabled = false;
+                }
+                if (u.Id_empleado.Id_Rol.Nom_Puesto == "Jefe Inventario")
+                {
+                    tsmSeguridad.Enabled = false;
+                    tsmInventario.Enabled = true;
+                    tsmMesas.Enabled = false;
+                    tsmVentas.Enabled = false;
+                    tsmreporteproductos.Enabled = true;
+                    tsmreporteventas.Enabled = false;
+                    tsmReporteMesas.Enabled = false;
+                    tsmConsultaProd.Enabled = true;
+                    tsmConsultaVenta.Enabled = false;
 
-        //        }
-        //        if (u.Id_empleado.Id_rol.Nom_Puesto == "Jefe Inventario")
-        //        {
-        //            tsmSeguridad.Enabled = false;
-        //            tsmInventario.Enabled = true;
-        //            tsmMesas.Enabled = false;
-        //            tsmVentas.Enabled = false;
-        //            tsmreporteproductos.Enabled = true;
-        //            tsmreporteventas.Enabled = false;
-        //            tsmReporteMesas.Enabled = false;
-        //            //------------
-        //            tsmConsultaProd.Enabled = true;
-        //            tsmConsultaVenta.Enabled = false;
-        //            tsmRegmovimientos.Enabled = false;
-        //            tsmordencompra.Enabled = false;
-        //            tsmfactura.Enabled = false;
-        //            tsmnotacargo.Enabled = false;
-        //            tsmnotacredito.Enabled = false;
-        //            tsmreporteproductos.Enabled = false;
-        //            tsmreporteventas.Enabled = false;
+                }
+            }
+            catch (Exception)
+            {
 
-        //        }
-        //    }
-        //    catch (Exception)
-        //    {
+                throw;
+            }
+        }
 
-        //        throw;
-        //    }
-        //}
 
-      
 
-        private void frmPrincipal_Load(object sender, EventArgs e)
+        private void frmPrincipal_Load(object sender, EventArgs e)//-LISTO
         {
             try
             {
@@ -103,9 +85,9 @@ namespace CapaPresentacion
                     frmlogin.Visible = false;
                 }
 
-                lblUsuario.Text = "Bienvenido: " + u.Nombre_Usuario + " -  " + u.Id_empleado.Id_rol.Nom_Puesto;
+                lblUsuario.Text = "Bienvenido: " + u.Nombre_Usuario + " - "+ u.Id_empleado.Id_Rol.Nom_Puesto;
 
-                //RestriccionesUsuario();//Restringir las ventanas por rol
+                RestriccionesUsuario();//Restringir las ventanas por rol
             }
             catch (ArgumentNullException ne) {
                 MessageBox.Show(ne.Message, "Aviso",
@@ -131,36 +113,11 @@ namespace CapaPresentacion
 
         }
 
-        //private void seguridadToolStripMenuItem_Click(object sender, EventArgs e)//Ir a  usuarios
-        //{
-        //    try
-        //    {
-        //        frmUsuario frmusuario = new frmUsuario(u.Id_Usuario);
-        //        frmusuario.MdiParent = this;//Adquiere el tamaño de la actual
-        //        foreach (Form frm in Application.OpenForms)//se ven las ventanas que hay y se acomodan
-        //        {
-        //            if (frm is frmUsuario)
-        //            {
-        //                frm.Show();
-        //                frm.Size = MinimumSize;
-        //                frm.WindowState = FormWindowState.Normal;
-        //                return;
-        //            }
-        //        }
-        //        frmusuario.Show();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message, "Aviso",
-        //                           MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-           
-        //}
-
         private void productosToolStripMenuItem_Click(object sender, EventArgs e)//Abrir inventario
         {
             try
             {
+                pictureBox2.Visible = false;
                 frmInventario frmProducto = new frmInventario(u.Id_Usuario);//
                 frmProducto.MdiParent = this;
                 foreach (Form frm in Application.OpenForms)
@@ -183,11 +140,7 @@ namespace CapaPresentacion
 
         }
 
-        
 
-      
-
-        
         //private void ventasToolStripMenuItem2_Click(object sender, EventArgs e)//--MODIFICAR
         //{
         //    try
@@ -213,12 +166,11 @@ namespace CapaPresentacion
         //    }
         //}
 
-       
-
         private void acercaDeToolStripMenuItem1_Click(object sender, EventArgs e)//Acerca de
         {
             try
             {
+                pictureBox2.Visible = false;
                 frmInfoApp frminfo = new frmInfoApp();
                 frminfo.Parent = this.MdiParent;
                 foreach (Form frm in Application.OpenForms) {
@@ -235,36 +187,57 @@ namespace CapaPresentacion
                 throw;
             }
         }
-
-        //private void tsmVentas_Click(object sender, EventArgs e)//Formulario de ventas
-        //{
-        //    try
-        //    {
-        //        frmNotaVenta frmNotaventa = new frmNotaVenta(u.Id_Usuario);
-        //        frmNotaventa.MdiParent = this;
-        //        foreach (Form frm in Application.OpenForms)
-        //        {
-        //            if (frm is frmNotaVenta)
-        //            {
-        //                frm.Show();
-        //                frm.Size = MinimumSize;
-        //                frm.WindowState = FormWindowState.Normal;
-        //                return;
-        //            }
-        //        }
-        //        frmNotaventa.Show();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message, "Aviso",
-        //                              MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-
-        //}
+        private void tsmVentas_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                pictureBox2.Visible = false;
+                frmVenta frmNotaventa = new frmVenta(u.Nombre_Usuario);
+                frmNotaventa.MdiParent = this;
+                foreach (Form frm in Application.OpenForms)
+                {
+                    if (frm is frmVenta)
+                    {
+                        frm.Show();
+                        frm.Size = MinimumSize;
+                        frm.WindowState = FormWindowState.Normal;
+                        return;
+                    }
+                }
+                frmNotaventa.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Aviso",
+                                      MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+       
 
         private void tsmMesas_Click(object sender, EventArgs e)//Formulario de mesas
         {
-
+            pictureBox2.Visible = false;
+            try
+            {
+                frmMesas frmNotaventa = new frmMesas(/*u.Nombre_Usuario*/);
+                frmNotaventa.MdiParent = this;
+                foreach (Form frm in Application.OpenForms)
+                {
+                    if (frm is frmMesas)
+                    {
+                        frm.Show();
+                        frm.Size = MinimumSize;
+                        frm.WindowState = FormWindowState.Normal;
+                        return;
+                    }
+                }
+                frmNotaventa.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Aviso",
+                                      MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void label5_Click(object sender, EventArgs e)
@@ -272,15 +245,42 @@ namespace CapaPresentacion
 
         }
 
-        private void pictureBox3_Click(object sender, EventArgs e)
+        private void pictureBox3_Click(object sender, EventArgs e)//Cerrar
         {
-            this.Dispose(); // Cierra formulario libera recursos
+            this.Close();
+            Application.Exit();
 
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void tsmSeguridad_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                pictureBox2.Visible = false;
+                frmUsuario frmusuario = new frmUsuario(u.Nombre_Usuario);//Mnadamos el nombre de usuario
+                frmusuario.MdiParent = this;//Adquiere el tamaño de la actual
+                foreach (Form frm in Application.OpenForms)//se ven las ventanas que hay y se acomodan
+                {
+                    if (frm is frmUsuario)
+                    {
+                        frm.Show();
+                        frm.Size = MinimumSize;
+                        frm.WindowState = FormWindowState.Normal;
+                        return;
+                    }
+                }
+                frmusuario.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Aviso",
+                                   MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

@@ -16,37 +16,11 @@ namespace CapaPresentacion
         public frmInicioSesion()
         {
             InitializeComponent();
-            
-
         }
 
         private void frmLogeo_Load(object sender, EventArgs e)
         {
             txtUsuario.Focus();
-        }
-
-        private void button2_Click(object sender, EventArgs e)//--LISTO
-        {
-            try
-            {
-                String usuario = txtUsuario.Text;
-                String password = txtPassword.Text;
-                entUsuario u = null;//crear un objeto tipo usuario(entidad)
-                u = negSeguridad.Instancia.IngresoSisema(usuario,password); //Ir  a la capa del negocio
-                
-                frmPrincipal frmprincipal = new frmPrincipal(u);//mandar el usuario a la venta principal
-                frmprincipal.Show();
-            }
-            catch (ApplicationException ae) {//en caos de errores
-
-                MessageBox.Show(ae.Message, "Aviso",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
 
         private void chkmostrarPass_CheckedChanged(object sender, EventArgs e)

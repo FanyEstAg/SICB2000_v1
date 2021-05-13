@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Entidades;
 using CapaAccesoDatos;
+using System.Data;
 
 namespace CapaNegocio
 {
@@ -21,18 +22,18 @@ namespace CapaNegocio
 
 
         
-        public int insertarEmpleado( entEmpleado e)
+        public int insertarEmpleado( entEmpleado e)//listo
         {
             try
             {
                 String cadXml = "";//se creara la cadena del xml
                 cadXml += "<empleado ";
                 cadXml += "nombre='" + e.Nombre_empleado + "' ";
-                cadXml += "apepat='" + e.Nombre_empleado + "' ";
-                cadXml += "apemat='" + e.Nombre_empleado + "' ";
+                cadXml += "apepat='" + e.apepat_empelado + "' ";
+                cadXml += "apemat='" + e.apemat_empleado + "' ";
                 cadXml += "telefono='" + e.telefono_empleado + "' ";
                 cadXml += "direccion='" + e.direccion_empleado + "' ";
-                cadXml += "idrol='" + e.Id_rol +  "'/>";
+                cadXml += "idrol='" + e.Id_Rol.Id_Rol+  "'/>";
                 cadXml = "<root>" + cadXml + "</root>";
                 int result = datSeguridad.Instancia.insertarEmpleado(cadXml);
                 if (result == 0) throw new ApplicationException("Ocurrio un error al registrar, intentelo nuevamente");
@@ -46,7 +47,7 @@ namespace CapaNegocio
             }
         }
 
-        public int EliminarUsuarioxId(int id_usuario)
+        public int EliminarUsuarioxId(int id_usuario)//LISTO
         {
             try
             {
@@ -61,7 +62,7 @@ namespace CapaNegocio
                 throw;
             }
         }
-        public int insertarUsuario(entUsuario u)
+        public int insertarUsuario(entUsuario u)//LISTO
         {
             try
             {
@@ -82,17 +83,43 @@ namespace CapaNegocio
                 throw;
             }
         }
-        
-        public entUsuario BuscarUsuario( String valor) {
+
+        public bool VerificarDatosCambioContrasena(String usuario, String password)//--listo
+        {
             try
             {
+                if (usuario == "") throw new ApplicationException("Ingrese un usuario");
+                if (password == "") throw new ApplicationException("Ingrese una contraseña");
                 
-                entUsuario u = null;
-                //u = datSeguridad.Instancia.BuscarUsuario(valor);
-                if (u == null) {
-                    throw new ApplicationException("No se encontraron registros");
+                bool r = datSeguridad.Instancia.VerificarDatosCambioContrasena(usuario, password);
+                if (r ==false)
+                {
+                    throw new ApplicationException("Usuario y/o contraseña incorrectos");
                 }
-                return u;
+
+                return r;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+        }
+
+        public int cambiarContrasena(entUsuario u, string nuevaContrasena)//LISTO
+        {
+            try
+            {
+                String cadXml = "";//se creara la cadena del xml
+                cadXml += "<cambioContra ";
+                cadXml += "usuario='" + u.Id_Usuario + "' ";
+                cadXml += "contrasena='" + u.Password_Usuario + "' ";
+                cadXml += "nuevaContrasena='" + nuevaContrasena + "'/>";
+                cadXml = "<root>" + cadXml + "</root>";
+                int result = datSeguridad.Instancia.cambiarContrasena(cadXml);
+                if (result == 0) throw new ApplicationException("Ocurrio un error al actualizar, intentelo nuevamente");
+
+                return result;
             }
             catch (Exception)
             {
@@ -101,11 +128,62 @@ namespace CapaNegocio
             }
         }
 
-        public entRol ListarRolDescrp(Int32 idRol)//--listo
+        public DataTable BuscarUsuario( String busqueda) {
+            try
+            {
+                
+                DataTable dt= datSeguridad.Instancia.BuscarUsuario(busqueda);
+                
+                if (dt.Rows.Count == 0) {
+                    throw new ApplicationException("No se encontraron registros");
+                }
+                return dt;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public DataTable CargarUsuarios()
+        {
+            try
+            {
+
+                DataTable dt = datSeguridad.Instancia.CargarUsuarios();
+
+                if (dt.Rows.Count == 0)
+                {
+                    throw new ApplicationException("No se encontraron registros");
+                }
+                return dt;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public string ListarRolDescrp(Int32 idRol)//--listo
         {
             try
             {
                 return datSeguridad.Instancia.ListarRolDescrp(idRol);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public int ObtenerIdEmpleado()//--listo
+        {
+            try
+            {
+                return datSeguridad.Instancia.ObtenerIdEmpleado();
             }
             catch (Exception)
             {
@@ -122,7 +200,6 @@ namespace CapaNegocio
             }
             catch (Exception)
             {
-
                 throw;
             }
         }

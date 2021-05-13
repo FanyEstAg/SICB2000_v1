@@ -14,6 +14,6 @@ namespace Entidades
         public String telefono_empleado { get; set; }
         public String direccion_empleado { get; set; }
         // Relaciones -----------------------------------
-        public entRol Id_rol { get; set; }
+        public entRol Id_Rol { get; set; }
     }
 }

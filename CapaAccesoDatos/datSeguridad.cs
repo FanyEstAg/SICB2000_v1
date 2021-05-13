@@ -7,6 +7,8 @@ using System.Data.SqlClient;
 using System.Data;
 
 using Entidades;
+using System.Windows.Forms;
+
 namespace CapaAccesoDatos
 {
     public class datSeguridad{
@@ -21,7 +23,7 @@ namespace CapaAccesoDatos
         #region metodos
 
 
-        public int insertarUsuario(String cadXml)
+        public int insertarUsuario(String cadXml)//LISTO
         {
             SqlCommand cmd = null;
 
@@ -31,9 +33,6 @@ namespace CapaAccesoDatos
                 cmd = new SqlCommand("uspInsertarUsuario", cn);
                 cmd.Parameters.AddWithValue("@Cadxml", cadXml);
                 cmd.CommandType = CommandType.StoredProcedure;
-                SqlParameter p = new SqlParameter("@retorno", DbType.Int32);
-                p.Direction = ParameterDirection.ReturnValue;
-                cmd.Parameters.Add(p);
                 cn.Open();
                 var result = cmd.ExecuteNonQuery();
                 cn.Close();
@@ -45,7 +44,7 @@ namespace CapaAccesoDatos
             }
         }
 
-        public int insertarEmpleado(String cadXml)
+        public int insertarEmpleado(String cadXml)//LISTO
         {
             SqlCommand cmd = null;
 
@@ -55,12 +54,11 @@ namespace CapaAccesoDatos
                 cmd = new SqlCommand("uspInsertarEmpleado", cn);
                 cmd.Parameters.AddWithValue("@Cadxml", cadXml);
                 cmd.CommandType = CommandType.StoredProcedure;
-                SqlParameter p = new SqlParameter("@retorno", DbType.Int32);
-                p.Direction = ParameterDirection.ReturnValue;
-                cmd.Parameters.Add(p);
+                //SqlParameter p = new SqlParameter("@retorno", DbType.Int32);
+                //p.Direction = ParameterDirection.ReturnValue;
+                //cmd.Parameters.Add(p);
                 cn.Open();
                 var result = cmd.ExecuteNonQuery();
-                cn.Close();
                 return result;
             }
             catch (Exception)
@@ -68,7 +66,7 @@ namespace CapaAccesoDatos
                 throw;
             }
         }
-        public int EliminarUsuarioXid(int id_usuario)
+        public int EliminarUsuarioXid(int id_usuario) //LISTO
         {//LISTO
             SqlCommand cmd = null;
             var retorno = 0;
@@ -89,57 +87,132 @@ namespace CapaAccesoDatos
             finally { cmd.Connection.Close(); }
         }
 
-        public entUsuario BuscarUsuario(String valor){//listo
+        public bool VerificarDatosCambioContrasena(String usuario, String clave)
+        {
             SqlCommand cmd = null;
             SqlDataReader dr = null;
-            entUsuario u = null;
+
+            var result = false;
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("uspVerificarDatosCambioContrasena", cn);
+                cmd.Parameters.AddWithValue("@prmUsuario", Convert.ToInt32(usuario));
+                cmd.Parameters.AddWithValue("@prmContrasena", clave);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cn.Open();
+                dr= cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    result = true;
+                }
+               
+                cn.Close();
+                return result;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            
+        }
+
+
+        public int cambiarContrasena(String cadXml)//LISTO
+        {
+            SqlCommand cmd = null;
+
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("uspCambiarContrasena", cn);
+                cmd.Parameters.AddWithValue("@Cadxml", cadXml);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cn.Open();
+                var result = cmd.ExecuteNonQuery();
+                cn.Close();
+                return result;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public DataTable BuscarUsuario(String busqueda){//
+            SqlCommand cmd = null;
+            DataTable dt = new DataTable();
             try
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();
                 cmd = new SqlCommand("uspBuscarUsuario", cn);
-                cmd.Parameters.AddWithValue("@prmValor", valor);
+                cmd.Parameters.AddWithValue("@prmBusqueda", busqueda);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cn.Open();
-                dr = cmd.ExecuteReader();
-                if (dr.Read())
-                {
-                    u = new entUsuario();
-                    entEmpleado em = new entEmpleado();
-                    u.Nombre_Usuario = dr["nombre_Usuario"].ToString();
-                    u.Password_Usuario = dr["Contrasena_Usuario"].ToString();
-                    
-                    em.telefono_empleado = dr["telefonoEmpleado"].ToString();
-                  
-                    entRol r = new entRol();
-                    r.Id_Rol= Convert.ToInt32(dr["Id_Rol"]);
-                    r.Nom_Puesto = dr["Nom_puesto"].ToString();
-                    r.Descripcion_Rol= dr["Descrp_rol"].ToString();
-                    em.Id_rol = r;
-                    em.Id_empleado= Convert.ToInt32(dr["Id_empleado"]);
-                    u.Id_empleado = em;
-                    em.Nombre_empleado= dr["Nom_empleado"].ToString();
-                    em.apepat_empelado = dr["apepatEmpleado"].ToString();
-                    em.apemat_empleado = dr["apematEmpleado"].ToString();
-                    em.telefono_empleado = dr["telefonoEmpleado"].ToString();
-                    em.direccion_empleado = dr["direccionEmpleado"].ToString();
-                    cn.Close();
-                }
+                dt.Load(cmd.ExecuteReader());
+                
             }
             catch (Exception)
             {
                 throw;
             }
             finally { cmd.Connection.Close(); }
-            return u;
+            return dt;
         }
 
-       
+        public DataTable CargarUsuarios()
+        {//listo
+            SqlCommand cmd = null;
+            DataTable dt = new DataTable();
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("uspCargarUsuarios", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cn.Open();
+                dt.Load(cmd.ExecuteReader());
 
-        public entRol ListarRolDescrp(Int32 idRol)//---listo
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally { cmd.Connection.Close(); }
+            return dt;
+        }
+        public int ObtenerIdEmpleado()//---listo
         {
             SqlCommand cmd = null;
             SqlDataReader dr = null;
-            entRol r = null;
+            int r = 0;
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("uspObtenerIdEmpleado", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cn.Open();
+                dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    r = Convert.ToInt32(dr["Id_empleado"]);
+                }
+                cn.Close();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally { cmd.Connection.Close(); }
+            return r;
+        }
+
+
+        public string ListarRolDescrp(Int32 idRol)//---listo
+        {
+            SqlCommand cmd = null;
+            SqlDataReader dr = null;
+            string r="";
             try
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();
@@ -150,8 +223,7 @@ namespace CapaAccesoDatos
                 dr = cmd.ExecuteReader();
                 if (dr.Read())
                 {
-                     r = new entRol();
-                    r.Descripcion_Rol = dr["Descrp_rol"].ToString();
+                    r=dr["Descrp_rol"].ToString();
                 }
                 cn.Close();
             }
@@ -183,8 +255,8 @@ namespace CapaAccesoDatos
                     r.Nom_Puesto = dr["Nom_puesto"].ToString();
                     r.Descripcion_Rol = dr["Descrp_rol"].ToString();
                     Lista.Add(r);
+                    //MessageBox.Show("" + Lista);
                 }
-                cn.Close();
             }
             catch (Exception)
             {
@@ -203,9 +275,9 @@ namespace CapaAccesoDatos
             try
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();
-                cmd = new SqlCommand("uspVerificarAcceso", cn);
+                cmd = new SqlCommand("uspIniciar_Sesion", cn);
                 cmd.Parameters.AddWithValue("@prmUsuario", usuario);
-                cmd.Parameters.AddWithValue("@prmpassword", clave);
+                cmd.Parameters.AddWithValue("@prmContrasena", clave);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cn.Open();
                 dr = cmd.ExecuteReader();
@@ -214,13 +286,12 @@ namespace CapaAccesoDatos
                     u = new entUsuario();
                     u.Id_Usuario = Convert.ToInt32(dr["Id_Usuario"]);
                     u.Nombre_Usuario = dr["nombre_Usuario"].ToString();
+                    entEmpleado e = new entEmpleado();
                     entRol r = new entRol();
+                    e.Id_empleado = Convert.ToInt32(dr["Id_Empleado"]);
                     r.Id_Rol = Convert.ToInt32(dr["Id_Rol"]);
                     r.Nom_Puesto = dr["Nom_puesto"].ToString();
-
-                    entEmpleado e = new entEmpleado();
-                    e.Id_empleado= Convert.ToInt32(dr["Id_empleado"]);
-                    e.Id_rol = r;
+                    e.Id_Rol = r;
                     u.Id_empleado = e;
                 }
                 cn.Close();
