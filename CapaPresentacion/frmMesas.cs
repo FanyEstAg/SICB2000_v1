@@ -80,10 +80,8 @@ namespace CapaPresentacion
 
         private void btnAgregarMarca_Click(object sender, EventArgs e)
         {
-            frmNuevaMarca nm  = new frmNuevaMarca();
-            nm.Show();
-            
-            
+            frmMesaAgregarTipo mt = new frmMesaAgregarTipo();
+            mt.Show();
             //this.Hide();
         }
 

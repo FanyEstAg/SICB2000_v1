@@ -17,6 +17,7 @@ namespace CapaPresentacion
         {
             InitializeComponent();
         }
+        //Faltan verificaciones de textbox
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
@@ -39,7 +40,7 @@ namespace CapaPresentacion
         {
             try
             {
-                DialogResult res = MessageBox.Show("¿Desea cancelar la operación?", "Cancelar operación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                DialogResult res = MessageBox.Show("¿Desea salir?", "Cancelar operación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (res == DialogResult.Yes)
                 {
                     this.Dispose();

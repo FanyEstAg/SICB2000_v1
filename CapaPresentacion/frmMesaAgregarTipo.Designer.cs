@@ -105,7 +105,7 @@ namespace CapaPresentacion
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(103, 137);
+            this.label8.Location = new System.Drawing.Point(87, 137);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(88, 20);
             this.label8.TabIndex = 30;
@@ -113,16 +113,16 @@ namespace CapaPresentacion
             // 
             // txtNuevoTipo
             // 
-            this.txtNuevoTipo.Location = new System.Drawing.Point(212, 140);
+            this.txtNuevoTipo.Location = new System.Drawing.Point(181, 139);
             this.txtNuevoTipo.Name = "txtNuevoTipo";
-            this.txtNuevoTipo.Size = new System.Drawing.Size(121, 20);
+            this.txtNuevoTipo.Size = new System.Drawing.Size(136, 20);
             this.txtNuevoTipo.TabIndex = 29;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(118, 80);
+            this.label6.Location = new System.Drawing.Point(102, 80);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(215, 20);
             this.label6.TabIndex = 26;
@@ -133,7 +133,7 @@ namespace CapaPresentacion
             this.btnGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(35)))), ((int)(((byte)(107)))));
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnGuardar.Location = new System.Drawing.Point(160, 222);
+            this.btnGuardar.Location = new System.Drawing.Point(149, 197);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(124, 38);
             this.btnGuardar.TabIndex = 24;
@@ -154,6 +154,7 @@ namespace CapaPresentacion
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmMesaAgregarTipo";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmMesaAgregarTipo";
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
