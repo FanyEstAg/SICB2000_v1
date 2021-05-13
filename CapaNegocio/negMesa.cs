@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Entidades;
 using CapaAccesoDatos;
+using System.Data;
 
 namespace CapaNegocio
 {
@@ -21,16 +22,16 @@ namespace CapaNegocio
 
         #endregion singleton
 
-        public int insertarMesa(entMesa m)
+        public int insertarMesa(entMesa m)//LISTO
         {
             try
             {
                 String cadXml = "";//se creara la cadena del xml
                 cadXml += "<mesa ";
-                cadXml += "idtipo='" + m.id_tipo + "' ";
-                cadXml += "iddisponibilidad='" + m.Id_disponibilidad +  "'/>";
+                cadXml += "idtipo='" + m.id_tipo.Id_Tipo + "' ";
+                cadXml += "iddisponibilidad='" + m.Id_disponibilidad.Id_Disponibilidad +  "'/>";
                 cadXml = "<root>" + cadXml + "</root>";
-                int result = datMesa.Instancia.GuardarCobroMesa(cadXml);
+                int result = datMesa.Instancia.insertarMesa(cadXml);
                 if (result == 0) throw new ApplicationException("Ocurrio un error al registrar, intentelo nuevamente");
 
                 return result;
@@ -41,12 +42,37 @@ namespace CapaNegocio
                 throw;
             }
         }
-        public int insertarTipoMesa(string n)
+
+        public List<entTipo> ListarTipo()//--listo
+        {
+            try
+            {
+                return datMesa.Instancia.ListarTipo();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        public int ObtenerIdMesa()//--listo
+        {
+            try
+            {
+                return datMesa.Instancia.ObtenerIdMesa();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public int insertarTipoMesa(string tp)
         {
             try
             {
                 
-                int result = datMesa.Instancia.insertarTipoMesa(n);
+                int result = datMesa.Instancia.insertarTipoMesa(tp);
                 if (result == 0) throw new ApplicationException("Ocurrio un error al registrar, intentelo nuevamente");
 
                 return result;
@@ -72,6 +98,67 @@ namespace CapaNegocio
                 throw;
             }
         }
+
+        public int actualizarMesa(entMesa m)
+        {
+            try
+            {
+                String cadXml = "";//se creara la cadena del xml
+                cadXml += "<actMesa ";
+                cadXml += "idmesa='" + m.Id_Mesa + "' ";
+                cadXml += "idtipo='" + m.id_tipo.Id_Tipo + "' ";
+                cadXml += "iddisponibilidad='" + m.Id_disponibilidad.Id_Disponibilidad + "'/>";
+                cadXml = "<root>" + cadXml + "</root>";
+                int result = datMesa.Instancia.actualizarMesa(cadXml);
+                if (result == 0) throw new ApplicationException("Ocurrio un error al actualizar, intentelo nuevamente");
+
+                return result;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        public DataTable CargarMesas()
+        {
+            try
+            {
+                DataTable dt = datMesa.Instancia.CargarMesas();
+
+                if (dt.Rows.Count == 0)
+                {
+                    throw new ApplicationException("No se encontraron registros");
+                }
+                return dt;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public DataTable BuscarMesa(string busqueda)
+        {
+            try
+            {
+
+                DataTable dt = datMesa.Instancia.BuscarMesa(busqueda);
+
+                if (dt.Rows.Count == 0)
+                {
+                    throw new ApplicationException("No se encontraron registros");
+                }
+                return dt;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         public int GuardarCobroMesa(entCobroMesa co)
         {
             try

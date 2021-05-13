@@ -626,7 +626,7 @@
             // 
             this.txtBuscarCONS.Location = new System.Drawing.Point(107, 31);
             this.txtBuscarCONS.Name = "txtBuscarCONS";
-            this.txtBuscarCONS.Size = new System.Drawing.Size(512, 22);
+            this.txtBuscarCONS.Size = new System.Drawing.Size(536, 22);
             this.txtBuscarCONS.TabIndex = 25;
             // 
             // dgvUsuarios

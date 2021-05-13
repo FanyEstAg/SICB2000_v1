@@ -339,9 +339,6 @@ namespace CapaAccesoDatos
                 cmd = new SqlCommand("uspInsertarMarca", cn);
                 cmd.Parameters.AddWithValue("@prmNombre", nom);
                 cmd.CommandType = CommandType.StoredProcedure;
-                SqlParameter p = new SqlParameter("@retorno", DbType.Int32);
-                p.Direction = ParameterDirection.ReturnValue;
-                cmd.Parameters.Add(p);
                 cn.Open();
                 var result = cmd.ExecuteNonQuery();
                 cn.Close();

@@ -73,5 +73,30 @@ namespace CapaPresentacion
         {
 
         }
+
+        private void btnAgregarMarca_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbxTipoMesa_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEliminarMesa_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnConsultarMesa_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
