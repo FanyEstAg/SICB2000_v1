@@ -202,6 +202,14 @@
   <ItemGroup>
     <None Include="Resources\Logo CLUB BILLAR.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\cerrar.png" />
+    <Content Include="Resources\ir.png" />
+    <Content Include="Resources\lupa.png" />
+    <Content Include="Resources\mini.png" />
+    <Content Include="Resources\regresar.png" />
+    <Content Include="Resources\usuario.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
