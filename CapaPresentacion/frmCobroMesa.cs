@@ -1,4 +1,8 @@
-﻿using CapaNegocio;
+﻿//Nombre del programa: SolutionFinal
+//Fecha de creación de la base de datos:28.03.2021
+//Fecha de entrega: 06.05.2021
+//Autor: Elizabeth Lucas García
+using CapaNegocio;
 using Entidades;
 using System;
 using System.Collections.Generic;
@@ -14,7 +18,7 @@ namespace CapaPresentacion
     public partial class frmCobroMesa : Form
     {
        
-        public frmCobroMesa(/*string user*/)
+        public frmCobroMesa()
         {
             InitializeComponent();
             //this.user = user;
@@ -36,21 +40,23 @@ namespace CapaPresentacion
         }
 
         private void btnRegistrar_Click(object sender, EventArgs e)
-        {
+        {       //Botón que registra o guarda un cobro
             
                 try
+                //intentar esto:
                 {
-                    entCobroMesa co = new entCobroMesa();
-                    co.Id_mesa.Id_Mesa = cbxIdMesa.SelectedIndex;
-                    //co.Id_mesa.id_tipo = 
-                    //co.Tiempo_total =
-                    //co.PagoTotal =
+                
+                entCobroMesa co = new entCobroMesa();//Traer clase
+                entMesa m = new entMesa();//Traer clase
+                m.Id_Mesa = cbxIdMesa.SelectedIndex;//Leer índice
+                co.Id_mesa = m;//Asignar id mesa a m
 
-                    int cobro = negMesa.Instancia.GuardarCobroMesa(co);
+                int cobro = negMesa.Instancia.GuardarCobroMesa(co);//Guardar en capa de negocio
                     MessageBox.Show("¡Cobro exitoso!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    
+                    //Notificación de proceso correcto
                 }
                 catch (Exception ex)
+                //Especificar respuesta si existe error
                 {
                     MessageBox.Show(ex.Message, "Error",
                                      MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -60,7 +66,7 @@ namespace CapaPresentacion
 
         private void horaFecha_Tick(object sender, EventArgs e)
         {
-            lblHora.Text = DateTime.Now.ToShortTimeString();
+            lblHora.Text = DateTime.Now.ToShortTimeString();//Extraer hora del equipo
         }
 
         private void lblHora_Click(object sender, EventArgs e)

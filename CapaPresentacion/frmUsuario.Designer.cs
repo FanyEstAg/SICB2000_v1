@@ -51,9 +51,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.Registrar = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -100,11 +97,12 @@
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.button5 = new System.Windows.Forms.Button();
             this.label35 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.Registrar.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -115,6 +113,8 @@
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.tabPage5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -362,40 +362,6 @@
             this.panel1.Size = new System.Drawing.Size(877, 375);
             this.panel1.TabIndex = 5;
             // 
-            // label1
-            // 
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(98)))), ((int)(((byte)(135)))));
-            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F);
-            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(901, 56);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "CONFIGURACIÓN DE USUARIOS";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::CapaPresentacion.Properties.Resources.Delete_16x16_32;
-            this.pictureBox3.Location = new System.Drawing.Point(874, 0);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(27, 25);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 16;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(98)))), ((int)(((byte)(135)))));
-            this.pictureBox1.Image = global::CapaPresentacion.Properties.Resources.Logo_CLUB_BILLAR;
-            this.pictureBox1.Location = new System.Drawing.Point(3, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(68, 53);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 15;
-            this.pictureBox1.TabStop = false;
-            // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.Registrar);
@@ -417,7 +383,7 @@
             this.Registrar.Location = new System.Drawing.Point(4, 25);
             this.Registrar.Name = "Registrar";
             this.Registrar.Padding = new System.Windows.Forms.Padding(3);
-            this.Registrar.Size = new System.Drawing.Size(825, 331);
+            this.Registrar.Size = new System.Drawing.Size(859, 331);
             this.Registrar.TabIndex = 0;
             this.Registrar.Text = "Contraseña";
             this.Registrar.UseVisualStyleBackColor = true;
@@ -437,7 +403,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(819, 325);
+            this.panel2.Size = new System.Drawing.Size(853, 325);
             this.panel2.TabIndex = 0;
             // 
             // textBox6
@@ -622,7 +588,7 @@
             this.tabPage4.Controls.Add(this.panel4);
             this.tabPage4.Location = new System.Drawing.Point(4, 25);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(573, 322);
+            this.tabPage4.Size = new System.Drawing.Size(859, 331);
             this.tabPage4.TabIndex = 4;
             this.tabPage4.Text = "Consultar";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -637,7 +603,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(573, 322);
+            this.panel4.Size = new System.Drawing.Size(859, 331);
             this.panel4.TabIndex = 0;
             // 
             // dataGridView2
@@ -727,7 +693,7 @@
             this.tabPage5.Controls.Add(this.label35);
             this.tabPage5.Location = new System.Drawing.Point(4, 25);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(573, 322);
+            this.tabPage5.Size = new System.Drawing.Size(859, 331);
             this.tabPage5.TabIndex = 5;
             this.tabPage5.Text = "Actualizar";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -912,6 +878,41 @@
             this.label35.TabIndex = 24;
             this.label35.Text = "Id Mesa:";
             // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(98)))), ((int)(((byte)(135)))));
+            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F);
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(901, 56);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "CONFIGURACIÓN DE USUARIOS";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::CapaPresentacion.Properties.Resources.Delete_16x16_32;
+            this.pictureBox3.Location = new System.Drawing.Point(874, 0);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(27, 25);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 16;
+            this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(98)))), ((int)(((byte)(135)))));
+            this.pictureBox1.Image = global::CapaPresentacion.Properties.Resources.Logo_CLUB_BILLAR;
+            this.pictureBox1.Location = new System.Drawing.Point(3, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(68, 53);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 15;
+            this.pictureBox1.TabStop = false;
+            // 
             // frmUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -932,8 +933,6 @@
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.Registrar.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -948,6 +947,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

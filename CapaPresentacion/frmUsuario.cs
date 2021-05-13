@@ -197,5 +197,10 @@ namespace CapaPresentacion
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
     }
 }
