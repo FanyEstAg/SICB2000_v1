@@ -41,7 +41,9 @@ namespace CapaPresentacion
                 try
                 {
                     entCobroMesa co = new entCobroMesa();
-                    co.Id_mesa.Id_Mesa = cbxIdMesa.SelectedIndex;
+                    entMesa m = new entMesa();
+                    m.Id_Mesa= cbxIdMesa.SelectedIndex;
+                    co.Id_mesa= m;
                     //co.Id_mesa.id_tipo = 
                     //co.Tiempo_total =
                     //co.PagoTotal =

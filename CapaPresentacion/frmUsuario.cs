@@ -21,6 +21,7 @@ namespace CapaPresentacion
             //id_Usuario=(int)idusuario;
             InitializeComponent();
             
+            
         }
 
         // metodos globales para etiquetas del formulario 
@@ -47,19 +48,25 @@ namespace CapaPresentacion
         {
             try
             {
+                dgvUsuarios.DataSource = negSeguridad.Instancia.CargarUsuarios();
                 //combobox con los roles
-                cboRol.ValueMember = "Id_NivelAcc";
-                cboRol.DisplayMember = "Numero_NivelAcc";
-                cboRol.DataSource = negSeguridad.Instancia.ListarRol();
+                cbxRolINS.Text = "Seleccionar...";
+                cbxRolINS.ValueMember = "Id_Rol";
+                cbxRolINS.DisplayMember = "Descrp_rol";
+                foreach (var dat in negSeguridad.Instancia.ListarRol())
+                {
+                    cbxRolINS.Items.Add(dat.Nom_Puesto);
+                }
                
+                
                 //ControlBotones(true, false, false, false, false, true);//mandar los boleanos para (des)habilitar los botones
-                ac.BloquearText(this.panel1, false);
+                ac.BloquearText(this.panel1, false);//checar
 
                 // conf textbox para ser multilineas(textarea)
-                txtDescNivelAcceso.ScrollBars = ScrollBars.Vertical;
-                txtDescNivelAcceso.AcceptsReturn = true;
-                txtDescNivelAcceso.AcceptsTab = true;
-                txtDescNivelAcceso.WordWrap = true;
+                txaDecrpINS.ScrollBars = ScrollBars.Vertical;
+                txaDecrpINS.AcceptsReturn = true;
+                txaDecrpINS.AcceptsTab = true;
+                txaDecrpINS.WordWrap = true;
                 
             }
             catch (Exception ex)
@@ -69,66 +76,7 @@ namespace CapaPresentacion
             }
         }
 
-        private void cboNivelAcceso_SelectedIndexChanged(object sender, EventArgs e)//Elegir tal rol--listo
-        {
-            try
-            {
-                Int32 i = Convert.ToInt32(cboRol.SelectedValue.ToString());
-                entRol r = null;
-                r = negSeguridad.Instancia.ListarRolDescrp(i);
-                txtDescNivelAcceso.Text = r.Descripcion_Rol;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error",
-                  MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void btnNuevo_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                ac.LimpiarText(this.panel1);
-                ac.BloquearText(this.panel1, true);
-                //ControlBotones(false, false, true, false, true, false);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error",
-                  MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void btnEditar_Click(object sender, EventArgs e)//FALTA
-        {
-            try
-            {
-                //ControlBotones(false, false, true, false, true, false);
-                ac.BloquearText(this.panel1, true);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error",
-                                  MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-
       
-        private void btnCancelar_Click(object sender, EventArgs e)//listo
-        {
-            try
-            {
-               // ControlBotones(true, true, false, true, false, true);
-                ac.BloquearText(this.panel1, false);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
         private void btnSalir_Click(object sender, EventArgs e)//listo
         {
             try
@@ -147,39 +95,42 @@ namespace CapaPresentacion
 
         
         
-        private void button3_Click(object sender, EventArgs e)//Registrar
+        private void button3_Click(object sender, EventArgs e)//Registrar//LISTO
         {
             try
             {
+                entRol ro = new entRol();
                 entUsuario u = new entUsuario();
                 entEmpleado em = new entEmpleado();
-                entRol r = new entRol();
-                r.Id_Rol = Convert.ToInt32(cboRol.SelectedValue);
-                em.Id_rol = r;
-                em.Nombre_empleado = txtnombre.Text;
-                em.apepat_empelado = txtApepat.Text;
-                em.apemat_empleado = txtApemat.Text;
-                em.direccion_empleado = txtDireccion.Text;
-                em.telefono_empleado = txtTelefono.Text;
-                u.Id_empleado = em;
-
-                u.Nombre_Usuario = txtUusuario.Text;
-                u.Password_Usuario = txtPassword.Text;
+                ro.Id_Rol = Convert.ToInt32(cbxRolINS.SelectedIndex + 1);
+                em.Id_Rol = ro;
+                em.Nombre_empleado = txtNombreINS.Text;
+                em.apepat_empelado = txtApepatINS.Text;
+                em.apemat_empleado = txtApematINS.Text;
+                em.direccion_empleado = txtDireccionINS.Text;
+                em.telefono_empleado = txtTelefonoINS.Text;
                 int emp = negSeguridad.Instancia.insertarEmpleado(em);
+                em.Id_empleado = negSeguridad.Instancia.ObtenerIdEmpleado();
+                
+                u.Id_empleado = em;
+                u.Nombre_Usuario = txtUusuarioINS.Text;
+                u.Password_Usuario = txtPasswordINS.Text;
+                
                 int us = negSeguridad.Instancia.insertarUsuario(u);
                 MessageBox.Show("¡Registro Correcto!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //ControlBotones(true, false, false, false, false, true);
-                //ac.BloquearText(this.panel1, false);
-            }
+            //ControlBotones(true, false, false, false, false, true);
+            ac.BloquearText(this.panel1, false);
+        }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error",
                                  MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-        }
+}
 
-        private void button1_Click(object sender, EventArgs e)//Eliminar
+        private void button1_Click(object sender, EventArgs e)//Listo
+            //Eliminar
         {
             try
             {
@@ -197,5 +148,90 @@ namespace CapaPresentacion
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void cbxRolINS_SelectedIndexChanged(object sender, EventArgs e)//Listo
+            //Cuando se seleccione un item
+        {
+            try
+            {
+                Int32 i = Convert.ToInt32(cbxRolINS.SelectedIndex+1);//enviar el id del rol
+                txaDecrpINS.Text = negSeguridad.Instancia.ListarRolDescrp(i);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error",
+                  MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnCancelar_Click_1(object sender, EventArgs e)//LISTO
+        {
+            try
+            {
+                DialogResult res = MessageBox.Show("¿Desea cancelar la operaicón?","Cancelar operación",MessageBoxButtons.YesNo,MessageBoxIcon.Warning);
+                if (res == DialogResult.Yes)
+                {
+                    this.Dispose();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnCambiarContra_Click(object sender, EventArgs e)//LISTO
+        {
+            try
+            {
+                entUsuario u = new entUsuario();
+
+                u.Id_Usuario = Convert.ToInt32(txtIdCC.Text);
+                u.Password_Usuario = txtContrasenaCC.Text;
+                bool existencia = negSeguridad.Instancia.VerificarDatosCambioContrasena(txtIdCC.Text, txtContrasenaCC.Text);
+                
+                    if (txtContrasenaNuevaCC.Text != txtConfirmarCC.Text)
+                    {
+                        MessageBox.Show("Las contraseñas no coinciden, por favor verifique", "Avertencia",
+                                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }//meter verificaicón de minimo y maximo de caracteres
+                    else
+                    {
+                        int us = negSeguridad.Instancia.cambiarContrasena(u, txtContrasenaNuevaCC.Text);
+                        MessageBox.Show("¡Actualización de contraseña Correcto!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        //ControlBotones(true, false, false, false, false, true);
+                        ac.BloquearText(this.panel1, false);
+                    }
+                
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error",
+                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnConsultar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                dgvUsuarios.DataSource = negSeguridad.Instancia.BuscarUsuario(txtBuscarCONS.Text);
+                //ControlBotones(true, true, false, true, false, true);
+                ac.BloquearText(this.panel1, false);
+            }
+            catch (ApplicationException ae)
+            {
+                MessageBox.Show(ae.Message, "Aviso",
+                                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error",
+                                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
     }
 }
+
