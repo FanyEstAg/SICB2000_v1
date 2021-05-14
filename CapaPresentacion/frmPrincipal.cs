@@ -284,3 +284,5 @@ namespace CapaPresentacion
         }
     }
 }
+// this.Close();
+//Application.Exit();

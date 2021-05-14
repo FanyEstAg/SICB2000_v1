@@ -193,6 +193,16 @@ namespace CapaPresentacion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap cerrar {
+            get {
+                object obj = ResourceManager.GetObject("cerrar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap chart_accept_32x32_32 {
             get {
                 object obj = ResourceManager.GetObject("chart-accept_32x32-32", resourceCulture);
@@ -316,6 +326,16 @@ namespace CapaPresentacion.Properties {
         internal static System.Drawing.Bitmap Logo_CLUB_BILLAR1 {
             get {
                 object obj = ResourceManager.GetObject("Logo CLUB BILLAR1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap mini {
+            get {
+                object obj = ResourceManager.GetObject("mini", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

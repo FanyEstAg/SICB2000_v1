@@ -204,9 +204,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\cerrar.png" />
+    <None Include="Resources\cerrar1.png" />
     <Content Include="Resources\ir.png" />
     <Content Include="Resources\lupa.png" />
     <Content Include="Resources\mini.png" />
+    <None Include="Resources\mini1.png" />
     <Content Include="Resources\regresar.png" />
     <Content Include="Resources\usuario.png" />
   </ItemGroup>
