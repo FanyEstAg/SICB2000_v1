@@ -202,8 +202,6 @@ namespace CapaPresentacion
                         //ControlBotones(true, false, false, false, false, true);
                         ac.BloquearText(this.panel1, false);
                     }
-                
-
             }
             catch (Exception ex)
             {

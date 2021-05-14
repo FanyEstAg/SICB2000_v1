@@ -1,6 +1,7 @@
 CREATE DATABASE [bd_billar]
 GO
 USE bd_billar;
+	[apepatEmpleado] [varchar](25) NOT NULL,
 GO
 
 CREATE TABLE [dbo].[Rol](
@@ -14,7 +15,6 @@ GO
 CREATE TABLE [dbo].[Empleado](
 	[Id_empleado] [int] IDENTITY(1,1),
 	[Nom_empleado] [varchar](25) NOT NULL,
-	[apepatEmpleado] [varchar](25) NOT NULL,
 	[apematEmpleado] [varchar](25) NOT NULL,
 	[telefonoEmpleado] [varchar](25) NOT NULL,
 	[direccionEmpleado] [varchar](25) NOT NULL,
@@ -104,9 +104,8 @@ CREATE TABLE [dbo].[PagoMesa](
 	[Id_mesa] [int] NOT NULL CONSTRAINT fk_pago_mesa FOREIGN KEY (Id_mesa) REFERENCES Mesa,
 	[Tiempo_inicio] [time] NOT NULL,
 	[Tiempo_fin] [time] NOT NULL,
-	[Tiempo_total] [time] NOT NULL,
+	[Tiempo_total] [int] NOT NULL,
 	[PagoTotal] [money] NOT NULL,
 	CONSTRAINT pk_pago_mesa PRIMARY KEY (Id_pagoMesa)
 );
 GO
-

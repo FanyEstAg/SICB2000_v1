@@ -17,6 +17,7 @@ namespace CapaPresentacion
         {
             InitializeComponent();
         }
+        //Faltan verificaciones de textbox
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
@@ -32,6 +33,22 @@ namespace CapaPresentacion
             {
                 MessageBox.Show(ex.Message, "Error",
                                  MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult res = MessageBox.Show("¿Desea salir?", "Cancelar operación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (res == DialogResult.Yes)
+                {
+                    this.Dispose();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

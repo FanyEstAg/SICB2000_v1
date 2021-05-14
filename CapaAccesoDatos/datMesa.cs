@@ -19,26 +19,7 @@ namespace CapaAccesoDatos
         #endregion singleton
 
         #region metodos mesa
-        public int GuardarCobroMesa(String cadXml)
-        {
-            SqlCommand cmd = null;
-
-            try
-            {
-                SqlConnection cn = Conexion.Instancia.Conectar();
-                cmd = new SqlCommand("uspInsertarMesa", cn);
-                cmd.Parameters.AddWithValue("@Cadxml", cadXml);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cn.Open();
-                var result = cmd.ExecuteNonQuery();
-                cn.Close();
-                return result;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
+       
         public int EliminarMesa(int id_mesa)
         {//LISTO
             SqlCommand cmd = null;
@@ -60,16 +41,15 @@ namespace CapaAccesoDatos
             finally { cmd.Connection.Close(); }
         }
 
-
-        public int insertarTipoMesa(String nom)
+        public int insertarMesa(string cadXml)
         {
             SqlCommand cmd = null;
 
             try
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();
-                cmd = new SqlCommand("uspInsertarTipoMesa", cn);
-                cmd.Parameters.AddWithValue("@prmNombre", nom);
+                cmd = new SqlCommand("uspInsertarMesa", cn);
+                cmd.Parameters.AddWithValue("@CadXml", cadXml);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cn.Open();
                 var result = cmd.ExecuteNonQuery();
@@ -81,10 +61,172 @@ namespace CapaAccesoDatos
                 throw;
             }
         }
+        public int insertarTipoMesa(String nom)
+        {
+            SqlCommand cmd = null;
+
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("uspInsertarTipoMesa", cn);
+                cmd.Parameters.AddWithValue("@prmNombreTipo", nom);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cn.Open();
+                var result = cmd.ExecuteNonQuery();
+                cn.Close();
+                return result;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public int actualizarMesa(String cadXml)//LISTO
+        {
+            SqlCommand cmd = null;
+
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("uspActualizarMesa", cn);
+                cmd.Parameters.AddWithValue("@Cadxml", cadXml);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cn.Open();
+                var result = cmd.ExecuteNonQuery();
+                cn.Close();
+                return result;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public List<entTipo> ListarTipo()
+        {//--listo
+            SqlCommand cmd = null;
+            SqlDataReader dr = null;
+            List<entTipo> Lista = null;
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("uspListaTipo", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cn.Open();
+                dr = cmd.ExecuteReader();
+                Lista = new List<entTipo>();
+                while (dr.Read())
+                {
+                    entTipo t = new entTipo();
+                    t.Id_Tipo = Convert.ToInt32(dr["Id_tipo"].ToString());
+                    t.Nom_Tipo = dr["Nom_tipo"].ToString();
+                    Lista.Add(t);
+                    //MessageBox.Show("" + Lista);
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally { cmd.Connection.Close(); }
+            return Lista;
+        }
+
+        public int ObtenerIdMesa()//---listo
+        {
+            SqlCommand cmd = null;
+            SqlDataReader dr = null;
+            int r = 0;
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("uspObtenerIdMesa", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cn.Open();
+                dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    r = Convert.ToInt32(dr["Id_mesa"]);
+                }
+                cn.Close();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally { cmd.Connection.Close(); }
+            return r;
+        }
+
+        public DataTable CargarMesas()//LISTO
+        {//listo
+            SqlCommand cmd = null;
+            DataTable dt = new DataTable();
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("uspCargarMesas", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cn.Open();
+                dt.Load(cmd.ExecuteReader());
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally { cmd.Connection.Close(); }
+            return dt;
+        }
+        public DataTable BuscarMesa(string busqueda)
+        {//
+            SqlCommand cmd = null;
+            DataTable dt = new DataTable();
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("uspBuscarMesa", cn);
+                cmd.Parameters.AddWithValue("@prmBusqueda", busqueda);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cn.Open();
+                dt.Load(cmd.ExecuteReader());
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally { cmd.Connection.Close(); }
+            return dt;
+        }
+
+
         #endregion mesa
 
         #region metodos Cobro
+        public int GuardarCobroMesa(String cadXml)
+        {
+            SqlCommand cmd = null;
 
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("uspInsertarMesa", cn);
+                cmd.Parameters.AddWithValue("@Cadxml", cadXml);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cn.Open();
+                var result = cmd.ExecuteNonQuery();
+                cn.Close();
+                return result;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
         //public entTipo LstTipoMesa()
         //{
         //    SqlCommand cmd = null;

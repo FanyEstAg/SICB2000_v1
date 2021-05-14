@@ -7,7 +7,7 @@ namespace Entidades
 {
     public class entDisponibilidad
     {
-        public int Id_Disponibilidad { get; set; }
+        public string Id_Disponibilidad { get; set; }
         public string Descp_Disponibilidad { get; set; }
     }
 }
