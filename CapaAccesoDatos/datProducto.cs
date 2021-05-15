@@ -270,7 +270,7 @@ namespace CapaAccesoDatos
                 {
                     entUnidadMedida um = new entUnidadMedida();
                     um.Id_Umed = Convert.ToInt32(dr["Id_Umed"]);
-                    um.Descripcion_Umed = dr["Descrp_Umed"].ToString();
+                    um.Descripcion_Umed = dr["Descripcion_Umed"].ToString();
                     um.Abreviatura_Umed = dr["Abreviatura_Umed"].ToString();
                     Lista.Add(um);
                 }
@@ -284,8 +284,37 @@ namespace CapaAccesoDatos
             return Lista;
         }
 
-        public int EliminarProducto(int id_producto)
-        {//LISTO
+        public List<entMarca> ListarMarca()//LISTO
+        {
+            SqlCommand cmd = null;
+            SqlDataReader dr = null;
+            List<entMarca> Lista = null;
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("uspListarMarca", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cn.Open();
+                dr = cmd.ExecuteReader();
+                Lista = new List<entMarca>();
+                while (dr.Read())
+                {
+                    entMarca m = new entMarca();
+                    m.Id_Marca = Convert.ToInt32(dr["Id_Marca"].ToString());
+                    m.Nombre_Marca = dr["Nom_marca"].ToString();
+                    Lista.Add(m);
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally { cmd.Connection.Close(); }
+            return Lista;
+        }
+        public int EliminarProducto(int id_producto)//LISTO
+        {
             SqlCommand cmd = null;
             var retorno = 0;
             try
@@ -350,9 +379,115 @@ namespace CapaAccesoDatos
             }
         }
 
+        public DataTable CargarProductos()//LISTO
+        {
+            SqlCommand cmd = null;
+            DataTable dt = new DataTable();
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("uspCargarProductos", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cn.Open();
+                dt.Load(cmd.ExecuteReader());
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally { cmd.Connection.Close(); }
+            return dt;
+        }
+
+        public DataTable BuscarProducto(string busqueda)
+        {//
+            SqlCommand cmd = null;
+            DataTable dt = new DataTable();
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("uspBuscarProducto", cn);
+                cmd.Parameters.AddWithValue("@prmBusqueda", busqueda);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cn.Open();
+                dt.Load(cmd.ExecuteReader());
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally { cmd.Connection.Close(); }
+            return dt;
+        }
+
+        public DataTable BuscarProductoExistencia(int id)
+        {//
+            SqlCommand cmd = null;
+            DataTable dt = new DataTable();
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("uspBuscarProductoExistencia", cn);
+                cmd.Parameters.AddWithValue("@prmBusqueda", id);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cn.Open();
+                dt.Load(cmd.ExecuteReader());
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally { cmd.Connection.Close(); }
+            return dt;
+        }
+
+        public int actualizarProducto(String cadXml)//LISTO
+        {
+            SqlCommand cmd = null;
+
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("uspActualizarProducto", cn);
+                cmd.Parameters.AddWithValue("@Cadxml", cadXml);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cn.Open();
+                var result = cmd.ExecuteNonQuery();
+                cn.Close();
+                return result;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public int agregarExistencia(int existencia, int id)
+        {
+            SqlCommand cmd = null;
+
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("uspAgregarExistencia", cn);
+                cmd.Parameters.AddWithValue("@prmExistencia", existencia);
+                cmd.Parameters.AddWithValue("@prmId", id);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cn.Open();
+                var result = cmd.ExecuteNonQuery();
+                cn.Close();
+                return result;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         #endregion metodos
-
-
 
     }
 }

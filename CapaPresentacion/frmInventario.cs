@@ -24,7 +24,7 @@ namespace CapaPresentacion
 
         AccionesEnControles ac = new AccionesEnControles();
 
-        ////TABS
+
         //public void ControlBotones(string pantalla, bool nuevo, bool editar, bool grabar, bool eliminar, bool cancelar, bool salir)
         //{
         //    try
@@ -135,27 +135,30 @@ namespace CapaPresentacion
 
         //}
 
-        //// cargar combos para producto
-        //private void LlenarCombos()
-        //{
-        //    try
-        //    {
+        // cargar combos para producto
+        private void LlenarCombos()//Listo
+        {
+            try
+            {
+                foreach (var dat in negProducto.Instancia.ListarUnidMed())
+                {
+                    cbxUnmed.Items.Add(dat.Abreviatura_Umed);
+                    cbxUnmedACT.Items.Add(dat.Abreviatura_Umed);
+                }
+              
+                foreach (var dat in negProducto.Instancia.ListarMarca())
+                {
+                    cbxMarca.Items.Add(dat.Nombre_Marca);
+                    cbxMarcaACT.Items.Add(dat.Nombre_Marca);
+                }
 
-        //        cboUnidMed.ValueMember = "Id_Umed";
-        //        cboUnidMed.DisplayMember = "Descripcion_Umed";
-        //        cboUnidMed.DataSource = negProducto.Instancia.ListarUnidMed();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
 
-        //        cboMarca.ValueMember = "Id";
-        //        cboMarca.DisplayMember = "Nombre";
-        //        cboMarca.DataSource = negProducto.Instancia.ListarMaterial();
-
-
-        //    }
-        //    catch (Exception)
-        //    {
-        //        throw;
-        //    }
-        //}
         //// funcion validar entrada solo caracteres validos jojojo
         //private bool EntradaDecimales(KeyPressEventArgs e)
         //{
@@ -180,460 +183,30 @@ namespace CapaPresentacion
         //        throw;
         //    }
         //}
-        //private void Mostrarfila_select(int id_prod)
-        //{
-        //    try
-        //    {
-        //        entProducto p = null;
-        //        // int id_prod = Convert.ToInt32(dgvProductos.CurrentRow.Cells[0].Value);
-        //        p = negProducto.Instancia.BuscarProducto(id_prod);
-        //        txtIdP.Text = p.Id_Prod.ToString();
-        //        txtCodigoP.Text = p.Codigo_Prod;
-        //        txtNombre.Text = p.Nombre_Prod;
-        //        txtMarca.Text = p.Marca_Prod;
-        //        txtPrecioCompra.Text = p.PrecioCompra_Prod.ToString();
-        //        txtPrecioVenta.Text = p.Precio_Prod.ToString();
-        //        txtStock.Text = p.Stock_Prod.ToString();
-        //        txtStockPromedio.Text = p.StockProm_Prod.ToString();
-        //        txtStockMin.Text = p.StockMin_Prod.ToString();
-        //        cboCategoria.SelectedValue = p.categoria.Id_Cat;
-        //        cboUnidMed.SelectedValue = p.unidmedida.Id_Umed;
-        //        cboProveedor.SelectedValue = p.proveedor.Id_Proveedor;
-        //        cboMarca.SelectedValue = p.material.Id;
-        //        ac.BloquearText(this.tbcProducto, false);
-        //        ControlBotones("P",true, true, false, true, false, true);
-        //    }
-        //    catch (Exception)
-        //    {
-
-        //        throw;
-        //    }
-        //}
+      
+        private void frmInventario_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                //ControlBotones("P", true, false, false, false, false, true);//Producto
+                //ControlBotones("UM", true, false, false, false, false, true);//Unidad de medida
+                //ControlBotones("M", true, false, false, false, false, true);//Marca
 
 
+                //ac.BloquearText(this.tbcProducto, false);
+                //ac.BloquearText(this.tbcUnidMedida, false);
 
-
-        //private void frmProducto_Load(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        ControlBotones("P",true, false, false, false, false, true);//Producto
-        //        ControlBotones("UM", true, false, false, false, false, true);//Unidad de medida
-        //        ControlBotones("M", true, false, false, false, false, true);//Marca
-
-
-        //        ac.BloquearText(this.tbcProducto, false);
-        //        ac.BloquearText(this.tbcUnidMedida, false);
-
-        //        CrearGrid();
-        //        CrearGridUniMed();
-        //        LlenarCombos();
-        //        CargarGridProducto();
-
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message, "Aviso",
-        //         MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        //    }
-        //}
-
-        //private void btnNuevo_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        ac.LimpiarText(this.tbcProducto);
-        //        ac.BloquearText(this.tbcProducto, true);
-        //        ControlBotones("P",false, false, true, false, true, false);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message, "Error",
-        //          MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-        //}
-
-        //private void btnEditar_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        ControlBotones("P",false, false, true, false, true, false);
-        //        ac.BloquearText(this.tbcProducto, true);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message, "Error",
-        //                          MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-        //}
-
-        //private void btnGuardar_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-
-        //        if (String.IsNullOrEmpty(Convert.ToString(cboCategoria.SelectedValue))) throw new ApplicationException("Deber tener seleccionada una Categoria");
-        //        else if (String.IsNullOrEmpty(Convert.ToString(cboProveedor.SelectedValue))) throw new ApplicationException("Deber tener seleccionado un Proveedor");
-        //        else if (String.IsNullOrEmpty(Convert.ToString(cboUnidMed.SelectedValue))) throw new ApplicationException("Deber tener seleccionada una Unidad de Medida ");
-
-
-        //        entProducto p = new entProducto();
-        //        int tipoedicion = 1;
-        //        if (txtIdP.Text != "") { tipoedicion = 2; p.Id_Prod = Convert.ToInt32(txtIdP.Text); }
-        //        p.Nombre_Prod = txtNombre.Text;
-        //        p.Marca_Prod = txtMarca.Text;
-        //        if (txtPrecioCompra.Text == "") p.PrecioCompra_Prod = 0; else p.PrecioCompra_Prod = Convert.ToDouble(txtPrecioCompra.Text);
-        //        if (txtPrecioVenta.Text == "") p.Precio_Prod = 0; else p.Precio_Prod = Convert.ToDouble(txtPrecioVenta.Text);
-        //        if (txtStock.Text == "") p.Stock_Prod = 0; else p.Stock_Prod = Convert.ToInt32(txtStock.Text);
-        //        if (txtStockPromedio.Text == "") p.StockProm_Prod = 0; else p.StockProm_Prod = Convert.ToInt32(txtStockPromedio.Text);
-        //        if (txtStockMin.Text == "") p.StockMin_Prod = 0; else p.StockMin_Prod = Convert.ToInt32(txtStockMin.Text);
-        //        entCategoria c = new entCategoria();
-        //        c.Id_Cat = Convert.ToInt32(cboCategoria.SelectedValue);
-        //        p.categoria = c;
-        //        entUnidadMedida um = new entUnidadMedida();
-        //        um.Id_Umed = Convert.ToInt32(cboUnidMed.SelectedValue);
-        //        p.unidmedida = um;
-        //        entProveedor pr = new entProveedor();
-        //        pr.Id_Proveedor = Convert.ToInt32(cboProveedor.SelectedValue);
-        //        p.proveedor = pr;
-        //        entMaterial m = new entMaterial();
-        //        m.Id = Convert.ToInt32(cboMarca.SelectedValue);
-        //        p.material = m;
-
-        //        p.UsuarioCreacion_Prod = idUsuario;
-        //        p.UsuarioUpdate_Prod = idUsuario;
-        //        int i = negProducto.Instancia.MantenimientoProducto(p, tipoedicion);
-        //        MessageBox.Show("¡Registro Correcto!", "Mensaje",
-        //                        MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-        //        ControlBotones("P",true, false, false, false, false, true);
-        //        ac.BloquearText(this.tbcProducto, false);
-        //        CargarGridProducto();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message, "Error",
-        //                         MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-        //}
-
-        //private void btnEliminar_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        entProducto p = new entProducto();
-        //        entCategoria c = new entCategoria();
-        //        entUnidadMedida um = new entUnidadMedida();
-        //        entProveedor pr = new entProveedor();
-        //        p.Id_Prod = Convert.ToInt32(txtIdP.Text);
-        //        p.categoria = c;
-        //        p.proveedor = pr;
-        //        p.unidmedida = um;
-        //        DialogResult r = MessageBox.Show("¿Desea eliminar Registro seleccionado?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-        //        if (r == DialogResult.Yes)
-        //        {
-        //            int i = negProducto.Instancia.MantenimientoProducto(p, 3);
-        //            MessageBox.Show("Registro eliminado", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        //        }
-
-        //        ControlBotones("P",true, false, false, false, false, true);
-        //        ac.BloquearText(this.tbcProducto, false);
-        //        CargarGridProducto();
-        //    }
-        //    catch (ApplicationException ae) { MessageBox.Show(ae.Message, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information); }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message, "Error",
-        //                                         MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-        //}
-
-        //private void btnCancelar_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        ControlBotones("P",true, true, false, true, false, true);
-        //        ac.BloquearText(this.tbcProducto, false);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message, "Error",
-        //                                         MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-        //}
-
-        //private void btnSalir_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        DialogResult res = MessageBox.Show("¿Desea cerrar esta ventana?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-        //        if (res == DialogResult.Yes)
-        //        {
-        //            this.Close();
-        //        }
-        //    }
-        //    catch (Exception)
-        //    {
-
-        //        throw;
-        //    }
-        //}
-
-        //private void tbcCategoria_Click(object sender, EventArgs e)
-        //{
-
-        //}
-
-        //private void CargarGrid()
-        //{
-        //    try
-        //    {
-        //        dgvCategoria.Rows.Clear();
-        //        List<entCategoria> Lista = null;
-        //        Lista = negProducto.Instancia.ListarCategoria();
-        //        int num = 0;
-        //        for (int i = 0; i < Lista.Count; i++)
-        //        {
-        //            num++;
-        //            String[] fila = new string[] { Lista[i].Id_Cat.ToString(), num.ToString(), Lista[i].Codigo_Cat, Lista[i].Nombre_Cat, Lista[i].Descripcion_Cat };
-        //            dgvCategoria.Rows.Add(fila);
-        //        }
-        //    }
-        //    catch (Exception)
-        //    {
-        //        throw;
-        //    }
-        //}
-        //private void CargarGridMaterial()
-        //{
-        //    try
-        //    {
-        //        dgvMarca.Rows.Clear();
-        //        List<entMaterial> Lista = null;
-        //        Lista = negProducto.Instancia.ListarMaterial();
-        //        int num = 0;
-        //        for (int i = 0; i < Lista.Count; i++)
-        //        {
-        //            num++;
-        //            String[] fila = new string[] { Lista[i].Id.ToString(), num.ToString(), Lista[i].Id.ToString("000"),Lista[i].Nombre};
-        //           dgvMarca.Rows.Add(fila);
-        //        }
-        //    }
-        //    catch (Exception)
-        //    {
-        //        throw;
-        //    }
-        //}
-
-        //private void CargarGridUnidMedida()
-        //{
-        //    try
-        //    {
-        //        int num = 0;
-        //        dgvUnidadMedida.Rows.Clear();
-        //        List<entUnidadMedida> um = null;
-        //        um = negProducto.Instancia.ListarUnidMed();
-        //        for (int i = 0; i < um.Count; i++)
-        //        {
-        //            num++;
-        //            String[] fila = new string[] { um[i].Id_Umed.ToString(), num.ToString(), um[i].Codigo_Umed, um[i].Descripcion_Umed, um[i].Abreviatura_Umed };
-        //            dgvUnidadMedida.Rows.Add(fila);
-        //        }
-        //    }
-        //    catch (Exception)
-        //    {
-
-        //        throw;
-        //    }
-        //}
-
-        //private void CargarGridProducto()
-        //{
-        //    try
-        //    {
-        //        dgvProductos.Rows.Clear();
-        //        List<entProducto> Lista = negProducto.Instancia.ListarProducto();
-        //        int num = 0;
-        //        for (int i = 0; i < Lista.Count(); i++)
-        //        {
-        //            num++;
-        //            String[] fila = new String[] { Lista[i].Id_Prod.ToString(),num.ToString(),Lista[i].Codigo_Prod,Lista[i].Nombre_Prod,Lista[i].Marca_Prod,
-        //            Lista[i].categoria.Nombre_Cat,Lista[i].unidmedida.Descripcion_Umed,Lista[i].proveedor.RazSocial_Proveedor};
-        //            dgvProductos.Rows.Add(fila);
-        //        }
-        //    }
-        //    catch (Exception)
-        //    {
-
-        //        throw;
-        //    }
-        //}
-
-        //private void btnCargarUM_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        CargarGridUnidMedida();
-        //        btnCargarUM.Visible = false;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message, "Error",
-        //                                         MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-        //}
-
-
-        //private void btnNuevoUM_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        ac.LimpiarText(this.tbcUnidMedida);
-        //        ac.BloquearText(this.tbcUnidMedida, true);
-        //        ControlBotones("UM",false, false, true, false, true, false);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message, "Error",
-        //          MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-        //}
-
-        //private void btnEditarUM_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        ControlBotones("UM",false, false, true, false, true, false);
-        //        ac.BloquearText(this.tbcUnidMedida, true);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message, "Error",
-        //                          MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-        //}
-
-        //private void btnGuardarUM_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        entUnidadMedida um = new entUnidadMedida();
-        //        int tipoedicion = 1;
-        //        if (txtidUM.Text != "") { tipoedicion = 2; um.Id_Umed = Convert.ToInt32(txtidUM.Text); }
-        //        um.Descripcion_Umed = txtDescripcionUM.Text;
-        //        um.Abreviatura_Umed = txtAbrev.Text;
-        //        int i = negProducto.Instancia.MantenimientoUnidMedida(um, tipoedicion);
-        //        MessageBox.Show("¡Registro Correcto!", "Mensaje",
-        //                        MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-        //        ControlBotones("UM",true, false, false, false, false, true);
-        //        ac.BloquearText(this.tbcUnidMedida, false);
-        //        CargarGridUnidMedida();
-        //        LlenarCombos();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message, "Error",
-        //                         MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-        //}
-
-        //private void btnEliminarUM_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        entUnidadMedida um = new entUnidadMedida();
-        //        um.Id_Umed = Convert.ToInt32(txtidUM.Text);
-        //        DialogResult r = MessageBox.Show("¿Desea eliminar registro seleccionado?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-        //        if (r == DialogResult.Yes)
-        //        {
-        //            int i = negProducto.Instancia.MantenimientoUnidMedida(um, 3);
-        //            MessageBox.Show("Registro eliminado", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        //        }
-        //        ControlBotones("UM",true, false, false, false, false, true);
-        //        ac.BloquearText(this.tbcUnidMedida, false);
-        //        CargarGridUnidMedida();
-        //        LlenarCombos();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message, "Error",
-        //                                         MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-        //}
-
-        //private void btnCancelarUM_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        ControlBotones("UM",true, true, false, true, false, true);
-        //        ac.BloquearText(this.tbcUnidMedida, false);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message, "Error",
-        //                                         MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-        //}
-
-        //private void btnSalirUM_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        DialogResult res = MessageBox.Show("¿Desea cerrar esta ventana?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-        //        if (res == DialogResult.Yes)
-        //        {
-        //            this.Close();
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message, "Error",
-        //                                         MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-        //}
-
-        //private void dgvUnidadMedida_CellClick(object sender, DataGridViewCellEventArgs e)
-        //{
-        //    try
-        //    {
-        //        int id_Unidmed = Convert.ToInt32(dgvUnidadMedida.CurrentRow.Cells[0].Value);
-        //        entUnidadMedida um = null;
-        //        um = negProducto.Instancia.BuscarUnidMedida(id_Unidmed);
-        //        txtidUM.Text = um.Id_Umed.ToString();
-        //        txtCodigoUM.Text = um.Codigo_Umed;
-        //        txtDescripcionUM.Text = um.Descripcion_Umed;
-        //        txtAbrev.Text = um.Abreviatura_Umed;
-        //        ControlBotones("UM",true, true, false, true, false, true);
-        //        ac.BloquearText(this.tbcUnidMedida, false);
-        //    }
-        //    catch (ApplicationException ae)
-        //    {
-        //        MessageBox.Show(ae.Message, "Aviso",
-        //             MessageBoxButtons.OK, MessageBoxIcon.Information);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message, "Error",
-        //                                          MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-        //}
-
-
-
-        //private void dgvProductos_CellClick(object sender, DataGridViewCellEventArgs e)
-        //{
-        //    try
-        //    {
-        //        int id_prod = Convert.ToInt32(dgvProductos.CurrentRow.Cells[0].Value);
-        //        Mostrarfila_select(id_prod);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message, "Error",
-        //                                         MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-        //}
+                //CrearGrid();
+                //CrearGridUniMed();
+                LlenarCombos();
+                ActTablas();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Aviso",
+                 MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
 
         //private void txtPrecioCompra_KeyPress(object sender, KeyPressEventArgs e)
         //{
@@ -701,237 +274,39 @@ namespace CapaPresentacion
         //    }
         //}
 
-        //private void btnBuscarP_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        frmProductoBuscar frmProdBuscar = new frmProductoBuscar(this.idUsuario);
-        //        //frmProdBuscar.MdiParent = this.ParentForm;
 
-        //        frmProdBuscar.ShowDialog();
-        //        int id = LocalBD.Instancia.ReturnIdprod(0, 0);
-        //        for (int i = 0; i < dgvProductos.RowCount; i++)
-        //        {
-        //            if (Convert.ToInt32(dgvProductos.Rows[i].Cells[0].Value) == id)
-        //            {
-        //                dgvProductos.Rows[i].Selected = true;
-        //                Mostrarfila_select(id);
-        //                LocalBD.Instancia.ReturnIdprod(1, 0);
-        //                return;
-        //            }
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message, "Error",
-        //                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-
-
-        //}
-
-        //private void btnCargarMaterial_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        CargarGridMaterial();
-        //        btnCargarMarca.Visible = false;
-        //    }
-        //    catch (ApplicationException ae)
-        //    {
-        //        MessageBox.Show(ae.Message, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message, "Error",
-        //                                   MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-        //}
-
-
-        //private void btnNuevoMarca_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        txtNombreMarca.Enabled = true;
-        //        txtNombreMarca.Text = "";
-        //        txtIdMarca.Text = "";
-        //        ControlBotones("M", false, false, true, false, true, false);
-        //    }
-        //    catch (ApplicationException ae)
-        //    {
-        //        MessageBox.Show(ae.Message, "Mensaje",
-        //     MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message, "Error",
-        //                                   MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-        //}
-
-        //private void btnEditarMarca_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        ControlBotones("M", false, false, true, false, true, false);
-        //        txtNombreMarca.Enabled = true;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message, "Error",
-        //                          MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-        //}
-
-        //private void btnGrabarMarca_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        if (!String.IsNullOrEmpty(txtIdMarca.Text)) { /*editar*/ int i = negProducto.Instancia.EditarMaterial(Convert.ToInt32(txtIdMarca.Text), txtNombreMarca.Text); }
-        //        else { /*guardar*/int i = negProducto.Instancia.RegistrarMaterial(txtNombreMarca.Text); }
-
-        //        ControlBotones("M", true, false, false, false, false, true);
-        //        txtNombreMarca.Enabled = false;
-        //        MessageBox.Show("Material registrado exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        //        CargarGridMaterial();
-        //        txtNombreMarca.Enabled = false;
-        //        LlenarCombos();
-        //    }
-        //    catch (ApplicationException ae)
-        //    {
-        //        MessageBox.Show(ae.Message, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message, "Error",
-        //                                   MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-        //}
-
-        //private void btnEliminarMarca_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        Int32 id_material = 0;
-        //        id_material = Convert.ToInt32(txtIdMarca.Text);
-        //        DialogResult r = MessageBox.Show("¿Desea eliminar Material seleccionado?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-        //        if (r == DialogResult.Yes)
-        //        {
-        //            int i = negProducto.Instancia.EliminarMaterial(id_material);
-        //            MessageBox.Show("Registro eliminado", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        //        }
-
-        //        ControlBotones("M", true, false, false, false, false, true);
-        //        CargarGridMaterial();
-        //        LlenarCombos();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message, "Error",
-        //                                         MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-        //}
-
-        //private void btnCancelarMarca_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        ControlBotones("M", false, false, true, false, true, false);
-        //        txtNombreMarca.Enabled = true;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message, "Error",
-        //                          MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-        //}
-
-        //private void btnSalirMarca_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        DialogResult res = MessageBox.Show("¿Desea cerrar esta ventana?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-        //        if (res == DialogResult.Yes)
-        //        {
-        //            this.Close();
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message, "Error",
-        //                                      MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-        //}
-
-        //private void dgvMarca_CellClick(object sender, DataGridViewCellEventArgs e)
-        //{
-        //    try
-        //    {
-        //        int id_material = Convert.ToInt32(dgvMarca.CurrentRow.Cells[0].Value);
-        //        entMaterial m = null;
-        //        m = negProducto.Instancia.BuscarMaterial(id_material);
-        //        txtIdMarca.Text = m.Id.ToString();
-        //        txtCodigoMarca.Text = m.Id.ToString("000");
-        //        txtNombreMarca.Text = m.Nombre;
-        //        ControlBotones("M", true, true, false, true, false, true);
-        //    }
-        //    catch (ApplicationException ae)
-        //    {
-        //        MessageBox.Show(ae.Message, "Mensaje",
-        //            MessageBoxButtons.OK, MessageBoxIcon.Information);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message, "Error",
-        //                                          MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-        //}
-
-        private void btnCargarMarca_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void pictureBox3_Click(object sender, EventArgs e)
+        private void pictureBox3_Click(object sender, EventArgs e)//LISTO
         {
             this.Dispose(); // Cierra formulario libera recursos
         }
 
-        private void btnAgregarTipo_Click(object sender, EventArgs e)
+        private void btnAgregarTipo_Click(object sender, EventArgs e)//LISTO
         {
-
+            frmNuevaMarca nm = new frmNuevaMarca();
+            nm.Show();
         }
 
-        private void btnRegistrar_Click(object sender, EventArgs e)//listo
-        {
+        private void btnRegistrar_Click(object sender, EventArgs e)//LISTO
+        {//Perfeccionar metodo con verificaciones
             try
             {
                 //Comprobar en primer lugar que los cbx no estén vacios
-                if (String.IsNullOrEmpty(Convert.ToString(cbxMarca.SelectedValue))) throw new ApplicationException("Deber tener seleccionada una Categoria");
-                else if (String.IsNullOrEmpty(Convert.ToString(cbxUnmed.SelectedValue))) throw new ApplicationException("Deber tener seleccionada una Unidad de Medida ");
+                if (cbxUnmed.Text== "Seleccionar..." || cbxMarca.Text == "Seleccionar...") 
+                    throw new ApplicationException("Deber tener seleccionada una Marca");
                 //instancias d elas entidades involucradas
+                entEstado es = new entEstado();
                 entProducto p = new entProducto();
+                p.Descripcion_Prod = txtDescrp.Text;
                 p.Nombre_Prod = txtNomProd.Text;
                 entUnidadMedida um = new entUnidadMedida();
-                um.Id_Umed = Convert.ToInt32(cbxUnmed.SelectedIndex);
+                um.Id_Umed = Convert.ToInt32(cbxUnmed.SelectedIndex+1);
                 p.Id_umed = um;
                 if (txtExistencia.Text == "") 
                     p.existencia = 0; 
                 else 
                     p.existencia = Convert.ToInt32(txtExistencia.Text);
                 entMarca m = new entMarca();
-                m.Id_Marca = Convert.ToInt32(cbxMarca.SelectedIndex);
+                m.Id_Marca = Convert.ToInt32(cbxMarca.SelectedIndex+1);
                 p.id_marca = m;
                 if (txtCosto.Text == "")
                     p.Costo_Prod = 0;
@@ -942,11 +317,12 @@ namespace CapaPresentacion
                     p.Precio_Prod = 0; 
                 else 
                     p.Precio_Prod = Convert.ToDouble(txtPrecio.Text);
-                
+                es.Id_Estado = "C";
+                p.estado = es;
                 int i = negProducto.Instancia.insertarProducto(p);
                 MessageBox.Show("¡Registro Correcto!", "Mensaje",
                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                ActTablas();
                 //ControlBotones("P", true, false, false, false, false, true);
                 //ac.BloquearText(this.tbcProducto, false);
             }
@@ -955,11 +331,6 @@ namespace CapaPresentacion
                 MessageBox.Show(ex.Message, "Error",
                                  MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        private void button4_Click(object sender, EventArgs e)//Agregar existencia
-        {
-
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -971,6 +342,7 @@ namespace CapaPresentacion
                 {
                     int i = negProducto.Instancia.EliminarProducto(Convert.ToInt32(txtIdEliminar.Text));
                     MessageBox.Show("Producto eliminado", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ActTablas();
                 }
 
                 //ControlBotones("P", true, false, false, false, false, true);
@@ -982,6 +354,115 @@ namespace CapaPresentacion
                 MessageBox.Show(ex.Message, "Error",
                                                  MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+            //Perfeccionar metodo con verificaciones
+            try
+            {
+                entProducto p = new entProducto();
+                entMarca m = new entMarca();
+                entUnidadMedida um = new entUnidadMedida();
+                if (cbxUnmedACT.Text == "Seleccionar..." || cbxMarcaACT.Text == "Seleccionar...")
+                    throw new ApplicationException("Deber tener seleccionada una Marca");
+                p.Id_Prod = Convert.ToInt32(txtIdProductoACT.Text);
+                p.Nombre_Prod = txtNombreACT.Text;
+                um.Id_Umed = Convert.ToInt32(cbxUnmedACT.SelectedIndex + 1);
+                p.Id_umed = um;
+                if (txtExistenciaACT.Text == "")
+                    p.existencia = 0;
+                else
+                    p.existencia = Convert.ToInt32(txtExistenciaACT.Text);
+                m.Id_Marca = Convert.ToInt32(cbxMarcaACT.SelectedIndex + 1);
+                p.id_marca = m;
+                if (txtCostoACT.Text == "")
+                    p.Costo_Prod = 0;
+                else
+                    p.Costo_Prod = Convert.ToDouble(txtCostoACT.Text);
+
+                if (txtPrecioACT.Text == "")
+                    p.Precio_Prod = 0;
+                else
+                    p.Precio_Prod = Convert.ToDouble(txtPrecioACT.Text);
+
+                int am = negProducto.Instancia.actualizarProducto(p);
+                MessageBox.Show("¡Actualización de producto Correcto!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //ControlBotones(true, false, false, false, false, true);
+                //ac.BloquearText(this.panel1, false);
+                ActTablas();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error",
+                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void txtIdProductoEX_TextChanged(object sender, EventArgs e)
+        {
+            if(txtIdProductoEX.Text!="")
+                dgvProductosEX.DataSource = negProducto.Instancia.BuscarProductoExistencia(Convert.ToInt32(txtIdProductoEX.Text));
+            else if(txtIdProductoEX.Text == "")
+                ActTablas();
+        }
+
+        private void btnAgregarEX_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                int i = negProducto.Instancia.agregarExistencia(Convert.ToInt32(txtCantidadEX.Text), Convert.ToInt32(txtIdProductoEX.Text));
+                MessageBox.Show("¡Existencia agregada correctamente!", "Mensaje",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ActTablas();
+                //ControlBotones("P", true, false, false, false, false, true);
+                //ac.BloquearText(this.tbcProducto, false);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error",
+                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void txtBusqueda_TextChanged(object sender, EventArgs e)
+        {
+            if (txtBusqueda.Text == "")
+                ActTablas();
+            else
+            {
+                try
+                {
+                    dgvProductosCONS.DataSource = negProducto.Instancia.BuscarProducto(txtBusqueda.Text);
+                    //ControlBotones(true, true, false, true, false, true);
+                    //ac.BloquearText(this.panel1, false);
+                }
+                catch (ApplicationException ae)
+                {
+                    MessageBox.Show(ae.Message, "Aviso",
+                                                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error",
+                                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+        }
+
+        private void txtIdEliminar_TextChanged(object sender, EventArgs e)
+        {
+            if (txtIdEliminar.Text == "")
+                ActTablas();
+        }
+
+        private void ActTablas()
+        {
+            dgvProductosCONS.DataSource = negProducto.Instancia.CargarProducto();
+            dgvProductosEX.DataSource = negProducto.Instancia.CargarProducto();
+            dgvProductosELI.DataSource = negProducto.Instancia.CargarProducto();
         }
     }
 }

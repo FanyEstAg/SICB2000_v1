@@ -18,6 +18,6 @@ namespace Entidades
         public entMarca id_marca { get; set; }
         public entUnidadMedida Id_umed { get; set; }
     
-        
+        public entEstado estado { get; set; }
     }
 }

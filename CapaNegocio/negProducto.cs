@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Entidades;
 using CapaAccesoDatos;
+using System.Data;
 
 namespace CapaNegocio
 {
@@ -20,8 +21,6 @@ namespace CapaNegocio
 
         #region metodos
 
-       
-            
         public entProducto BuscarProducto(int id_producto)
         {
             try
@@ -121,13 +120,13 @@ namespace CapaNegocio
         //}
 
 
-        public List<entUnidadMedida> ListarUnidMed()
+        public List<entUnidadMedida> ListarUnidMed()//LISTO
         {
             try
             {
                 List<entUnidadMedida> Lista = null;
                 Lista = datProducto.Instancia.ListarUniMedida();
-                //if (Lista.Count == 0) throw new ApplicationException("No se encontraron registros");
+                if (Lista.Count == 0) throw new ApplicationException("No se encontraron registros");
                 return Lista;
             }
             catch (Exception)
@@ -137,7 +136,21 @@ namespace CapaNegocio
             }
         }
 
-       
+        public List<entMarca> ListarMarca()//LISTO
+        {
+            try
+            {
+                List<entMarca> Lista = null;
+                Lista = datProducto.Instancia.ListarMarca();
+                if (Lista.Count == 0) throw new ApplicationException("No se encontraron registros");
+                return Lista;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
         public int insertarProducto(entProducto p)//listo
         {
             try
@@ -150,7 +163,8 @@ namespace CapaNegocio
                 cadXml += "idmarca='" + p.id_marca.Id_Marca + "' ";
                 cadXml += "costo='" + p.Costo_Prod + "' ";
                 cadXml += "precio='" + p.Precio_Prod + "' ";
-                cadXml += "descripcion='" + p.Descripcion_Prod + "'/>";
+                cadXml += "descripcion='" + p.Descripcion_Prod + "' ";
+                cadXml += "idestado='" + p.estado.Id_Estado+ "'/>";
                 cadXml = "<root>" + cadXml + "</root>";
                 int result = datProducto.Instancia.insertarProducto(cadXml);
                 if (result == 0) throw new ApplicationException("Ocurrio un error al registrar, intentelo nuevamente");
@@ -186,6 +200,104 @@ namespace CapaNegocio
 
                 int result = datProducto.Instancia.insertarMarca(m);
                 if (result == 0) throw new ApplicationException("Ocurrio un error al registrar, intentelo nuevamente");
+
+                return result;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public DataTable CargarProducto()
+        {
+            try
+            {
+                DataTable dt = datProducto.Instancia.CargarProductos();
+
+                if (dt.Rows.Count == 0)
+                {
+                    throw new ApplicationException("No se encontraron registros");
+                }
+                return dt;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        public DataTable BuscarProducto(string busqueda)
+        {
+            try
+            {
+
+                DataTable dt = datProducto.Instancia.BuscarProducto(busqueda);
+
+                if (dt.Rows.Count == 0)
+                {
+                    throw new ApplicationException("No se encontraron registros");
+                }
+                return dt;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        public DataTable BuscarProductoExistencia(int id)
+        {
+            try
+            {
+
+                DataTable dt = datProducto.Instancia.BuscarProductoExistencia(id);
+
+                if (dt.Rows.Count == 0)
+                {
+                    throw new ApplicationException("No se encontraron registros");
+                }
+                return dt;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        public int actualizarProducto(entProducto p)
+        {
+            try
+            {
+                String cadXml = "";//se creara la cadena del xml
+                cadXml += "<actProducto ";
+                cadXml += "idproducto='" + p.Id_Prod + "' ";
+                cadXml += "nomproducto='" + p.Nombre_Prod + "' ";
+                cadXml += "idumed='" + p.Id_umed.Id_Umed + "' ";
+                cadXml += "existencia='" + p.existencia + "' ";
+                cadXml += "idmarca='" + p.id_marca.Id_Marca + "' ";
+                cadXml += "costo='" + p.Costo_Prod + "' ";
+                cadXml += "precio='" + p.Precio_Prod + "' ";
+                cadXml += "descripcion='" + p.Descripcion_Prod + "'/>";
+                cadXml = "<root>" + cadXml + "</root>";
+                int result = datProducto.Instancia.actualizarProducto(cadXml);
+                if (result == 0) throw new ApplicationException("Ocurrio un error al actualizar, intentelo nuevamente");
+
+                return result;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        public int agregarExistencia(int e, int id)
+        {
+            try
+            {
+                int result = datProducto.Instancia.agregarExistencia(e, id);
+                if (result == 0) throw new ApplicationException("Ocurrio un error al añadir la existencia, intentelo nuevamente");
 
                 return result;
             }

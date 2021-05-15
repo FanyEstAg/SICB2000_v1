@@ -139,7 +139,7 @@ namespace CapaPresentacion
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmNuevaMarca";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmNuevaMarca";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
