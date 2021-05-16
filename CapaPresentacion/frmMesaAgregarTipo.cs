@@ -51,5 +51,20 @@ namespace CapaPresentacion
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
+
+        private void btnGuardar_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

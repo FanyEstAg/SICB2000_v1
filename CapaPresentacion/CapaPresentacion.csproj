@@ -203,12 +203,22 @@
     <None Include="Resources\Logo CLUB BILLAR.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\b4.png" />
+    <None Include="Resources\b6.png" />
+    <None Include="Resources\b7.png" />
+    <None Include="Resources\b1.png" />
+    <None Include="Resources\b8.png" />
+    <None Include="Resources\b11.png" />
+    <None Include="Resources\b5.png" />
     <Content Include="Resources\cerrar.png" />
     <None Include="Resources\cerrar1.png" />
     <Content Include="Resources\ir.png" />
     <Content Include="Resources\lupa.png" />
+    <None Include="Resources\lupachica.png" />
     <Content Include="Resources\mini.png" />
     <None Include="Resources\mini1.png" />
+    <None Include="Resources\OIP %282%29.jpg" />
+    <None Include="Resources\OIP.jpg" />
     <Content Include="Resources\regresar.png" />
     <Content Include="Resources\usuario.png" />
   </ItemGroup>

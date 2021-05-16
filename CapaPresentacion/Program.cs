@@ -19,7 +19,7 @@ namespace CapaPresentacion
 //<<<<<<< HEAD
             //Application.Run(new frmInicioSesion());
 //=======
-            Application.Run(new frmInventario(2));
+            Application.Run(new frmInicioSesion());
 //>>>>>>> 3e2d525048b27929986ef45d854eb46ebdbd18ed
         }
     }

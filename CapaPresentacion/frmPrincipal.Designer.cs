@@ -48,20 +48,32 @@
             this.acercaDeToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnVolver = new System.Windows.Forms.PictureBox();
+            this.btnMinimizar = new System.Windows.Forms.PictureBox();
+            this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.lblUsuario1 = new System.Windows.Forms.Label();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.lblUsuario = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.btnConfig = new System.Windows.Forms.Button();
+            this.btnReporte = new System.Windows.Forms.Button();
+            this.btnInventario = new System.Windows.Forms.Button();
+            this.btnVentaProd = new System.Windows.Forms.Button();
+            this.btnCobroMesa = new System.Windows.Forms.Button();
+            this.btnMesas = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnVolver)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
-            this.menuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(98)))), ((int)(((byte)(135)))));
+            this.menuStrip1.BackColor = System.Drawing.Color.SeaGreen;
             this.menuStrip1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.inicioToolStripMenuItem,
@@ -84,7 +96,7 @@
             this.tsmInventario,
             this.toolStripMenuItem1,
             this.tsmSalir});
-            this.inicioToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inicioToolStripMenuItem.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.inicioToolStripMenuItem.ForeColor = System.Drawing.Color.Navy;
             this.inicioToolStripMenuItem.Image = global::CapaPresentacion.Properties.Resources.home_48x48_32;
             this.inicioToolStripMenuItem.Name = "inicioToolStripMenuItem";
@@ -126,11 +138,11 @@
             this.ventasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmVentas,
             this.tsmMesas});
-            this.ventasToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ventasToolStripMenuItem.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ventasToolStripMenuItem.ForeColor = System.Drawing.Color.Navy;
             this.ventasToolStripMenuItem.Image = global::CapaPresentacion.Properties.Resources.app_edit_32x32_32;
             this.ventasToolStripMenuItem.Name = "ventasToolStripMenuItem";
-            this.ventasToolStripMenuItem.Size = new System.Drawing.Size(116, 58);
+            this.ventasToolStripMenuItem.Size = new System.Drawing.Size(134, 58);
             this.ventasToolStripMenuItem.Text = "Movimientos";
             // 
             // tsmVentas
@@ -156,11 +168,11 @@
             this.consultasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmConsultaProd,
             this.tsmConsultaVenta});
-            this.consultasToolStripMenuItem.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.consultasToolStripMenuItem.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.consultasToolStripMenuItem.ForeColor = System.Drawing.Color.Navy;
             this.consultasToolStripMenuItem.Image = global::CapaPresentacion.Properties.Resources.Pie_Diagram_32x32_32;
             this.consultasToolStripMenuItem.Name = "consultasToolStripMenuItem";
-            this.consultasToolStripMenuItem.Size = new System.Drawing.Size(92, 58);
+            this.consultasToolStripMenuItem.Size = new System.Drawing.Size(110, 58);
             this.consultasToolStripMenuItem.Text = "Consultas";
             // 
             // tsmConsultaProd
@@ -183,11 +195,11 @@
             this.tsmreporteventas,
             this.tsmreporteproductos,
             this.tsmReporteMesas});
-            this.reportesToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reportesToolStripMenuItem.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.reportesToolStripMenuItem.ForeColor = System.Drawing.Color.Navy;
             this.reportesToolStripMenuItem.Image = global::CapaPresentacion.Properties.Resources.chart_accept_32x32_32;
             this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
-            this.reportesToolStripMenuItem.Size = new System.Drawing.Size(93, 58);
+            this.reportesToolStripMenuItem.Size = new System.Drawing.Size(102, 58);
             this.reportesToolStripMenuItem.Text = "Reportes";
             // 
             // tsmreporteventas
@@ -215,11 +227,11 @@
             // 
             this.acercaDeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.acercaDeToolStripMenuItem1});
-            this.acercaDeToolStripMenuItem.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.acercaDeToolStripMenuItem.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.acercaDeToolStripMenuItem.ForeColor = System.Drawing.Color.Navy;
             this.acercaDeToolStripMenuItem.Image = global::CapaPresentacion.Properties.Resources.user_comment_32x32_32;
             this.acercaDeToolStripMenuItem.Name = "acercaDeToolStripMenuItem";
-            this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(70, 58);
+            this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(90, 58);
             this.acercaDeToolStripMenuItem.Text = "Ayuda";
             // 
             // acercaDeToolStripMenuItem1
@@ -243,8 +255,10 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.btnVolver);
+            this.panel2.Controls.Add(this.btnMinimizar);
+            this.panel2.Controls.Add(this.btnCerrar);
             this.panel2.Controls.Add(this.lblUsuario1);
-            this.panel2.Controls.Add(this.pictureBox3);
             this.panel2.Controls.Add(this.menuStrip1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
@@ -252,51 +266,206 @@
             this.panel2.Size = new System.Drawing.Size(822, 62);
             this.panel2.TabIndex = 5;
             // 
+            // btnVolver
+            // 
+            this.btnVolver.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnVolver.Image = global::CapaPresentacion.Properties.Resources.regresar;
+            this.btnVolver.Location = new System.Drawing.Point(747, 3);
+            this.btnVolver.Name = "btnVolver";
+            this.btnVolver.Size = new System.Drawing.Size(20, 20);
+            this.btnVolver.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnVolver.TabIndex = 18;
+            this.btnVolver.TabStop = false;
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
+            // 
+            // btnMinimizar
+            // 
+            this.btnMinimizar.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnMinimizar.Image = global::CapaPresentacion.Properties.Resources.mini;
+            this.btnMinimizar.Location = new System.Drawing.Point(773, 3);
+            this.btnMinimizar.Name = "btnMinimizar";
+            this.btnMinimizar.Size = new System.Drawing.Size(20, 20);
+            this.btnMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnMinimizar.TabIndex = 17;
+            this.btnMinimizar.TabStop = false;
+            this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
+            // 
+            // btnCerrar
+            // 
+            this.btnCerrar.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnCerrar.Image = global::CapaPresentacion.Properties.Resources.cerrar;
+            this.btnCerrar.Location = new System.Drawing.Point(799, 3);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(20, 20);
+            this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnCerrar.TabIndex = 16;
+            this.btnCerrar.TabStop = false;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            // 
             // lblUsuario1
             // 
             this.lblUsuario1.AutoSize = true;
             this.lblUsuario1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblUsuario1.Location = new System.Drawing.Point(647, 26);
+            this.lblUsuario1.Location = new System.Drawing.Point(674, 26);
             this.lblUsuario1.Name = "lblUsuario1";
             this.lblUsuario1.Size = new System.Drawing.Size(0, 13);
             this.lblUsuario1.TabIndex = 15;
             // 
-            // pictureBox3
+            // panel3
             // 
-            this.pictureBox3.BackColor = System.Drawing.Color.LightSlateGray;
-            this.pictureBox3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pictureBox3.Image = global::CapaPresentacion.Properties.Resources.Delete_16x16_32;
-            this.pictureBox3.Location = new System.Drawing.Point(795, 0);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(27, 62);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 14;
-            this.pictureBox3.TabStop = false;
-            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
+            this.panel3.BackColor = System.Drawing.Color.SeaGreen;
+            this.panel3.Controls.Add(this.lblUsuario);
+            this.panel3.Controls.Add(this.btnConfig);
+            this.panel3.Controls.Add(this.btnReporte);
+            this.panel3.Controls.Add(this.btnInventario);
+            this.panel3.Controls.Add(this.btnVentaProd);
+            this.panel3.Controls.Add(this.btnCobroMesa);
+            this.panel3.Controls.Add(this.btnMesas);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel3.Location = new System.Drawing.Point(0, 62);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(200, 403);
+            this.panel3.TabIndex = 16;
             // 
             // lblUsuario
             // 
-            this.lblUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(120)))), ((int)(((byte)(158)))));
-            this.lblUsuario.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lblUsuario.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.lblUsuario.Location = new System.Drawing.Point(0, 412);
+            this.lblUsuario.AutoSize = true;
+            this.lblUsuario.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsuario.ForeColor = System.Drawing.Color.Gainsboro;
+            this.lblUsuario.Location = new System.Drawing.Point(76, 345);
             this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(822, 53);
-            this.lblUsuario.TabIndex = 2;
-            this.lblUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblUsuario.Size = new System.Drawing.Size(20, 17);
+            this.lblUsuario.TabIndex = 6;
+            this.lblUsuario.Text = "---";
             // 
-            // pictureBox2
+            // btnConfig
             // 
-            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox2.Image = global::CapaPresentacion.Properties.Resources.Logo_CLUB_BILLAR;
-            this.pictureBox2.Location = new System.Drawing.Point(0, 62);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(822, 350);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 14;
-            this.pictureBox2.TabStop = false;
+            this.btnConfig.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnConfig.FlatAppearance.BorderSize = 0;
+            this.btnConfig.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConfig.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConfig.ForeColor = System.Drawing.Color.Navy;
+            this.btnConfig.Image = global::CapaPresentacion.Properties.Resources.b11;
+            this.btnConfig.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnConfig.Location = new System.Drawing.Point(0, 285);
+            this.btnConfig.Name = "btnConfig";
+            this.btnConfig.Size = new System.Drawing.Size(200, 57);
+            this.btnConfig.TabIndex = 5;
+            this.btnConfig.Text = "       Configuración";
+            this.btnConfig.UseVisualStyleBackColor = true;
+            this.btnConfig.Click += new System.EventHandler(this.btnConfig_Click);
+            // 
+            // btnReporte
+            // 
+            this.btnReporte.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnReporte.FlatAppearance.BorderSize = 0;
+            this.btnReporte.FlatAppearance.MouseDownBackColor = System.Drawing.Color.IndianRed;
+            this.btnReporte.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Brown;
+            this.btnReporte.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReporte.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReporte.ForeColor = System.Drawing.Color.Navy;
+            this.btnReporte.Image = global::CapaPresentacion.Properties.Resources.b8;
+            this.btnReporte.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReporte.Location = new System.Drawing.Point(0, 228);
+            this.btnReporte.Name = "btnReporte";
+            this.btnReporte.Size = new System.Drawing.Size(200, 57);
+            this.btnReporte.TabIndex = 4;
+            this.btnReporte.Text = "Reportes";
+            this.btnReporte.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnReporte.UseVisualStyleBackColor = true;
+            this.btnReporte.Click += new System.EventHandler(this.btnReporte_Click);
+            // 
+            // btnInventario
+            // 
+            this.btnInventario.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnInventario.FlatAppearance.BorderSize = 0;
+            this.btnInventario.FlatAppearance.MouseDownBackColor = System.Drawing.Color.IndianRed;
+            this.btnInventario.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Brown;
+            this.btnInventario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInventario.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInventario.ForeColor = System.Drawing.Color.Navy;
+            this.btnInventario.Image = global::CapaPresentacion.Properties.Resources.b1;
+            this.btnInventario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnInventario.Location = new System.Drawing.Point(0, 171);
+            this.btnInventario.Name = "btnInventario";
+            this.btnInventario.Size = new System.Drawing.Size(200, 57);
+            this.btnInventario.TabIndex = 3;
+            this.btnInventario.Text = "Inventario";
+            this.btnInventario.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnInventario.UseVisualStyleBackColor = true;
+            this.btnInventario.Click += new System.EventHandler(this.btnInventario_Click);
+            // 
+            // btnVentaProd
+            // 
+            this.btnVentaProd.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnVentaProd.FlatAppearance.BorderSize = 0;
+            this.btnVentaProd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.IndianRed;
+            this.btnVentaProd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Brown;
+            this.btnVentaProd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVentaProd.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVentaProd.ForeColor = System.Drawing.Color.Navy;
+            this.btnVentaProd.Image = global::CapaPresentacion.Properties.Resources.b4;
+            this.btnVentaProd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVentaProd.Location = new System.Drawing.Point(0, 114);
+            this.btnVentaProd.Name = "btnVentaProd";
+            this.btnVentaProd.Size = new System.Drawing.Size(200, 57);
+            this.btnVentaProd.TabIndex = 2;
+            this.btnVentaProd.Text = "Ventas";
+            this.btnVentaProd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnVentaProd.UseVisualStyleBackColor = true;
+            this.btnVentaProd.Click += new System.EventHandler(this.btnVentaProd_Click);
+            // 
+            // btnCobroMesa
+            // 
+            this.btnCobroMesa.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCobroMesa.FlatAppearance.BorderSize = 0;
+            this.btnCobroMesa.FlatAppearance.MouseDownBackColor = System.Drawing.Color.IndianRed;
+            this.btnCobroMesa.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Brown;
+            this.btnCobroMesa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCobroMesa.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCobroMesa.ForeColor = System.Drawing.Color.Navy;
+            this.btnCobroMesa.Image = global::CapaPresentacion.Properties.Resources.b6;
+            this.btnCobroMesa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCobroMesa.Location = new System.Drawing.Point(0, 57);
+            this.btnCobroMesa.Name = "btnCobroMesa";
+            this.btnCobroMesa.Size = new System.Drawing.Size(200, 57);
+            this.btnCobroMesa.TabIndex = 1;
+            this.btnCobroMesa.Text = "Cobro";
+            this.btnCobroMesa.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCobroMesa.UseVisualStyleBackColor = true;
+            this.btnCobroMesa.Click += new System.EventHandler(this.btnCobroMesa_Click);
+            // 
+            // btnMesas
+            // 
+            this.btnMesas.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnMesas.FlatAppearance.BorderSize = 0;
+            this.btnMesas.FlatAppearance.MouseDownBackColor = System.Drawing.Color.IndianRed;
+            this.btnMesas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Brown;
+            this.btnMesas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMesas.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMesas.ForeColor = System.Drawing.Color.Navy;
+            this.btnMesas.Image = global::CapaPresentacion.Properties.Resources.b5;
+            this.btnMesas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMesas.Location = new System.Drawing.Point(0, 0);
+            this.btnMesas.Name = "btnMesas";
+            this.btnMesas.Size = new System.Drawing.Size(200, 57);
+            this.btnMesas.TabIndex = 0;
+            this.btnMesas.Text = "Mesas";
+            this.btnMesas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnMesas.UseVisualStyleBackColor = true;
+            this.btnMesas.Click += new System.EventHandler(this.btnMesas_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Image = global::CapaPresentacion.Properties.Resources.Logo_CLUB_BILLAR;
+            this.pictureBox1.Location = new System.Drawing.Point(200, 62);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(622, 403);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 17;
+            this.pictureBox1.TabStop = false;
             // 
             // frmPrincipal
             // 
@@ -304,9 +473,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(158)))), ((int)(((byte)(50)))));
             this.ClientSize = new System.Drawing.Size(822, 465);
-            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.lblUsuario);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
@@ -320,8 +489,12 @@
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnVolver)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -348,9 +521,18 @@
         private System.Windows.Forms.ToolStripMenuItem tsmReporteMesas;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label lblUsuario1;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Button btnMesas;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnConfig;
+        private System.Windows.Forms.Button btnReporte;
+        private System.Windows.Forms.Button btnInventario;
+        private System.Windows.Forms.Button btnVentaProd;
+        private System.Windows.Forms.Button btnCobroMesa;
+        private System.Windows.Forms.PictureBox btnVolver;
+        private System.Windows.Forms.PictureBox btnMinimizar;
+        private System.Windows.Forms.PictureBox btnCerrar;
         private System.Windows.Forms.Label lblUsuario;
-        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

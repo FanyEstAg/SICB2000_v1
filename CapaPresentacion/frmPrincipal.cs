@@ -13,8 +13,11 @@ namespace CapaPresentacion
 {
     public partial class frmPrincipal : Form
     {
-        // Declaracion variables globales------------------
+        //Campos - Declaracion variables globales
+        
         entUsuario u = new entUsuario();
+
+        //Constructor
         public frmPrincipal(entUsuario usuario)
         {
             InitializeComponent();
@@ -71,8 +74,6 @@ namespace CapaPresentacion
             }
         }
 
-
-
         private void frmPrincipal_Load(object sender, EventArgs e)//-LISTO
         {
             try
@@ -85,7 +86,7 @@ namespace CapaPresentacion
                     frmlogin.Visible = false;
                 }
 
-                lblUsuario.Text = "Bienvenido: " + u.Nombre_Usuario + " - "+ u.Id_empleado.Id_Rol.Nom_Puesto;
+                lblUsuario.Text = "Bienvenido: \n" + u.Nombre_Usuario + " - "+ u.Id_empleado.Id_Rol.Nom_Puesto;
 
                 RestriccionesUsuario();//Restringir las ventanas por rol
             }
@@ -101,7 +102,6 @@ namespace CapaPresentacion
            
         }
 
-     
         private void tsmSalir_Click(object sender, EventArgs e)//Cierre de la app
         {
             DialogResult result = MessageBox.Show("Desea cerrar la aplicación", "Mensaje", MessageBoxButtons.YesNo,
@@ -117,7 +117,7 @@ namespace CapaPresentacion
         {
             try
             {
-                pictureBox2.Visible = false;
+                btnVolver.Visible = false;
                 frmInventario frmProducto = new frmInventario(u.Id_Usuario);//
                 frmProducto.MdiParent = this;
                 foreach (Form frm in Application.OpenForms)
@@ -170,7 +170,7 @@ namespace CapaPresentacion
         {
             try
             {
-                pictureBox2.Visible = false;
+                btnVolver.Visible = false;
                 frmInfoApp frminfo = new frmInfoApp();
                 frminfo.Parent = this.MdiParent;
                 foreach (Form frm in Application.OpenForms) {
@@ -187,11 +187,12 @@ namespace CapaPresentacion
                 throw;
             }
         }
+
         private void tsmVentas_Click(object sender, EventArgs e)
         {
             try
             {
-                pictureBox2.Visible = false;
+                btnVolver.Visible = false;
                 frmVenta frmNotaventa = new frmVenta(u.Nombre_Usuario);
                 frmNotaventa.MdiParent = this;
                 foreach (Form frm in Application.OpenForms)
@@ -213,10 +214,9 @@ namespace CapaPresentacion
             }
         }
        
-
         private void tsmMesas_Click(object sender, EventArgs e)//Formulario de mesas
         {
-            pictureBox2.Visible = false;
+            btnVolver.Visible = false;
             try
             {
                 frmMesas frmNotaventa = new frmMesas(/*u.Nombre_Usuario*/);
@@ -261,7 +261,7 @@ namespace CapaPresentacion
         {
             try
             {
-                pictureBox2.Visible = false;
+                btnVolver.Visible = false;
                 frmUsuario frmusuario = new frmUsuario(u.Nombre_Usuario);//Mnadamos el nombre de usuario
                 frmusuario.MdiParent = this;//Adquiere el tamaño de la actual
                 foreach (Form frm in Application.OpenForms)//se ven las ventanas que hay y se acomodan
@@ -282,7 +282,66 @@ namespace CapaPresentacion
                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Application.Exit();
+        }
+
+        private void btnMinimizar_Click(object sender, EventArgs e)
+        {   //Minimizar ventana
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {   //mandar el usuario al logearse
+            frmInicioSesion frmInicioSesion = new frmInicioSesion();
+            frmInicioSesion.Show();
+        }
+
+        //BOTONES DEL MENÚ
+        private void btnMesas_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmMesas fm = new frmMesas();
+            fm.Show();
+        }
+
+        private void btnCobroMesa_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmCobroMesa fcm = new frmCobroMesa();
+            fcm.Show();
+        }
+
+        private void btnVentaProd_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmVenta fv = new frmVenta("");
+            fv.Show();
+        }
+
+        private void btnInventario_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmInventario fi = new frmInventario(2);
+            fi.Show();
+        }
+
+        private void btnReporte_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ///??
+        }
+
+        private void btnConfig_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmUsuario fu = new frmUsuario("");
+            fu.Show();
+        }
+
     }
 }
-// this.Close();
-//Application.Exit();
+

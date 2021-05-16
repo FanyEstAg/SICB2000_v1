@@ -167,5 +167,15 @@ namespace CapaPresentacion
                                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

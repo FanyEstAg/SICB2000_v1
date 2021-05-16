@@ -130,7 +130,7 @@ namespace CapaPresentacion
 }
 
         private void button1_Click(object sender, EventArgs e)//Listo
-            //Eliminar
+            //Botón eliminar usuario
         {
             try
             {
@@ -230,6 +230,38 @@ namespace CapaPresentacion
             }
         }
 
+        private void button5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnMinimizar_Click(object sender, EventArgs e)
+        {
+            //Minimizar ventana
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            //El usuario regresa al menú
+            this.Hide();
+        }
+    }
     }
 }
 
