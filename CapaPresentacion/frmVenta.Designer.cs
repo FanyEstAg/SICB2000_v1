@@ -31,62 +31,64 @@ namespace CapaPresentacion
         {
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.dgvVentasACT = new System.Windows.Forms.DataGridView();
+            this.btnImprimirACT = new System.Windows.Forms.Button();
+            this.btnActualizar = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.btnCancelarACT = new System.Windows.Forms.Button();
+            this.btnEliminarACT = new System.Windows.Forms.Button();
+            this.txtIdACT = new System.Windows.Forms.TextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.dgvVentasELI = new System.Windows.Forms.DataGridView();
             this.lblTotal = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.button6 = new System.Windows.Forms.Button();
+            this.btnCancelarELI = new System.Windows.Forms.Button();
             this.btnEliminarVenta = new System.Windows.Forms.Button();
-            this.txtIdEliminar = new System.Windows.Forms.TextBox();
+            this.txtIdELI = new System.Windows.Forms.TextBox();
             this.Registrar = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
             this.dgvVenta = new System.Windows.Forms.DataGridView();
+            this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.lblTotalINS = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvProductos = new System.Windows.Forms.DataGridView();
             this.cbxCantidad = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtBuscar = new System.Windows.Forms.TextBox();
-            this.btnRegresar = new System.Windows.Forms.Button();
+            this.btnImprimir = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.dgvELI = new System.Windows.Forms.TabControl();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.lblUsuario = new System.Windows.Forms.Label();
+            this.lblFecha = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lblIdVenta = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.tabPage1.SuspendLayout();
             this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvVentasACT)).BeginInit();
             this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvVentasELI)).BeginInit();
             this.Registrar.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVenta)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
-            this.tabControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.dgvELI.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabPage1
@@ -101,50 +103,64 @@ namespace CapaPresentacion
             // 
             // panel5
             // 
-            this.panel5.Controls.Add(this.button1);
-            this.panel5.Controls.Add(this.button4);
+            this.panel5.Controls.Add(this.dgvVentasACT);
+            this.panel5.Controls.Add(this.btnImprimirACT);
+            this.panel5.Controls.Add(this.btnActualizar);
             this.panel5.Controls.Add(this.label12);
             this.panel5.Controls.Add(this.label13);
-            this.panel5.Controls.Add(this.dataGridView2);
             this.panel5.Controls.Add(this.label2);
             this.panel5.Controls.Add(this.label3);
-            this.panel5.Controls.Add(this.button5);
-            this.panel5.Controls.Add(this.button8);
-            this.panel5.Controls.Add(this.textBox2);
+            this.panel5.Controls.Add(this.btnCancelarACT);
+            this.panel5.Controls.Add(this.btnEliminarACT);
+            this.panel5.Controls.Add(this.txtIdACT);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(910, 427);
             this.panel5.TabIndex = 0;
             // 
-            // button1
+            // dgvVentasACT
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(35)))), ((int)(((byte)(107)))));
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button1.Location = new System.Drawing.Point(500, 358);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(124, 38);
-            this.button1.TabIndex = 35;
-            this.button1.Text = "Imprimir";
-            this.button1.UseVisualStyleBackColor = false;
+            this.dgvVentasACT.AllowUserToAddRows = false;
+            this.dgvVentasACT.AllowUserToDeleteRows = false;
+            this.dgvVentasACT.AllowUserToOrderColumns = true;
+            this.dgvVentasACT.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.dgvVentasACT.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvVentasACT.Location = new System.Drawing.Point(31, 55);
+            this.dgvVentasACT.Name = "dgvVentasACT";
+            this.dgvVentasACT.ReadOnly = true;
+            this.dgvVentasACT.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvVentasACT.Size = new System.Drawing.Size(853, 272);
+            this.dgvVentasACT.TabIndex = 36;
             // 
-            // button4
+            // btnImprimirACT
             // 
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(35)))), ((int)(((byte)(107)))));
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button4.Location = new System.Drawing.Point(370, 358);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(124, 38);
-            this.button4.TabIndex = 33;
-            this.button4.Text = "Actualizar";
-            this.button4.UseVisualStyleBackColor = false;
+            this.btnImprimirACT.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(35)))), ((int)(((byte)(107)))));
+            this.btnImprimirACT.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImprimirACT.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnImprimirACT.Location = new System.Drawing.Point(500, 374);
+            this.btnImprimirACT.Name = "btnImprimirACT";
+            this.btnImprimirACT.Size = new System.Drawing.Size(124, 38);
+            this.btnImprimirACT.TabIndex = 35;
+            this.btnImprimirACT.Text = "Imprimir";
+            this.btnImprimirACT.UseVisualStyleBackColor = false;
+            // 
+            // btnActualizar
+            // 
+            this.btnActualizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(35)))), ((int)(((byte)(107)))));
+            this.btnActualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnActualizar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnActualizar.Location = new System.Drawing.Point(370, 374);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Size = new System.Drawing.Size(124, 38);
+            this.btnActualizar.TabIndex = 33;
+            this.btnActualizar.Text = "Actualizar";
+            this.btnActualizar.UseVisualStyleBackColor = false;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(828, 326);
+            this.label12.Location = new System.Drawing.Point(828, 342);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(56, 16);
             this.label12.TabIndex = 32;
@@ -153,19 +169,11 @@ namespace CapaPresentacion
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(774, 326);
+            this.label13.Location = new System.Drawing.Point(774, 342);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(48, 16);
             this.label13.TabIndex = 31;
             this.label13.Text = "Total:";
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(31, 57);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(853, 248);
-            this.dataGridView2.TabIndex = 30;
             // 
             // label2
             // 
@@ -189,48 +197,48 @@ namespace CapaPresentacion
             this.label3.TabIndex = 29;
             this.label3.Text = "Folio:";
             // 
-            // button5
+            // btnCancelarACT
             // 
-            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(35)))), ((int)(((byte)(107)))));
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button5.Location = new System.Drawing.Point(760, 358);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(124, 38);
-            this.button5.TabIndex = 25;
-            this.button5.Text = "Cancelar";
-            this.button5.UseVisualStyleBackColor = false;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.btnCancelarACT.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(35)))), ((int)(((byte)(107)))));
+            this.btnCancelarACT.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelarACT.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnCancelarACT.Location = new System.Drawing.Point(760, 374);
+            this.btnCancelarACT.Name = "btnCancelarACT";
+            this.btnCancelarACT.Size = new System.Drawing.Size(124, 38);
+            this.btnCancelarACT.TabIndex = 25;
+            this.btnCancelarACT.Text = "Cancelar";
+            this.btnCancelarACT.UseVisualStyleBackColor = false;
+            this.btnCancelarACT.Click += new System.EventHandler(this.btnCancelarACT_Click);
             // 
-            // button8
+            // btnEliminarACT
             // 
-            this.button8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(35)))), ((int)(((byte)(107)))));
-            this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button8.Location = new System.Drawing.Point(630, 358);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(124, 38);
-            this.button8.TabIndex = 23;
-            this.button8.Text = "Eliminar";
-            this.button8.UseVisualStyleBackColor = false;
+            this.btnEliminarACT.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(35)))), ((int)(((byte)(107)))));
+            this.btnEliminarACT.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminarACT.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnEliminarACT.Location = new System.Drawing.Point(630, 374);
+            this.btnEliminarACT.Name = "btnEliminarACT";
+            this.btnEliminarACT.Size = new System.Drawing.Size(124, 38);
+            this.btnEliminarACT.TabIndex = 23;
+            this.btnEliminarACT.Text = "Eliminar";
+            this.btnEliminarACT.UseVisualStyleBackColor = false;
             // 
-            // textBox2
+            // txtIdACT
             // 
-            this.textBox2.Location = new System.Drawing.Point(31, 16);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(677, 22);
-            this.textBox2.TabIndex = 19;
+            this.txtIdACT.Location = new System.Drawing.Point(31, 16);
+            this.txtIdACT.Name = "txtIdACT";
+            this.txtIdACT.Size = new System.Drawing.Size(677, 22);
+            this.txtIdACT.TabIndex = 19;
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.dgvVentasELI);
             this.tabPage3.Controls.Add(this.lblTotal);
             this.tabPage3.Controls.Add(this.label15);
-            this.tabPage3.Controls.Add(this.dataGridView3);
             this.tabPage3.Controls.Add(this.label16);
             this.tabPage3.Controls.Add(this.label17);
-            this.tabPage3.Controls.Add(this.button6);
+            this.tabPage3.Controls.Add(this.btnCancelarELI);
             this.tabPage3.Controls.Add(this.btnEliminarVenta);
-            this.tabPage3.Controls.Add(this.txtIdEliminar);
+            this.tabPage3.Controls.Add(this.txtIdELI);
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
@@ -239,10 +247,24 @@ namespace CapaPresentacion
             this.tabPage3.Text = "Eliminar";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // dgvVentasELI
+            // 
+            this.dgvVentasELI.AllowUserToAddRows = false;
+            this.dgvVentasELI.AllowUserToDeleteRows = false;
+            this.dgvVentasELI.AllowUserToOrderColumns = true;
+            this.dgvVentasELI.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.dgvVentasELI.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvVentasELI.Location = new System.Drawing.Point(29, 58);
+            this.dgvVentasELI.Name = "dgvVentasELI";
+            this.dgvVentasELI.ReadOnly = true;
+            this.dgvVentasELI.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvVentasELI.Size = new System.Drawing.Size(853, 272);
+            this.dgvVentasELI.TabIndex = 44;
+            // 
             // lblTotal
             // 
             this.lblTotal.AutoSize = true;
-            this.lblTotal.Location = new System.Drawing.Point(826, 333);
+            this.lblTotal.Location = new System.Drawing.Point(826, 346);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(56, 16);
             this.lblTotal.TabIndex = 43;
@@ -251,26 +273,18 @@ namespace CapaPresentacion
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(772, 333);
+            this.label15.Location = new System.Drawing.Point(772, 346);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(48, 16);
             this.label15.TabIndex = 42;
             this.label15.Text = "Total:";
-            // 
-            // dataGridView3
-            // 
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Location = new System.Drawing.Point(29, 64);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(853, 248);
-            this.dataGridView3.TabIndex = 41;
             // 
             // label16
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.Color.Black;
-            this.label16.Location = new System.Drawing.Point(815, 23);
+            this.label16.Location = new System.Drawing.Point(815, 19);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(67, 20);
             this.label16.TabIndex = 39;
@@ -281,31 +295,31 @@ namespace CapaPresentacion
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.ForeColor = System.Drawing.Color.Black;
-            this.label17.Location = new System.Drawing.Point(756, 23);
+            this.label17.Location = new System.Drawing.Point(756, 19);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(53, 20);
             this.label17.TabIndex = 40;
             this.label17.Text = "Folio:";
             // 
-            // button6
+            // btnCancelarELI
             // 
-            this.button6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(35)))), ((int)(((byte)(107)))));
-            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button6.Location = new System.Drawing.Point(758, 365);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(124, 38);
-            this.button6.TabIndex = 38;
-            this.button6.Text = "Cancelar";
-            this.button6.UseVisualStyleBackColor = false;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.btnCancelarELI.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(35)))), ((int)(((byte)(107)))));
+            this.btnCancelarELI.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelarELI.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnCancelarELI.Location = new System.Drawing.Point(758, 374);
+            this.btnCancelarELI.Name = "btnCancelarELI";
+            this.btnCancelarELI.Size = new System.Drawing.Size(124, 38);
+            this.btnCancelarELI.TabIndex = 38;
+            this.btnCancelarELI.Text = "Cancelar";
+            this.btnCancelarELI.UseVisualStyleBackColor = false;
+            this.btnCancelarELI.Click += new System.EventHandler(this.button6_Click);
             // 
             // btnEliminarVenta
             // 
             this.btnEliminarVenta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(35)))), ((int)(((byte)(107)))));
             this.btnEliminarVenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminarVenta.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnEliminarVenta.Location = new System.Drawing.Point(628, 365);
+            this.btnEliminarVenta.Location = new System.Drawing.Point(628, 374);
             this.btnEliminarVenta.Name = "btnEliminarVenta";
             this.btnEliminarVenta.Size = new System.Drawing.Size(124, 38);
             this.btnEliminarVenta.TabIndex = 37;
@@ -313,12 +327,13 @@ namespace CapaPresentacion
             this.btnEliminarVenta.UseVisualStyleBackColor = false;
             this.btnEliminarVenta.Click += new System.EventHandler(this.button7_Click);
             // 
-            // txtIdEliminar
+            // txtIdELI
             // 
-            this.txtIdEliminar.Location = new System.Drawing.Point(29, 23);
-            this.txtIdEliminar.Name = "txtIdEliminar";
-            this.txtIdEliminar.Size = new System.Drawing.Size(677, 22);
-            this.txtIdEliminar.TabIndex = 36;
+            this.txtIdELI.Location = new System.Drawing.Point(29, 19);
+            this.txtIdELI.Name = "txtIdELI";
+            this.txtIdELI.Size = new System.Drawing.Size(677, 22);
+            this.txtIdELI.TabIndex = 36;
+            this.txtIdELI.TextChanged += new System.EventHandler(this.txtIdELI_TextChanged);
             // 
             // Registrar
             // 
@@ -334,11 +349,11 @@ namespace CapaPresentacion
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.label11);
-            this.panel2.Controls.Add(this.label10);
             this.panel2.Controls.Add(this.dgvVenta);
+            this.panel2.Controls.Add(this.lblTotalINS);
+            this.panel2.Controls.Add(this.label10);
             this.panel2.Controls.Add(this.groupBox1);
-            this.panel2.Controls.Add(this.btnRegresar);
+            this.panel2.Controls.Add(this.btnImprimir);
             this.panel2.Controls.Add(this.btnCancelar);
             this.panel2.Controls.Add(this.btnGuardar);
             this.panel2.Controls.Add(this.label5);
@@ -348,31 +363,50 @@ namespace CapaPresentacion
             this.panel2.Size = new System.Drawing.Size(904, 421);
             this.panel2.TabIndex = 0;
             // 
-            // label11
+            // dgvVenta
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(829, 324);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(56, 16);
-            this.label11.TabIndex = 24;
-            this.label11.Text = "000000";
+            this.dgvVenta.AllowUserToAddRows = false;
+            this.dgvVenta.AllowUserToDeleteRows = false;
+            this.dgvVenta.AllowUserToOrderColumns = true;
+            this.dgvVenta.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.dgvVenta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvVenta.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Eliminar});
+            this.dgvVenta.Location = new System.Drawing.Point(325, 28);
+            this.dgvVenta.Name = "dgvVenta";
+            this.dgvVenta.RowHeadersVisible = false;
+            this.dgvVenta.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.dgvVenta.Size = new System.Drawing.Size(560, 272);
+            this.dgvVenta.TabIndex = 24;
+            this.dgvVenta.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvVenta_CellClick);
+            this.dgvVenta.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvVenta_CellEndEdit);
+            // 
+            // Eliminar
+            // 
+            this.Eliminar.HeaderText = "   ";
+            this.Eliminar.Image = global::CapaPresentacion.Properties.Resources._019_close;
+            this.Eliminar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.Eliminar.Name = "Eliminar";
+            this.Eliminar.ReadOnly = true;
+            this.Eliminar.Width = 23;
+            // 
+            // lblTotalINS
+            // 
+            this.lblTotalINS.AutoSize = true;
+            this.lblTotalINS.Location = new System.Drawing.Point(829, 324);
+            this.lblTotalINS.Name = "lblTotalINS";
+            this.lblTotalINS.Size = new System.Drawing.Size(36, 16);
+            this.lblTotalINS.TabIndex = 24;
+            this.lblTotalINS.Text = "0.00";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(775, 324);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(48, 16);
+            this.label10.Size = new System.Drawing.Size(60, 16);
             this.label10.TabIndex = 23;
-            this.label10.Text = "Total:";
-            // 
-            // dgvVenta
-            // 
-            this.dgvVenta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvVenta.Location = new System.Drawing.Point(325, 30);
-            this.dgvVenta.Name = "dgvVenta";
-            this.dgvVenta.Size = new System.Drawing.Size(560, 270);
-            this.dgvVenta.TabIndex = 19;
+            this.label10.Text = "Total: $";
             // 
             // groupBox1
             // 
@@ -389,25 +423,46 @@ namespace CapaPresentacion
             // 
             // dgvProductos
             // 
+            this.dgvProductos.AllowUserToAddRows = false;
+            this.dgvProductos.AllowUserToDeleteRows = false;
+            this.dgvProductos.AllowUserToOrderColumns = true;
+            this.dgvProductos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.dgvProductos.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProductos.Location = new System.Drawing.Point(17, 67);
+            this.dgvProductos.Location = new System.Drawing.Point(17, 93);
             this.dgvProductos.Name = "dgvProductos";
-            this.dgvProductos.Size = new System.Drawing.Size(270, 139);
+            this.dgvProductos.ReadOnly = true;
+            this.dgvProductos.RowHeadersVisible = false;
+            this.dgvProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvProductos.Size = new System.Drawing.Size(270, 172);
             this.dgvProductos.TabIndex = 20;
+            this.dgvProductos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductos_CellClick);
             // 
             // cbxCantidad
             // 
             this.cbxCantidad.FormattingEnabled = true;
-            this.cbxCantidad.Location = new System.Drawing.Point(166, 226);
+            this.cbxCantidad.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10"});
+            this.cbxCantidad.Location = new System.Drawing.Point(94, 55);
             this.cbxCantidad.Name = "cbxCantidad";
-            this.cbxCantidad.Size = new System.Drawing.Size(121, 24);
+            this.cbxCantidad.Size = new System.Drawing.Size(193, 24);
             this.cbxCantidad.TabIndex = 23;
-            this.cbxCantidad.SelectedIndexChanged += new System.EventHandler(this.cbxCantidad_SelectedIndexChanged);
+            this.cbxCantidad.Text = "1";
+            this.cbxCantidad.TextChanged += new System.EventHandler(this.cbxCantidad_TextChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(86, 229);
+            this.label1.Location = new System.Drawing.Point(14, 58);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(74, 16);
             this.label1.TabIndex = 22;
@@ -419,19 +474,20 @@ namespace CapaPresentacion
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(270, 22);
             this.txtBuscar.TabIndex = 20;
+            this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             // 
-            // btnRegresar
+            // btnImprimir
             // 
-            this.btnRegresar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(35)))), ((int)(((byte)(107)))));
-            this.btnRegresar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegresar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnRegresar.Location = new System.Drawing.Point(631, 366);
-            this.btnRegresar.Name = "btnRegresar";
-            this.btnRegresar.Size = new System.Drawing.Size(124, 38);
-            this.btnRegresar.TabIndex = 16;
-            this.btnRegresar.Text = "Imprimir";
-            this.btnRegresar.UseVisualStyleBackColor = false;
-            this.btnRegresar.Click += new System.EventHandler(this.btnRegresar_Click);
+            this.btnImprimir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(35)))), ((int)(((byte)(107)))));
+            this.btnImprimir.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImprimir.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnImprimir.Location = new System.Drawing.Point(631, 366);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(124, 38);
+            this.btnImprimir.TabIndex = 16;
+            this.btnImprimir.Text = "Imprimir";
+            this.btnImprimir.UseVisualStyleBackColor = false;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
             // btnCancelar
             // 
@@ -468,35 +524,25 @@ namespace CapaPresentacion
             this.label5.Size = new System.Drawing.Size(0, 20);
             this.label5.TabIndex = 4;
             // 
-            // tabControl1
+            // dgvELI
             // 
-            this.tabControl1.Controls.Add(this.Registrar);
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControl1.Location = new System.Drawing.Point(2, 69);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(918, 456);
-            this.tabControl1.TabIndex = 2;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::CapaPresentacion.Properties.Resources.Logo_CLUB_BILLAR;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(74, 62);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.dgvELI.Controls.Add(this.Registrar);
+            this.dgvELI.Controls.Add(this.tabPage1);
+            this.dgvELI.Controls.Add(this.tabPage3);
+            this.dgvELI.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvELI.Location = new System.Drawing.Point(2, 69);
+            this.dgvELI.Name = "dgvELI";
+            this.dgvELI.SelectedIndex = 0;
+            this.dgvELI.Size = new System.Drawing.Size(918, 456);
+            this.dgvELI.TabIndex = 2;
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(98)))), ((int)(((byte)(135)))));
-            this.panel1.Controls.Add(this.label9);
-            this.panel1.Controls.Add(this.label8);
+            this.panel1.Controls.Add(this.lblUsuario);
+            this.panel1.Controls.Add(this.lblFecha);
             this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.lblIdVenta);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.pictureBox3);
             this.panel1.Controls.Add(this.pictureBox1);
@@ -505,27 +551,27 @@ namespace CapaPresentacion
             this.panel1.Size = new System.Drawing.Size(927, 62);
             this.panel1.TabIndex = 3;
             // 
-            // label9
+            // lblUsuario
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(764, 25);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(91, 20);
-            this.label9.TabIndex = 24;
-            this.label9.Text = "USUARIO";
+            this.lblUsuario.AutoSize = true;
+            this.lblUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsuario.ForeColor = System.Drawing.Color.White;
+            this.lblUsuario.Location = new System.Drawing.Point(764, 25);
+            this.lblUsuario.Name = "lblUsuario";
+            this.lblUsuario.Size = new System.Drawing.Size(91, 20);
+            this.lblUsuario.TabIndex = 24;
+            this.lblUsuario.Text = "USUARIO";
             // 
-            // label8
+            // lblFecha
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(622, 25);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(109, 20);
-            this.label8.TabIndex = 23;
-            this.label8.Text = "DD/MM/YYY";
+            this.lblFecha.AutoSize = true;
+            this.lblFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFecha.ForeColor = System.Drawing.Color.White;
+            this.lblFecha.Location = new System.Drawing.Point(622, 25);
+            this.lblFecha.Name = "lblFecha";
+            this.lblFecha.Size = new System.Drawing.Size(109, 20);
+            this.lblFecha.TabIndex = 23;
+            this.lblFecha.Text = "DD/MM/YYY";
             // 
             // label7
             // 
@@ -538,16 +584,16 @@ namespace CapaPresentacion
             this.label7.TabIndex = 22;
             this.label7.Text = "Fecha:";
             // 
-            // label6
+            // lblIdVenta
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(139, 26);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(67, 20);
-            this.label6.TabIndex = 20;
-            this.label6.Text = "0000---";
+            this.lblIdVenta.AutoSize = true;
+            this.lblIdVenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIdVenta.ForeColor = System.Drawing.Color.White;
+            this.lblIdVenta.Location = new System.Drawing.Point(139, 26);
+            this.lblIdVenta.Name = "lblIdVenta";
+            this.lblIdVenta.Size = new System.Drawing.Size(67, 20);
+            this.lblIdVenta.TabIndex = 20;
+            this.lblIdVenta.Text = "0000---";
             // 
             // label4
             // 
@@ -569,6 +615,24 @@ namespace CapaPresentacion
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 14;
             this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::CapaPresentacion.Properties.Resources.Logo_CLUB_BILLAR;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(74, 62);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.HeaderText = "   ";
+            this.dataGridViewImageColumn1.Image = global::CapaPresentacion.Properties.Resources._019_close;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.Width = 20;
             // 
             // frmVenta
             // 
@@ -576,17 +640,18 @@ namespace CapaPresentacion
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(922, 528);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.dgvELI);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmVenta";
             this.Text = "Venta de Productos";
+            this.Load += new System.EventHandler(this.frmVenta_Load);
             this.tabPage1.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvVentasACT)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvVentasELI)).EndInit();
             this.Registrar.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -594,11 +659,11 @@ namespace CapaPresentacion
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
-            this.tabControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.dgvELI.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -606,47 +671,49 @@ namespace CapaPresentacion
         #endregion
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button btnCancelarACT;
+        private System.Windows.Forms.Button btnEliminarACT;
+        private System.Windows.Forms.TextBox txtIdACT;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TabPage Registrar;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button btnRegresar;
+        private System.Windows.Forms.Button btnImprimir;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl dgvELI;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lblUsuario;
+        private System.Windows.Forms.Label lblFecha;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblIdVenta;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.ComboBox cbxCantidad;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnImprimirACT;
+        private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.DataGridView dataGridView3;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button btnEliminarVenta;
-        private System.Windows.Forms.TextBox txtIdEliminar;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox txtIdELI;
+        private System.Windows.Forms.Label lblTotalINS;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.DataGridView dgvVenta;
         private System.Windows.Forms.DataGridView dgvProductos;
+        private System.Windows.Forms.DataGridView dgvVentasACT;
+        private System.Windows.Forms.DataGridView dgvVentasELI;
+        private System.Windows.Forms.DataGridView dgvVenta;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
+        private System.Windows.Forms.Button btnCancelarELI;
+        private System.Windows.Forms.DataGridViewImageColumn Eliminar;
     }
 }

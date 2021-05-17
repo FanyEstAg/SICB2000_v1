@@ -93,8 +93,6 @@ namespace CapaAccesoDatos
             return dt;
         }
 
-
-       
         public entProducto BuscarProducto(int id_producto)
         {
             SqlCommand cmd = null;

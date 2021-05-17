@@ -17,11 +17,31 @@ namespace CapaAccesoDatos
             get { return datVenta._intancia; }
         }
         #endregion singleton
-        
+
 
         #region metodos
 
-        
+
+        public DataTable CargarProductosVentas()//LISTO
+        {
+            SqlCommand cmd = null;
+            DataTable dt = new DataTable();
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("uspCargarProductosVentas", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cn.Open();
+                dt.Load(cmd.ExecuteReader());
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally { cmd.Connection.Close(); }
+            return dt;
+        }
         public int obtenerIDVenta()
         {//verificar-1/2 listo
             SqlCommand cmd = null;
@@ -138,8 +158,32 @@ namespace CapaAccesoDatos
             }
             finally { cmd.Connection.Close(); }
         }
+        public int ObtenerIdVenta()//---listo
+        {
+            SqlCommand cmd = null;
+            SqlDataReader dr = null;
+            int r = 0;
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("uspObtenerIdVenta", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cn.Open();
+                dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    r = Convert.ToInt32(dr["Id_venta"]);
+                }
+                cn.Close();
+            }
+            catch (Exception)
+            {
 
-
+                throw;
+            }
+            finally { cmd.Connection.Close(); }
+            return r;
+        }
 
         #endregion metodos
 

@@ -9,6 +9,7 @@ namespace Entidades
     public class entVenta
     {
         public int Id_Venta { get; set; }
+        public int folio { get; set; }
         public DateTime Fecha_Venta { get; set; }
         public int cantidad { get; set; }
         public double Subtotal_Venta { get; set; }

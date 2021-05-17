@@ -27,8 +27,8 @@ namespace CapaAccesoDatos
         public SqlConnection Conectar() {
             try{
                 SqlConnection cn = new SqlConnection();
-                cn.ConnectionString = "Data Source=DESKTOP-UPCUSGA\\SQLSERVER2019; Initial Catalog=bd_billar; Integrated Security=true ";
-                
+                //cn.ConnectionString = "Data Source=DESKTOP-UPCUSGA\\SQLSERVER2019; Initial Catalog=bd_billar; Integrated Security=true ";
+                cn.ConnectionString = "Data Source=LAPTOP-F9VT67M5\\SQLSERVER2019; Initial Catalog=bd_billar; Integrated Security=true ";
                 return cn;
             }
             catch (Exception){

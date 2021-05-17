@@ -5,13 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 using Entidades;
 using CapaAccesoDatos;
+using System.Data;
+
 namespace CapaNegocio
 {
    public class negVenta {
 
         #region singleton
         private static readonly negVenta _intancia = new negVenta();
-        public static negVenta Intancia {
+        public static negVenta Instancia {
             get { return negVenta._intancia; }
         }
         #endregion singleton
@@ -48,17 +50,21 @@ namespace CapaNegocio
             {
                 String Cadxml = "";//Variable donde se guardar la generación del texto xml
                 Cadxml += "<venta ";//Se añaden todos los parametros con estrustura xml
+                Cadxml += "folio='" + v.usuario.Id_Usuario + "' ";
                 Cadxml += "idusuario='" + v.usuario.Id_Usuario + "' ";
                 Cadxml += "fecha='" + DateTime.Now.ToString() + "' ";
-                Cadxml += "idestado='" + v.Estado_Venta+ "'>";
-                foreach (entVenta pr in v.productos)//Se añade cada producto de la lista de productos
-                {
-                    Cadxml += "<detalle ";
-                    Cadxml += "idproducto='" + pr.Id_producto + "' ";
-                    Cadxml += "cantidad='" + pr.cantidad + "' ";
-                    Cadxml += "subtotal='" + v.Subtotal_Venta +  "'/>";
-                }
-                Cadxml += "</venta>";
+                Cadxml += "idestado='" + v.Estado_Venta.Id_Estado + "' "; /*"'>";*/
+                //foreach (entVenta pr in v.productos)//Se añade cada producto de la lista de productos
+                //{
+                //Cadxml += "<detalle ";
+                Cadxml += "idproducto='" + v.Id_producto.Id_Prod + "' ";
+                Cadxml += "cantidad='" + v.cantidad + "' ";
+                Cadxml += "subtotal='" + v.Subtotal_Venta + "'/>";
+                //Cadxml += "idproducto='" + pr.Id_producto + "' ";
+                //Cadxml += "cantidad='" + pr.cantidad + "' ";
+                //Cadxml += "subtotal='" + v.Subtotal_Venta +  "'/>";
+                //}
+                //Cadxml += "</venta>";
                 Cadxml = "<root>" + Cadxml + "</root>";
                 int i = datVenta.Instancia.GuardarVenta(Cadxml);// se envia la cadena y se guarda el resultado en i
                 if (i <= 0) throw new ApplicationException("Ocurrio un error al guardar venta actual");
@@ -92,6 +98,19 @@ namespace CapaNegocio
             }
             catch (Exception)
             {
+                throw;
+            }
+        }
+
+        public int ObtenerIdVenta()//--listo
+        {
+            try
+            {
+                return datVenta.Instancia.ObtenerIdVenta()+1;
+            }
+            catch (Exception)
+            {
+
                 throw;
             }
         }
