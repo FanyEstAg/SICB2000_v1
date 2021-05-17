@@ -68,7 +68,8 @@ CREATE TABLE [dbo].[Estado](
 );
 GO
 CREATE TABLE [dbo].[Venta](
-	[Id_venta] [int] IDENTITY(1,1),
+	[Id_venta] [int] IDENTITY(1,1) NOT NULL,--mantener la llave primaria como única
+	[folio] [int] NOT NULL,--varios productos de la venta llevaran el mismo FOLIO para identificar la venta
 	[Id_Usuario] [int] NOT NULL CONSTRAINT fk_venta_usuario FOREIGN KEY (Id_Usuario) REFERENCES Usuario,
 	[fecha] [date] NOT NULL,
 	[Cantidad] [int] NOT NULL,
