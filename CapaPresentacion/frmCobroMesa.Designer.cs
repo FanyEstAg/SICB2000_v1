@@ -247,9 +247,9 @@ namespace CapaPresentacion
             this.btnRegresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegresar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegresar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnRegresar.Location = new System.Drawing.Point(229, 4);
+            this.btnRegresar.Location = new System.Drawing.Point(229, 8);
             this.btnRegresar.Name = "btnRegresar";
-            this.btnRegresar.Size = new System.Drawing.Size(124, 38);
+            this.btnRegresar.Size = new System.Drawing.Size(124, 30);
             this.btnRegresar.TabIndex = 16;
             this.btnRegresar.Text = "Buscar";
             this.btnRegresar.UseVisualStyleBackColor = false;

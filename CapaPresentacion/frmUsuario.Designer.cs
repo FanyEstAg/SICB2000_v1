@@ -31,6 +31,28 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUsuario));
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.Registrar = new System.Windows.Forms.TabPage();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnVolver = new System.Windows.Forms.PictureBox();
+            this.btnMinimizar = new System.Windows.Forms.PictureBox();
+            this.btnCerrar = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtIdCC = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.btnCambiarContra = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnAgregar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtDireccionINS = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -51,32 +73,8 @@
             this.txtUusuarioINS = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.Registrar = new System.Windows.Forms.TabPage();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.label12 = new System.Windows.Forms.Label();
-            this.txtConfirmarCC = new System.Windows.Forms.TextBox();
-            this.txtContrasenaCC = new System.Windows.Forms.TextBox();
-            this.txtContrasenaNuevaCC = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtIdCC = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.btnCambiarContra = new System.Windows.Forms.Button();
-            this.label11 = new System.Windows.Forms.Label();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnAgregar = new System.Windows.Forms.Button();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.txtIdEliminar = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
             this.panel4 = new System.Windows.Forms.Panel();
             this.txtBuscarCONS = new System.Windows.Forms.TextBox();
             this.dgvUsuarios = new System.Windows.Forms.DataGridView();
@@ -108,34 +106,305 @@
             this.label35 = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnVolver = new System.Windows.Forms.PictureBox();
-            this.btnMinimizar = new System.Windows.Forms.PictureBox();
-            this.btnCerrar = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.groupBox1.SuspendLayout();
-            this.groupBox3.SuspendLayout();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.txtIdEliminar = new System.Windows.Forms.TextBox();
+            this.txtContrasenaCC = new System.Windows.Forms.TextBox();
+            this.txtContrasenaNuevaCC = new System.Windows.Forms.TextBox();
+            this.txtConfirmarCC = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.Registrar.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnVolver)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tabPage3.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.panel5.SuspendLayout();
-            this.panel6.SuspendLayout();
-            this.tabPage4.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
             this.tabPage5.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.panel8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnVolver)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel6.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.tabControl1);
+            this.panel1.Location = new System.Drawing.Point(12, 59);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(877, 433);
+            this.panel1.TabIndex = 5;
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.Registrar);
+            this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage4);
+            this.tabControl1.Controls.Add(this.tabPage5);
+            this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabControl1.Location = new System.Drawing.Point(3, 13);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(867, 404);
+            this.tabControl1.TabIndex = 28;
+            // 
+            // Registrar
+            // 
+            this.Registrar.Controls.Add(this.panel2);
+            this.Registrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Registrar.Location = new System.Drawing.Point(4, 29);
+            this.Registrar.Name = "Registrar";
+            this.Registrar.Padding = new System.Windows.Forms.Padding(3);
+            this.Registrar.Size = new System.Drawing.Size(859, 371);
+            this.Registrar.TabIndex = 0;
+            this.Registrar.Text = "Contraseña";
+            this.Registrar.UseVisualStyleBackColor = true;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.panel5);
+            this.tabPage1.Location = new System.Drawing.Point(4, 29);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Size = new System.Drawing.Size(859, 371);
+            this.tabPage1.TabIndex = 3;
+            this.tabPage1.Text = "Eliminar";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.panel4);
+            this.tabPage4.Location = new System.Drawing.Point(4, 29);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Size = new System.Drawing.Size(859, 371);
+            this.tabPage4.TabIndex = 4;
+            this.tabPage4.Text = "Consultar";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.SeaGreen;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(901, 56);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "CONFIGURACIÓN DE USUARIOS";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnVolver
+            // 
+            this.btnVolver.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnVolver.Image = global::CapaPresentacion.Properties.Resources.regresar;
+            this.btnVolver.Location = new System.Drawing.Point(829, 0);
+            this.btnVolver.Name = "btnVolver";
+            this.btnVolver.Size = new System.Drawing.Size(20, 20);
+            this.btnVolver.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnVolver.TabIndex = 21;
+            this.btnVolver.TabStop = false;
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
+            // 
+            // btnMinimizar
+            // 
+            this.btnMinimizar.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnMinimizar.Image = global::CapaPresentacion.Properties.Resources.mini;
+            this.btnMinimizar.Location = new System.Drawing.Point(855, 0);
+            this.btnMinimizar.Name = "btnMinimizar";
+            this.btnMinimizar.Size = new System.Drawing.Size(20, 20);
+            this.btnMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnMinimizar.TabIndex = 20;
+            this.btnMinimizar.TabStop = false;
+            this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
+            // 
+            // btnCerrar
+            // 
+            this.btnCerrar.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnCerrar.Image = global::CapaPresentacion.Properties.Resources.cerrar;
+            this.btnCerrar.Location = new System.Drawing.Point(881, 0);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(20, 20);
+            this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnCerrar.TabIndex = 19;
+            this.btnCerrar.TabStop = false;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.SeaGreen;
+            this.pictureBox1.Image = global::CapaPresentacion.Properties.Resources.Logo_CLUB_BILLAR;
+            this.pictureBox1.Location = new System.Drawing.Point(3, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(68, 53);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 15;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.SeaGreen;
+            this.panel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel2.BackgroundImage")));
+            this.panel2.Controls.Add(this.panel3);
+            this.panel2.Controls.Add(this.btnCambiarContra);
+            this.panel2.Controls.Add(this.label11);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(3, 3);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(853, 365);
+            this.panel2.TabIndex = 0;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.IndianRed;
+            this.panel3.Controls.Add(this.txtConfirmarCC);
+            this.panel3.Controls.Add(this.txtContrasenaNuevaCC);
+            this.panel3.Controls.Add(this.txtContrasenaCC);
+            this.panel3.Controls.Add(this.label12);
+            this.panel3.Controls.Add(this.label3);
+            this.panel3.Controls.Add(this.txtIdCC);
+            this.panel3.Controls.Add(this.label2);
+            this.panel3.Controls.Add(this.label22);
+            this.panel3.Location = new System.Drawing.Point(222, 45);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(365, 235);
+            this.panel3.TabIndex = 24;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(106, 44);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(97, 20);
+            this.label12.TabIndex = 2;
+            this.label12.Text = "Id Usuario:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(43, 78);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(161, 20);
+            this.label3.TabIndex = 21;
+            this.label3.Text = "Contraseña actual:";
+            // 
+            // txtIdCC
+            // 
+            this.txtIdCC.Location = new System.Drawing.Point(211, 42);
+            this.txtIdCC.Name = "txtIdCC";
+            this.txtIdCC.Size = new System.Drawing.Size(121, 22);
+            this.txtIdCC.TabIndex = 1;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(43, 119);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(160, 20);
+            this.label2.TabIndex = 22;
+            this.label2.Text = "Contraseña nueva:";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Location = new System.Drawing.Point(18, 158);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(187, 20);
+            this.label22.TabIndex = 23;
+            this.label22.Text = "Confirmar contraseña:";
+            // 
+            // btnCambiarContra
+            // 
+            this.btnCambiarContra.BackColor = System.Drawing.Color.Navy;
+            this.btnCambiarContra.FlatAppearance.MouseDownBackColor = System.Drawing.Color.IndianRed;
+            this.btnCambiarContra.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Brown;
+            this.btnCambiarContra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCambiarContra.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCambiarContra.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnCambiarContra.Location = new System.Drawing.Point(285, 296);
+            this.btnCambiarContra.Name = "btnCambiarContra";
+            this.btnCambiarContra.Size = new System.Drawing.Size(248, 32);
+            this.btnCambiarContra.TabIndex = 5;
+            this.btnCambiarContra.Text = "Cambiar contraseña";
+            this.btnCambiarContra.UseVisualStyleBackColor = false;
+            this.btnCambiarContra.Click += new System.EventHandler(this.btnCambiarContra_Click);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(668, 127);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(0, 20);
+            this.label11.TabIndex = 4;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.BackColor = System.Drawing.Color.SeaGreen;
+            this.tabPage3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tabPage3.BackgroundImage")));
+            this.tabPage3.Controls.Add(this.btnCancelar);
+            this.tabPage3.Controls.Add(this.btnAgregar);
+            this.tabPage3.Controls.Add(this.groupBox1);
+            this.tabPage3.Controls.Add(this.groupBox3);
+            this.tabPage3.Location = new System.Drawing.Point(4, 29);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(859, 371);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Agregar";
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.BackColor = System.Drawing.Color.Navy;
+            this.btnCancelar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.IndianRed;
+            this.btnCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Brown;
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnCancelar.Location = new System.Drawing.Point(596, 245);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(182, 31);
+            this.btnCancelar.TabIndex = 20;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click_1);
+            // 
+            // btnAgregar
+            // 
+            this.btnAgregar.BackColor = System.Drawing.Color.Navy;
+            this.btnAgregar.FlatAppearance.BorderSize = 0;
+            this.btnAgregar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.IndianRed;
+            this.btnAgregar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Brown;
+            this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnAgregar.Location = new System.Drawing.Point(153, 245);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(170, 31);
+            this.btnAgregar.TabIndex = 19;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.button3_Click);
             // 
             // groupBox1
             // 
@@ -373,228 +642,6 @@
             this.label4.TabIndex = 25;
             this.label4.Text = "Usuario:";
             // 
-            // panel1
-            // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel1.Controls.Add(this.tabControl1);
-            this.panel1.Location = new System.Drawing.Point(12, 59);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(877, 433);
-            this.panel1.TabIndex = 5;
-            // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.Registrar);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage4);
-            this.tabControl1.Controls.Add(this.tabPage5);
-            this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControl1.Location = new System.Drawing.Point(3, 13);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(867, 404);
-            this.tabControl1.TabIndex = 28;
-            // 
-            // Registrar
-            // 
-            this.Registrar.Controls.Add(this.panel2);
-            this.Registrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Registrar.Location = new System.Drawing.Point(4, 29);
-            this.Registrar.Name = "Registrar";
-            this.Registrar.Padding = new System.Windows.Forms.Padding(3);
-            this.Registrar.Size = new System.Drawing.Size(859, 371);
-            this.Registrar.TabIndex = 0;
-            this.Registrar.Text = "Contraseña";
-            this.Registrar.UseVisualStyleBackColor = true;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.SeaGreen;
-            this.panel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel2.BackgroundImage")));
-            this.panel2.Controls.Add(this.panel3);
-            this.panel2.Controls.Add(this.btnCambiarContra);
-            this.panel2.Controls.Add(this.label11);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(3, 3);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(853, 365);
-            this.panel2.TabIndex = 0;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.IndianRed;
-            this.panel3.Controls.Add(this.label12);
-            this.panel3.Controls.Add(this.txtConfirmarCC);
-            this.panel3.Controls.Add(this.txtContrasenaCC);
-            this.panel3.Controls.Add(this.txtContrasenaNuevaCC);
-            this.panel3.Controls.Add(this.label3);
-            this.panel3.Controls.Add(this.txtIdCC);
-            this.panel3.Controls.Add(this.label2);
-            this.panel3.Controls.Add(this.label22);
-            this.panel3.Location = new System.Drawing.Point(222, 45);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(365, 235);
-            this.panel3.TabIndex = 24;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(106, 44);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(97, 20);
-            this.label12.TabIndex = 2;
-            this.label12.Text = "Id Usuario:";
-            // 
-            // txtConfirmarCC
-            // 
-            this.txtConfirmarCC.Location = new System.Drawing.Point(210, 158);
-            this.txtConfirmarCC.Name = "txtConfirmarCC";
-            this.txtConfirmarCC.PasswordChar = '*';
-            this.txtConfirmarCC.Size = new System.Drawing.Size(121, 22);
-            this.txtConfirmarCC.TabIndex = 4;
-            // 
-            // txtContrasenaCC
-            // 
-            this.txtContrasenaCC.Location = new System.Drawing.Point(210, 78);
-            this.txtContrasenaCC.Name = "txtContrasenaCC";
-            this.txtContrasenaCC.PasswordChar = '*';
-            this.txtContrasenaCC.Size = new System.Drawing.Size(121, 22);
-            this.txtContrasenaCC.TabIndex = 2;
-            // 
-            // txtContrasenaNuevaCC
-            // 
-            this.txtContrasenaNuevaCC.Location = new System.Drawing.Point(210, 119);
-            this.txtContrasenaNuevaCC.Name = "txtContrasenaNuevaCC";
-            this.txtContrasenaNuevaCC.PasswordChar = '*';
-            this.txtContrasenaNuevaCC.Size = new System.Drawing.Size(121, 22);
-            this.txtContrasenaNuevaCC.TabIndex = 3;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(43, 78);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(161, 20);
-            this.label3.TabIndex = 21;
-            this.label3.Text = "Contraseña actual:";
-            // 
-            // txtIdCC
-            // 
-            this.txtIdCC.Location = new System.Drawing.Point(210, 44);
-            this.txtIdCC.Name = "txtIdCC";
-            this.txtIdCC.Size = new System.Drawing.Size(121, 22);
-            this.txtIdCC.TabIndex = 1;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(43, 119);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(160, 20);
-            this.label2.TabIndex = 22;
-            this.label2.Text = "Contraseña nueva:";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(18, 158);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(187, 20);
-            this.label22.TabIndex = 23;
-            this.label22.Text = "Confirmar contraseña:";
-            // 
-            // btnCambiarContra
-            // 
-            this.btnCambiarContra.BackColor = System.Drawing.Color.Navy;
-            this.btnCambiarContra.FlatAppearance.MouseDownBackColor = System.Drawing.Color.IndianRed;
-            this.btnCambiarContra.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Brown;
-            this.btnCambiarContra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCambiarContra.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCambiarContra.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnCambiarContra.Location = new System.Drawing.Point(285, 296);
-            this.btnCambiarContra.Name = "btnCambiarContra";
-            this.btnCambiarContra.Size = new System.Drawing.Size(248, 32);
-            this.btnCambiarContra.TabIndex = 5;
-            this.btnCambiarContra.Text = "Cambiar contraseña";
-            this.btnCambiarContra.UseVisualStyleBackColor = false;
-            this.btnCambiarContra.Click += new System.EventHandler(this.btnCambiarContra_Click);
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(668, 127);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(0, 20);
-            this.label11.TabIndex = 4;
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.BackColor = System.Drawing.Color.SeaGreen;
-            this.tabPage3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tabPage3.BackgroundImage")));
-            this.tabPage3.Controls.Add(this.btnCancelar);
-            this.tabPage3.Controls.Add(this.btnAgregar);
-            this.tabPage3.Controls.Add(this.groupBox1);
-            this.tabPage3.Controls.Add(this.groupBox3);
-            this.tabPage3.Location = new System.Drawing.Point(4, 29);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(859, 371);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Agregar";
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.BackColor = System.Drawing.Color.Navy;
-            this.btnCancelar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.IndianRed;
-            this.btnCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Brown;
-            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnCancelar.Location = new System.Drawing.Point(596, 245);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(182, 31);
-            this.btnCancelar.TabIndex = 20;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = false;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click_1);
-            // 
-            // btnAgregar
-            // 
-            this.btnAgregar.BackColor = System.Drawing.Color.Navy;
-            this.btnAgregar.FlatAppearance.BorderSize = 0;
-            this.btnAgregar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.IndianRed;
-            this.btnAgregar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Brown;
-            this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnAgregar.Location = new System.Drawing.Point(153, 245);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(170, 31);
-            this.btnAgregar.TabIndex = 19;
-            this.btnAgregar.Text = "Agregar";
-            this.btnAgregar.UseVisualStyleBackColor = false;
-            this.btnAgregar.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.panel5);
-            this.tabPage1.Location = new System.Drawing.Point(4, 29);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(859, 371);
-            this.tabPage1.TabIndex = 3;
-            this.tabPage1.Text = "Eliminar";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.SeaGreen;
@@ -606,44 +653,6 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(859, 371);
             this.panel5.TabIndex = 0;
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.Color.IndianRed;
-            this.panel6.Controls.Add(this.label17);
-            this.panel6.Controls.Add(this.label14);
-            this.panel6.Controls.Add(this.txtIdEliminar);
-            this.panel6.Location = new System.Drawing.Point(137, 129);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(319, 107);
-            this.panel6.TabIndex = 35;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(29, 17);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(238, 20);
-            this.label17.TabIndex = 20;
-            this.label17.Text = "Cuenta de usuario a eliminar";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(66, 53);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(30, 20);
-            this.label14.TabIndex = 33;
-            this.label14.Text = "Id:";
-            // 
-            // txtIdEliminar
-            // 
-            this.txtIdEliminar.Location = new System.Drawing.Point(120, 53);
-            this.txtIdEliminar.Name = "txtIdEliminar";
-            this.txtIdEliminar.Size = new System.Drawing.Size(121, 26);
-            this.txtIdEliminar.TabIndex = 34;
             // 
             // button1
             // 
@@ -661,16 +670,6 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // tabPage4
-            // 
-            this.tabPage4.Controls.Add(this.panel4);
-            this.tabPage4.Location = new System.Drawing.Point(4, 29);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(859, 371);
-            this.tabPage4.TabIndex = 4;
-            this.tabPage4.Text = "Consultar";
-            this.tabPage4.UseVisualStyleBackColor = true;
-            // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.SeaGreen;
@@ -687,7 +686,7 @@
             // 
             // txtBuscarCONS
             // 
-            this.txtBuscarCONS.Location = new System.Drawing.Point(107, 31);
+            this.txtBuscarCONS.Location = new System.Drawing.Point(119, 33);
             this.txtBuscarCONS.Name = "txtBuscarCONS";
             this.txtBuscarCONS.Size = new System.Drawing.Size(536, 26);
             this.txtBuscarCONS.TabIndex = 25;
@@ -709,9 +708,9 @@
             this.btnConsultar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConsultar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConsultar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnConsultar.Location = new System.Drawing.Point(661, 22);
+            this.btnConsultar.Location = new System.Drawing.Point(661, 31);
             this.btnConsultar.Name = "btnConsultar";
-            this.btnConsultar.Size = new System.Drawing.Size(124, 38);
+            this.btnConsultar.Size = new System.Drawing.Size(124, 30);
             this.btnConsultar.TabIndex = 20;
             this.btnConsultar.Text = "Consultar";
             this.btnConsultar.UseVisualStyleBackColor = false;
@@ -720,8 +719,9 @@
             // label18
             // 
             this.label18.AutoSize = true;
+            this.label18.BackColor = System.Drawing.Color.IndianRed;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(71, 31);
+            this.label18.Location = new System.Drawing.Point(83, 36);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(30, 20);
             this.label18.TabIndex = 19;
@@ -1040,66 +1040,67 @@
             this.btnModificar.UseVisualStyleBackColor = false;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
-            // label1
+            // panel6
             // 
-            this.label1.BackColor = System.Drawing.Color.SeaGreen;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(901, 56);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "CONFIGURACIÓN DE USUARIOS";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.panel6.BackColor = System.Drawing.Color.IndianRed;
+            this.panel6.Controls.Add(this.label17);
+            this.panel6.Controls.Add(this.label14);
+            this.panel6.Controls.Add(this.txtIdEliminar);
+            this.panel6.Location = new System.Drawing.Point(174, 126);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(319, 107);
+            this.panel6.TabIndex = 36;
             // 
-            // btnVolver
+            // label17
             // 
-            this.btnVolver.BackColor = System.Drawing.Color.SeaGreen;
-            this.btnVolver.Image = global::CapaPresentacion.Properties.Resources.regresar;
-            this.btnVolver.Location = new System.Drawing.Point(829, 0);
-            this.btnVolver.Name = "btnVolver";
-            this.btnVolver.Size = new System.Drawing.Size(20, 20);
-            this.btnVolver.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnVolver.TabIndex = 21;
-            this.btnVolver.TabStop = false;
-            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(29, 17);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(238, 20);
+            this.label17.TabIndex = 20;
+            this.label17.Text = "Cuenta de usuario a eliminar";
             // 
-            // btnMinimizar
+            // label14
             // 
-            this.btnMinimizar.BackColor = System.Drawing.Color.SeaGreen;
-            this.btnMinimizar.Image = global::CapaPresentacion.Properties.Resources.mini;
-            this.btnMinimizar.Location = new System.Drawing.Point(855, 0);
-            this.btnMinimizar.Name = "btnMinimizar";
-            this.btnMinimizar.Size = new System.Drawing.Size(20, 20);
-            this.btnMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnMinimizar.TabIndex = 20;
-            this.btnMinimizar.TabStop = false;
-            this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(66, 53);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(30, 20);
+            this.label14.TabIndex = 33;
+            this.label14.Text = "Id:";
             // 
-            // btnCerrar
+            // txtIdEliminar
             // 
-            this.btnCerrar.BackColor = System.Drawing.Color.SeaGreen;
-            this.btnCerrar.Image = global::CapaPresentacion.Properties.Resources.cerrar;
-            this.btnCerrar.Location = new System.Drawing.Point(881, 0);
-            this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(20, 20);
-            this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnCerrar.TabIndex = 19;
-            this.btnCerrar.TabStop = false;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            this.txtIdEliminar.Location = new System.Drawing.Point(120, 53);
+            this.txtIdEliminar.Name = "txtIdEliminar";
+            this.txtIdEliminar.Size = new System.Drawing.Size(121, 26);
+            this.txtIdEliminar.TabIndex = 34;
             // 
-            // pictureBox1
+            // txtContrasenaCC
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.SeaGreen;
-            this.pictureBox1.Image = global::CapaPresentacion.Properties.Resources.Logo_CLUB_BILLAR;
-            this.pictureBox1.Location = new System.Drawing.Point(3, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(68, 53);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 15;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.txtContrasenaCC.Location = new System.Drawing.Point(211, 78);
+            this.txtContrasenaCC.Name = "txtContrasenaCC";
+            this.txtContrasenaCC.PasswordChar = '*';
+            this.txtContrasenaCC.Size = new System.Drawing.Size(121, 22);
+            this.txtContrasenaCC.TabIndex = 24;
+            // 
+            // txtContrasenaNuevaCC
+            // 
+            this.txtContrasenaNuevaCC.Location = new System.Drawing.Point(211, 119);
+            this.txtContrasenaNuevaCC.Name = "txtContrasenaNuevaCC";
+            this.txtContrasenaNuevaCC.PasswordChar = '*';
+            this.txtContrasenaNuevaCC.Size = new System.Drawing.Size(121, 22);
+            this.txtContrasenaNuevaCC.TabIndex = 25;
+            // 
+            // txtConfirmarCC
+            // 
+            this.txtConfirmarCC.Location = new System.Drawing.Point(211, 156);
+            this.txtConfirmarCC.Name = "txtConfirmarCC";
+            this.txtConfirmarCC.PasswordChar = '*';
+            this.txtConfirmarCC.Size = new System.Drawing.Size(121, 22);
+            this.txtConfirmarCC.TabIndex = 26;
             // 
             // frmUsuario
             // 
@@ -1119,23 +1120,25 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Usuario";
             this.Load += new System.EventHandler(this.frmUsuario_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.Registrar.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.btnVolver)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.tabPage3.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.panel5.ResumeLayout(false);
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
-            this.tabPage4.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).EndInit();
@@ -1146,10 +1149,8 @@
             this.groupBox4.PerformLayout();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnVolver)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1186,10 +1187,7 @@
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.TextBox txtIdEliminar;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.DataGridView dgvUsuarios;
@@ -1207,16 +1205,12 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox txtConfirmarCC;
-        private System.Windows.Forms.TextBox txtContrasenaCC;
-        private System.Windows.Forms.TextBox txtContrasenaNuevaCC;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtIdCC;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Button btnCambiarContra;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox txtDireccionACT;
@@ -1239,5 +1233,12 @@
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.TextBox txtIdUsuarioACT;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox txtIdEliminar;
+        private System.Windows.Forms.TextBox txtConfirmarCC;
+        private System.Windows.Forms.TextBox txtContrasenaNuevaCC;
+        private System.Windows.Forms.TextBox txtContrasenaCC;
     }
 }
