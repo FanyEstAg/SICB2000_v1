@@ -220,6 +220,7 @@
     <None Include="Resources\mini1.png" />
     <None Include="Resources\OIP %282%29.jpg" />
     <None Include="Resources\OIP.jpg" />
+    <None Include="Resources\OIP verdeBandera.jpg" />
     <Content Include="Resources\regresar.png" />
     <Content Include="Resources\usuario.png" />
   </ItemGroup>

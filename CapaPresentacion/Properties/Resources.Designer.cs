@@ -463,6 +463,16 @@ namespace CapaPresentacion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap OIP_verdeBandera {
+            get {
+                object obj = ResourceManager.GetObject("OIP verdeBandera", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Pie_Diagram_32x32_32 {
             get {
                 object obj = ResourceManager.GetObject("Pie Diagram_32x32-32", resourceCulture);

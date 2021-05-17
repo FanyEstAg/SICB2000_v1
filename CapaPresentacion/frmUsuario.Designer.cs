@@ -1007,7 +1007,7 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(2)))), ((int)(((byte)(2)))));
+            this.btnBuscar.BackColor = System.Drawing.Color.Navy;
             this.btnBuscar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.IndianRed;
             this.btnBuscar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Brown;
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
