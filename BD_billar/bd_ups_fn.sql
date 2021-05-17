@@ -36,11 +36,14 @@ CREATE PROCEDURE [dbo].[uspEliminarMesa]---LISTO----
 			DELETE Mesa WHERE Id_mesa=@prmId_Mesa
 		 END
 GO
-CREATE PROCEDURE [dbo].[uspEliminarProducto]---LISTO----
+ALTER PROCEDURE [dbo].[uspEliminarProducto]---LISTO----
 		@prmId_Producto	 int
 		AS
 		 BEGIN
-			DELETE Producto WHERE Id_Prod=@prmId_Producto
+			UPDATE Producto 
+			SET
+			Estado='A'
+			WHERE Id_Prod=@prmId_Producto
 		 END
 GO
 --DROP PROCEDURE  [dbo].[uspEliminarProducto]
@@ -48,7 +51,7 @@ SELECT * FROM Producto
 SELECT * FROM Mesa
 SELECT * FROM Usuario
 GO
-CREATE PROCEDURE [dbo].[uspBuscarProd] --3,'15.20' MODIFICAR
+CREATE PROCEDURE [dbo].[uspBuscarProd] --sin utilizar
 	@prmTipEntrada int,
 	@prmValorEntrada nvarchar(50)
 	as  
@@ -85,23 +88,6 @@ CREATE PROCEDURE [dbo].[uspBuscarProd] --3,'15.20' MODIFICAR
 	END
 
 GO
-CREATE PROCEDURE [dbo].[uspBuscarProducto] --MODIFICAR
-	@prmId_Prod int
-	as
-	 BEGIN
-	  SET NOCOUNT ON
-	   SELECT p.Id_Prod,p.Codigo_Prod, p.Nombre_Prod, p.Marca_Prod,p.PrecioCompra_Prod,p.Precio_Prod,
-	   p.Stock_Prod,p.StockProm_Prod,p.StockMin_Prod,c.Id_Cat,um.Id_Umed,pr.Id_Proveedor,m.Id_Material
-	  FROM Producto p INNER JOIN Categoria c ON p.Id_Cat_prod=c.Id_Cat
-	                  INNER JOIN UnidadMedida um ON p.Id_Umed_prod=um.Id_Umed
-					  INNER JOIN Proveedor pr ON p.Id_Proveedor_Producto = pr.Id_Proveedor
-					  INNER JOIN Material m ON p.IdMaterial = m.Id_Material  where Estado_Prod=1
-					  AND p.Id_Prod = @prmId_Prod
-	  SET NOCOUNT OFF
-	 END 
-
-GO
-GO
 CREATE PROCEDURE [dbo].[uspBuscarUsuario] ---LISTO
 	 @prmBusqueda varchar(25)
 	 AS
@@ -127,6 +113,33 @@ CREATE PROCEDURE [dbo].[uspBuscarMesa] ---LISTO
 		INNER JOIN Disponibilidad AS d ON  m.Id_Disponibilidad=d.Id_Disponibilidad
 		WHERE m.Id_mesa = @prmBusqueda OR t.Nom_tipo=@prmBusqueda OR d.Descp_disponibilidad=@prmBusqueda
 
+	END
+GO
+CREATE PROCEDURE [dbo].[uspBuscarProducto] ---LISTO
+	 @prmBusqueda varchar(25)
+	 AS
+	   BEGIN
+			SELECT p.Id_Prod AS ID, p.Nom_producto AS Nombre, p.[Descp_producto ] AS Descripcion, um.Descripcion_Umed AS ud_Medida, p.Existencia,
+			m.Nom_marca AS Marca, p.Costo AS Costo, p.Precio AS Precio
+			FROM Producto p
+			INNER JOIN Marca AS m ON p.Id_Marca=m.Id_Marca
+			INNER JOIN UnidadMedida AS um ON p.Id_Umed=um.Id_Umed
+			
+			WHERE p.Nom_producto LIKE '%'+@prmBusqueda+'%' OR m.Nom_marca LIKE '%'+@prmBusqueda+'%'
+			OR um.Abreviatura_Umed LIKE '%'+@prmBusqueda+'%' OR um.Descripcion_Umed LIKE '%'+@prmBusqueda+'%'
+			AND p.Estado='C'
+	END
+GO
+CREATE PROCEDURE [dbo].[uspBuscarProductoExistencia] ---LISTO
+	 @prmBusqueda int
+	 AS
+	   BEGIN
+			SELECT p.Id_Prod AS ID, p.Nom_producto AS Nombre,p.[Descp_producto ] AS Descripcion, 
+			um.Descripcion_Umed AS ud_Medida, p.Existencia, m.Nom_marca AS Marca
+			FROM Producto p
+			INNER JOIN Marca AS m ON p.Id_Marca=m.Id_Marca
+			INNER JOIN UnidadMedida AS um ON p.Id_Umed=um.Id_Umed
+			WHERE @prmBusqueda=p.Id_Prod AND p.Estado='C'
 	END
 GO
 CREATE PROCEDURE [dbo].[uspCargarUsuarios]  ---LISTO
@@ -156,7 +169,47 @@ CREATE PROCEDURE [dbo].[uspCargarMesas]  ---LISTO
 	END
 
 GO
-CREATE PROCEDURE [dbo].[uspGuardarVenta]----MODIFICAR
+CREATE PROCEDURE [dbo].[uspCargarProductos]  ---LISTO
+	 AS
+	   BEGIN
+		SELECT p.Id_Prod AS ID,
+		p.Nom_producto AS Nombre, 
+		um.Descripcion_Umed AS ud_Medida,  
+		p.[Descp_producto ] AS Descripcion,
+		p.Existencia, 
+		m.Nom_marca AS Marca, 
+		p.Costo AS Costo, 
+		p.Precio AS Precio,
+		e.Nom_estado AS Estado
+		FROM Producto p
+		INNER JOIN Marca AS m ON p.Id_Marca=m.Id_Marca
+		INNER JOIN UnidadMedida AS um ON p.Id_Umed=um.Id_Umed
+		INNER JOIN Estado AS e ON p.Estado=e.Id_Estado
+		WHERE e.Id_Estado='C'
+	END
+GO
+CREATE PROCEDURE [dbo].[uspCargarVentas]  ---LISTO
+AS
+	   BEGIN
+		SELECT v.folio, v.fecha,p.[Descp_producto ],p.Precio,v.Cantidad,v.Subtotal 
+		FROM Venta v
+		INNER JOIN Producto AS p ON v.Id_Prod=p.Id_Prod
+		WHERE v.Id_Estado='C' 
+	END
+GO
+CREATE PROCEDURE [dbo].[uspBuscarVentas]  ---LISTO
+@prmIdVenta int
+	 AS
+	   BEGIN
+		SELECT v.folio, v.fecha,p.[Descp_producto ],p.Precio,v.Cantidad,v.Subtotal 
+		FROM Venta v
+		INNER JOIN Producto AS p ON v.Id_Prod=p.Id_Prod
+		WHERE v.Id_Estado='C' AND v.folio=@prmIdVenta
+	END
+GO
+SELECT * FROM Venta
+
+CREATE PROCEDURE [dbo].[uspGuardarVenta]----LISTO
 	@Cadxml varchar(max)--se recibe el xml
 	AS
 	 BEGIN
@@ -168,36 +221,32 @@ CREATE PROCEDURE [dbo].[uspGuardarVenta]----MODIFICAR
 		 IF(SELECT COUNT(*) FROM OpenXML(@out,'root/venta/detalle',1)WITH(
 		   idproducto int,
 		   cantidad int
-		   )dt INNER JOIN Producto p on p.Id_Prod=dt.idproducto WHERE p.Stock_Prod<dt.cantidad)>0
+		   )dt INNER JOIN Producto p on p.Id_Prod=dt.idproducto WHERE p.Existencia<dt.cantidad)>0
 		  BEGIN
-		   RAISERROR('Uno ó mas productos no cuentan con el stock suficiente',16,1)
+		   RAISERROR('Uno ó mas productos no cuentan con existencia suficiente',16,1)
 		  END
 
-		  INSERT INTO Venta(Codigo_Venta, Id_Cliente_Venta, Id_Usuario_Venta, Id_Suc_Venta, Id_TipCom_Venta, Id_Moneda_Venta, 
-		                         Id_TipPago_Venta,Serie_Venta,Correlativo_Venta, Igv_Venta, FechaVenta, Estado_Venta,Descuento_Venta,Desc_Venta)
-           SELECT dbo.fnGenCodVenta(),v.idcliente,v.idusuario,v.idsucursal,v.istipcom,v.idmoneda,v.idtipopago,v.serie,
-		   dbo.fnGenerarCorrelativo(@TIPO_DOC_VENTA,v.serie),v.igv,GETDATE(),'E',v.descuento,v.descripcion
-		   FROM OpenXML(@h,'root/venta',1)WITH(
-		   idcliente int,
+		  INSERT INTO Venta(folio,Id_Usuario,fecha,Cantidad,Subtotal,Id_Prod,Id_Estado)
+           SELECT v.folio, v.idusuario, v.fecha, v.cantidad,v.subtotal, v.idproducto, v.idestado
+		   FROM OpenXML(@out,'root/venta',1)WITH(
+		   folio int,
 		   idusuario int,
-		   idsucursal int,
-		   istipcom int,
-		   idmoneda int,
-		   idtipopago int,
-		   igv int,
-		   serie nchar(4),
-		   descuento decimal(10,2),
-		   descripcion nvarchar(200)
-		   )v  
-		   set @idVenta=@@IDENTITY
-		   
-		   INSERT INTO DetalleVenta(Id_Prod_Det, Id_Venta_Det, PrecProd_Det, Cantidad_Det) 
-		   SELECT dt.idproducto,@idVenta,dt.precioprod,dt.cantidad
-		   FROM OpenXML(@h,'root/venta/detalle',1)WITH(
+		   fecha date,
+		   cantidad int,
+		   subtotal money,
 		   idproducto int,
-		   precioprod decimal(5,2),
-		   cantidad int
-		   )dt   
+		   idestado varchar(1)
+		  
+		   )v  
+		   ---set @idVenta=@@IDENTITY
+		   
+		   --INSERT INTO DetalleVenta(Id_Prod_Det, Id_Venta_Det, PrecProd_Det, Cantidad_Det) 
+		   --SELECT dt.idproducto,@idVenta,dt.precioprod,dt.cantidad
+		   --FROM OpenXML(@h,'root/venta/detalle',1)WITH(
+		   --idproducto int,
+		   --precioprod decimal(5,2),
+		   --cantidad int
+		   --)dt   
 		   
 		   IF(@@TRANCOUNT>0) COMMIT TRANSACTION
 		END TRY
@@ -214,132 +263,33 @@ CREATE PROCEDURE [dbo].[uspGuardarVenta]----MODIFICAR
 
 GO
 
-CREATE PROCEDURE [dbo].[spInsEditElimProducto] ---MODIFICAR
-   @prmCadXml nvarchar(max)
-    as
-	 BEGIN
-	  DECLARE @h int, @smsError varchar(500)
-	  EXEC SP_XML_PREPAREDOCUMENT @h output, @prmCadXml
-	   BEGIN TRY
-	     BEGIN TRANSACTION
-		   --Ingresar nuevo registro 
-		   INSERT INTO Producto(Id_Cat_prod, Id_Umed_prod, Id_Proveedor_Producto, Codigo_Prod, Nombre_Prod, Marca_Prod, 
-		                        PrecioCompra_Prod, Precio_Prod, Stock_Prod, StockProm_Prod, StockMin_Prod,UsuarioCreacion_Prod,IdMaterial)
-		   SELECT p.idcat,p.idunmed,p.idprov,dbo.fnGenCodProducto(),p.nombre,p.marca,p.preciocompra,p.precio,
-		          p.stock,p.stockprom,p.stockmin,p.usuariocreacion,p.idmaterial
-		   FROM OpenXml(@h,'root/producto',1)WITH(
-		   idcat int,
-		   idunmed int,
-		   idprov int,
-		   nombre nvarchar(100),
-		   marca nvarchar(50),
-		   preciocompra decimal(5,2),
-		   precio decimal(5,2),
-		   stock int,
-		   stockprom int,
-		   stockmin int,
-		   usuariocreacion int,
-		   tipoedicion int,
-		   idmaterial int
-		   )p WHERE tipoedicion=1
+CREATE PROCEDURE [dbo].[uspInsertarProducto] ---LISTO
+  @Cadxml varchar(max)
+  AS
+  BEGIN
+    DECLARE @out int,@smsError nvarchar(300)
+	EXEC SP_XML_PREPAREDOCUMENT @out output, @Cadxml--Crear el xml
+	  BEGIN TRY
+	   BEGIN TRANSACTION
+	      -- Insertando nuevo usuario
+		  INSERT INTO Producto(Nom_producto,Id_Umed,Existencia,Id_Marca,Costo,Precio,[Descp_producto ], Estado)
+		  SELECT p.nomproducto, p.idumed, p.existencia, p.idmarca, p.costo, p.precio, p.descripcion, p.idestado --seleccionar ciertas partes del XML
+		  FROM OpenXML(@out,'root/producto', 1) WITH( nomproducto varchar(25),
+		  idumed int, existencia int, idmarca int, costo money, precio money,descripcion varchar(50), idestado varchar(1)) p
+		--SELECT* FROM Producto
+		 --SELECT * FROM Marca
+		 --SELECT * FROM UnidadMedida
+		 IF @@TRANCOUNT > 0 COMMIT TRANSACTION
+		
+	  END TRY
 
-		   -- Actualizando registro
-		   UPDATE pro
-		          SET pro.Id_Cat_prod=p.idcat,
-				      pro.Id_Umed_prod=p.idunmed,
-					  pro.Id_Proveedor_Producto=p.idprov,
-					  pro.Nombre_Prod=p.nombre,
-					  pro.Marca_Prod=p.marca,
-					  pro.PrecioCompra_Prod=p.preciocompra,
-					  pro.Precio_Prod=p.precio,
-					  pro.Stock_Prod=p.stock,
-					  pro.StockProm_Prod=p.stockprom,
-					  pro.StockMin_Prod=p.stockmin,
-					  pro.UsuarioUpdate_Prod = p.usuarioupdate,
-					  pro.IdMaterial=p.idmaterial
-           FROM OpenXml(@h,'root/producto',1)with(
-		   idproducto int,
-		   idcat int,
-		   idunmed int,
-		   idprov int,
-		   nombre nvarchar(100),
-		   marca nvarchar(50),
-		   preciocompra decimal(5,2),
-		   precio decimal(5,2),
-		   stock int,
-		   stockprom int,
-		   stockmin int,
-		   usuarioupdate int,
-		   tipoedicion int,
-		   idmaterial int
-		   )p INNER JOIN Producto pro ON p.idproducto = pro.Id_Prod WHERE p.tipoedicion=2
-
-		   -- Elimnado registro (actualiza estado)
-		    UPDATE  pro
-		          SET pro.Estado_Prod=0
-           FROM OpenXml(@h,'root/producto',1)with(
-		   idproducto int,
-		   tipoedicion int
-		   )p INNER JOIN Producto pro ON p.idproducto = pro.Id_Prod WHERE p.tipoedicion=3
-
-		   IF (@@TRANCOUNT>0) COMMIT TRANSACTION
-	    END TRY
-		BEGIN CATCH
-		 IF (@@TRANCOUNT>0) ROLLBACK TRANSACTION
-		 SELECT @smsError = ERROR_MESSAGE()
-		 RAISERROR(@smsError,16,1)
-		END CATCH
-	 END
-
+	  BEGIN CATCH
+	    IF @@TRANCOUNT>0 ROLLBACK TRANSACTION
+		SET @smsError= ERROR_MESSAGE()
+		RAISERROR(@smsError,16,1)
+	  END CATCH
+  END
 GO
-
- CREATE PROCEDURE [dbo].[uspInsEditElimUnidMed] ---MODIFICAR
-   @prmCadXml nvarchar(max)
-    as
-	 BEGIN
-	  DECLARE @h int, @smsError varchar(500)
-	  EXEC SP_XML_PREPAREDOCUMENT @h output, @prmCadXml
-	   BEGIN TRY
-	     BEGIN TRANSACTION
-		   --Ingresar nuevo registro 
-		   INSERT INTO UnidadMedida(Codigo_Umed, Descripcion_Umed, Abreviatura_Umed)
-		   SELECT dbo.fnGenCodUnidadMedida(),um.descripcion,um.abreviatura
-		   FROM OpenXml(@h,'root/unmedida',1)WITH(
-		   descripcion nvarchar(50),
-		   abreviatura nchar(20),
-		   tipoedicion int
-		   )um WHERE tipoedicion=1
-
-		   -- Actualizando registro
-		   UPDATE umda
-		          SET umda.Descripcion_Umed =um.descripcion,
-				      umda.Abreviatura_Umed = um.abreviatura
-           FROM OpenXml(@h,'root/unmedida',1)with(
-		   idunmedida int,
-		   descripcion nvarchar(50),
-		   abreviatura nchar(20),
-		   tipoedicion int
-		   )um INNER JOIN UnidadMedida umda ON um.idunmedida=umda.Id_Umed  WHERE um.tipoedicion=2
-
-		   -- Elimnado registro (actualiza estado)
-		    UPDATE umda
-		          SET umda.Estado_Umed = 0    
-           FROM OpenXml(@h,'root/unmedida',1)with(
-		   idunmedida int,
-		   tipoedicion int
-		   )um INNER JOIN UnidadMedida umda ON um.idunmedida=umda.Id_Umed  WHERE um.tipoedicion=3
-
-		   IF (@@TRANCOUNT>0) COMMIT TRANSACTION
-	    END TRY
-		BEGIN CATCH
-		 IF (@@TRANCOUNT>0) ROLLBACK TRANSACTION
-		 SELECT @smsError = ERROR_MESSAGE()
-		 RAISERROR(@smsError,16,1)
-		END CATCH
-	 END
-
-GO
-
 CREATE PROCEDURE [dbo].[uspInsertarUsuario] ---LISTO
   @Cadxml varchar(max)
   as
@@ -354,30 +304,7 @@ CREATE PROCEDURE [dbo].[uspInsertarUsuario] ---LISTO
 		  FROM OpenXML(@out,'root/usuario', 1) WITH(
 		 usuario varchar(25), contrasena varchar(10), idempleado int) u 
 		
-		  -- editando usuario
-		  --UPDATE u 
-		  --    SET u.Id_nivelAcc_Usuario = us.idnivelacceso,
-			 --     u.Id_Suc_Usuario = us.idsucusuario,
-				--  u.Nombre_Usuario = us.nombre,
-				--  u.Login_Usuario = us.logeo,
-				--  u.Password_Usuario = dbo.fnEncriptarPass(us.pass),
-				--  u.Telefono_Usuario = us.telefono,
-				--  u.Celular_Usuario = us.celular,
-				--  u.Correo_Usuario = us.correo,
-				--  u.Estado_Usuario = us.estado,
-				--  u.Expiracion_Usuario = us.expiracion,
-				--  u.UsuarioCreacion_Usuario = us.usuariocreacion
-		  --FROM OpenXML(@h,'root/usuario',1)WITH(
-		  --idusuario int,idnivelacceso int, idsucusuario int, nombre nvarchar(200), logeo nchar(8), pass nvarchar(50),
-		  --telefono nchar(8), celular nchar(9), correo nvarchar(100), estado bit, expiracion datetime,
-		  --usuariocreacion int, tipoedicion int)us INNER JOIN Usuario u ON us.idusuario=u.Id_Usuario WHERE tipoedicion=2--end
-
-		  --Eliminando usuario(Cambio estado)
-		  -- --DELETE Usuario WHERE  Id_Usuario=u.
-		  -- --   SET u.Estado_Usuario = 0
-		  --FROM OpenXML(@h,'root/usuario',1)WITH(
-		  --idusuario int, tipoedicion int)us INNER JOIN Usuario u ON us.idusuario=u.Id_Usuario WHERE tipoedicion=3--end
-
+		
 		 IF @@TRANCOUNT > 0 COMMIT TRANSACTION
 		
 	  END TRY
@@ -389,9 +316,7 @@ CREATE PROCEDURE [dbo].[uspInsertarUsuario] ---LISTO
 	  END CATCH
   END
 
-
 GO
-
 CREATE PROCEDURE [dbo].[uspInsertarEmpleado] ---LISTO
   @Cadxml varchar(max)
   AS
@@ -444,7 +369,7 @@ CREATE PROCEDURE [dbo].[uspInsertarMesa] ---LISTO
 	  END CATCH
   END
 GO
-CREATE PROCEDURE [dbo].[uspTipoMesa] ---LISTO
+CREATE PROCEDURE [dbo].[uspInsertarTipoMesa] ---LISTO
   @prmNombreTipo varchar(15)
   AS
   DECLARE @smsError nvarchar(300)
@@ -455,6 +380,55 @@ CREATE PROCEDURE [dbo].[uspTipoMesa] ---LISTO
 		  INSERT INTO Tipo(Nom_tipo)
 		  VALUES (@prmNombreTipo)
 		--SELECT* FROM Tipo
+		 
+		 IF @@TRANCOUNT > 0 COMMIT TRANSACTION
+		
+	  END TRY
+
+	  BEGIN CATCH
+	    IF @@TRANCOUNT>0 ROLLBACK TRANSACTION
+		SET @smsError= ERROR_MESSAGE()
+		RAISERROR(@smsError,16,1)
+	  END CATCH
+  END
+GO
+CREATE PROCEDURE [dbo].[uspInsertarMarca] ---LISTO
+  @prmNombre varchar(25)
+  AS
+  DECLARE @smsError nvarchar(300)
+  BEGIN
+	  BEGIN TRY
+	   BEGIN TRANSACTION
+	      -- Insertando nuevo usuario
+		  INSERT INTO Marca
+		  VALUES (@prmNombre)
+		--SELECT* FROM Marca
+		 
+		 IF @@TRANCOUNT > 0 COMMIT TRANSACTION
+		
+	  END TRY
+
+	  BEGIN CATCH
+	    IF @@TRANCOUNT>0 ROLLBACK TRANSACTION
+		SET @smsError= ERROR_MESSAGE()
+		RAISERROR(@smsError,16,1)
+	  END CATCH
+  END
+GO
+  CREATE PROCEDURE [dbo].[uspAgregarExistencia] ---LISTO
+  @prmExistencia int,
+  @prmId int
+  AS
+  DECLARE @smsError nvarchar(300)
+  BEGIN
+	  BEGIN TRY
+	   BEGIN TRANSACTION
+	      
+		  UPDATE Producto 
+		  SET
+		  Existencia= @prmExistencia
+		  WHERE Id_Prod=@prmId
+		--SELECT* FROM Producto
 		 
 		 IF @@TRANCOUNT > 0 COMMIT TRANSACTION
 		
@@ -495,11 +469,110 @@ CREATE PROCEDURE [dbo].[uspActualizarMesa] ---LISTO
 		RAISERROR(@smsError,16,1)
 	  END CATCH
   END
+GO
+CREATE PROCEDURE [dbo].[uspActualizarEmpleado] ---LISTO
+  @Cadxml varchar(max)
+  AS
+  BEGIN
+    DECLARE @out int,@smsError nvarchar(300)
+	EXEC SP_XML_PREPAREDOCUMENT @out output, @Cadxml--Crear el xml
+	  BEGIN TRY
+	   BEGIN TRANSACTION
+		  -- editando usuario
+		  UPDATE em
+		      SET 
+			  em.Nom_empleado=ae.nombre,
+			  em.apepatEmpleado=ae.apepat,
+			  em.apematEmpleado=ae.apemat,
+			  em.telefonoEmpleado=ae.telefono,
+			  em.direccionEmpleado=ae.direccion,
+			  em.Id_Rol=ae.idrol
+			  FROM OpenXML(@out,'root/actEmpleado',1)WITH(idempleado int,nombre varchar(25), 
+			  apepat varchar(25), apemat varchar(25), telefono varchar(25), direccion varchar(25), 
+			  idrol int) ae
+		  INNER JOIN Empleado em ON ae.idempleado=em.Id_empleado
+		  WHERE em.Id_empleado = ae.idempleado
+		 
+		 IF @@TRANCOUNT > 0 COMMIT TRANSACTION
+		
+	  END TRY
+
+	  BEGIN CATCH
+	    IF @@TRANCOUNT>0 ROLLBACK TRANSACTION
+		SET @smsError= ERROR_MESSAGE()
+		RAISERROR(@smsError,16,1)
+	  END CATCH
+  END
 
 
 GO
-SELECT * FROM 
+CREATE PROCEDURE [dbo].[uspActualizarUsuario] ---LISTO
+  @Cadxml varchar(max)
+  AS
+  BEGIN
+    DECLARE @out int,@smsError nvarchar(300)
+	EXEC SP_XML_PREPAREDOCUMENT @out output, @Cadxml--Crear el xml
+	  BEGIN TRY
+	   BEGIN TRANSACTION
+		  -- editando usuario
+		  UPDATE u
+		      SET 
+			  u.nombre_Usuario=act.usuario,
+			  u.Contrasena_Usuario=act.contrasena,
+			  u.Id_Empleado=act.idempleado
+			  FROM OpenXML(@out,'root/actUsuario',1)WITH( idusuario int,
+		 usuario varchar(25), contrasena varchar(10), idempleado int) act
+		  INNER JOIN Usuario u ON act.idusuario=u.Id_Usuario
+		  WHERE u.Id_Usuario = act.idusuario
+		 
+		 IF @@TRANCOUNT > 0 COMMIT TRANSACTION
+		
+	  END TRY
+
+	  BEGIN CATCH
+	    IF @@TRANCOUNT>0 ROLLBACK TRANSACTION
+		SET @smsError= ERROR_MESSAGE()
+		RAISERROR(@smsError,16,1)
+	  END CATCH
+  END
+
+
 GO
+CREATE PROCEDURE [dbo].[uspActualizarProducto] ---LISTO
+  @Cadxml varchar(max)
+  AS
+  BEGIN
+    DECLARE @out int,@smsError nvarchar(300)
+	EXEC SP_XML_PREPAREDOCUMENT @out output, @Cadxml--Crear el xml
+	  BEGIN TRY
+	   BEGIN TRANSACTION
+		  -- editando producto
+		  UPDATE p
+		      SET 
+			  p.Nom_producto=cp.nomproducto,
+			  p.Id_Umed=cp.idumed,
+			  p.Existencia=cp.existencia,
+			  p.Id_Marca=cp.idmarca,
+			  p.Costo= cp.costo,
+			  p.Precio=cp.precio,
+			  p.Descp_producto=cp.descripcion
+			  FROM OpenXML(@out,'root/actProducto',1)WITH(idproducto int, nomproducto varchar(25),
+		  idumed int, existencia int, idmarca int, costo money, precio money,descripcion varchar(50)) cp
+		  INNER JOIN Producto p ON cp.idproducto=p.Id_Prod
+		  WHERE cp.idproducto=p.Id_Prod
+		 
+		 IF @@TRANCOUNT > 0 COMMIT TRANSACTION
+		
+	  END TRY
+
+	  BEGIN CATCH
+	    IF @@TRANCOUNT>0 ROLLBACK TRANSACTION
+		SET @smsError= ERROR_MESSAGE()
+		RAISERROR(@smsError,16,1)
+	  END CATCH
+  END
+GO
+
 CREATE PROCEDURE [dbo].[uspCambiarContrasena] ---LISTO
   @Cadxml varchar(max)
   AS
@@ -577,6 +650,25 @@ CREATE PROCEDURE [dbo].[uspObtenerIdEmpleado] ----Listo
 		SET NOCOUNT OFF
 	  END 
 GO
+CREATE PROCEDURE [dbo].[uspObtenerIdVenta] ----Listo
+  AS
+	  BEGIN
+		SET NOCOUNT ON
+			SELECT TOP 1 Id_venta FROM Venta ORDER BY Id_venta DESC
+		SET NOCOUNT OFF
+	  END 
+GO
+CREATE PROCEDURE [dbo].[uspObtenerIdEmpleadoActualizar] ----Listo
+@prmUsuario INT
+  AS
+	  BEGIN
+		SET NOCOUNT ON
+			SELECT  Id_empleado FROM Usuario WHERE @prmUsuario=Id_Usuario
+		SET NOCOUNT OFF
+	  END 
+GO
+SELECT * FROM Usuario
+SELECT * FROM Empleado WHERE Id_empleado=2
 SELECT * FROM Disponibilidad
 
 --DELETE Empleado WHERE Id_empleado= (SELECT TOP 1 Id_empleado FROM Empleado ORDER BY Id_empleado DESC)
@@ -630,16 +722,24 @@ CREATE PROCEDURE [dbo].[uspListarProducto]--MODIFICAR
 					  INNER JOIN Proveedor pr ON p.Id_Proveedor_Producto = pr.Id_Proveedor where Estado_Prod=1
 GO
 
-CREATE PROCEDURE [dbo].[uspListarUnidMed]---MODIFICAR
-	as
-	BEGIN
-	 SET NOCOUNT ON
-       SELECT Id_Umed, Codigo_Umed, Descripcion_Umed, Abreviatura_Umed,Estado_Umed FROM UnidadMedida WHERE Estado_Umed=1
-	 SET NOCOUNT OFF
-	 END
+CREATE PROCEDURE [dbo].[uspListarUnidMed]---LISTO
+	AS
+		BEGIN
+			SET NOCOUNT ON
+			   SELECT * FROM UnidadMedida
+			SET NOCOUNT OFF
+		 END
 
 GO
+CREATE PROCEDURE [dbo].[uspListarMarca]---LISTO
+	AS
+		BEGIN
+			 SET NOCOUNT ON
+			   SELECT * FROM Marca
+			 SET NOCOUNT OFF
+		 END
 
+GO
 CREATE PROCEDURE [dbo].[uspListaVenta] -- MODIFICAR '2016-11-06','2016-12-08',0 
 		@prmfinicio date,
 		@prmfin date,
@@ -734,6 +834,7 @@ CREATE PROCEDURE [dbo].[uspMostrarDescrpRol] --LISTO
 		  SELECT r.Descrp_rol FROM Rol AS r 
 		  WHERE r.Id_Rol=@prmRol
 	 END
+ 
  GO
 
  SELECT * FROM Rol
