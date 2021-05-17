@@ -36,40 +36,41 @@ namespace CapaPresentacion
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.dgvMesasCONS = new System.Windows.Forms.DataGridView();
-            this.txtBuscarMesa = new System.Windows.Forms.TextBox();
             this.btnConsultarMesa = new System.Windows.Forms.Button();
+            this.txtBuscarMesa = new System.Windows.Forms.TextBox();
+            this.dgvMesasCONS = new System.Windows.Forms.DataGridView();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.btnActualizar = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.cbxTipoMesaACT = new System.Windows.Forms.ComboBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.txtIdMesaACT = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.cbxDispoACT = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
+            this.cbxDispoACT = new System.Windows.Forms.ComboBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txtIdMesaACT = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.cbxTipoMesaACT = new System.Windows.Forms.ComboBox();
+            this.btnActualizar = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.btnEliminarMesa = new System.Windows.Forms.Button();
-            this.dgvMesasELI = new System.Windows.Forms.DataGridView();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.label37 = new System.Windows.Forms.Label();
-            this.txtIdEliminar = new System.Windows.Forms.TextBox();
             this.panel7 = new System.Windows.Forms.Panel();
             this.label38 = new System.Windows.Forms.Label();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.txtIdEliminar = new System.Windows.Forms.TextBox();
+            this.label37 = new System.Windows.Forms.Label();
+            this.dgvMesasELI = new System.Windows.Forms.DataGridView();
+            this.btnEliminarMesa = new System.Windows.Forms.Button();
             this.Registrar = new System.Windows.Forms.TabPage();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.btnRegistrar = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.cbxTipoMesa = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnAgregarTipo = new System.Windows.Forms.PictureBox();
-            this.txtIdMesa = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.txtIdMesa = new System.Windows.Forms.TextBox();
+            this.btnAgregarTipo = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cbxTipoMesa = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.btnRegistrar = new System.Windows.Forms.Button();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.btnVolver)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
@@ -81,14 +82,14 @@ namespace CapaPresentacion
             this.panel5.SuspendLayout();
             this.panel8.SuspendLayout();
             this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMesasELI)).BeginInit();
-            this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
+            this.panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMesasELI)).BeginInit();
             this.Registrar.SuspendLayout();
-            this.tabControl1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnAgregarTipo)).BeginInit();
-            this.panel2.SuspendLayout();
+            this.tabControl1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label4
@@ -99,7 +100,7 @@ namespace CapaPresentacion
             this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label4.Location = new System.Drawing.Point(0, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(686, 56);
+            this.label4.Size = new System.Drawing.Size(690, 56);
             this.label4.TabIndex = 16;
             this.label4.Text = "MESAS";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -126,6 +127,7 @@ namespace CapaPresentacion
             this.btnMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnMinimizar.TabIndex = 23;
             this.btnMinimizar.TabStop = false;
+            this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
             // 
             // btnCerrar
             // 
@@ -154,7 +156,7 @@ namespace CapaPresentacion
             this.tabPage4.Controls.Add(this.panel4);
             this.tabPage4.Location = new System.Drawing.Point(4, 29);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(654, 312);
+            this.tabPage4.Size = new System.Drawing.Size(658, 327);
             this.tabPage4.TabIndex = 4;
             this.tabPage4.Text = "Consultar";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -162,34 +164,15 @@ namespace CapaPresentacion
             // panel4
             // 
             this.panel4.BackgroundImage = global::CapaPresentacion.Properties.Resources.OIP;
+            this.panel4.Controls.Add(this.label6);
             this.panel4.Controls.Add(this.btnConsultarMesa);
             this.panel4.Controls.Add(this.txtBuscarMesa);
             this.panel4.Controls.Add(this.dgvMesasCONS);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(654, 312);
+            this.panel4.Size = new System.Drawing.Size(658, 327);
             this.panel4.TabIndex = 0;
-            // 
-            // dgvMesasCONS
-            // 
-            this.dgvMesasCONS.AllowUserToAddRows = false;
-            this.dgvMesasCONS.AllowUserToDeleteRows = false;
-            this.dgvMesasCONS.AllowUserToResizeRows = false;
-            this.dgvMesasCONS.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
-            this.dgvMesasCONS.BackgroundColor = System.Drawing.Color.IndianRed;
-            this.dgvMesasCONS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMesasCONS.Location = new System.Drawing.Point(94, 98);
-            this.dgvMesasCONS.Name = "dgvMesasCONS";
-            this.dgvMesasCONS.Size = new System.Drawing.Size(387, 174);
-            this.dgvMesasCONS.TabIndex = 24;
-            // 
-            // txtBuscarMesa
-            // 
-            this.txtBuscarMesa.Location = new System.Drawing.Point(94, 45);
-            this.txtBuscarMesa.Name = "txtBuscarMesa";
-            this.txtBuscarMesa.Size = new System.Drawing.Size(257, 26);
-            this.txtBuscarMesa.TabIndex = 25;
             // 
             // btnConsultarMesa
             // 
@@ -206,12 +189,32 @@ namespace CapaPresentacion
             this.btnConsultarMesa.UseVisualStyleBackColor = false;
             this.btnConsultarMesa.Click += new System.EventHandler(this.btnConsultarMesa_Click);
             // 
+            // txtBuscarMesa
+            // 
+            this.txtBuscarMesa.Location = new System.Drawing.Point(118, 45);
+            this.txtBuscarMesa.Name = "txtBuscarMesa";
+            this.txtBuscarMesa.Size = new System.Drawing.Size(233, 26);
+            this.txtBuscarMesa.TabIndex = 25;
+            // 
+            // dgvMesasCONS
+            // 
+            this.dgvMesasCONS.AllowUserToAddRows = false;
+            this.dgvMesasCONS.AllowUserToDeleteRows = false;
+            this.dgvMesasCONS.AllowUserToResizeRows = false;
+            this.dgvMesasCONS.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            this.dgvMesasCONS.BackgroundColor = System.Drawing.Color.IndianRed;
+            this.dgvMesasCONS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMesasCONS.Location = new System.Drawing.Point(94, 98);
+            this.dgvMesasCONS.Name = "dgvMesasCONS";
+            this.dgvMesasCONS.Size = new System.Drawing.Size(387, 174);
+            this.dgvMesasCONS.TabIndex = 24;
+            // 
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.panel5);
             this.tabPage1.Location = new System.Drawing.Point(4, 29);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(654, 312);
+            this.tabPage1.Size = new System.Drawing.Size(658, 327);
             this.tabPage1.TabIndex = 3;
             this.tabPage1.Text = "Actualizar";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -224,23 +227,8 @@ namespace CapaPresentacion
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(654, 312);
+            this.panel5.Size = new System.Drawing.Size(658, 327);
             this.panel5.TabIndex = 0;
-            // 
-            // btnActualizar
-            // 
-            this.btnActualizar.BackColor = System.Drawing.Color.Navy;
-            this.btnActualizar.FlatAppearance.BorderSize = 0;
-            this.btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnActualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnActualizar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnActualizar.Location = new System.Drawing.Point(181, 251);
-            this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(298, 38);
-            this.btnActualizar.TabIndex = 23;
-            this.btnActualizar.Text = "Actualizar";
-            this.btnActualizar.UseVisualStyleBackColor = false;
-            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // panel8
             // 
@@ -257,48 +245,14 @@ namespace CapaPresentacion
             this.panel8.Size = new System.Drawing.Size(298, 205);
             this.panel8.TabIndex = 31;
             // 
-            // cbxTipoMesaACT
+            // label11
             // 
-            this.cbxTipoMesaACT.FormattingEnabled = true;
-            this.cbxTipoMesaACT.Location = new System.Drawing.Point(143, 120);
-            this.cbxTipoMesaACT.Name = "cbxTipoMesaACT";
-            this.cbxTipoMesaACT.Size = new System.Drawing.Size(121, 28);
-            this.cbxTipoMesaACT.TabIndex = 27;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(54, 123);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(96, 20);
-            this.label10.TabIndex = 22;
-            this.label10.Text = "Tipo Mesa:";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(27, 160);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(126, 20);
-            this.label9.TabIndex = 29;
-            this.label9.Text = "Disponibilidad:";
-            // 
-            // txtIdMesaACT
-            // 
-            this.txtIdMesaACT.Location = new System.Drawing.Point(143, 85);
-            this.txtIdMesaACT.Name = "txtIdMesaACT";
-            this.txtIdMesaACT.Size = new System.Drawing.Size(121, 26);
-            this.txtIdMesaACT.TabIndex = 19;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(73, 14);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(191, 20);
-            this.label12.TabIndex = 20;
-            this.label12.Text = "DATOS A MODIFICAR";
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(59, 88);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(78, 20);
+            this.label11.TabIndex = 21;
+            this.label11.Text = "Id Mesa:";
             // 
             // cbxDispoACT
             // 
@@ -312,14 +266,63 @@ namespace CapaPresentacion
             this.cbxDispoACT.TabIndex = 30;
             this.cbxDispoACT.Text = "Seleccionar...";
             // 
-            // label11
+            // label12
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(73, 88);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(78, 20);
-            this.label11.TabIndex = 21;
-            this.label11.Text = "Id Mesa:";
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(73, 14);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(191, 20);
+            this.label12.TabIndex = 20;
+            this.label12.Text = "DATOS A MODIFICAR";
+            // 
+            // txtIdMesaACT
+            // 
+            this.txtIdMesaACT.Location = new System.Drawing.Point(143, 85);
+            this.txtIdMesaACT.Name = "txtIdMesaACT";
+            this.txtIdMesaACT.Size = new System.Drawing.Size(121, 26);
+            this.txtIdMesaACT.TabIndex = 19;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(13, 160);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(126, 20);
+            this.label9.TabIndex = 29;
+            this.label9.Text = "Disponibilidad:";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(40, 123);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(96, 20);
+            this.label10.TabIndex = 22;
+            this.label10.Text = "Tipo Mesa:";
+            // 
+            // cbxTipoMesaACT
+            // 
+            this.cbxTipoMesaACT.FormattingEnabled = true;
+            this.cbxTipoMesaACT.Location = new System.Drawing.Point(143, 120);
+            this.cbxTipoMesaACT.Name = "cbxTipoMesaACT";
+            this.cbxTipoMesaACT.Size = new System.Drawing.Size(121, 28);
+            this.cbxTipoMesaACT.TabIndex = 27;
+            // 
+            // btnActualizar
+            // 
+            this.btnActualizar.BackColor = System.Drawing.Color.Navy;
+            this.btnActualizar.FlatAppearance.BorderSize = 0;
+            this.btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnActualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnActualizar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnActualizar.Location = new System.Drawing.Point(181, 251);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Size = new System.Drawing.Size(298, 38);
+            this.btnActualizar.TabIndex = 23;
+            this.btnActualizar.Text = "Actualizar";
+            this.btnActualizar.UseVisualStyleBackColor = false;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // tabPage3
             // 
@@ -331,64 +334,10 @@ namespace CapaPresentacion
             this.tabPage3.Location = new System.Drawing.Point(4, 29);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(654, 312);
+            this.tabPage3.Size = new System.Drawing.Size(658, 327);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Eliminar";
             this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // btnEliminarMesa
-            // 
-            this.btnEliminarMesa.BackColor = System.Drawing.Color.Navy;
-            this.btnEliminarMesa.FlatAppearance.BorderSize = 0;
-            this.btnEliminarMesa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminarMesa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminarMesa.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnEliminarMesa.Location = new System.Drawing.Point(401, 67);
-            this.btnEliminarMesa.Name = "btnEliminarMesa";
-            this.btnEliminarMesa.Size = new System.Drawing.Size(124, 38);
-            this.btnEliminarMesa.TabIndex = 23;
-            this.btnEliminarMesa.Text = "Eliminar";
-            this.btnEliminarMesa.UseVisualStyleBackColor = false;
-            this.btnEliminarMesa.Click += new System.EventHandler(this.btnEliminarMesa_Click);
-            // 
-            // dgvMesasELI
-            // 
-            this.dgvMesasELI.AllowUserToAddRows = false;
-            this.dgvMesasELI.AllowUserToDeleteRows = false;
-            this.dgvMesasELI.AllowUserToResizeRows = false;
-            this.dgvMesasELI.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
-            this.dgvMesasELI.BackgroundColor = System.Drawing.Color.IndianRed;
-            this.dgvMesasELI.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMesasELI.Location = new System.Drawing.Point(91, 125);
-            this.dgvMesasELI.Name = "dgvMesasELI";
-            this.dgvMesasELI.Size = new System.Drawing.Size(434, 150);
-            this.dgvMesasELI.TabIndex = 24;
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.Color.IndianRed;
-            this.panel6.Controls.Add(this.txtIdEliminar);
-            this.panel6.Controls.Add(this.label37);
-            this.panel6.Location = new System.Drawing.Point(91, 57);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(304, 62);
-            this.panel6.TabIndex = 25;
-            // 
-            // label37
-            // 
-            this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(11, 19);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(78, 20);
-            this.label37.TabIndex = 21;
-            this.label37.Text = "Id Mesa:";
-            // 
-            // txtIdEliminar
-            // 
-            this.txtIdEliminar.Location = new System.Drawing.Point(90, 20);
-            this.txtIdEliminar.Name = "txtIdEliminar";
-            this.txtIdEliminar.Size = new System.Drawing.Size(164, 26);
-            this.txtIdEliminar.TabIndex = 19;
             // 
             // panel7
             // 
@@ -409,6 +358,60 @@ namespace CapaPresentacion
             this.label38.TabIndex = 21;
             this.label38.Text = "DATOS";
             // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.IndianRed;
+            this.panel6.Controls.Add(this.txtIdEliminar);
+            this.panel6.Controls.Add(this.label37);
+            this.panel6.Location = new System.Drawing.Point(91, 57);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(304, 62);
+            this.panel6.TabIndex = 25;
+            // 
+            // txtIdEliminar
+            // 
+            this.txtIdEliminar.Location = new System.Drawing.Point(90, 20);
+            this.txtIdEliminar.Name = "txtIdEliminar";
+            this.txtIdEliminar.Size = new System.Drawing.Size(164, 26);
+            this.txtIdEliminar.TabIndex = 19;
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Location = new System.Drawing.Point(11, 19);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(78, 20);
+            this.label37.TabIndex = 21;
+            this.label37.Text = "Id Mesa:";
+            // 
+            // dgvMesasELI
+            // 
+            this.dgvMesasELI.AllowUserToAddRows = false;
+            this.dgvMesasELI.AllowUserToDeleteRows = false;
+            this.dgvMesasELI.AllowUserToResizeRows = false;
+            this.dgvMesasELI.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            this.dgvMesasELI.BackgroundColor = System.Drawing.Color.IndianRed;
+            this.dgvMesasELI.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMesasELI.Location = new System.Drawing.Point(91, 125);
+            this.dgvMesasELI.Name = "dgvMesasELI";
+            this.dgvMesasELI.Size = new System.Drawing.Size(434, 150);
+            this.dgvMesasELI.TabIndex = 24;
+            // 
+            // btnEliminarMesa
+            // 
+            this.btnEliminarMesa.BackColor = System.Drawing.Color.Navy;
+            this.btnEliminarMesa.FlatAppearance.BorderSize = 0;
+            this.btnEliminarMesa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminarMesa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminarMesa.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnEliminarMesa.Location = new System.Drawing.Point(401, 67);
+            this.btnEliminarMesa.Name = "btnEliminarMesa";
+            this.btnEliminarMesa.Size = new System.Drawing.Size(124, 38);
+            this.btnEliminarMesa.TabIndex = 23;
+            this.btnEliminarMesa.Text = "Eliminar";
+            this.btnEliminarMesa.UseVisualStyleBackColor = false;
+            this.btnEliminarMesa.Click += new System.EventHandler(this.btnEliminarMesa_Click);
+            // 
             // Registrar
             // 
             this.Registrar.Controls.Add(this.panel2);
@@ -416,38 +419,21 @@ namespace CapaPresentacion
             this.Registrar.Location = new System.Drawing.Point(4, 29);
             this.Registrar.Name = "Registrar";
             this.Registrar.Padding = new System.Windows.Forms.Padding(3);
-            this.Registrar.Size = new System.Drawing.Size(654, 312);
+            this.Registrar.Size = new System.Drawing.Size(658, 327);
             this.Registrar.TabIndex = 0;
             this.Registrar.Text = "Registrar";
             this.Registrar.UseVisualStyleBackColor = true;
             // 
-            // tabControl1
+            // panel2
             // 
-            this.tabControl1.Controls.Add(this.Registrar);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage4);
-            this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControl1.Location = new System.Drawing.Point(12, 80);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(662, 345);
-            this.tabControl1.TabIndex = 1;
-            // 
-            // btnRegistrar
-            // 
-            this.btnRegistrar.BackColor = System.Drawing.Color.Navy;
-            this.btnRegistrar.FlatAppearance.BorderSize = 0;
-            this.btnRegistrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegistrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegistrar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnRegistrar.Location = new System.Drawing.Point(175, 233);
-            this.btnRegistrar.Name = "btnRegistrar";
-            this.btnRegistrar.Size = new System.Drawing.Size(315, 38);
-            this.btnRegistrar.TabIndex = 14;
-            this.btnRegistrar.Text = "Guardar";
-            this.btnRegistrar.UseVisualStyleBackColor = false;
-            this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
+            this.panel2.BackgroundImage = global::CapaPresentacion.Properties.Resources.OIP;
+            this.panel2.Controls.Add(this.panel1);
+            this.panel2.Controls.Add(this.btnRegistrar);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(3, 3);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(652, 321);
+            this.panel2.TabIndex = 0;
             // 
             // panel1
             // 
@@ -465,32 +451,34 @@ namespace CapaPresentacion
             this.panel1.Size = new System.Drawing.Size(315, 155);
             this.panel1.TabIndex = 21;
             // 
-            // label5
+            // txtIdMesa
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(172, 37);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(0, 20);
-            this.label5.TabIndex = 4;
+            this.txtIdMesa.Location = new System.Drawing.Point(129, 60);
+            this.txtIdMesa.Name = "txtIdMesa";
+            this.txtIdMesa.ReadOnly = true;
+            this.txtIdMesa.Size = new System.Drawing.Size(155, 24);
+            this.txtIdMesa.TabIndex = 0;
             // 
-            // label3
+            // btnAgregarTipo
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(32, 98);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(92, 18);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Tipo Mesa:";
+            this.btnAgregarTipo.Image = global::CapaPresentacion.Properties.Resources.add_24x24_32;
+            this.btnAgregarTipo.Location = new System.Drawing.Point(256, 98);
+            this.btnAgregarTipo.Name = "btnAgregarTipo";
+            this.btnAgregarTipo.Size = new System.Drawing.Size(28, 24);
+            this.btnAgregarTipo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnAgregarTipo.TabIndex = 20;
+            this.btnAgregarTipo.TabStop = false;
+            this.btnAgregarTipo.Click += new System.EventHandler(this.btnAgregarMarca_Click);
             // 
-            // label2
+            // label1
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(42, 63);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(72, 18);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Id Mesa:";
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(114, 17);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(69, 20);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "DATOS";
             // 
             // cbxTipoMesa
             // 
@@ -505,52 +493,77 @@ namespace CapaPresentacion
             this.cbxTipoMesa.TabIndex = 18;
             this.cbxTipoMesa.SelectedIndexChanged += new System.EventHandler(this.cbxTipoMesa_SelectedIndexChanged);
             // 
-            // label1
+            // label2
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(114, 17);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 20);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "DATOS";
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(42, 63);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(72, 18);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Id Mesa:";
             // 
-            // btnAgregarTipo
+            // label3
             // 
-            this.btnAgregarTipo.Image = global::CapaPresentacion.Properties.Resources.add_24x24_32;
-            this.btnAgregarTipo.Location = new System.Drawing.Point(256, 98);
-            this.btnAgregarTipo.Name = "btnAgregarTipo";
-            this.btnAgregarTipo.Size = new System.Drawing.Size(28, 24);
-            this.btnAgregarTipo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnAgregarTipo.TabIndex = 20;
-            this.btnAgregarTipo.TabStop = false;
-            this.btnAgregarTipo.Click += new System.EventHandler(this.btnAgregarMarca_Click);
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(32, 98);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(92, 18);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Tipo Mesa:";
             // 
-            // txtIdMesa
+            // label5
             // 
-            this.txtIdMesa.Location = new System.Drawing.Point(129, 60);
-            this.txtIdMesa.Name = "txtIdMesa";
-            this.txtIdMesa.ReadOnly = true;
-            this.txtIdMesa.Size = new System.Drawing.Size(155, 24);
-            this.txtIdMesa.TabIndex = 0;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(172, 37);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(0, 20);
+            this.label5.TabIndex = 4;
             // 
-            // panel2
+            // btnRegistrar
             // 
-            this.panel2.BackgroundImage = global::CapaPresentacion.Properties.Resources.OIP;
-            this.panel2.Controls.Add(this.panel1);
-            this.panel2.Controls.Add(this.btnRegistrar);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(3, 3);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(648, 306);
-            this.panel2.TabIndex = 0;
+            this.btnRegistrar.BackColor = System.Drawing.Color.Navy;
+            this.btnRegistrar.FlatAppearance.BorderSize = 0;
+            this.btnRegistrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegistrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegistrar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnRegistrar.Location = new System.Drawing.Point(175, 233);
+            this.btnRegistrar.Name = "btnRegistrar";
+            this.btnRegistrar.Size = new System.Drawing.Size(315, 38);
+            this.btnRegistrar.TabIndex = 14;
+            this.btnRegistrar.Text = "Guardar";
+            this.btnRegistrar.UseVisualStyleBackColor = false;
+            this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.Registrar);
+            this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage4);
+            this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabControl1.Location = new System.Drawing.Point(12, 75);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(666, 360);
+            this.tabControl1.TabIndex = 1;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.IndianRed;
+            this.label6.Location = new System.Drawing.Point(82, 48);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(30, 20);
+            this.label6.TabIndex = 27;
+            this.label6.Text = "Id:";
             // 
             // frmMesas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.ClientSize = new System.Drawing.Size(686, 450);
+            this.ClientSize = new System.Drawing.Size(690, 460);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.btnMinimizar);
             this.Controls.Add(this.btnCerrar);
@@ -575,17 +588,17 @@ namespace CapaPresentacion
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
             this.tabPage3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMesasELI)).EndInit();
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMesasELI)).EndInit();
             this.Registrar.ResumeLayout(false);
-            this.tabControl1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnAgregarTipo)).EndInit();
-            this.panel2.ResumeLayout(false);
+            this.tabControl1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -632,5 +645,6 @@ namespace CapaPresentacion
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnRegistrar;
         private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.Label label6;
     }
 }

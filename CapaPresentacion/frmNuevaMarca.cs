@@ -28,7 +28,7 @@ namespace CapaPresentacion
             try
             {
                
-                int i = negProducto.Instancia.insertarMarca(txtNombre.Text);
+                int i = negProducto.Instancia.insertarMarca(txtNombreMarca.Text);
                 MessageBox.Show("¡Registro Correcto!", "Mensaje",
                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -40,6 +40,23 @@ namespace CapaPresentacion
                 MessageBox.Show(ex.Message, "Error",
                                  MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btnRegistrar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            frmInventario fi = new frmInventario(1);
+            fi.Show();
         }
     }
     

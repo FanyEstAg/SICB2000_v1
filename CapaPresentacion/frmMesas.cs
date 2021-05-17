@@ -177,5 +177,11 @@ namespace CapaPresentacion
         {
             this.Close();
         }
+
+        private void btnMinimizar_Click(object sender, EventArgs e)
+        {
+            //Minimizar ventana
+            this.WindowState = FormWindowState.Minimized;
+        }
     }
 }

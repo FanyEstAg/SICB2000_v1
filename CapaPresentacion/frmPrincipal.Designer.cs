@@ -29,6 +29,22 @@
         private void InitializeComponent()
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.lblUsuario1 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.lblUsuario = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnConfig = new System.Windows.Forms.Button();
+            this.btnReporte = new System.Windows.Forms.Button();
+            this.btnInventario = new System.Windows.Forms.Button();
+            this.btnVentaProd = new System.Windows.Forms.Button();
+            this.btnCobroMesa = new System.Windows.Forms.Button();
+            this.btnMesas = new System.Windows.Forms.Button();
+            this.btnVolver = new System.Windows.Forms.PictureBox();
+            this.btnMinimizar = new System.Windows.Forms.PictureBox();
+            this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.inicioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmSeguridad = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmInventario = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,29 +62,14 @@
             this.tsmReporteMesas = new System.Windows.Forms.ToolStripMenuItem();
             this.acercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.acercaDeToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.btnVolver = new System.Windows.Forms.PictureBox();
-            this.btnMinimizar = new System.Windows.Forms.PictureBox();
-            this.btnCerrar = new System.Windows.Forms.PictureBox();
-            this.lblUsuario1 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.lblUsuario = new System.Windows.Forms.Label();
-            this.btnConfig = new System.Windows.Forms.Button();
-            this.btnReporte = new System.Windows.Forms.Button();
-            this.btnInventario = new System.Windows.Forms.Button();
-            this.btnVentaProd = new System.Windows.Forms.Button();
-            this.btnCobroMesa = new System.Windows.Forms.Button();
-            this.btnMesas = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnVolver)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
-            this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -86,162 +87,6 @@
             this.menuStrip1.Size = new System.Drawing.Size(822, 62);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
-            // 
-            // inicioToolStripMenuItem
-            // 
-            this.inicioToolStripMenuItem.AutoSize = false;
-            this.inicioToolStripMenuItem.BackColor = System.Drawing.Color.White;
-            this.inicioToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmSeguridad,
-            this.tsmInventario,
-            this.toolStripMenuItem1,
-            this.tsmSalir});
-            this.inicioToolStripMenuItem.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.inicioToolStripMenuItem.ForeColor = System.Drawing.Color.Navy;
-            this.inicioToolStripMenuItem.Image = global::CapaPresentacion.Properties.Resources.home_48x48_32;
-            this.inicioToolStripMenuItem.Name = "inicioToolStripMenuItem";
-            this.inicioToolStripMenuItem.Size = new System.Drawing.Size(122, 40);
-            this.inicioToolStripMenuItem.Text = "Inicio";
-            // 
-            // tsmSeguridad
-            // 
-            this.tsmSeguridad.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tsmSeguridad.Image = global::CapaPresentacion.Properties.Resources.Security_1_24x24_32;
-            this.tsmSeguridad.Name = "tsmSeguridad";
-            this.tsmSeguridad.Size = new System.Drawing.Size(128, 22);
-            this.tsmSeguridad.Text = "Usuarios";
-            this.tsmSeguridad.Click += new System.EventHandler(this.tsmSeguridad_Click);
-            // 
-            // tsmInventario
-            // 
-            this.tsmInventario.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tsmInventario.Image = global::CapaPresentacion.Properties.Resources.producto_16x16;
-            this.tsmInventario.Name = "tsmInventario";
-            this.tsmInventario.Size = new System.Drawing.Size(128, 22);
-            this.tsmInventario.Text = "Inventario";
-            this.tsmInventario.Click += new System.EventHandler(this.productosToolStripMenuItem_Click);
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(125, 6);
-            // 
-            // tsmSalir
-            // 
-            this.tsmSalir.Name = "tsmSalir";
-            this.tsmSalir.Size = new System.Drawing.Size(128, 22);
-            this.tsmSalir.Text = "Salir";
-            this.tsmSalir.Click += new System.EventHandler(this.tsmSalir_Click);
-            // 
-            // ventasToolStripMenuItem
-            // 
-            this.ventasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmVentas,
-            this.tsmMesas});
-            this.ventasToolStripMenuItem.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ventasToolStripMenuItem.ForeColor = System.Drawing.Color.Navy;
-            this.ventasToolStripMenuItem.Image = global::CapaPresentacion.Properties.Resources.app_edit_32x32_32;
-            this.ventasToolStripMenuItem.Name = "ventasToolStripMenuItem";
-            this.ventasToolStripMenuItem.Size = new System.Drawing.Size(134, 58);
-            this.ventasToolStripMenuItem.Text = "Movimientos";
-            // 
-            // tsmVentas
-            // 
-            this.tsmVentas.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tsmVentas.Image = global::CapaPresentacion.Properties.Resources.Shopping_cart_24x24;
-            this.tsmVentas.Name = "tsmVentas";
-            this.tsmVentas.Size = new System.Drawing.Size(112, 22);
-            this.tsmVentas.Text = "Vender";
-            this.tsmVentas.Click += new System.EventHandler(this.tsmVentas_Click);
-            // 
-            // tsmMesas
-            // 
-            this.tsmMesas.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tsmMesas.Image = global::CapaPresentacion.Properties.Resources._new;
-            this.tsmMesas.Name = "tsmMesas";
-            this.tsmMesas.Size = new System.Drawing.Size(112, 22);
-            this.tsmMesas.Text = "Mesas";
-            this.tsmMesas.Click += new System.EventHandler(this.tsmMesas_Click);
-            // 
-            // consultasToolStripMenuItem
-            // 
-            this.consultasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmConsultaProd,
-            this.tsmConsultaVenta});
-            this.consultasToolStripMenuItem.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.consultasToolStripMenuItem.ForeColor = System.Drawing.Color.Navy;
-            this.consultasToolStripMenuItem.Image = global::CapaPresentacion.Properties.Resources.Pie_Diagram_32x32_32;
-            this.consultasToolStripMenuItem.Name = "consultasToolStripMenuItem";
-            this.consultasToolStripMenuItem.Size = new System.Drawing.Size(110, 58);
-            this.consultasToolStripMenuItem.Text = "Consultas";
-            // 
-            // tsmConsultaProd
-            // 
-            this.tsmConsultaProd.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tsmConsultaProd.Name = "tsmConsultaProd";
-            this.tsmConsultaProd.Size = new System.Drawing.Size(130, 22);
-            this.tsmConsultaProd.Text = "Productos";
-            // 
-            // tsmConsultaVenta
-            // 
-            this.tsmConsultaVenta.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tsmConsultaVenta.Name = "tsmConsultaVenta";
-            this.tsmConsultaVenta.Size = new System.Drawing.Size(130, 22);
-            this.tsmConsultaVenta.Text = "Ventas";
-            // 
-            // reportesToolStripMenuItem
-            // 
-            this.reportesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmreporteventas,
-            this.tsmreporteproductos,
-            this.tsmReporteMesas});
-            this.reportesToolStripMenuItem.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.reportesToolStripMenuItem.ForeColor = System.Drawing.Color.Navy;
-            this.reportesToolStripMenuItem.Image = global::CapaPresentacion.Properties.Resources.chart_accept_32x32_32;
-            this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
-            this.reportesToolStripMenuItem.Size = new System.Drawing.Size(102, 58);
-            this.reportesToolStripMenuItem.Text = "Reportes";
-            // 
-            // tsmreporteventas
-            // 
-            this.tsmreporteventas.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tsmreporteventas.Name = "tsmreporteventas";
-            this.tsmreporteventas.Size = new System.Drawing.Size(145, 22);
-            this.tsmreporteventas.Text = "R. Ventas";
-            // 
-            // tsmreporteproductos
-            // 
-            this.tsmreporteproductos.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tsmreporteproductos.Name = "tsmreporteproductos";
-            this.tsmreporteproductos.Size = new System.Drawing.Size(145, 22);
-            this.tsmreporteproductos.Text = "R. Productos";
-            // 
-            // tsmReporteMesas
-            // 
-            this.tsmReporteMesas.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tsmReporteMesas.Name = "tsmReporteMesas";
-            this.tsmReporteMesas.Size = new System.Drawing.Size(145, 22);
-            this.tsmReporteMesas.Text = "R. Mesas";
-            // 
-            // acercaDeToolStripMenuItem
-            // 
-            this.acercaDeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.acercaDeToolStripMenuItem1});
-            this.acercaDeToolStripMenuItem.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.acercaDeToolStripMenuItem.ForeColor = System.Drawing.Color.Navy;
-            this.acercaDeToolStripMenuItem.Image = global::CapaPresentacion.Properties.Resources.user_comment_32x32_32;
-            this.acercaDeToolStripMenuItem.Name = "acercaDeToolStripMenuItem";
-            this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(90, 58);
-            this.acercaDeToolStripMenuItem.Text = "Ayuda";
-            // 
-            // acercaDeToolStripMenuItem1
-            // 
-            this.acercaDeToolStripMenuItem1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.acercaDeToolStripMenuItem1.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.acercaDeToolStripMenuItem1.Name = "acercaDeToolStripMenuItem1";
-            this.acercaDeToolStripMenuItem1.Size = new System.Drawing.Size(128, 22);
-            this.acercaDeToolStripMenuItem1.Text = "Acerca de";
-            this.acercaDeToolStripMenuItem1.Click += new System.EventHandler(this.acercaDeToolStripMenuItem1_Click);
             // 
             // panel1
             // 
@@ -266,42 +111,6 @@
             this.panel2.Size = new System.Drawing.Size(822, 62);
             this.panel2.TabIndex = 5;
             // 
-            // btnVolver
-            // 
-            this.btnVolver.BackColor = System.Drawing.Color.SeaGreen;
-            this.btnVolver.Image = global::CapaPresentacion.Properties.Resources.regresar;
-            this.btnVolver.Location = new System.Drawing.Point(747, 3);
-            this.btnVolver.Name = "btnVolver";
-            this.btnVolver.Size = new System.Drawing.Size(20, 20);
-            this.btnVolver.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnVolver.TabIndex = 18;
-            this.btnVolver.TabStop = false;
-            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
-            // 
-            // btnMinimizar
-            // 
-            this.btnMinimizar.BackColor = System.Drawing.Color.SeaGreen;
-            this.btnMinimizar.Image = global::CapaPresentacion.Properties.Resources.mini;
-            this.btnMinimizar.Location = new System.Drawing.Point(773, 3);
-            this.btnMinimizar.Name = "btnMinimizar";
-            this.btnMinimizar.Size = new System.Drawing.Size(20, 20);
-            this.btnMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnMinimizar.TabIndex = 17;
-            this.btnMinimizar.TabStop = false;
-            this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
-            // 
-            // btnCerrar
-            // 
-            this.btnCerrar.BackColor = System.Drawing.Color.SeaGreen;
-            this.btnCerrar.Image = global::CapaPresentacion.Properties.Resources.cerrar;
-            this.btnCerrar.Location = new System.Drawing.Point(799, 3);
-            this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(20, 20);
-            this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnCerrar.TabIndex = 16;
-            this.btnCerrar.TabStop = false;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
-            // 
             // lblUsuario1
             // 
             this.lblUsuario1.AutoSize = true;
@@ -314,7 +123,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.SeaGreen;
-            this.panel3.Controls.Add(this.lblUsuario);
+            this.panel3.Controls.Add(this.button1);
             this.panel3.Controls.Add(this.btnConfig);
             this.panel3.Controls.Add(this.btnReporte);
             this.panel3.Controls.Add(this.btnInventario);
@@ -332,11 +141,39 @@
             this.lblUsuario.AutoSize = true;
             this.lblUsuario.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsuario.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblUsuario.Location = new System.Drawing.Point(76, 345);
+            this.lblUsuario.Location = new System.Drawing.Point(747, 84);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(20, 17);
             this.lblUsuario.TabIndex = 6;
             this.lblUsuario.Text = "---";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Image = global::CapaPresentacion.Properties.Resources.Logo_CLUB_BILLAR;
+            this.pictureBox1.Location = new System.Drawing.Point(200, 62);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(622, 403);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 17;
+            this.pictureBox1.TabStop = false;
+            // 
+            // button1
+            // 
+            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.Navy;
+            this.button1.Image = global::CapaPresentacion.Properties.Resources.b71;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(0, 342);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(200, 57);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "Acerca de";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // btnConfig
             // 
@@ -455,17 +292,197 @@
             this.btnMesas.UseVisualStyleBackColor = true;
             this.btnMesas.Click += new System.EventHandler(this.btnMesas_Click);
             // 
-            // pictureBox1
+            // btnVolver
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Image = global::CapaPresentacion.Properties.Resources.Logo_CLUB_BILLAR;
-            this.pictureBox1.Location = new System.Drawing.Point(200, 62);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(622, 403);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 17;
-            this.pictureBox1.TabStop = false;
+            this.btnVolver.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnVolver.Image = global::CapaPresentacion.Properties.Resources.regresar;
+            this.btnVolver.Location = new System.Drawing.Point(747, 3);
+            this.btnVolver.Name = "btnVolver";
+            this.btnVolver.Size = new System.Drawing.Size(20, 20);
+            this.btnVolver.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnVolver.TabIndex = 18;
+            this.btnVolver.TabStop = false;
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
+            // 
+            // btnMinimizar
+            // 
+            this.btnMinimizar.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnMinimizar.Image = global::CapaPresentacion.Properties.Resources.mini;
+            this.btnMinimizar.Location = new System.Drawing.Point(773, 3);
+            this.btnMinimizar.Name = "btnMinimizar";
+            this.btnMinimizar.Size = new System.Drawing.Size(20, 20);
+            this.btnMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnMinimizar.TabIndex = 17;
+            this.btnMinimizar.TabStop = false;
+            this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
+            // 
+            // btnCerrar
+            // 
+            this.btnCerrar.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnCerrar.Image = global::CapaPresentacion.Properties.Resources.cerrar;
+            this.btnCerrar.Location = new System.Drawing.Point(799, 3);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(20, 20);
+            this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnCerrar.TabIndex = 16;
+            this.btnCerrar.TabStop = false;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            // 
+            // inicioToolStripMenuItem
+            // 
+            this.inicioToolStripMenuItem.AutoSize = false;
+            this.inicioToolStripMenuItem.BackColor = System.Drawing.Color.White;
+            this.inicioToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmSeguridad,
+            this.tsmInventario,
+            this.toolStripMenuItem1,
+            this.tsmSalir});
+            this.inicioToolStripMenuItem.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inicioToolStripMenuItem.ForeColor = System.Drawing.Color.Navy;
+            this.inicioToolStripMenuItem.Image = global::CapaPresentacion.Properties.Resources.home_48x48_32;
+            this.inicioToolStripMenuItem.Name = "inicioToolStripMenuItem";
+            this.inicioToolStripMenuItem.Size = new System.Drawing.Size(122, 40);
+            this.inicioToolStripMenuItem.Text = "Inicio";
+            // 
+            // tsmSeguridad
+            // 
+            this.tsmSeguridad.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tsmSeguridad.Image = global::CapaPresentacion.Properties.Resources.Security_1_24x24_32;
+            this.tsmSeguridad.Name = "tsmSeguridad";
+            this.tsmSeguridad.Size = new System.Drawing.Size(129, 24);
+            this.tsmSeguridad.Text = "Usuarios";
+            this.tsmSeguridad.Click += new System.EventHandler(this.tsmSeguridad_Click);
+            // 
+            // tsmInventario
+            // 
+            this.tsmInventario.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tsmInventario.Image = global::CapaPresentacion.Properties.Resources.producto_16x16;
+            this.tsmInventario.Name = "tsmInventario";
+            this.tsmInventario.Size = new System.Drawing.Size(129, 24);
+            this.tsmInventario.Text = "Inventario";
+            this.tsmInventario.Click += new System.EventHandler(this.productosToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(126, 6);
+            // 
+            // tsmSalir
+            // 
+            this.tsmSalir.Name = "tsmSalir";
+            this.tsmSalir.Size = new System.Drawing.Size(129, 24);
+            this.tsmSalir.Text = "Salir";
+            this.tsmSalir.Click += new System.EventHandler(this.tsmSalir_Click);
+            // 
+            // ventasToolStripMenuItem
+            // 
+            this.ventasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmVentas,
+            this.tsmMesas});
+            this.ventasToolStripMenuItem.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ventasToolStripMenuItem.ForeColor = System.Drawing.Color.Navy;
+            this.ventasToolStripMenuItem.Image = global::CapaPresentacion.Properties.Resources.app_edit_32x32_32;
+            this.ventasToolStripMenuItem.Name = "ventasToolStripMenuItem";
+            this.ventasToolStripMenuItem.Size = new System.Drawing.Size(134, 58);
+            this.ventasToolStripMenuItem.Text = "Movimientos";
+            // 
+            // tsmVentas
+            // 
+            this.tsmVentas.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tsmVentas.Image = global::CapaPresentacion.Properties.Resources.Shopping_cart_24x24;
+            this.tsmVentas.Name = "tsmVentas";
+            this.tsmVentas.Size = new System.Drawing.Size(114, 22);
+            this.tsmVentas.Text = "Vender";
+            this.tsmVentas.Click += new System.EventHandler(this.tsmVentas_Click);
+            // 
+            // tsmMesas
+            // 
+            this.tsmMesas.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tsmMesas.Image = global::CapaPresentacion.Properties.Resources._new;
+            this.tsmMesas.Name = "tsmMesas";
+            this.tsmMesas.Size = new System.Drawing.Size(114, 22);
+            this.tsmMesas.Text = "Mesas";
+            this.tsmMesas.Click += new System.EventHandler(this.tsmMesas_Click);
+            // 
+            // consultasToolStripMenuItem
+            // 
+            this.consultasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmConsultaProd,
+            this.tsmConsultaVenta});
+            this.consultasToolStripMenuItem.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.consultasToolStripMenuItem.ForeColor = System.Drawing.Color.Navy;
+            this.consultasToolStripMenuItem.Image = global::CapaPresentacion.Properties.Resources.Pie_Diagram_32x32_32;
+            this.consultasToolStripMenuItem.Name = "consultasToolStripMenuItem";
+            this.consultasToolStripMenuItem.Size = new System.Drawing.Size(110, 58);
+            this.consultasToolStripMenuItem.Text = "Consultas";
+            // 
+            // tsmConsultaProd
+            // 
+            this.tsmConsultaProd.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tsmConsultaProd.Name = "tsmConsultaProd";
+            this.tsmConsultaProd.Size = new System.Drawing.Size(132, 22);
+            this.tsmConsultaProd.Text = "Productos";
+            // 
+            // tsmConsultaVenta
+            // 
+            this.tsmConsultaVenta.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tsmConsultaVenta.Name = "tsmConsultaVenta";
+            this.tsmConsultaVenta.Size = new System.Drawing.Size(132, 22);
+            this.tsmConsultaVenta.Text = "Ventas";
+            // 
+            // reportesToolStripMenuItem
+            // 
+            this.reportesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmreporteventas,
+            this.tsmreporteproductos,
+            this.tsmReporteMesas});
+            this.reportesToolStripMenuItem.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reportesToolStripMenuItem.ForeColor = System.Drawing.Color.Navy;
+            this.reportesToolStripMenuItem.Image = global::CapaPresentacion.Properties.Resources.chart_accept_32x32_32;
+            this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
+            this.reportesToolStripMenuItem.Size = new System.Drawing.Size(102, 58);
+            this.reportesToolStripMenuItem.Text = "Reportes";
+            // 
+            // tsmreporteventas
+            // 
+            this.tsmreporteventas.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tsmreporteventas.Name = "tsmreporteventas";
+            this.tsmreporteventas.Size = new System.Drawing.Size(147, 22);
+            this.tsmreporteventas.Text = "R. Ventas";
+            // 
+            // tsmreporteproductos
+            // 
+            this.tsmreporteproductos.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tsmreporteproductos.Name = "tsmreporteproductos";
+            this.tsmreporteproductos.Size = new System.Drawing.Size(147, 22);
+            this.tsmreporteproductos.Text = "R. Productos";
+            // 
+            // tsmReporteMesas
+            // 
+            this.tsmReporteMesas.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tsmReporteMesas.Name = "tsmReporteMesas";
+            this.tsmReporteMesas.Size = new System.Drawing.Size(147, 22);
+            this.tsmReporteMesas.Text = "R. Mesas";
+            // 
+            // acercaDeToolStripMenuItem
+            // 
+            this.acercaDeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.acercaDeToolStripMenuItem1});
+            this.acercaDeToolStripMenuItem.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.acercaDeToolStripMenuItem.ForeColor = System.Drawing.Color.Navy;
+            this.acercaDeToolStripMenuItem.Image = global::CapaPresentacion.Properties.Resources.user_comment_32x32_32;
+            this.acercaDeToolStripMenuItem.Name = "acercaDeToolStripMenuItem";
+            this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(90, 58);
+            this.acercaDeToolStripMenuItem.Text = "Ayuda";
+            // 
+            // acercaDeToolStripMenuItem1
+            // 
+            this.acercaDeToolStripMenuItem1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.acercaDeToolStripMenuItem1.ForeColor = System.Drawing.SystemColors.AppWorkspace;
+            this.acercaDeToolStripMenuItem1.Name = "acercaDeToolStripMenuItem1";
+            this.acercaDeToolStripMenuItem1.Size = new System.Drawing.Size(130, 22);
+            this.acercaDeToolStripMenuItem1.Text = "Acerca de";
+            this.acercaDeToolStripMenuItem1.Click += new System.EventHandler(this.acercaDeToolStripMenuItem1_Click);
             // 
             // frmPrincipal
             // 
@@ -473,6 +490,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(158)))), ((int)(((byte)(50)))));
             this.ClientSize = new System.Drawing.Size(822, 465);
+            this.Controls.Add(this.lblUsuario);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
@@ -489,13 +507,13 @@
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnVolver)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -534,5 +552,6 @@
         private System.Windows.Forms.PictureBox btnMinimizar;
         private System.Windows.Forms.PictureBox btnCerrar;
         private System.Windows.Forms.Label lblUsuario;
+        private System.Windows.Forms.Button button1;
     }
 }

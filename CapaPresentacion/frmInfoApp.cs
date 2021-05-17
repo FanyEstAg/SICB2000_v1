@@ -16,5 +16,27 @@ namespace CapaPresentacion
         {
             InitializeComponent();
         }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnMinimizar_Click(object sender, EventArgs e)
+        {
+            //Minimizar ventana
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            //ir a menú principal
+        }
     }
 }
