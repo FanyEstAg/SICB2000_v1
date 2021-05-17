@@ -101,7 +101,42 @@ namespace CapaNegocio
                 throw;
             }
         }
+        public DataTable BuscarVenta(int id)
+        {
+            try
+            {
+                DataTable dt = datVenta.Instancia.BuscarVenta(id);
 
+                if (dt.Rows.Count == 0)
+                {
+                    throw new ApplicationException("No se encontraron registros");
+                }
+                return dt;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        public DataTable CargarVenta()
+        {
+            try
+            {
+                DataTable dt = datVenta.Instancia.CargarVenta();
+
+                if (dt.Rows.Count == 0)
+                {
+                    throw new ApplicationException("No se encontraron registros");
+                }
+                return dt;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
         public int ObtenerIdVenta()//--listo
         {
             try

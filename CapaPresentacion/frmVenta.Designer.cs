@@ -45,7 +45,7 @@ namespace CapaPresentacion
             this.dgvVentasELI = new System.Windows.Forms.DataGridView();
             this.lblTotal = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
+            this.lblFolioELI = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.btnCancelarELI = new System.Windows.Forms.Button();
             this.btnEliminarVenta = new System.Windows.Forms.Button();
@@ -234,7 +234,7 @@ namespace CapaPresentacion
             this.tabPage3.Controls.Add(this.dgvVentasELI);
             this.tabPage3.Controls.Add(this.lblTotal);
             this.tabPage3.Controls.Add(this.label15);
-            this.tabPage3.Controls.Add(this.label16);
+            this.tabPage3.Controls.Add(this.lblFolioELI);
             this.tabPage3.Controls.Add(this.label17);
             this.tabPage3.Controls.Add(this.btnCancelarELI);
             this.tabPage3.Controls.Add(this.btnEliminarVenta);
@@ -279,16 +279,16 @@ namespace CapaPresentacion
             this.label15.TabIndex = 42;
             this.label15.Text = "Total:";
             // 
-            // label16
+            // lblFolioELI
             // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.Black;
-            this.label16.Location = new System.Drawing.Point(815, 19);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(67, 20);
-            this.label16.TabIndex = 39;
-            this.label16.Text = "0000---";
+            this.lblFolioELI.AutoSize = true;
+            this.lblFolioELI.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFolioELI.ForeColor = System.Drawing.Color.Black;
+            this.lblFolioELI.Location = new System.Drawing.Point(815, 19);
+            this.lblFolioELI.Name = "lblFolioELI";
+            this.lblFolioELI.Size = new System.Drawing.Size(67, 20);
+            this.lblFolioELI.TabIndex = 39;
+            this.lblFolioELI.Text = "0000---";
             // 
             // label17
             // 
@@ -702,7 +702,7 @@ namespace CapaPresentacion
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label lblFolioELI;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Button btnEliminarVenta;
         private System.Windows.Forms.TextBox txtIdELI;

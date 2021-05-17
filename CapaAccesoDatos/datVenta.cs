@@ -185,6 +185,47 @@ namespace CapaAccesoDatos
             return r;
         }
 
+        public DataTable BuscarVenta(int id)//LISTO
+        {
+            SqlCommand cmd = null;
+            DataTable dt = new DataTable();
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("uspCargarVentas", cn);
+                cmd.Parameters.AddWithValue("@prmIdVenta", id);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cn.Open();
+                dt.Load(cmd.ExecuteReader());
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally { cmd.Connection.Close(); }
+            return dt;
+        }
+        public DataTable CargarVenta()//LISTO
+        {
+            SqlCommand cmd = null;
+            DataTable dt = new DataTable();
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("uspCargarVentas", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cn.Open();
+                dt.Load(cmd.ExecuteReader());
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally { cmd.Connection.Close(); }
+            return dt;
+        }
         #endregion metodos
 
 

@@ -203,6 +203,8 @@ MessageBoxIcon.Warning);
             try
             {
                 CrearGrid();
+                dgvVentasELI.DataSource = negVenta.Instancia.CargarVenta();
+                dgvVentasACT.DataSource = negVenta.Instancia.CargarVenta();
                 lblFecha.Text = DateTime.Now.ToShortDateString();
                 lblTotal.Text = total.ToString();
                 btnImprimir.Enabled = false;
@@ -229,7 +231,7 @@ MessageBoxIcon.Warning);
         }
         //Se selecciona un producto para añadirlo a la venta
 
-        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        private void txtBuscar_TextChanged(object sender, EventArgs e)//listo
         {//Busqueda, filtrado
             if (txtBuscar.Text != "")
             {
@@ -252,7 +254,7 @@ MessageBoxIcon.Warning);
             }
         }
 
-        private void dgvProductos_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvProductos_CellClick(object sender, DataGridViewCellEventArgs e)//LISTO
         {
             DataGridViewRow row = dgvProductos.Rows[e.RowIndex];
             List<string> lista = new List<string>();
@@ -319,7 +321,13 @@ MessageBoxIcon.Warning);
 
         private void txtIdELI_TextChanged(object sender, EventArgs e)
         {
-
+            if (txtIdELI.Text != "")
+            {
+                lblFolioELI.Text = txtIdELI.Text;
+                dgvVentasELI.DataSource = negVenta.Instancia.BuscarVenta(Convert.ToInt32(txtIdELI.Text));
+                dgvVentasELI.DataSource = negVenta.Instancia.CargarVenta();
+            }
+            
         }
     }
 }
