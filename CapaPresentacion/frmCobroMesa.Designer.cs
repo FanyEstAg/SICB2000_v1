@@ -33,13 +33,14 @@ namespace CapaPresentacion
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.MesasOcupadas = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.btnRegresar = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.IdMesaRegistrar = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EstadoMesa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TipoMesa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnRegresar = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.ConsultarTiempo = new System.Windows.Forms.TabPage();
             this.dataGridView4 = new System.Windows.Forms.DataGridView();
@@ -51,7 +52,10 @@ namespace CapaPresentacion
             this.button3 = new System.Windows.Forms.Button();
             this.Registrar = new System.Windows.Forms.TabPage();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.cbxIdMesa = new System.Windows.Forms.ComboBox();
+            this.btnRegistrar = new System.Windows.Forms.Button();
             this.lblHora = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.dgvRegistrar = new System.Windows.Forms.DataGridView();
@@ -59,35 +63,43 @@ namespace CapaPresentacion
             this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TiempoTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btnRegistrar = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.Asignar = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.panel9 = new System.Windows.Forms.Panel();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.button1 = new System.Windows.Forms.Button();
             this.Cambiar = new System.Windows.Forms.TabPage();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.label35 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
+            this.panel11 = new System.Windows.Forms.Panel();
             this.label28 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
-            this.label30 = new System.Windows.Forms.Label();
-            this.label31 = new System.Windows.Forms.Label();
-            this.label32 = new System.Windows.Forms.Label();
-            this.label33 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.panel10 = new System.Windows.Forms.Panel();
             this.label34 = new System.Windows.Forms.Label();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
@@ -96,48 +108,36 @@ namespace CapaPresentacion
             this.button2 = new System.Windows.Forms.Button();
             this.label19 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.horaFecha = new System.Windows.Forms.Timer(this.components);
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.panel11 = new System.Windows.Forms.Panel();
             this.btnVolver = new System.Windows.Forms.PictureBox();
             this.btnMinimizar = new System.Windows.Forms.PictureBox();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.horaFecha = new System.Windows.Forms.Timer(this.components);
             this.tabControl1.SuspendLayout();
             this.MesasOcupadas.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.ConsultarTiempo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
             this.Registrar.SuspendLayout();
             this.panel5.SuspendLayout();
+            this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRegistrar)).BeginInit();
             this.Asignar.SuspendLayout();
+            this.panel9.SuspendLayout();
+            this.panel8.SuspendLayout();
+            this.panel7.SuspendLayout();
             this.Cambiar.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel4.SuspendLayout();
-            this.panel6.SuspendLayout();
-            this.panel7.SuspendLayout();
-            this.panel8.SuspendLayout();
-            this.panel9.SuspendLayout();
-            this.panel10.SuspendLayout();
             this.panel11.SuspendLayout();
+            this.panel10.SuspendLayout();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnVolver)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -178,6 +178,27 @@ namespace CapaPresentacion
             this.panel2.Size = new System.Drawing.Size(648, 307);
             this.panel2.TabIndex = 0;
             // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.IndianRed;
+            this.panel4.Controls.Add(this.label1);
+            this.panel4.Controls.Add(this.comboBox2);
+            this.panel4.Controls.Add(this.btnRegresar);
+            this.panel4.Location = new System.Drawing.Point(140, 33);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(360, 46);
+            this.panel4.TabIndex = 26;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(3, 14);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(78, 20);
+            this.label1.TabIndex = 24;
+            this.label1.Text = "Id Mesa:";
+            // 
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
@@ -202,15 +223,19 @@ namespace CapaPresentacion
             this.comboBox2.Size = new System.Drawing.Size(121, 24);
             this.comboBox2.TabIndex = 25;
             // 
-            // label1
+            // btnRegresar
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 14);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(78, 20);
-            this.label1.TabIndex = 24;
-            this.label1.Text = "Id Mesa:";
+            this.btnRegresar.BackColor = System.Drawing.Color.Navy;
+            this.btnRegresar.FlatAppearance.BorderSize = 0;
+            this.btnRegresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegresar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegresar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnRegresar.Location = new System.Drawing.Point(229, 8);
+            this.btnRegresar.Name = "btnRegresar";
+            this.btnRegresar.Size = new System.Drawing.Size(124, 30);
+            this.btnRegresar.TabIndex = 16;
+            this.btnRegresar.Text = "Buscar";
+            this.btnRegresar.UseVisualStyleBackColor = false;
             // 
             // dataGridView1
             // 
@@ -239,20 +264,6 @@ namespace CapaPresentacion
             // 
             this.TipoMesa.HeaderText = "Tipo de mesa";
             this.TipoMesa.Name = "TipoMesa";
-            // 
-            // btnRegresar
-            // 
-            this.btnRegresar.BackColor = System.Drawing.Color.Navy;
-            this.btnRegresar.FlatAppearance.BorderSize = 0;
-            this.btnRegresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegresar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegresar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnRegresar.Location = new System.Drawing.Point(229, 8);
-            this.btnRegresar.Name = "btnRegresar";
-            this.btnRegresar.Size = new System.Drawing.Size(124, 30);
-            this.btnRegresar.TabIndex = 16;
-            this.btnRegresar.Text = "Buscar";
-            this.btnRegresar.UseVisualStyleBackColor = false;
             // 
             // label5
             // 
@@ -355,6 +366,27 @@ namespace CapaPresentacion
             this.panel5.TabIndex = 0;
             this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
             // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.IndianRed;
+            this.panel6.Controls.Add(this.label2);
+            this.panel6.Controls.Add(this.cbxIdMesa);
+            this.panel6.Controls.Add(this.btnRegistrar);
+            this.panel6.Location = new System.Drawing.Point(111, 15);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(440, 49);
+            this.panel6.TabIndex = 36;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(12, 11);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(78, 20);
+            this.label2.TabIndex = 29;
+            this.label2.Text = "Id Mesa:";
+            // 
             // cbxIdMesa
             // 
             this.cbxIdMesa.FormattingEnabled = true;
@@ -371,6 +403,21 @@ namespace CapaPresentacion
             this.cbxIdMesa.Name = "cbxIdMesa";
             this.cbxIdMesa.Size = new System.Drawing.Size(121, 27);
             this.cbxIdMesa.TabIndex = 35;
+            // 
+            // btnRegistrar
+            // 
+            this.btnRegistrar.BackColor = System.Drawing.Color.Navy;
+            this.btnRegistrar.FlatAppearance.BorderSize = 0;
+            this.btnRegistrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegistrar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegistrar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnRegistrar.Location = new System.Drawing.Point(304, 8);
+            this.btnRegistrar.Name = "btnRegistrar";
+            this.btnRegistrar.Size = new System.Drawing.Size(124, 30);
+            this.btnRegistrar.TabIndex = 28;
+            this.btnRegistrar.Text = "Registrar";
+            this.btnRegistrar.UseVisualStyleBackColor = false;
+            this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
             // 
             // lblHora
             // 
@@ -427,31 +474,6 @@ namespace CapaPresentacion
             this.TotalPrecio.HeaderText = "Total $";
             this.TotalPrecio.Name = "TotalPrecio";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(12, 11);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(78, 20);
-            this.label2.TabIndex = 29;
-            this.label2.Text = "Id Mesa:";
-            // 
-            // btnRegistrar
-            // 
-            this.btnRegistrar.BackColor = System.Drawing.Color.Navy;
-            this.btnRegistrar.FlatAppearance.BorderSize = 0;
-            this.btnRegistrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegistrar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegistrar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnRegistrar.Location = new System.Drawing.Point(304, 8);
-            this.btnRegistrar.Name = "btnRegistrar";
-            this.btnRegistrar.Size = new System.Drawing.Size(124, 30);
-            this.btnRegistrar.TabIndex = 28;
-            this.btnRegistrar.Text = "Registrar";
-            this.btnRegistrar.UseVisualStyleBackColor = false;
-            this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
-            // 
             // button5
             // 
             this.button5.BackColor = System.Drawing.Color.Navy;
@@ -481,85 +503,40 @@ namespace CapaPresentacion
             this.Asignar.Text = "Asignar";
             this.Asignar.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // panel9
             // 
-            this.button1.BackColor = System.Drawing.Color.Navy;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button1.Location = new System.Drawing.Point(220, 256);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(193, 30);
-            this.button1.TabIndex = 44;
-            this.button1.Text = "Asignar";
-            this.button1.UseVisualStyleBackColor = false;
+            this.panel9.BackColor = System.Drawing.Color.IndianRed;
+            this.panel9.Controls.Add(this.btnBuscar);
+            this.panel9.Controls.Add(this.label6);
+            this.panel9.Controls.Add(this.comboBox1);
+            this.panel9.Location = new System.Drawing.Point(139, 14);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(384, 58);
+            this.panel9.TabIndex = 47;
             // 
-            // radioButton2
+            // btnBuscar
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(109, 107);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(104, 23);
-            this.radioButton2.TabIndex = 35;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Ocupada";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.btnBuscar.BackColor = System.Drawing.Color.Navy;
+            this.btnBuscar.FlatAppearance.BorderSize = 0;
+            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnBuscar.Location = new System.Drawing.Point(250, 13);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(124, 30);
+            this.btnBuscar.TabIndex = 25;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = false;
             // 
-            // label16
+            // label6
             // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(109, 74);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(30, 19);
-            this.label16.TabIndex = 33;
-            this.label16.Text = "---";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(109, 46);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(30, 19);
-            this.label15.TabIndex = 32;
-            this.label15.Text = "---\r\n";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(53, 74);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(45, 19);
-            this.label13.TabIndex = 31;
-            this.label13.Text = "Tipo:";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(40, 107);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(63, 19);
-            this.label14.TabIndex = 30;
-            this.label14.Text = "Estado:";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(28, 46);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(73, 19);
-            this.label8.TabIndex = 28;
-            this.label8.Text = "Id Mesa:";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(80, 9);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(69, 20);
-            this.label7.TabIndex = 27;
-            this.label7.Text = "DATOS";
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(11, 16);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(78, 20);
+            this.label6.TabIndex = 24;
+            this.label6.Text = "Id Mesa:";
             // 
             // comboBox1
             // 
@@ -585,29 +562,158 @@ namespace CapaPresentacion
             this.comboBox1.Size = new System.Drawing.Size(121, 27);
             this.comboBox1.TabIndex = 26;
             // 
-            // btnBuscar
+            // panel8
             // 
-            this.btnBuscar.BackColor = System.Drawing.Color.Navy;
-            this.btnBuscar.FlatAppearance.BorderSize = 0;
-            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnBuscar.Location = new System.Drawing.Point(250, 13);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(124, 30);
-            this.btnBuscar.TabIndex = 25;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = false;
+            this.panel8.BackColor = System.Drawing.Color.IndianRed;
+            this.panel8.Controls.Add(this.textBox1);
+            this.panel8.Controls.Add(this.label21);
+            this.panel8.Controls.Add(this.label20);
+            this.panel8.Controls.Add(this.label18);
+            this.panel8.Controls.Add(this.label17);
+            this.panel8.Location = new System.Drawing.Point(375, 92);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(239, 147);
+            this.panel8.TabIndex = 46;
             // 
-            // label6
+            // textBox1
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(11, 16);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(78, 20);
-            this.label6.TabIndex = 24;
-            this.label6.Text = "Id Mesa:";
+            this.textBox1.Location = new System.Drawing.Point(134, 86);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 27);
+            this.textBox1.TabIndex = 46;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(134, 60);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(49, 19);
+            this.label21.TabIndex = 45;
+            this.label21.Text = "18:36";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(10, 86);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(108, 19);
+            this.label20.TabIndex = 44;
+            this.label20.Text = "Tiempo total:";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(19, 58);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(96, 19);
+            this.label18.TabIndex = 43;
+            this.label18.Text = "Hora inicio:";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(77, 18);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(75, 20);
+            this.label17.TabIndex = 42;
+            this.label17.Text = "TIEMPO";
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.IndianRed;
+            this.panel7.Controls.Add(this.label8);
+            this.panel7.Controls.Add(this.label7);
+            this.panel7.Controls.Add(this.label14);
+            this.panel7.Controls.Add(this.label13);
+            this.panel7.Controls.Add(this.label15);
+            this.panel7.Controls.Add(this.label16);
+            this.panel7.Controls.Add(this.radioButton2);
+            this.panel7.Location = new System.Drawing.Point(30, 92);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(241, 147);
+            this.panel7.TabIndex = 45;
+            this.panel7.Paint += new System.Windows.Forms.PaintEventHandler(this.panel7_Paint);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(28, 46);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(73, 19);
+            this.label8.TabIndex = 28;
+            this.label8.Text = "Id Mesa:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(80, 9);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(69, 20);
+            this.label7.TabIndex = 27;
+            this.label7.Text = "DATOS";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(40, 107);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(63, 19);
+            this.label14.TabIndex = 30;
+            this.label14.Text = "Estado:";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(53, 74);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(45, 19);
+            this.label13.TabIndex = 31;
+            this.label13.Text = "Tipo:";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(109, 46);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(30, 19);
+            this.label15.TabIndex = 32;
+            this.label15.Text = "---\r\n";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(109, 74);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(30, 19);
+            this.label16.TabIndex = 33;
+            this.label16.Text = "---";
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(109, 107);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(104, 23);
+            this.radioButton2.TabIndex = 35;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "Ocupada";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Navy;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button1.Location = new System.Drawing.Point(220, 256);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(193, 30);
+            this.button1.TabIndex = 44;
+            this.button1.Text = "Asignar";
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // Cambiar
             // 
@@ -637,48 +743,18 @@ namespace CapaPresentacion
             this.panel3.Size = new System.Drawing.Size(654, 313);
             this.panel3.TabIndex = 2;
             // 
-            // label35
+            // panel11
             // 
-            this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(91, 112);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(30, 19);
-            this.label35.TabIndex = 54;
-            this.label35.Text = "---";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(130, 74);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 27);
-            this.textBox3.TabIndex = 53;
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(130, 48);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(49, 19);
-            this.label25.TabIndex = 52;
-            this.label25.Text = "18:36";
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(6, 74);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(108, 19);
-            this.label26.TabIndex = 51;
-            this.label26.Text = "Tiempo total:";
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(15, 46);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(96, 19);
-            this.label27.TabIndex = 50;
-            this.label27.Text = "Hora inicio:";
+            this.panel11.BackColor = System.Drawing.Color.IndianRed;
+            this.panel11.Controls.Add(this.label28);
+            this.panel11.Controls.Add(this.label27);
+            this.panel11.Controls.Add(this.textBox3);
+            this.panel11.Controls.Add(this.label26);
+            this.panel11.Controls.Add(this.label25);
+            this.panel11.Location = new System.Drawing.Point(335, 136);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(265, 122);
+            this.panel11.TabIndex = 56;
             // 
             // label28
             // 
@@ -690,50 +766,54 @@ namespace CapaPresentacion
             this.label28.TabIndex = 49;
             this.label28.Text = "TIEMPO";
             // 
-            // label29
+            // label27
             // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(91, 79);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(30, 19);
-            this.label29.TabIndex = 47;
-            this.label29.Text = "---";
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(15, 46);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(96, 19);
+            this.label27.TabIndex = 50;
+            this.label27.Text = "Hora inicio:";
             // 
-            // label30
+            // textBox3
             // 
-            this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(91, 51);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(30, 19);
-            this.label30.TabIndex = 46;
-            this.label30.Text = "---\r\n";
+            this.textBox3.Location = new System.Drawing.Point(130, 74);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(100, 27);
+            this.textBox3.TabIndex = 53;
             // 
-            // label31
+            // label26
             // 
-            this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(35, 79);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(45, 19);
-            this.label31.TabIndex = 45;
-            this.label31.Text = "Tipo:";
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(6, 74);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(108, 19);
+            this.label26.TabIndex = 51;
+            this.label26.Text = "Tiempo total:";
             // 
-            // label32
+            // label25
             // 
-            this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(22, 112);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(63, 19);
-            this.label32.TabIndex = 44;
-            this.label32.Text = "Estado:";
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(130, 48);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(49, 19);
+            this.label25.TabIndex = 52;
+            this.label25.Text = "18:36";
             // 
-            // label33
+            // panel10
             // 
-            this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(10, 51);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(73, 19);
-            this.label33.TabIndex = 43;
-            this.label33.Text = "Id Mesa:";
+            this.panel10.BackColor = System.Drawing.Color.IndianRed;
+            this.panel10.Controls.Add(this.label34);
+            this.panel10.Controls.Add(this.label35);
+            this.panel10.Controls.Add(this.label33);
+            this.panel10.Controls.Add(this.label32);
+            this.panel10.Controls.Add(this.label31);
+            this.panel10.Controls.Add(this.label30);
+            this.panel10.Controls.Add(this.label29);
+            this.panel10.Location = new System.Drawing.Point(66, 127);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(234, 141);
+            this.panel10.TabIndex = 55;
             // 
             // label34
             // 
@@ -744,6 +824,60 @@ namespace CapaPresentacion
             this.label34.Size = new System.Drawing.Size(69, 20);
             this.label34.TabIndex = 42;
             this.label34.Text = "DATOS";
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(91, 112);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(30, 19);
+            this.label35.TabIndex = 54;
+            this.label35.Text = "---";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(10, 51);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(73, 19);
+            this.label33.TabIndex = 43;
+            this.label33.Text = "Id Mesa:";
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(22, 112);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(63, 19);
+            this.label32.TabIndex = 44;
+            this.label32.Text = "Estado:";
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(35, 79);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(45, 19);
+            this.label31.TabIndex = 45;
+            this.label31.Text = "Tipo:";
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(91, 51);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(30, 19);
+            this.label30.TabIndex = 46;
+            this.label30.Text = "---\r\n";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(91, 79);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(30, 19);
+            this.label29.TabIndex = 47;
+            this.label29.Text = "---";
             // 
             // label24
             // 
@@ -864,6 +998,42 @@ namespace CapaPresentacion
             this.panel1.Size = new System.Drawing.Size(688, 62);
             this.panel1.TabIndex = 2;
             // 
+            // btnVolver
+            // 
+            this.btnVolver.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnVolver.Image = global::CapaPresentacion.Properties.Resources.regresar;
+            this.btnVolver.Location = new System.Drawing.Point(613, 3);
+            this.btnVolver.Name = "btnVolver";
+            this.btnVolver.Size = new System.Drawing.Size(20, 20);
+            this.btnVolver.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnVolver.TabIndex = 24;
+            this.btnVolver.TabStop = false;
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
+            // 
+            // btnMinimizar
+            // 
+            this.btnMinimizar.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnMinimizar.Image = global::CapaPresentacion.Properties.Resources.mini;
+            this.btnMinimizar.Location = new System.Drawing.Point(639, 3);
+            this.btnMinimizar.Name = "btnMinimizar";
+            this.btnMinimizar.Size = new System.Drawing.Size(20, 20);
+            this.btnMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnMinimizar.TabIndex = 23;
+            this.btnMinimizar.TabStop = false;
+            this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
+            // 
+            // btnCerrar
+            // 
+            this.btnCerrar.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnCerrar.Image = global::CapaPresentacion.Properties.Resources.cerrar;
+            this.btnCerrar.Location = new System.Drawing.Point(665, 3);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(20, 20);
+            this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnCerrar.TabIndex = 22;
+            this.btnCerrar.TabStop = false;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            // 
             // label4
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -879,11 +1049,6 @@ namespace CapaPresentacion
             this.label4.Text = "COBRO DE MESAS";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // horaFecha
-            // 
-            this.horaFecha.Enabled = true;
-            this.horaFecha.Tick += new System.EventHandler(this.horaFecha_Tick);
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::CapaPresentacion.Properties.Resources.Logo_CLUB_BILLAR;
@@ -894,172 +1059,10 @@ namespace CapaPresentacion
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // panel4
+            // horaFecha
             // 
-            this.panel4.BackColor = System.Drawing.Color.IndianRed;
-            this.panel4.Controls.Add(this.label1);
-            this.panel4.Controls.Add(this.comboBox2);
-            this.panel4.Controls.Add(this.btnRegresar);
-            this.panel4.Location = new System.Drawing.Point(140, 33);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(360, 46);
-            this.panel4.TabIndex = 26;
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.Color.IndianRed;
-            this.panel6.Controls.Add(this.label2);
-            this.panel6.Controls.Add(this.cbxIdMesa);
-            this.panel6.Controls.Add(this.btnRegistrar);
-            this.panel6.Location = new System.Drawing.Point(111, 15);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(440, 49);
-            this.panel6.TabIndex = 36;
-            // 
-            // panel7
-            // 
-            this.panel7.BackColor = System.Drawing.Color.IndianRed;
-            this.panel7.Controls.Add(this.label8);
-            this.panel7.Controls.Add(this.label7);
-            this.panel7.Controls.Add(this.label14);
-            this.panel7.Controls.Add(this.label13);
-            this.panel7.Controls.Add(this.label15);
-            this.panel7.Controls.Add(this.label16);
-            this.panel7.Controls.Add(this.radioButton2);
-            this.panel7.Location = new System.Drawing.Point(30, 92);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(241, 147);
-            this.panel7.TabIndex = 45;
-            this.panel7.Paint += new System.Windows.Forms.PaintEventHandler(this.panel7_Paint);
-            // 
-            // panel8
-            // 
-            this.panel8.BackColor = System.Drawing.Color.IndianRed;
-            this.panel8.Controls.Add(this.textBox1);
-            this.panel8.Controls.Add(this.label21);
-            this.panel8.Controls.Add(this.label20);
-            this.panel8.Controls.Add(this.label18);
-            this.panel8.Controls.Add(this.label17);
-            this.panel8.Location = new System.Drawing.Point(375, 92);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(239, 147);
-            this.panel8.TabIndex = 46;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(134, 86);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 27);
-            this.textBox1.TabIndex = 46;
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(134, 60);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(49, 19);
-            this.label21.TabIndex = 45;
-            this.label21.Text = "18:36";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(10, 86);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(108, 19);
-            this.label20.TabIndex = 44;
-            this.label20.Text = "Tiempo total:";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(19, 58);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(96, 19);
-            this.label18.TabIndex = 43;
-            this.label18.Text = "Hora inicio:";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(77, 18);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(75, 20);
-            this.label17.TabIndex = 42;
-            this.label17.Text = "TIEMPO";
-            // 
-            // panel9
-            // 
-            this.panel9.BackColor = System.Drawing.Color.IndianRed;
-            this.panel9.Controls.Add(this.btnBuscar);
-            this.panel9.Controls.Add(this.label6);
-            this.panel9.Controls.Add(this.comboBox1);
-            this.panel9.Location = new System.Drawing.Point(139, 14);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(384, 58);
-            this.panel9.TabIndex = 47;
-            // 
-            // panel10
-            // 
-            this.panel10.BackColor = System.Drawing.Color.IndianRed;
-            this.panel10.Controls.Add(this.label34);
-            this.panel10.Controls.Add(this.label35);
-            this.panel10.Controls.Add(this.label33);
-            this.panel10.Controls.Add(this.label32);
-            this.panel10.Controls.Add(this.label31);
-            this.panel10.Controls.Add(this.label30);
-            this.panel10.Controls.Add(this.label29);
-            this.panel10.Location = new System.Drawing.Point(66, 127);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(234, 141);
-            this.panel10.TabIndex = 55;
-            // 
-            // panel11
-            // 
-            this.panel11.BackColor = System.Drawing.Color.IndianRed;
-            this.panel11.Controls.Add(this.label28);
-            this.panel11.Controls.Add(this.label27);
-            this.panel11.Controls.Add(this.textBox3);
-            this.panel11.Controls.Add(this.label26);
-            this.panel11.Controls.Add(this.label25);
-            this.panel11.Location = new System.Drawing.Point(335, 136);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(265, 122);
-            this.panel11.TabIndex = 56;
-            // 
-            // btnVolver
-            // 
-            this.btnVolver.BackColor = System.Drawing.Color.SeaGreen;
-            this.btnVolver.Image = global::CapaPresentacion.Properties.Resources.regresar;
-            this.btnVolver.Location = new System.Drawing.Point(613, 3);
-            this.btnVolver.Name = "btnVolver";
-            this.btnVolver.Size = new System.Drawing.Size(20, 20);
-            this.btnVolver.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnVolver.TabIndex = 24;
-            this.btnVolver.TabStop = false;
-            // 
-            // btnMinimizar
-            // 
-            this.btnMinimizar.BackColor = System.Drawing.Color.SeaGreen;
-            this.btnMinimizar.Image = global::CapaPresentacion.Properties.Resources.mini;
-            this.btnMinimizar.Location = new System.Drawing.Point(639, 3);
-            this.btnMinimizar.Name = "btnMinimizar";
-            this.btnMinimizar.Size = new System.Drawing.Size(20, 20);
-            this.btnMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnMinimizar.TabIndex = 23;
-            this.btnMinimizar.TabStop = false;
-            // 
-            // btnCerrar
-            // 
-            this.btnCerrar.BackColor = System.Drawing.Color.SeaGreen;
-            this.btnCerrar.Image = global::CapaPresentacion.Properties.Resources.cerrar;
-            this.btnCerrar.Location = new System.Drawing.Point(665, 3);
-            this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(20, 20);
-            this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnCerrar.TabIndex = 22;
-            this.btnCerrar.TabStop = false;
+            this.horaFecha.Enabled = true;
+            this.horaFecha.Tick += new System.EventHandler(this.horaFecha_Tick);
             // 
             // frmCobroMesa
             // 
@@ -1077,36 +1080,36 @@ namespace CapaPresentacion
             this.MesasOcupadas.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ConsultarTiempo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
             this.Registrar.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRegistrar)).EndInit();
             this.Asignar.ResumeLayout(false);
+            this.panel9.ResumeLayout(false);
+            this.panel9.PerformLayout();
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
             this.Cambiar.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
-            this.panel7.ResumeLayout(false);
-            this.panel7.PerformLayout();
-            this.panel8.ResumeLayout(false);
-            this.panel8.PerformLayout();
-            this.panel9.ResumeLayout(false);
-            this.panel9.PerformLayout();
-            this.panel10.ResumeLayout(false);
-            this.panel10.PerformLayout();
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
+            this.panel10.ResumeLayout(false);
+            this.panel10.PerformLayout();
+            this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnVolver)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

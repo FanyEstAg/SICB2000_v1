@@ -464,5 +464,16 @@ namespace CapaPresentacion
             dgvProductosEX.DataSource = negProducto.Instancia.CargarProducto();
             dgvProductosELI.DataSource = negProducto.Instancia.CargarProducto();
         }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnMinimizar_Click(object sender, EventArgs e)
+        {
+            //Minimizar ventana
+            this.WindowState = FormWindowState.Minimized;
+        }
     }
 }
