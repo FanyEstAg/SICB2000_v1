@@ -98,5 +98,15 @@ namespace CapaPresentacion
         {
 
         }
+
+        private void vScrollBar1_Scroll(object sender, ScrollEventArgs e)
+        {
+
+        }
+
+        private void panel7_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
