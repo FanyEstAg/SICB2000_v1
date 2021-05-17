@@ -26,10 +26,10 @@ namespace CapaNegocio
         //--Fecha de entrega 06.05.2021
         //--Número de equipo Equipo #6
         // By Fay Estrada
-        public int EliminarVentaxId(int id_venta) {
+        public int EliminarVentaxId(int id_venta, int idproducto) {
             try
             {
-                int retorno = datVenta.Instancia.EliminarVentaXid(id_venta);
+                int retorno = datVenta.Instancia.EliminarVentaXid(id_venta, idproducto);
                 if (retorno == 0) throw new ApplicationException("No se pudo completar la acción");
                 //En caos de que no haya ningun cambio en la BD se envía excepción
                 return retorno;//si no se devuelve el valor
@@ -50,7 +50,7 @@ namespace CapaNegocio
             {
                 String Cadxml = "";//Variable donde se guardar la generación del texto xml
                 Cadxml += "<venta ";//Se añaden todos los parametros con estrustura xml
-                Cadxml += "folio='" + v.usuario.Id_Usuario + "' ";
+                Cadxml += "folio='" + v.folio + "' ";
                 Cadxml += "idusuario='" + v.usuario.Id_Usuario + "' ";
                 Cadxml += "fecha='" + DateTime.Now.ToString() + "' ";
                 Cadxml += "idestado='" + v.Estado_Venta.Id_Estado + "' "; /*"'>";*/
@@ -127,7 +127,7 @@ namespace CapaNegocio
 
                 if (dt.Rows.Count == 0)
                 {
-                    throw new ApplicationException("No se encontraron registros");
+                    //throw new ApplicationException("No se encontraron registros");
                 }
                 return dt;
             }

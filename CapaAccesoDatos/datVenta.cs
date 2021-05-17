@@ -42,32 +42,13 @@ namespace CapaAccesoDatos
             finally { cmd.Connection.Close(); }
             return dt;
         }
-        public int obtenerIDVenta()
-        {//verificar-1/2 listo
-            SqlCommand cmd = null;
-            try
-            {
-                int id;
-                SqlConnection cn = Conexion.Instancia.Conectar();
-                cmd = new SqlCommand("uspObtenerID",cn);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cn.Open();
-                id = Convert.ToInt32(cmd.ExecuteScalar());
-                return id;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            finally { cmd.Connection.Close(); }
-        }
-
+        
         //  Método para eliminar Venta - Capa Acceso de Datos
         //--Fecha de creación 04.05.2021
         //--Fecha de entrega 06.05.2021
         //--Número de equipo Equipo #6 
         // By Fany Estrada
-        public int EliminarVentaXid(int id_venta) {//LISTO
+        public int EliminarVentaXid(int id_venta, int idproducto) {//LISTO
             SqlCommand cmd = null;
             var retorno=0;
             try
@@ -75,6 +56,7 @@ namespace CapaAccesoDatos
                 SqlConnection cn = Conexion.Instancia.Conectar();
                 cmd = new SqlCommand("uspEliminarVentaXid", cn);
                 cmd.Parameters.AddWithValue("@prmId_venta", id_venta);
+                cmd.Parameters.AddWithValue("@prmId_producto", idproducto);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cn.Open();
                 retorno = cmd.ExecuteNonQuery();
@@ -172,7 +154,7 @@ namespace CapaAccesoDatos
                 dr = cmd.ExecuteReader();
                 if (dr.Read())
                 {
-                    r = Convert.ToInt32(dr["Id_venta"]);
+                    r = Convert.ToInt32(dr["folio"]);
                 }
                 cn.Close();
             }
@@ -192,7 +174,7 @@ namespace CapaAccesoDatos
             try
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();
-                cmd = new SqlCommand("uspCargarVentas", cn);
+                cmd = new SqlCommand("uspBuscarVentas", cn);
                 cmd.Parameters.AddWithValue("@prmIdVenta", id);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cn.Open();
