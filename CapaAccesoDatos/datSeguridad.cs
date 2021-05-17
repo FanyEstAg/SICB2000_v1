@@ -66,6 +66,47 @@ namespace CapaAccesoDatos
                 throw;
             }
         }
+        public int actualizarUsuario(String cadXml)//LISTO
+        {
+            SqlCommand cmd = null;
+
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("uspActualizarUsuario", cn);
+                cmd.Parameters.AddWithValue("@Cadxml", cadXml);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cn.Open();
+                var result = cmd.ExecuteNonQuery();
+                cn.Close();
+                return result;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public int actualizarEmpleado(String cadXml)//LISTO
+        {
+            SqlCommand cmd = null;
+
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("uspActualizarEmpleado", cn);
+                cmd.Parameters.AddWithValue("@Cadxml", cadXml);
+                cmd.CommandType = CommandType.StoredProcedure;
+                //cmd.Parameters.Add(p);
+                cn.Open();
+                var result = cmd.ExecuteNonQuery();
+                return result;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
         public int EliminarUsuarioXid(int id_usuario) //LISTO
         {//LISTO
             SqlCommand cmd = null;
@@ -116,7 +157,6 @@ namespace CapaAccesoDatos
             }
             
         }
-
 
         public int cambiarContrasena(String cadXml)//LISTO
         {
@@ -207,6 +247,33 @@ namespace CapaAccesoDatos
             return r;
         }
 
+        public int ObtenerIdEmpleado(int id)//---listo
+        {
+            SqlCommand cmd = null;
+            SqlDataReader dr = null;
+            int r = 0;
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("uspObtenerIdEmpleadoActualizar", cn);
+                cmd.Parameters.AddWithValue("@prmUsuario", id);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cn.Open();
+                dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    r = Convert.ToInt32(dr["Id_Empleado"]);
+                }
+                cn.Close();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally { cmd.Connection.Close(); }
+            return r;
+        }
 
         public string ListarRolDescrp(Int32 idRol)//---listo
         {

@@ -51,11 +51,11 @@ namespace CapaPresentacion
                 dgvUsuarios.DataSource = negSeguridad.Instancia.CargarUsuarios();
                 //combobox con los roles
                 cbxRolINS.Text = "Seleccionar...";
-                cbxRolINS.ValueMember = "Id_Rol";
-                cbxRolINS.DisplayMember = "Descrp_rol";
+
                 foreach (var dat in negSeguridad.Instancia.ListarRol())
                 {
                     cbxRolINS.Items.Add(dat.Nom_Puesto);
+                    cbxRolACT.Items.Add(dat.Nom_Puesto);
                 }
                
                 
@@ -67,7 +67,12 @@ namespace CapaPresentacion
                 txaDecrpINS.AcceptsReturn = true;
                 txaDecrpINS.AcceptsTab = true;
                 txaDecrpINS.WordWrap = true;
-                
+
+                txtDescrpACT.ScrollBars = ScrollBars.Vertical;
+                txtDescrpACT.AcceptsReturn = true;
+                txtDescrpACT.AcceptsTab = true;
+                txtDescrpACT.WordWrap = true;
+
             }
             catch (Exception ex)
             {
@@ -230,21 +235,7 @@ namespace CapaPresentacion
             }
         }
 
-        private void button5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button11_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -261,7 +252,65 @@ namespace CapaPresentacion
             //El usuario regresa al menú
             this.Hide();
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                entUsuario u = new entUsuario();
+                entEmpleado em = new entEmpleado();
+                entRol ro = new entRol();
+                u.Id_Usuario = Convert.ToInt32(txtIdUsuarioACT.Text);
+                MessageBox.Show(u.Id_Usuario.ToString());
+                ro.Id_Rol = Convert.ToInt32(cbxRolACT.SelectedIndex + 1);
+                em.Id_Rol = ro;
+                em.Nombre_empleado = txtNombreACT.Text;
+                em.apepat_empelado = txtApepatACT.Text;
+                em.apemat_empleado = txtApematACT.Text;
+                em.direccion_empleado = txtDireccionACT.Text;
+                em.telefono_empleado = txtTelefonoACT.Text;
+                em.Id_empleado = negSeguridad.Instancia.ObtenerIdEmpleado(Convert.ToInt32(txtIdUsuarioACT.Text));
+                int emp = negSeguridad.Instancia.actualizarEmpleado(em);
+                
+                u.Id_empleado = em;
+                u.Nombre_Usuario = txtUsuarioACT.Text;
+                u.Password_Usuario = txtPasswordACT.Text;
+                int us = negSeguridad.Instancia.actualizarUsuario(u);
+                MessageBox.Show("¡Actualización de usuario Correcto!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //ControlBotones(true, false, false, false, false, true);
+                //ac.BloquearText(this.panel1, false);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error",
+                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void cbxRolACT_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                Int32 i = Convert.ToInt32(cbxRolACT.SelectedIndex + 1);//enviar el id del rol
+                txtDescrpACT.Text = negSeguridad.Instancia.ListarRolDescrp(i);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error",
+                  MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
-    }
+    
 }
 

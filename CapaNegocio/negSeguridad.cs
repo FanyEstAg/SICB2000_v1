@@ -46,6 +46,31 @@ namespace CapaNegocio
                 throw;
             }
         }
+        public int actualizarEmpleado(entEmpleado e)//listo
+        {
+            try
+            {
+                String cadXml = "";//se creara la cadena del xml
+                cadXml += "<actEmpleado ";
+                cadXml += "idempleado='" + e.Id_empleado + "' ";
+                cadXml += "nombre='" + e.Nombre_empleado + "' ";
+                cadXml += "apepat='" + e.apepat_empelado + "' ";
+                cadXml += "apemat='" + e.apemat_empleado + "' ";
+                cadXml += "telefono='" + e.telefono_empleado + "' ";
+                cadXml += "direccion='" + e.direccion_empleado + "' ";
+                cadXml += "idrol='" + e.Id_Rol.Id_Rol + "'/>";
+                cadXml = "<root>" + cadXml + "</root>";
+                int result = datSeguridad.Instancia.actualizarEmpleado(cadXml);
+                if (result == 0) throw new ApplicationException("Ocurrio un error al registrar, intentelo nuevamente");
+
+                return result;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
 
         public int EliminarUsuarioxId(int id_usuario)//LISTO
         {
@@ -83,7 +108,28 @@ namespace CapaNegocio
                 throw;
             }
         }
+        public int actualizarUsuario(entUsuario u)//LISTO
+        {
+            try
+            {
+                String cadXml = "";//se creara la cadena del xml
+                cadXml += "<actUsuario ";
+                cadXml += "idusuario='" + u.Id_Usuario + "' ";
+                cadXml += "usuario='" + u.Nombre_Usuario + "' ";
+                cadXml += "contrasena='" + u.Password_Usuario + "' ";
+                cadXml += "idempleado='" + u.Id_empleado.Id_empleado + "'/>";
+                cadXml = "<root>" + cadXml + "</root>";
+                int result = datSeguridad.Instancia.actualizarUsuario(cadXml);
+                if (result == 0) throw new ApplicationException("Ocurrio un error al registrar, intentelo nuevamente");
 
+                return result;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
         public bool VerificarDatosCambioContrasena(String usuario, String password)//--listo
         {
             try
@@ -105,7 +151,6 @@ namespace CapaNegocio
             }
 
         }
-
         public int cambiarContrasena(entUsuario u, string nuevaContrasena)//LISTO
         {
             try
@@ -184,6 +229,18 @@ namespace CapaNegocio
             try
             {
                 return datSeguridad.Instancia.ObtenerIdEmpleado();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        public int ObtenerIdEmpleado(int idemp)//--listo
+        {
+            try
+            {
+                return datSeguridad.Instancia.ObtenerIdEmpleado(idemp);
             }
             catch (Exception)
             {
