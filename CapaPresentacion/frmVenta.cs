@@ -20,6 +20,7 @@ namespace CapaPresentacion
         double total = 0;
         double total2 = 0;
         double total3 = 0;
+        double total4 = 0;
         public frmVenta(string user)
         {
             InitializeComponent();
@@ -452,7 +453,7 @@ MessageBoxIcon.Warning);
         {
             if (e.ColumnIndex == this.dgvVentasACT.Columns[5].Index)//Cantidad
             {
-                
+
                 //actualizarTabla();
                 //foreach (DataGridViewRow row in dgvVentasACT.SelectedRows)
                 //{
@@ -533,7 +534,7 @@ MessageBoxIcon.Warning);
 
         }
 
-      
+
         private void dgvVentasACT_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == this.dgvVentasACT.Columns[5].Index)//Cantidad
@@ -546,7 +547,7 @@ MessageBoxIcon.Warning);
                     {
                         //MessageBox.Show(row.Cells[6].Value.ToString());
                         row.Cells[6].Value = Convert.ToDouble(row.Cells[4].Value) * Convert.ToDouble(row.Cells[5].Value);
-                        
+
                     }
                     total3 += Convert.ToDouble(row.Cells[6].Value);
                     lblTotalACT.Text = total3.ToString();
@@ -596,7 +597,7 @@ MessageBoxIcon.Warning);
                     //ac.BloquearText(this.panel1, false);//pendeinte para bloquear texto de determinado panel
 
                     //cbxCantidad.Text = "1";
-                    total3 = 0;                    
+                    total3 = 0;
                     btnImprimir.Enabled = true;
                     actTablasCarga();
                     lblTotalACT.Text = (total3.ToString());
@@ -610,6 +611,45 @@ MessageBoxIcon.Warning);
             catch (Exception ex)//Cualqueir excepción
             {
                 MessageBox.Show(ex.Message, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+       
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtIdCONS_TextChanged_1(object sender, EventArgs e)
+        {
+            if (txtIdCONS.Text == "")
+                dgvVentasCONS.DataSource = negVenta.Instancia.CargarVenta();
+            else
+            {
+                try
+                {
+                    total4 = 0;
+                    dgvVentasCONS.DataSource = negVenta.Instancia.BuscarVenta(Convert.ToInt32(txtIdCONS.Text));
+                    lblFolioCONS.Text = txtIdCONS.Text;
+                    foreach (DataGridViewRow row in dgvVentasCONS.Rows)//se extraen los datos de la tabla
+                    {
+                        total4+= Convert.ToInt32(row.Cells[6].Value);
+                    }
+                    lblTotalCONS.Text = total4.ToString();
+                    //ControlBotones(true, true, false, true, false, true);
+                    //ac.BloquearText(this.panel1, false);
+                }
+                catch (ApplicationException ae)
+                {
+                    MessageBox.Show(ae.Message, "Aviso",
+                                                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error",
+                                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
     }

@@ -68,6 +68,14 @@ namespace CapaPresentacion
             this.btnGuardar = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.dgvELI = new System.Windows.Forms.TabControl();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dgvVentasCONS = new System.Windows.Forms.DataGridView();
+            this.lblTotalCONS = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.lblFolioCONS = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.txtIdCONS = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnVolver = new System.Windows.Forms.PictureBox();
             this.btnMinimizar = new System.Windows.Forms.PictureBox();
@@ -79,6 +87,7 @@ namespace CapaPresentacion
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.btnBuscar = new System.Windows.Forms.Button();
             this.tabPage1.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVentasACT)).BeginInit();
@@ -90,6 +99,8 @@ namespace CapaPresentacion
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             this.dgvELI.SuspendLayout();
+            this.tabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvVentasCONS)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnVolver)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
@@ -592,12 +603,106 @@ namespace CapaPresentacion
             this.dgvELI.Controls.Add(this.Registrar);
             this.dgvELI.Controls.Add(this.tabPage1);
             this.dgvELI.Controls.Add(this.tabPage3);
+            this.dgvELI.Controls.Add(this.tabPage4);
             this.dgvELI.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvELI.Location = new System.Drawing.Point(0, 68);
             this.dgvELI.Name = "dgvELI";
             this.dgvELI.SelectedIndex = 0;
             this.dgvELI.Size = new System.Drawing.Size(918, 456);
             this.dgvELI.TabIndex = 2;
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.BackgroundImage = global::CapaPresentacion.Properties.Resources.OIP_verdeBandera;
+            this.tabPage4.Controls.Add(this.btnBuscar);
+            this.tabPage4.Controls.Add(this.label2);
+            this.tabPage4.Controls.Add(this.dgvVentasCONS);
+            this.tabPage4.Controls.Add(this.lblTotalCONS);
+            this.tabPage4.Controls.Add(this.label11);
+            this.tabPage4.Controls.Add(this.lblFolioCONS);
+            this.tabPage4.Controls.Add(this.label14);
+            this.tabPage4.Controls.Add(this.txtIdCONS);
+            this.tabPage4.Location = new System.Drawing.Point(4, 29);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(910, 423);
+            this.tabPage4.TabIndex = 5;
+            this.tabPage4.Text = "Consultar";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(25, 19);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(53, 20);
+            this.label2.TabIndex = 45;
+            this.label2.Text = "Folio:";
+            // 
+            // dgvVentasCONS
+            // 
+            this.dgvVentasCONS.AllowUserToAddRows = false;
+            this.dgvVentasCONS.AllowUserToDeleteRows = false;
+            this.dgvVentasCONS.AllowUserToOrderColumns = true;
+            this.dgvVentasCONS.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.dgvVentasCONS.BackgroundColor = System.Drawing.Color.IndianRed;
+            this.dgvVentasCONS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvVentasCONS.Location = new System.Drawing.Point(29, 58);
+            this.dgvVentasCONS.Name = "dgvVentasCONS";
+            this.dgvVentasCONS.ReadOnly = true;
+            this.dgvVentasCONS.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvVentasCONS.Size = new System.Drawing.Size(853, 272);
+            this.dgvVentasCONS.TabIndex = 44;
+            // 
+            // lblTotalCONS
+            // 
+            this.lblTotalCONS.AutoSize = true;
+            this.lblTotalCONS.Location = new System.Drawing.Point(813, 346);
+            this.lblTotalCONS.Name = "lblTotalCONS";
+            this.lblTotalCONS.Size = new System.Drawing.Size(69, 20);
+            this.lblTotalCONS.TabIndex = 43;
+            this.lblTotalCONS.Text = "000000";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(745, 346);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(69, 20);
+            this.label11.TabIndex = 42;
+            this.label11.Text = "Total $:";
+            // 
+            // lblFolioCONS
+            // 
+            this.lblFolioCONS.AutoSize = true;
+            this.lblFolioCONS.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFolioCONS.ForeColor = System.Drawing.Color.Black;
+            this.lblFolioCONS.Location = new System.Drawing.Point(815, 19);
+            this.lblFolioCONS.Name = "lblFolioCONS";
+            this.lblFolioCONS.Size = new System.Drawing.Size(67, 20);
+            this.lblFolioCONS.TabIndex = 39;
+            this.lblFolioCONS.Text = "0000---";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.Black;
+            this.label14.Location = new System.Drawing.Point(756, 19);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(53, 20);
+            this.label14.TabIndex = 40;
+            this.label14.Text = "Folio:";
+            // 
+            // txtIdCONS
+            // 
+            this.txtIdCONS.Location = new System.Drawing.Point(84, 19);
+            this.txtIdCONS.Name = "txtIdCONS";
+            this.txtIdCONS.Size = new System.Drawing.Size(578, 26);
+            this.txtIdCONS.TabIndex = 36;
+            this.txtIdCONS.TextChanged += new System.EventHandler(this.txtIdCONS_TextChanged_1);
             // 
             // panel1
             // 
@@ -724,6 +829,22 @@ namespace CapaPresentacion
             this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
             this.dataGridViewImageColumn1.Width = 20;
             // 
+            // btnBuscar
+            // 
+            this.btnBuscar.BackColor = System.Drawing.Color.Navy;
+            this.btnBuscar.FlatAppearance.BorderSize = 0;
+            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnBuscar.Image = global::CapaPresentacion.Properties.Resources.lupachica;
+            this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBuscar.Location = new System.Drawing.Point(661, 17);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(33, 30);
+            this.btnBuscar.TabIndex = 46;
+            this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
             // frmVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -751,6 +872,9 @@ namespace CapaPresentacion
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
             this.dgvELI.ResumeLayout(false);
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvVentasCONS)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnVolver)).EndInit();
@@ -812,5 +936,14 @@ namespace CapaPresentacion
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DataGridView dgvVentasACT;
         private System.Windows.Forms.Button btnEliminarFila;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridView dgvVentasCONS;
+        private System.Windows.Forms.Label lblTotalCONS;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label lblFolioCONS;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox txtIdCONS;
+        private System.Windows.Forms.Button btnBuscar;
     }
 }
