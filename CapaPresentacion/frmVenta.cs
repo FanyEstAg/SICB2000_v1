@@ -124,10 +124,10 @@ namespace CapaPresentacion
 
         private void CargarGridVenta(List<string> Lista)
         {
-            
+
             try
             {
-                
+
                 DataGridViewRow fila = new DataGridViewRow();
                 fila.CreateCells(dgvVenta);
 
@@ -140,7 +140,7 @@ namespace CapaPresentacion
                 dgvVenta.Rows.Add(fila);
                 total += Convert.ToDouble(Lista[5]);
                 lblTotalINS.Text = total.ToString();
-                
+
             }
             catch (Exception)
             {
@@ -188,10 +188,10 @@ namespace CapaPresentacion
                     MessageBox.Show("Venta registrada", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     //dgvVenta.Enabled = false; ControlBotones(true, false, false, false);//pendiente, control de disponibilidad  botones
                     //ac.BloquearText(this.panel1, false);//pendeinte para bloquear texto de determinado panel
-                   
+
                     dgvVenta.Rows.Clear();
                     cbxCantidad.Text = "1";
-                   
+
                     lblIdVenta.Text = negVenta.Instancia.ObtenerIdVenta().ToString();
                     txtBuscar.Text = "";
                     btnImprimir.Enabled = true;
@@ -233,7 +233,7 @@ MessageBoxIcon.Warning);
                         total2 = 0;
                         lblTotalELI.Text = total2.ToString();
                     }
-                   
+
                     //enviar el id dado por el usuario
                     MessageBox.Show("Venta Eliminada", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     actTablasCarga();
@@ -254,7 +254,7 @@ MessageBoxIcon.Warning);
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            if(dgvVenta.RowCount!=0)
+            if (dgvVenta.RowCount != 0)
                 dgvVenta.Rows.Clear();
         }
 
@@ -265,7 +265,7 @@ MessageBoxIcon.Warning);
             {
                 CrearGrid(dgvVenta, 1);
                 //CrearGrid(dgvVentasACT,2);
-                
+
                 dgvProductos.DataSource = negProducto.Instancia.CargarProducto();
                 dgvProductos.Columns[0].Visible = false;//Id
                 dgvProductos.Columns[2].Visible = false;//Unmed
@@ -280,14 +280,14 @@ MessageBoxIcon.Warning);
                 lblIdVenta.Text = negVenta.Instancia.ObtenerIdVenta().ToString();
 
                 actTablasCarga();
-               
+
                 //ControlBotones(true, false, false, false); btnBuscarXid.Enabled = false;
                 //txtSubtotal.Text = 0.ToString(); txtDescuento.Text = 0.ToString(); txtTotal.Text = 0.ToString();
                 //us = negSeguridad.Instancia.BuscarUsario("Id", this.id_user.ToString());
                 //this.id_user = us.Id_Usuario;
                 //txtCodUsuario.Text = us.Codigo_Usuario;
                 btnImprimir.Enabled = false;
-              
+
             }
             catch (Exception ex)
             {
@@ -350,8 +350,9 @@ MessageBoxIcon.Warning);
 
         private void btnCancelarACT_Click(object sender, EventArgs e)
         {
-            if (dgvVentasACT.RowCount!=0)
+            if (dgvVentasACT.RowCount != 0)
                 dgvVentasACT.Rows.Clear();
+            actTablasCarga();
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
@@ -373,12 +374,12 @@ MessageBoxIcon.Warning);
 
                 //if (result == DialogResult.OK)
                 //{
-                    foreach (DataGridViewRow row in dgvVenta.SelectedRows)
-                    {
+                foreach (DataGridViewRow row in dgvVenta.SelectedRows)
+                {
                     total -= Convert.ToDouble(row.Cells[6].Value);
                     lblTotalINS.Text = total.ToString();
                     dgvVenta.Rows.RemoveAt(row.Index);
-                    }
+                }
                 //}
 
             }
@@ -390,12 +391,12 @@ MessageBoxIcon.Warning);
             if (txtIdELI.Text == "")
             {
                 dgvVentasELI.DataSource = negVenta.Instancia.CargarVenta();
-                
+
             }
             else
             {
                 lblFolioELI.Text = txtIdELI.Text;
-               try
+                try
                 {
                     dgvVentasELI.DataSource = negVenta.Instancia.BuscarVenta(Convert.ToInt32(txtIdELI.Text));
                     foreach (DataGridViewRow row in dgvVentasELI.Rows)//se extraen los datos de la tabla
@@ -403,7 +404,7 @@ MessageBoxIcon.Warning);
                         total2 += Convert.ToDouble(row.Cells[6].Value);
                         //venta.Add(v);//se añaden los datos a la lista
                     }
-                    
+
                     lblTotalELI.Text = total2.ToString();
                     //ControlBotones(true, true, false, true, false, true);
                     //ac.BloquearText(this.panel1, false);
@@ -419,7 +420,7 @@ MessageBoxIcon.Warning);
                                                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            
+
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
@@ -438,27 +439,32 @@ MessageBoxIcon.Warning);
             this.Hide();
         }
 
-        
+
         private void dgvVentasACT_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (txtIdACT.Text == "")
                 MessageBox.Show("Inserte el folio de venta que desea modificar", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            
-            
+
+
         }
 
         private void dgvVentasACT_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == this.dgvVentasACT.Columns["ColumnCantidad"].Index)
+            if (e.ColumnIndex == this.dgvVentasACT.Columns[5].Index)//Cantidad
             {
                 
-                foreach (DataGridViewRow row in dgvVentasACT.SelectedRows)
-                {
-                    total -= Convert.ToDouble(row.Cells[6].Value);
-                    lblTotalELI.Text = total.ToString();
-                    dgvVenta.Rows.RemoveAt(row.Index);
-                }
-                
+                //actualizarTabla();
+                //foreach (DataGridViewRow row in dgvVentasACT.SelectedRows)
+                //{
+                //    row.Cells[6].Value = Convert.ToDouble(row.Cells[4].Value) * Convert.ToDouble(row.Cells[5].Value);
+                //    MessageBox.Show((Convert.ToDouble(row.Cells[4].Value) * Convert.ToDouble(row.Cells[5].Value)).ToString());
+                //    total3 = Convert.ToDouble(row.Cells[6].Value);
+                //    lblTotalACT.Text = total3.ToString();
+                //    dgvVentasACT.Rows.RemoveAt(row.Index);
+                //}
+            }
+            else
+            {
 
             }
         }
@@ -468,7 +474,7 @@ MessageBoxIcon.Warning);
             dgvVentasELI.DataSource = negVenta.Instancia.CargarVenta();
             dgvVentasACT.DataSource = negVenta.Instancia.CargarVenta();
             dgvProductos.DataSource = negProducto.Instancia.CargarProducto();
-            
+
         }
 
         private void txtIdACT_TextChanged(object sender, EventArgs e)
@@ -492,7 +498,13 @@ MessageBoxIcon.Warning);
                     }
 
                     lblTotalACT.Text = total3.ToString();
-                    
+                    dgvVentasACT.Columns[0].ReadOnly = true;
+                    dgvVentasACT.Columns[1].ReadOnly = true;
+                    dgvVentasACT.Columns[2].ReadOnly = true;
+                    dgvVentasACT.Columns[3].ReadOnly = true;
+                    dgvVentasACT.Columns[4].ReadOnly = true;
+                    dgvVentasACT.Columns[5].ReadOnly = false;//cantidad
+                    dgvVentasACT.Columns[6].ReadOnly = true;//subtotal
                     //ControlBotones(true, true, false, true, false, true);
                     //ac.BloquearText(this.panel1, false);
                 }
@@ -511,14 +523,94 @@ MessageBoxIcon.Warning);
 
         private void btnEliminarFila_Click(object sender, EventArgs e)
         {
-            
+
             foreach (DataGridViewRow row in dgvVentasACT.SelectedRows)
             {
-                total3 -= Convert.ToDouble(row.Cells[7].Value);
-                lblTotalELI.Text = total.ToString();
-                dgvVenta.Rows.RemoveAt(row.Index);
+                total3 -= Convert.ToDouble(row.Cells[6].Value);
+                lblTotalACT.Text = total3.ToString();
+                dgvVentasACT.Rows.RemoveAt(row.Index);
             }
-           
+
+        }
+
+      
+        private void dgvVentasACT_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == this.dgvVentasACT.Columns[5].Index)//Cantidad
+            {
+                total3 = 0;
+                //actualizarTabla();
+                foreach (DataGridViewRow row in dgvVentasACT.Rows)
+                {
+                    if (row.Selected == true)
+                    {
+                        //MessageBox.Show(row.Cells[6].Value.ToString());
+                        row.Cells[6].Value = Convert.ToDouble(row.Cells[4].Value) * Convert.ToDouble(row.Cells[5].Value);
+                        
+                    }
+                    total3 += Convert.ToDouble(row.Cells[6].Value);
+                    lblTotalACT.Text = total3.ToString();
+
+                }
+            }
+            else
+            {
+                MessageBox.Show("No editable");
+            }
+        }
+
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult r = MessageBox.Show("¿Desea actualizar la venta?", "Confirmar",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (r == DialogResult.Yes)
+                {
+                    entVenta v = new entVenta();
+                    entUsuario u = new entUsuario();
+                    entProducto p = new entProducto();
+                    entEstado es = new entEstado();
+                    u.Id_Usuario = Convert.ToInt32(lblUsuario.Text);
+                    v.usuario = u;
+                    v.folio = Convert.ToInt32(lblFolioACT.Text);
+                    //MessageBox.Show(Convert.ToInt32(v.folio).ToString());
+                    v.Fecha_Venta = Convert.ToDateTime(lblFecha.Text);
+                    es.Id_Estado = "C";//Confirmado
+                    v.Estado_Venta = es;
+                    List<entVenta> venta = new List<entVenta>();//se crea una lista de los productso vendidos
+                    foreach (DataGridViewRow row in dgvVentasACT.Rows)//se extraen los datos de la tabla
+                    {
+                        p.Id_Prod = Convert.ToInt32(row.Cells[2].Value);
+                        v.Id_producto = p;
+                        v.cantidad = Convert.ToInt32(row.Cells[5].Value);
+                        v.Subtotal_Venta = Convert.ToInt32(row.Cells[6].Value);
+                        int result = negVenta.Instancia.ActualizarVenta(v);
+                        //venta.Add(v);//se añaden los datos a la lista
+                    }
+                    //v.productos = venta;//se adjudica la lista a productos dela venta
+
+
+                    MessageBox.Show("Venta actualizada", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //dgvVenta.Enabled = false; ControlBotones(true, false, false, false);//pendiente, control de disponibilidad  botones
+                    //ac.BloquearText(this.panel1, false);//pendeinte para bloquear texto de determinado panel
+
+                    //cbxCantidad.Text = "1";
+                    total3 = 0;                    
+                    btnImprimir.Enabled = true;
+                    actTablasCarga();
+                    lblTotalACT.Text = (total3.ToString());
+                }
+            }//Excepción de la app
+            catch (ApplicationException ae)
+            {
+                MessageBox.Show(ae.Message, "Aviso", MessageBoxButtons.OK,
+MessageBoxIcon.Warning);
+            }
+            catch (Exception ex)//Cualqueir excepción
+            {
+                MessageBox.Show(ex.Message, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

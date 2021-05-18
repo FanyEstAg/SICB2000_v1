@@ -69,31 +69,6 @@ namespace CapaAccesoDatos
             finally { cmd.Connection.Close(); }
         }
 
-        public int ModificarVentaXid(int id_venta)
-        {//verificar-1/2 listo
-            SqlCommand cmd = null;
-            var retorno = 0;
-            try
-            {
-                SqlConnection cn = Conexion.Instancia.Conectar();
-                cmd = new SqlCommand("uspModificarVentaXid", cn);
-                cmd.Parameters.AddWithValue("@prmId_venta", id_venta);
-                cmd.Parameters.AddWithValue("@prmId_venta", id_venta);
-                cmd.Parameters.AddWithValue("@prmId_venta", id_venta);
-                cmd.Parameters.AddWithValue("@prmId_venta", id_venta);
-                cmd.CommandType = CommandType.StoredProcedure;
-
-                cn.Open();
-                retorno = cmd.ExecuteNonQuery();
-                return retorno;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            finally { cmd.Connection.Close(); }
-        }
-
         //  Método para eliminar Venta - Capa Acceso a Datos
         //--Fecha de creación 04.05.2021
         //--Fecha de entrega 06.05.2021
@@ -120,14 +95,14 @@ namespace CapaAccesoDatos
             finally { cmd.Connection.Close(); }
         }
 
-        public int  ModificarVenta(String cadXml)//LISTO
+        public int  ActualizarVenta(String cadXml)//LISTO
         {
             SqlCommand cmd = null;
             var result = 0;
             try
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();
-                cmd = new SqlCommand("uspModificarVenta", cn);
+                cmd = new SqlCommand("uspActualizarVenta", cn);
                 cmd.Parameters.AddWithValue("@Cadxml", cadXml);//se envia el xml
                 cmd.CommandType = CommandType.StoredProcedure;
                 cn.Open();

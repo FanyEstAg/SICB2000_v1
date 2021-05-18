@@ -31,6 +31,7 @@ namespace CapaPresentacion
         {
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.btnEliminarFila = new System.Windows.Forms.Button();
             this.dgvVentasACT = new System.Windows.Forms.DataGridView();
             this.label8 = new System.Windows.Forms.Label();
             this.btnImprimirACT = new System.Windows.Forms.Button();
@@ -78,7 +79,6 @@ namespace CapaPresentacion
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.btnEliminarFila = new System.Windows.Forms.Button();
             this.tabPage1.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVentasACT)).BeginInit();
@@ -127,6 +127,21 @@ namespace CapaPresentacion
             this.panel5.Size = new System.Drawing.Size(910, 423);
             this.panel5.TabIndex = 0;
             // 
+            // btnEliminarFila
+            // 
+            this.btnEliminarFila.BackColor = System.Drawing.Color.Navy;
+            this.btnEliminarFila.FlatAppearance.BorderSize = 0;
+            this.btnEliminarFila.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminarFila.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminarFila.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnEliminarFila.Location = new System.Drawing.Point(630, 374);
+            this.btnEliminarFila.Name = "btnEliminarFila";
+            this.btnEliminarFila.Size = new System.Drawing.Size(124, 38);
+            this.btnEliminarFila.TabIndex = 39;
+            this.btnEliminarFila.Text = "Eliminar";
+            this.btnEliminarFila.UseVisualStyleBackColor = false;
+            this.btnEliminarFila.Click += new System.EventHandler(this.btnEliminarFila_Click);
+            // 
             // dgvVentasACT
             // 
             this.dgvVentasACT.AllowUserToAddRows = false;
@@ -138,11 +153,12 @@ namespace CapaPresentacion
             this.dgvVentasACT.Location = new System.Drawing.Point(31, 59);
             this.dgvVentasACT.Name = "dgvVentasACT";
             this.dgvVentasACT.RowHeadersVisible = false;
-            this.dgvVentasACT.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.dgvVentasACT.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvVentasACT.Size = new System.Drawing.Size(853, 272);
             this.dgvVentasACT.TabIndex = 38;
             this.dgvVentasACT.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvVentasACT_CellClick);
             this.dgvVentasACT.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvVentasACT_CellDoubleClick);
+            this.dgvVentasACT.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvVentasACT_CellEndEdit);
             // 
             // label8
             // 
@@ -182,6 +198,7 @@ namespace CapaPresentacion
             this.btnActualizar.TabIndex = 33;
             this.btnActualizar.Text = "Actualizar";
             this.btnActualizar.UseVisualStyleBackColor = false;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // lblTotalACT
             // 
@@ -706,21 +723,6 @@ namespace CapaPresentacion
             this.dataGridViewImageColumn1.Image = global::CapaPresentacion.Properties.Resources._019_close;
             this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
             this.dataGridViewImageColumn1.Width = 20;
-            // 
-            // btnEliminarFila
-            // 
-            this.btnEliminarFila.BackColor = System.Drawing.Color.Navy;
-            this.btnEliminarFila.FlatAppearance.BorderSize = 0;
-            this.btnEliminarFila.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminarFila.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminarFila.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnEliminarFila.Location = new System.Drawing.Point(630, 374);
-            this.btnEliminarFila.Name = "btnEliminarFila";
-            this.btnEliminarFila.Size = new System.Drawing.Size(124, 38);
-            this.btnEliminarFila.TabIndex = 39;
-            this.btnEliminarFila.Text = "Eliminar";
-            this.btnEliminarFila.UseVisualStyleBackColor = false;
-            this.btnEliminarFila.Click += new System.EventHandler(this.btnEliminarFila_Click);
             // 
             // frmVenta
             // 
