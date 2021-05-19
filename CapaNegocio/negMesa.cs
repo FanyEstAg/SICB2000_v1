@@ -211,8 +211,42 @@ namespace CapaNegocio
                 throw;
             }
         }
+        public DataTable BuscarCobro(int id)
+        {
+            try
+            {
+                DataTable dt = datMesa.Instancia.BuscarCobro(id);
 
+                if (dt.Rows.Count == 0)
+                {
+                    //throw new ApplicationException("No se encontraron registros");
+                }
+                return dt;
+            }
+            catch (Exception)
+            {
 
+                throw;
+            }
+        }
+        public DataTable CargarCobros()
+        {
+            try
+            {
+                DataTable dt = datMesa.Instancia.CargarCobros();
+
+                if (dt.Rows.Count == 0)
+                {
+                    //throw new ApplicationException("No se encontraron registros");
+                }
+                return dt;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
         #endregion
     }
 }

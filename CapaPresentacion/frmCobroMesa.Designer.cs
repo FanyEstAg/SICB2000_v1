@@ -74,13 +74,13 @@ namespace CapaPresentacion
             this.label3 = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
             this.ConsultarTiempo = new System.Windows.Forms.TabPage();
-            this.dataGridView4 = new System.Windows.Forms.DataGridView();
+            this.dgvMesaCONS_Tiempo = new System.Windows.Forms.DataGridView();
             this.MesasOcupadas = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.cbxMesasOCU = new System.Windows.Forms.ComboBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.cbxMesasCONS_Ocupadas = new System.Windows.Forms.ComboBox();
+            this.dgvMesasCONS_Ocupadas = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnVolver = new System.Windows.Forms.PictureBox();
@@ -90,6 +90,13 @@ namespace CapaPresentacion
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.horaFecha = new System.Windows.Forms.Timer(this.components);
             this.dgvMesaINS = new System.Windows.Forms.DataGridView();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.dgvCobrosCONS = new System.Windows.Forms.DataGridView();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtIdCobro = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.Asignar.SuspendLayout();
             this.panel9.SuspendLayout();
@@ -102,17 +109,21 @@ namespace CapaPresentacion
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
             this.ConsultarTiempo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMesaCONS_Tiempo)).BeginInit();
             this.MesasOcupadas.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMesasCONS_Ocupadas)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnVolver)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMesaINS)).BeginInit();
+            this.tabPage1.SuspendLayout();
+            this.panel7.SuspendLayout();
+            this.panel12.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCobrosCONS)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -122,6 +133,7 @@ namespace CapaPresentacion
             this.tabControl1.Controls.Add(this.Registrar);
             this.tabControl1.Controls.Add(this.ConsultarTiempo);
             this.tabControl1.Controls.Add(this.MesasOcupadas);
+            this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.Location = new System.Drawing.Point(13, 88);
             this.tabControl1.Name = "tabControl1";
@@ -589,7 +601,7 @@ namespace CapaPresentacion
             // ConsultarTiempo
             // 
             this.ConsultarTiempo.BackgroundImage = global::CapaPresentacion.Properties.Resources.OIP;
-            this.ConsultarTiempo.Controls.Add(this.dataGridView4);
+            this.ConsultarTiempo.Controls.Add(this.dgvMesaCONS_Tiempo);
             this.ConsultarTiempo.Location = new System.Drawing.Point(4, 29);
             this.ConsultarTiempo.Name = "ConsultarTiempo";
             this.ConsultarTiempo.Padding = new System.Windows.Forms.Padding(3);
@@ -598,14 +610,14 @@ namespace CapaPresentacion
             this.ConsultarTiempo.Text = "ConsultarTiempo";
             this.ConsultarTiempo.UseVisualStyleBackColor = true;
             // 
-            // dataGridView4
+            // dgvMesaCONS_Tiempo
             // 
-            this.dataGridView4.BackgroundColor = System.Drawing.Color.IndianRed;
-            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView4.Location = new System.Drawing.Point(59, 31);
-            this.dataGridView4.Name = "dataGridView4";
-            this.dataGridView4.Size = new System.Drawing.Size(542, 251);
-            this.dataGridView4.TabIndex = 24;
+            this.dgvMesaCONS_Tiempo.BackgroundColor = System.Drawing.Color.IndianRed;
+            this.dgvMesaCONS_Tiempo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMesaCONS_Tiempo.Location = new System.Drawing.Point(59, 31);
+            this.dgvMesaCONS_Tiempo.Name = "dgvMesaCONS_Tiempo";
+            this.dgvMesaCONS_Tiempo.Size = new System.Drawing.Size(542, 251);
+            this.dgvMesaCONS_Tiempo.TabIndex = 24;
             // 
             // MesasOcupadas
             // 
@@ -623,7 +635,7 @@ namespace CapaPresentacion
             // 
             this.panel2.BackgroundImage = global::CapaPresentacion.Properties.Resources.OIP;
             this.panel2.Controls.Add(this.panel4);
-            this.panel2.Controls.Add(this.dataGridView1);
+            this.panel2.Controls.Add(this.dgvMesasCONS_Ocupadas);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(3, 3);
@@ -635,7 +647,7 @@ namespace CapaPresentacion
             // 
             this.panel4.BackColor = System.Drawing.Color.IndianRed;
             this.panel4.Controls.Add(this.label1);
-            this.panel4.Controls.Add(this.cbxMesasOCU);
+            this.panel4.Controls.Add(this.cbxMesasCONS_Ocupadas);
             this.panel4.Location = new System.Drawing.Point(140, 33);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(360, 46);
@@ -651,23 +663,24 @@ namespace CapaPresentacion
             this.label1.TabIndex = 24;
             this.label1.Text = "Id Mesa:";
             // 
-            // cbxMesasOCU
+            // cbxMesasCONS_Ocupadas
             // 
-            this.cbxMesasOCU.FormattingEnabled = true;
-            this.cbxMesasOCU.Location = new System.Drawing.Point(164, 10);
-            this.cbxMesasOCU.Name = "cbxMesasOCU";
-            this.cbxMesasOCU.Size = new System.Drawing.Size(121, 24);
-            this.cbxMesasOCU.TabIndex = 25;
-            this.cbxMesasOCU.Text = "Seleccionar...";
+            this.cbxMesasCONS_Ocupadas.FormattingEnabled = true;
+            this.cbxMesasCONS_Ocupadas.Location = new System.Drawing.Point(164, 10);
+            this.cbxMesasCONS_Ocupadas.Name = "cbxMesasCONS_Ocupadas";
+            this.cbxMesasCONS_Ocupadas.Size = new System.Drawing.Size(121, 24);
+            this.cbxMesasCONS_Ocupadas.TabIndex = 25;
+            this.cbxMesasCONS_Ocupadas.Text = "Seleccionar...";
+            this.cbxMesasCONS_Ocupadas.SelectionChangeCommitted += new System.EventHandler(this.cbxMesasCONS_Ocupadas_SelectionChangeCommitted);
             // 
-            // dataGridView1
+            // dgvMesasCONS_Ocupadas
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.IndianRed;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(140, 101);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(360, 150);
-            this.dataGridView1.TabIndex = 17;
+            this.dgvMesasCONS_Ocupadas.BackgroundColor = System.Drawing.Color.IndianRed;
+            this.dgvMesasCONS_Ocupadas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMesasCONS_Ocupadas.Location = new System.Drawing.Point(140, 101);
+            this.dgvMesasCONS_Ocupadas.Name = "dgvMesasCONS_Ocupadas";
+            this.dgvMesasCONS_Ocupadas.Size = new System.Drawing.Size(360, 150);
+            this.dgvMesasCONS_Ocupadas.TabIndex = 17;
             // 
             // label5
             // 
@@ -766,6 +779,77 @@ namespace CapaPresentacion
             this.dgvMesaINS.Size = new System.Drawing.Size(482, 194);
             this.dgvMesaINS.TabIndex = 37;
             // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.panel7);
+            this.tabPage1.Location = new System.Drawing.Point(4, 29);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Size = new System.Drawing.Size(654, 312);
+            this.tabPage1.TabIndex = 8;
+            this.tabPage1.Text = "Consultar Cobros";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // panel7
+            // 
+            this.panel7.BackgroundImage = global::CapaPresentacion.Properties.Resources.OIP;
+            this.panel7.Controls.Add(this.panel12);
+            this.panel7.Controls.Add(this.dgvCobrosCONS);
+            this.panel7.Controls.Add(this.label9);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel7.Location = new System.Drawing.Point(0, 0);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(654, 312);
+            this.panel7.TabIndex = 1;
+            // 
+            // panel12
+            // 
+            this.panel12.BackColor = System.Drawing.Color.IndianRed;
+            this.panel12.Controls.Add(this.txtIdCobro);
+            this.panel12.Controls.Add(this.label7);
+            this.panel12.Location = new System.Drawing.Point(140, 33);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(360, 46);
+            this.panel12.TabIndex = 26;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(12, 13);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(156, 20);
+            this.label7.TabIndex = 24;
+            this.label7.Text = "Id Cobro de Mesa:";
+            // 
+            // dgvCobrosCONS
+            // 
+            this.dgvCobrosCONS.BackgroundColor = System.Drawing.Color.IndianRed;
+            this.dgvCobrosCONS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCobrosCONS.Location = new System.Drawing.Point(31, 101);
+            this.dgvCobrosCONS.Name = "dgvCobrosCONS";
+            this.dgvCobrosCONS.ReadOnly = true;
+            this.dgvCobrosCONS.RowHeadersVisible = false;
+            this.dgvCobrosCONS.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvCobrosCONS.Size = new System.Drawing.Size(584, 190);
+            this.dgvCobrosCONS.TabIndex = 17;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(389, 59);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(0, 20);
+            this.label9.TabIndex = 4;
+            // 
+            // txtIdCobro
+            // 
+            this.txtIdCobro.Location = new System.Drawing.Point(175, 12);
+            this.txtIdCobro.Name = "txtIdCobro";
+            this.txtIdCobro.Size = new System.Drawing.Size(168, 26);
+            this.txtIdCobro.TabIndex = 25;
+            this.txtIdCobro.TextChanged += new System.EventHandler(this.txtIdCobro_TextChanged);
+            // 
             // frmCobroMesa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -798,19 +882,25 @@ namespace CapaPresentacion
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.ConsultarTiempo.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMesaCONS_Tiempo)).EndInit();
             this.MesasOcupadas.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMesasCONS_Ocupadas)).EndInit();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnVolver)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMesaINS)).EndInit();
+            this.tabPage1.ResumeLayout(false);
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
+            this.panel12.ResumeLayout(false);
+            this.panel12.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCobrosCONS)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -820,17 +910,17 @@ namespace CapaPresentacion
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage MesasOcupadas;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvMesasCONS_Ocupadas;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TabPage ConsultarTiempo;
-        private System.Windows.Forms.DataGridView dataGridView4;
+        private System.Windows.Forms.DataGridView dgvMesaCONS_Tiempo;
         private System.Windows.Forms.TabPage Registrar;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.ComboBox cbxMesasOCU;
+        private System.Windows.Forms.ComboBox cbxMesasCONS_Ocupadas;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnRegistrar;
@@ -877,5 +967,12 @@ namespace CapaPresentacion
         private System.Windows.Forms.PictureBox btnMinimizar;
         private System.Windows.Forms.PictureBox btnCerrar;
         private System.Windows.Forms.DataGridView dgvMesaINS;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.TextBox txtIdCobro;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.DataGridView dgvCobrosCONS;
+        private System.Windows.Forms.Label label9;
     }
 }

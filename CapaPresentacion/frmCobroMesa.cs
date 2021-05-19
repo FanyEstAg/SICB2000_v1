@@ -64,6 +64,8 @@ namespace CapaPresentacion
                         co.Id_mesa = m;
                         co.Tiempo_inicio = item.Tiempo_inicio;
                         tiempototal = DateTime.Now.Minute - item.Tiempo_inicio.Minute;
+                        if (tiempototal < 0)
+                            tiempototal += 60;
                     }
                 }
                 co.Tiempo_fin = Convert.ToDateTime(DateTime.Now.ToShortTimeString());
@@ -72,9 +74,39 @@ namespace CapaPresentacion
 
                 int cobro = negMesa.Instancia.GuardarCobroMesa(co);//Guardar en capa de negocio
                     MessageBox.Show("¡Cobro exitoso!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    //Notificación de proceso correcto
+                //Notificación de proceso correcto
+                dgvCobrosCONS.DataSource = negMesa.Instancia.CargarCobros();//Actualizar tabla de consulta de cobros
+
+                //Actualizar Arrays
+                //Eliminar la mesa registrarda de las mesas aisgnadas
+                for (int i = 0; i < mesasAsignadas.Count; i++)
+                {
+                    if (mesasAsignadas[i].Id_mesa.Id_Mesa == Convert.ToInt32(cbxIdMesaINS.SelectedItem))
+                    {
+                        mesasAsignadas.RemoveAt(i);
+                        break;
+                    }
                 }
-                catch (Exception ex)
+                //Eliminacion de estado ocupado de la mesa registrada
+                for (int i = 0; i < mesasOcupadas.Count; i++)
+                {
+                    if (mesasOcupadas[i] == cbxIdMesaINS.SelectedItem.ToString())
+                    {
+                        //MessageBox.Show("Entra 2do if"+i);
+                        mesasOcupadas.RemoveAt(i);
+                        //MessageBox.Show("Eliminacion de mesa ocupada");
+                        break;
+                    }
+                }
+                //Añadir la mesa registrada en desocupadas
+                mesasDesocupadas.Add(cbxIdMesaINS.SelectedItem.ToString());//Añadir mesa origen a desocupadas
+                //Pendiente-ordernar las listas mesasDesocupadas.Sort();
+
+                //Actualizar cbx involucrados en otras ventanas---
+                actualizarComponentes();
+                
+            }
+            catch (Exception ex)
                 //Especificar respuesta si existe error
                 {
                     MessageBox.Show(ex.Message, "Error",
@@ -96,7 +128,10 @@ namespace CapaPresentacion
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
-           this.Close();
+            if (mesasOcupadas.Count > 0)
+                MessageBox.Show("Aún hay mesas ocupadas, minimice la venta o desocupe las mesas registrandolas", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else
+                this.Close();
         }
 
         private void btnMinimizar_Click(object sender, EventArgs e)
@@ -112,7 +147,10 @@ namespace CapaPresentacion
 
         private void frmCobroMesa_Load(object sender, EventArgs e)
         {
-            crearGridRegistro(dgvMesaINS);
+            crearGridRegistro(dgvMesaINS, 1);
+            crearGridRegistro(dgvMesaCONS_Tiempo, 2);
+            crearGridRegistro(dgvMesasCONS_Ocupadas,3);
+            dgvCobrosCONS.DataSource = negMesa.Instancia.CargarCobros();
             //mesasOcupadas.Add("Seleccionar...");
             foreach (var dat in negMesa.Instancia.ListarMesas())
             {
@@ -157,16 +195,18 @@ namespace CapaPresentacion
                 lblIdMesaASIG.Text = "---";
                 //Actualizar combos dependientes
                 //MessageBox.Show(mesasOcupadas.Count.ToString());
-                cbxIdMesasOriginalCAMBIAR.Items.Clear();
-                cbxIdMesasDestinoCAMBIAR.Items.Clear();
-                
-                foreach (var item in cbxMesasASIG.Items)
-                {
-                    cbxIdMesasDestinoCAMBIAR.Items.Add(item);
-                }
-                cbxIdMesasOriginalCAMBIAR.Items.AddRange(mesasOcupadas.ToArray());
-                
+                //cbxIdMesasOriginalCAMBIAR.Items.Clear();
+                //cbxIdMesasDestinoCAMBIAR.Items.Clear();
 
+                //foreach (var item in cbxMesasASIG.Items)
+                //{
+                //    cbxIdMesasDestinoCAMBIAR.Items.Add(item);
+                //}
+                //cbxIdMesasOriginalCAMBIAR.Items.AddRange(mesasOcupadas.ToArray());
+
+
+                //Actualizar cbx involucrados en otras ventanas---
+                actualizarComponentes();
 
             }
             catch (Exception ex)
@@ -204,7 +244,8 @@ namespace CapaPresentacion
                     //MessageBox.Show(mesasAsignadas[i].Id_mesa.Id_Mesa.ToString());
                     lblHoraInicioCAMBIAR.Text = mesasAsignadas[i].Tiempo_inicio.ToShortTimeString();
                     tiempototal = DateTime.Now.Minute - mesasAsignadas[cbxIdMesasOriginalCAMBIAR.SelectedIndex].Tiempo_inicio.Minute;
-
+                    if (tiempototal < 0)
+                        tiempototal += 60;
                     break;
                 }
             }
@@ -279,6 +320,8 @@ namespace CapaPresentacion
                         //Calculo automatico
 
                         tiempototal = DateTime.Now.Minute - mesasAsignadas[i].Tiempo_inicio.Minute;
+                        if (tiempototal < 0)
+                            tiempototal += 60;
                         break;
                     }
                 }
@@ -287,23 +330,27 @@ namespace CapaPresentacion
                 txtTiempoTotalCAMBIAR.Text = tiempototal.ToString();
 
                 //Actualizar los combos de la ventana actual CAMBIAR MESA
-                cbxIdMesasOriginalCAMBIAR.Items.Clear();
-                cbxIdMesasDestinoCAMBIAR.Items.Clear();
+                //cbxIdMesasOriginalCAMBIAR.Items.Clear();
+                //cbxIdMesasDestinoCAMBIAR.Items.Clear();
 
-                // Poner las mesas desocupadas en el cbx Destino
-                cbxIdMesasDestinoCAMBIAR.Items.AddRange(mesasDesocupadas.ToArray());
-                //MessageBox.Show("Count: "+mesasAsignadas.Count());
-                //Actualizar el cbx de las mesas asignadas
-                cbxIdMesasOriginalCAMBIAR.Items.AddRange(mesasOcupadas.ToArray());//Actualizar las mesas ocupadas en el cbx ORIGEN
+                //// Poner las mesas desocupadas en el cbx Destino
+                //cbxIdMesasDestinoCAMBIAR.Items.AddRange(mesasDesocupadas.ToArray());
+                ////MessageBox.Show("Count: "+mesasAsignadas.Count());
+                ////Actualizar el cbx de las mesas asignadas
+                //cbxIdMesasOriginalCAMBIAR.Items.AddRange(mesasOcupadas.ToArray());//Actualizar las mesas ocupadas en el cbx ORIGEN
 
-                //Text
-                cbxIdMesasOriginalCAMBIAR.Text = "Seleccionar...";
-                cbxIdMesasDestinoCAMBIAR.Text = "Seleccionar...";
+                ////Text
+                //cbxIdMesasOriginalCAMBIAR.Text = "Seleccionar...";
+                //cbxIdMesasDestinoCAMBIAR.Text = "Seleccionar...";
 
-                //Actualizar el combo de la ventana ASIGNAR MESAR
-                cbxMesasASIG.Items.Clear();//borrar los datos actuales
-                cbxMesasASIG.Items.AddRange(mesasDesocupadas.ToArray());//añadir lista de mesas desocupadas
-                cbxMesasASIG.Text = "Seleccionar...";
+                ////Actualizar el combo de la ventana ASIGNAR MESAR
+                //cbxMesasASIG.Items.Clear();//borrar los datos actuales
+                //cbxMesasASIG.Items.AddRange(mesasDesocupadas.ToArray());//añadir lista de mesas desocupadas
+                //cbxMesasASIG.Text = "Seleccionar...";
+
+
+                //Actualizar cbx involucrados en otras ventanas---
+                actualizarComponentes();
             }
             else
                 MessageBox.Show("COmplete los campos solicitados", "Error",
@@ -319,62 +366,215 @@ namespace CapaPresentacion
 
         private void cbxIdMesaINS_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            
-            int tiempototal = 0;
-            dgvMesaINS.Rows.Clear();
-            foreach (entCobroMesa item in mesasAsignadas)
+            try
             {
-                if (item.Id_mesa.Id_Mesa == Convert.ToInt32(cbxIdMesaINS.SelectedItem))
+                int tiempototal = 0;
+                dgvMesaINS.Rows.Clear();
+                foreach (entCobroMesa item in mesasAsignadas)
                 {
-                    tiempototal = DateTime.Now.Minute - item.Tiempo_inicio.Minute;
-                    DataGridViewRow fila = new DataGridViewRow();
-                    fila.CreateCells(dgvMesaINS);
-                    fila.Cells[0].Value = item.Id_mesa.Id_Mesa;
-                    fila.Cells[1].Value = negMesa.Instancia.ListarTipoMesa(item.Id_mesa.Id_Mesa);
-                    fila.Cells[2].Value = tiempototal;
-                    fila.Cells[3].Value = tiempototal * 2;//$2 el minuto
-                    tiempototal = 0;
-                    dgvMesaINS.Rows.Add(fila);
+                    if (item.Id_mesa.Id_Mesa == Convert.ToInt32(cbxIdMesaINS.SelectedItem))
+                    {
+                        tiempototal = DateTime.Now.Minute - item.Tiempo_inicio.Minute;
+                        if (tiempototal < 0)
+                            tiempototal += 60;
+                        DataGridViewRow fila = new DataGridViewRow();
+                        fila.CreateCells(dgvMesaINS);
+                        fila.Cells[0].Value = item.Id_mesa.Id_Mesa;
+                        fila.Cells[1].Value = negMesa.Instancia.ListarTipoMesa(item.Id_mesa.Id_Mesa);
+                        fila.Cells[2].Value = tiempototal;
+                        fila.Cells[3].Value = tiempototal * 2;//$2 el minuto
+                        tiempototal = 0;
+                        dgvMesaINS.Rows.Add(fila);
+                    }
                 }
             }
-            
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error",
+                                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
 
         private void tabControl1_Selecting(object sender, TabControlCancelEventArgs e)
         {
-            if (e.TabPageIndex == 2)
+            try
             {
-                cbxIdMesaINS.Items.Clear();
-                dgvMesaINS.Rows.Clear();
-                cbxIdMesaINS.Items.AddRange(mesasOcupadas.ToArray());
-                int tiempototal = 0;
-                
-                foreach (entCobroMesa item in mesasAsignadas)
+                if (e.TabPageIndex == 2)
                 {
-                    tiempototal = DateTime.Now.Minute - item.Tiempo_inicio.Minute;
-                    DataGridViewRow fila = new DataGridViewRow();
-                    fila.CreateCells(dgvMesaINS);
-                    fila.Cells[0].Value = item.Id_mesa.Id_Mesa;
-                    fila.Cells[1].Value = negMesa.Instancia.ListarTipoMesa(item.Id_mesa.Id_Mesa);
-                    fila.Cells[2].Value = tiempototal;
-                    fila.Cells[3].Value = tiempototal * 2;//$2 el minuto
-                    tiempototal = 0;
-                    dgvMesaINS.Rows.Add(fila);
-                
+                    cbxIdMesaINS.Items.Clear();
+                    dgvMesaINS.Rows.Clear();
+                    cbxIdMesaINS.Items.AddRange(mesasOcupadas.ToArray());
+                    int tiempototal = 0;
+
+                    foreach (entCobroMesa item in mesasAsignadas)
+                    {
+                        tiempototal = DateTime.Now.Minute - item.Tiempo_inicio.Minute;
+                        if (tiempototal < 0)
+                            tiempototal += 60;
+                        DataGridViewRow fila = new DataGridViewRow();
+                        fila.CreateCells(dgvMesaINS);
+                        fila.Cells[0].Value = item.Id_mesa.Id_Mesa;
+                        fila.Cells[1].Value = negMesa.Instancia.ListarTipoMesa(item.Id_mesa.Id_Mesa);
+                        fila.Cells[2].Value = tiempototal;
+                        fila.Cells[3].Value = tiempototal * 2;//$2 el minuto
+                        tiempototal = 0;
+                        dgvMesaINS.Rows.Add(fila);
+
+                    }
                 }
+                else if (e.TabPageIndex == 3)
+                {
+
+                    dgvMesaCONS_Tiempo.Rows.Clear();
+                    int tiempototal = 0;
+                    foreach (entCobroMesa item in mesasAsignadas)
+                    {
+                        tiempototal = DateTime.Now.Minute - item.Tiempo_inicio.Minute;
+                        DataGridViewRow fila = new DataGridViewRow();
+                        fila.CreateCells(dgvMesaCONS_Tiempo);
+                        fila.Cells[0].Value = item.Id_mesa.Id_Mesa;
+                        fila.Cells[1].Value = negMesa.Instancia.ListarTipoMesa(item.Id_mesa.Id_Mesa);
+                        fila.Cells[2].Value = item.Tiempo_inicio.ToShortTimeString();
+                        fila.Cells[3].Value = DateTime.Now.ToShortTimeString();
+                        fila.Cells[4].Value = tiempototal;
+                        dgvMesaCONS_Tiempo.Rows.Add(fila);
+                        tiempototal = 0;
+
+                    }
+                }
+                else if (e.TabPageIndex == 4)
+                {
+                    dgvMesasCONS_Ocupadas.Rows.Clear();
+                    cbxMesasCONS_Ocupadas.Items.Clear();
+                    cbxMesasCONS_Ocupadas.Items.AddRange(mesasOcupadas.ToArray());
+                    foreach (entCobroMesa item in mesasAsignadas)
+                    {
+                        DataGridViewRow fila = new DataGridViewRow();
+                        fila.CreateCells(dgvMesasCONS_Ocupadas);
+                        fila.Cells[0].Value = item.Id_mesa.Id_Mesa;
+                        fila.Cells[1].Value = negMesa.Instancia.ListarTipoMesa(item.Id_mesa.Id_Mesa);
+                        fila.Cells[2].Value = "Ocupada";
+                        dgvMesasCONS_Ocupadas.Rows.Add(fila);
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error",
+                                                MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-    public void crearGridRegistro(DataGridView dgv)
+    public void crearGridRegistro(DataGridView dgv, byte op)
     {
-        dgv.Columns.Add("ColumnId", "ID");
-        dgv.Columns.Add("ColumnTipo", "Tipo");
-        dgv.Columns.Add("ColumnTiempo", "Tiempo");
-        dgv.Columns.Add("ColumnTotal", "Total");
+            if (op == 1)
+            {
+                dgv.Columns.Add("ColumnId", "ID");
+                dgv.Columns.Add("ColumnTipo", "Tipo");
+                dgv.Columns.Add("ColumnTiempo", "Tiempo");
+                dgv.Columns.Add("ColumnTotal", "Total");
 
-        dgv.AllowUserToAddRows = false;//Añadir filas 
-        dgv.MultiSelect = false;//multiselección falsa
-        dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;//seleccionar fila completa
+                dgv.AllowUserToAddRows = false;//Añadir filas 
+                dgv.MultiSelect = false;//multiselección falsa
+                dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;//seleccionar fila completa
+            }else if (op == 2)
+            {
+                dgv.Columns.Add("ColumnId", "ID");
+                dgv.Columns.Add("ColumnTipo", "Tipo");
+                dgv.Columns.Add("ColumnHoraInicio", "Hora de Inicio");
+                dgv.Columns.Add("ColumnHoraActual", "Hora de Actual");
+                dgv.Columns.Add("ColumnTiempo", "Tiempo");
+
+                dgv.AllowUserToAddRows = false;//Añadir filas 
+                dgv.MultiSelect = false;//multiselección falsa
+                dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            }else if (op == 3)
+            {
+                dgv.Columns.Add("ColumnId", "ID");
+                dgv.Columns.Add("ColumnTipo", "Tipo");
+                dgv.Columns.Add("ColumnEstado", "Estado");
+
+                dgv.AllowUserToAddRows = false;//Añadir filas 
+                dgv.MultiSelect = false;//multiselección falsa
+                dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            }
+        }
+
+        private void cbxMesasCONS_Ocupadas_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            //try
+            //{
+                dgvMesasCONS_Ocupadas.Rows.Clear();
+                foreach (entCobroMesa item in mesasAsignadas)
+                {
+                    if (item.Id_mesa.Id_Mesa == Convert.ToInt32(cbxMesasCONS_Ocupadas.SelectedItem))
+                    {
+                        DataGridViewRow fila = new DataGridViewRow();
+                        fila.CreateCells(dgvMesasCONS_Ocupadas);
+                        fila.Cells[0].Value = item.Id_mesa.Id_Mesa;
+                        fila.Cells[1].Value = negMesa.Instancia.ListarTipoMesa(item.Id_mesa.Id_Mesa);
+                        fila.Cells[2].Value = "Ocupada";
+                        dgvMesasCONS_Ocupadas.Rows.Add(fila);
+                        break;
+                    }
+                }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message, "Error",
+            //                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
+        }
+
+        private void txtIdCobro_TextChanged(object sender, EventArgs e)
+        {
+            if (txtIdCobro.Text != "")
+            {
+                try
+                {
+                    dgvCobrosCONS.DataSource = negMesa.Instancia.BuscarCobro(Convert.ToInt32(txtIdCobro.Text));
+                    //ControlBotones(true, true, false, true, false, true);
+                    //ac.BloquearText(this.panel1, false);
+                }
+                catch (ApplicationException ae)
+                {
+                    MessageBox.Show(ae.Message, "Aviso",
+                                                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error",
+                                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                dgvCobrosCONS.DataSource = negMesa.Instancia.CargarCobros();
+            }
+        }
+        private void actualizarComponentes()
+        {
+            //Actualizar cbx actual
+            cbxIdMesaINS.Items.Clear();
+            cbxIdMesaINS.Items.AddRange(mesasOcupadas.ToArray());
+            cbxIdMesaINS.Text = "Seleccionar...";
+            //Actualizar el combo de la ventana ASIGNAR MESAR
+            cbxMesasASIG.Items.Clear();//borrar los datos actuales
+            cbxMesasASIG.Items.AddRange(mesasDesocupadas.ToArray());//añadir lista de mesas desocupadas
+            cbxMesasASIG.Text = "Seleccionar...";
+            //Actualizar cbx de CMABIAR MES
+            cbxIdMesasOriginalCAMBIAR.Items.Clear();
+            cbxIdMesasDestinoCAMBIAR.Items.Clear();
+            cbxIdMesasOriginalCAMBIAR.Items.AddRange(mesasOcupadas.ToArray());
+            cbxIdMesasDestinoCAMBIAR.Items.AddRange(mesasDesocupadas.ToArray());
+            cbxIdMesasOriginalCAMBIAR.Text = "Seleccionar...";
+            cbxIdMesasDestinoCAMBIAR.Text = "Seleccionar...";
+            //Actualizar mesas OCUPADAS
+            cbxMesasCONS_Ocupadas.Items.Clear();
+            cbxMesasCONS_Ocupadas.Items.AddRange(mesasOcupadas.ToArray());
+            cbxMesasCONS_Ocupadas.Text = "Seleccionar...";
+        }
     }
-}
 }
