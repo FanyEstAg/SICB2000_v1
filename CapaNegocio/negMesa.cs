@@ -168,10 +168,13 @@ namespace CapaNegocio
             try
             {
                 String cadXml = "";//se crea la cadena del xml
-                cadXml += "<mesa ";//Datos a tratar
-                cadXml += "idmesa='" + co.Id_mesa + "'/>";
-                cadXml += "idtipo='" + co.Id_mesa.id_tipo + "'/>";
-                cadXml += "tiempoTotal='" + co.Tiempo_total + "'/>";
+                cadXml += "<cobroMesa ";//Datos a tratar
+                cadXml += "idusuario='" + co.Id_Usuario.Id_Usuario + "' ";
+                cadXml += "fecha='" + co.fecha + "' ";
+                cadXml += "idmesa='" + co.Id_mesa.Id_Mesa + "' ";
+                cadXml += "tiempoInicio='" + co.Tiempo_inicio + "' ";
+                cadXml += "tiempoFinal='" + co.Tiempo_fin + "' ";
+                cadXml += "tiempoTotal='" + co.Tiempo_total + "' ";
                 cadXml += "pagoTotal='" + co.PagoTotal + "'/>";
                 cadXml = "<root>" + cadXml + "</root>";
                 int result = datMesa.Instancia.GuardarCobroMesa(cadXml);//Conexión con la BD

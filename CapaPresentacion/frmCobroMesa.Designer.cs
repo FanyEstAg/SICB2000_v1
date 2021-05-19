@@ -72,7 +72,6 @@ namespace CapaPresentacion
             this.btnRegistrar = new System.Windows.Forms.Button();
             this.lblHora = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.dgvMesasINS = new System.Windows.Forms.DataGridView();
             this.button5 = new System.Windows.Forms.Button();
             this.ConsultarTiempo = new System.Windows.Forms.TabPage();
             this.dataGridView4 = new System.Windows.Forms.DataGridView();
@@ -90,6 +89,7 @@ namespace CapaPresentacion
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.horaFecha = new System.Windows.Forms.Timer(this.components);
+            this.dgvMesaINS = new System.Windows.Forms.DataGridView();
             this.tabControl1.SuspendLayout();
             this.Asignar.SuspendLayout();
             this.panel9.SuspendLayout();
@@ -101,7 +101,6 @@ namespace CapaPresentacion
             this.Registrar.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMesasINS)).BeginInit();
             this.ConsultarTiempo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
             this.MesasOcupadas.SuspendLayout();
@@ -113,6 +112,7 @@ namespace CapaPresentacion
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMesaINS)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -128,6 +128,7 @@ namespace CapaPresentacion
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(662, 345);
             this.tabControl1.TabIndex = 3;
+            this.tabControl1.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tabControl1_Selecting);
             // 
             // Asignar
             // 
@@ -491,17 +492,16 @@ namespace CapaPresentacion
             // panel5
             // 
             this.panel5.BackgroundImage = global::CapaPresentacion.Properties.Resources.OIP;
+            this.panel5.Controls.Add(this.dgvMesaINS);
             this.panel5.Controls.Add(this.panel6);
             this.panel5.Controls.Add(this.lblHora);
             this.panel5.Controls.Add(this.label3);
-            this.panel5.Controls.Add(this.dgvMesasINS);
             this.panel5.Controls.Add(this.button5);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(654, 312);
             this.panel5.TabIndex = 0;
-            this.panel5.Enter += new System.EventHandler(this.panel5_Enter);
             // 
             // panel6
             // 
@@ -532,6 +532,7 @@ namespace CapaPresentacion
             this.cbxIdMesaINS.Size = new System.Drawing.Size(121, 28);
             this.cbxIdMesaINS.TabIndex = 35;
             this.cbxIdMesaINS.Text = "Seleccionar...";
+            this.cbxIdMesaINS.SelectionChangeCommitted += new System.EventHandler(this.cbxIdMesaINS_SelectionChangeCommitted);
             // 
             // btnRegistrar
             // 
@@ -568,15 +569,6 @@ namespace CapaPresentacion
             this.label3.Size = new System.Drawing.Size(53, 20);
             this.label3.TabIndex = 33;
             this.label3.Text = "Hora:";
-            // 
-            // dgvMesasINS
-            // 
-            this.dgvMesasINS.BackgroundColor = System.Drawing.Color.IndianRed;
-            this.dgvMesasINS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMesasINS.Location = new System.Drawing.Point(111, 70);
-            this.dgvMesasINS.Name = "dgvMesasINS";
-            this.dgvMesasINS.Size = new System.Drawing.Size(440, 194);
-            this.dgvMesasINS.TabIndex = 31;
             // 
             // button5
             // 
@@ -765,6 +757,15 @@ namespace CapaPresentacion
             this.horaFecha.Enabled = true;
             this.horaFecha.Tick += new System.EventHandler(this.horaFecha_Tick);
             // 
+            // dgvMesaINS
+            // 
+            this.dgvMesaINS.BackgroundColor = System.Drawing.Color.IndianRed;
+            this.dgvMesaINS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMesaINS.Location = new System.Drawing.Point(89, 70);
+            this.dgvMesaINS.Name = "dgvMesaINS";
+            this.dgvMesaINS.Size = new System.Drawing.Size(482, 194);
+            this.dgvMesaINS.TabIndex = 37;
+            // 
             // frmCobroMesa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -796,7 +797,6 @@ namespace CapaPresentacion
             this.panel5.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMesasINS)).EndInit();
             this.ConsultarTiempo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
             this.MesasOcupadas.ResumeLayout(false);
@@ -810,6 +810,7 @@ namespace CapaPresentacion
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMesaINS)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -833,7 +834,6 @@ namespace CapaPresentacion
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnRegistrar;
-        public System.Windows.Forms.DataGridView dgvMesasINS;
         private System.Windows.Forms.Label lblHora;
         private System.Windows.Forms.Label label3;
         public System.Windows.Forms.Timer horaFecha;
@@ -876,5 +876,6 @@ namespace CapaPresentacion
         private System.Windows.Forms.PictureBox btnVolver;
         private System.Windows.Forms.PictureBox btnMinimizar;
         private System.Windows.Forms.PictureBox btnCerrar;
+        private System.Windows.Forms.DataGridView dgvMesaINS;
     }
 }

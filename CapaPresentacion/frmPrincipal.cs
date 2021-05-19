@@ -311,7 +311,7 @@ namespace CapaPresentacion
         private void btnCobroMesa_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frmCobroMesa fcm = new frmCobroMesa("1");
+            frmCobroMesa fcm = new frmCobroMesa("1",1);
             fcm.Show();
         }
 
