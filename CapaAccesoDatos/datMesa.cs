@@ -335,7 +335,68 @@ namespace CapaAccesoDatos
             finally { cmd.Connection.Close(); }
         }
 
+        public List<entMesa> ListarMesa()
+        {//--listo
+            SqlCommand cmd = null;
+            SqlDataReader dr = null;
+            List<entMesa> Lista = null;
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("uspListaMesas", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cn.Open();
+                dr = cmd.ExecuteReader();
+                Lista = new List<entMesa>();
+                while (dr.Read())
+                {
+                    entMesa m = new entMesa();
+                    entTipo t = new entTipo();
+                    m.Id_Mesa = Convert.ToInt32(dr["Id_mesa"].ToString());
 
+                    t.Id_Tipo= Convert.ToInt32(dr["Id_tipo"].ToString());
+                    t.Nom_Tipo= dr["Nom_tipo"].ToString();
+                    m.id_tipo = t;
+                    Lista.Add(m);
+                    //MessageBox.Show("" + Lista);
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally { cmd.Connection.Close(); }
+            return Lista;
+        }
+
+        public string ListarTipoMesa(int idMesa)
+        {
+            SqlCommand cmd = null;
+            SqlDataReader dr = null;
+            string r = "";
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("uspMostrarTipoMesa", cn);
+                cmd.Parameters.AddWithValue("@prmMesa", idMesa);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cn.Open();
+                dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    r = dr["Nom_tipo"].ToString();
+                }
+                cn.Close();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally { cmd.Connection.Close(); }
+            return r;
+        }
 
         #endregion metodos Cobro
     }

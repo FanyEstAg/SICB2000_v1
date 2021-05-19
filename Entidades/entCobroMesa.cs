@@ -14,8 +14,8 @@ namespace Entidades
         //Encapsulamiento
         public int Id_pagoMesa { get; set; }
         public DateTime fecha { get; set; }
-        public TimeSpan Tiempo_inicio { get; set; }
-        public TimeSpan Tiempo_fin { get; set; }
+        public DateTime Tiempo_inicio { get; set; }
+        public DateTime Tiempo_fin { get; set; }
         public int Tiempo_total { get; set; }//cálculo automático
         public double PagoTotal { get; set; }
         // Relaciones

@@ -21,7 +21,7 @@ namespace CapaNegocio
         }
 
         #endregion singleton
-
+        #region MESAS
         public int insertarMesa(entMesa m)//LISTO
         {
             try
@@ -158,21 +158,24 @@ namespace CapaNegocio
                 throw;
             }
         }
+        #endregion
 
+        #region CobroMESA
+        
         public int GuardarCobroMesa(entCobroMesa co)
         {
+            //tratar o devolver expeción
             try
             {
-                String cadXml = "";//se creara la cadena del xml
-                cadXml += "<mesa ";
+                String cadXml = "";//se crea la cadena del xml
+                cadXml += "<mesa ";//Datos a tratar
                 cadXml += "idmesa='" + co.Id_mesa + "'/>";
                 cadXml += "idtipo='" + co.Id_mesa.id_tipo + "'/>";
                 cadXml += "tiempoTotal='" + co.Tiempo_total + "'/>";
                 cadXml += "pagoTotal='" + co.PagoTotal + "'/>";
                 cadXml = "<root>" + cadXml + "</root>";
-                int result = datMesa.Instancia.GuardarCobroMesa(cadXml);
+                int result = datMesa.Instancia.GuardarCobroMesa(cadXml);//Conexión con la BD
                 if (result == 0) throw new ApplicationException("Ocurrio un error al registrar, intentelo nuevamente");
-
                 return result;
             }
             catch (Exception)
@@ -181,5 +184,32 @@ namespace CapaNegocio
                 throw;
             }
         }
+        public List<entMesa> ListarMesas()//--listo
+        {
+            try
+            {
+                return datMesa.Instancia.ListarMesa();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public string ListarTipoMesa(Int32 idMesa)//--listo
+        {
+            try
+            {
+                return datMesa.Instancia.ListarTipoMesa(idMesa);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+
+        #endregion
     }
 }

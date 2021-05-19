@@ -41,7 +41,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="negCobroMesa.cs" />
     <Compile Include="negMesa.cs" />
     <Compile Include="negProducto.cs" />
     <Compile Include="negSeguridad.cs" />
