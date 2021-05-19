@@ -1,12 +1,9 @@
---Nombre de la base de datos bd_billar
---Fecha de creación de la base de datos 28.03.2021
---Fecha de entrega 06.05.2021
---Número de equipo Equipo #6
-
 CREATE DATABASE [bd_billar]
 GO
 USE bd_billar;
+	[apepatEmpleado] [varchar](25) NOT NULL,
 GO
+
 CREATE TABLE [dbo].[Rol](
 	[Id_Rol] [int] IDENTITY(1,1),
 	[Nom_puesto] [varchar](25) NOT NULL,
@@ -18,7 +15,6 @@ GO
 CREATE TABLE [dbo].[Empleado](
 	[Id_empleado] [int] IDENTITY(1,1),
 	[Nom_empleado] [varchar](25) NOT NULL,
-	[apepatEmpleado] [varchar](25) NOT NULL,
 	[apematEmpleado] [varchar](25) NOT NULL,
 	[telefonoEmpleado] [varchar](25) NOT NULL,
 	[direccionEmpleado] [varchar](25) NOT NULL,
@@ -62,10 +58,8 @@ CREATE TABLE [dbo].[Producto](
 	[Costo] [money] NOT NULL,
 	[Precio] [money]NOT NULL,
 	[Descp_producto ] [varchar](50) NOT NULL,
-	[Estado][varchar](1) NOT NULL,--Correcion no se puede eliminar los productos por la fk en ventas
 	CONSTRAINT pk_producto PRIMARY KEY (Id_Prod)
 );
---SELECT * FROM ESTADO
 GO
 CREATE TABLE [dbo].[Estado](
 	[Id_Estado] [varchar] (1) NOT NULL,

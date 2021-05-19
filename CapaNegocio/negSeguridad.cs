@@ -20,19 +20,8 @@ namespace CapaNegocio
 
         #endregion singleton
 
-        public int ObtenerIdUsuario(string us, string pass)//--listo
-        {
-            if (us == "") throw new ApplicationException("Ingrese un usuario");
-            if (pass == "") throw new ApplicationException("Ingrese una contraseña");
-            int u = 0;
-            u = datSeguridad.Instancia.ObtenerIdUsuario(us, pass);
-            if (u == null)
-            {
-                throw new ApplicationException("No se encontró el Id de usuario");
-            }
 
-            return u;
-        }
+        
         public int insertarEmpleado( entEmpleado e)//listo
         {
             try
@@ -222,6 +211,86 @@ namespace CapaNegocio
             }
         }
 
+        public DataTable BuscarVentas(String busqueda)
+        {
+            try
+            {
+
+                DataTable dt = datSeguridad.Instancia.BuscarVentas(busqueda);
+
+                if (dt.Rows.Count == 0)
+                {
+                    throw new ApplicationException("No se encontraron registros");
+                }
+                return dt;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public DataTable CargarVentas()
+        {
+            try
+            {
+
+                DataTable dt = datSeguridad.Instancia.CargarVentas();
+
+                if (dt.Rows.Count == 0)
+                {
+                    throw new ApplicationException("No hay registro de ventas");
+                }
+                return dt;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public DataTable BuscarMesas(String busqueda)
+        {
+            try
+            {
+
+                DataTable dt = datSeguridad.Instancia.BuscarMesas(busqueda);
+
+                if (dt.Rows.Count == 0)
+                {
+                    throw new ApplicationException("No se encontraron registros");
+                }
+                return dt;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public DataTable BuscarProductos(String busqueda)
+        {
+            try
+            {
+
+                DataTable dt = datSeguridad.Instancia.BuscarProductos(busqueda);
+
+                if (dt.Rows.Count == 0)
+                {
+                    throw new ApplicationException("No se encontraron registros");
+                }
+                return dt;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         public string ListarRolDescrp(Int32 idRol)//--listo
         {
             try
@@ -259,6 +328,7 @@ namespace CapaNegocio
                 throw;
             }
         }
+
         public List<entRol> ListarRol()//--listo
         {
             try
@@ -271,6 +341,7 @@ namespace CapaNegocio
             }
         }
 
+        
         public entUsuario IngresoSisema(String usuario,String password)//--listo
         {
             try
@@ -293,6 +364,7 @@ namespace CapaNegocio
 
         }
 
+        
 
     }
 }

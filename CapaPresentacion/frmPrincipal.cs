@@ -33,7 +33,8 @@ namespace CapaPresentacion
                     tsmInventario.Enabled = true;
                     tsmMesas.Enabled = true;
                     tsmVentas.Enabled = true;
-                    tsmCobrarMesa.Enabled = true;
+                    tsmConsultaProd.Enabled = true;
+                    tsmConsultaVenta.Enabled = true;
                     tsmreporteproductos.Enabled = true;
                     tsmreporteventas.Enabled = true;
                     tsmReporteMesas.Enabled = true;
@@ -45,7 +46,8 @@ namespace CapaPresentacion
                     tsmInventario.Enabled = false;
                     tsmMesas.Enabled = true;
                     tsmVentas.Enabled = true;
-                    tsmCobrarMesa.Enabled = true;
+                    tsmConsultaProd.Enabled = true;
+                    tsmConsultaVenta.Enabled = false;
                     tsmreporteproductos.Enabled = false;
                     tsmreporteventas.Enabled = false;
                     tsmReporteMesas.Enabled = false;
@@ -60,7 +62,8 @@ namespace CapaPresentacion
                     tsmreporteproductos.Enabled = true;
                     tsmreporteventas.Enabled = false;
                     tsmReporteMesas.Enabled = false;
-                    tsmCobrarMesa.Enabled = false;
+                    tsmConsultaProd.Enabled = true;
+                    tsmConsultaVenta.Enabled = false;
 
                 }
             }
@@ -115,7 +118,7 @@ namespace CapaPresentacion
             try
             {
                 btnVolver.Visible = false;
-                frmInventario frmProducto = new frmInventario(u);//
+                frmInventario frmProducto = new frmInventario(u.Id_Usuario);//
                 frmProducto.MdiParent = this;
                 foreach (Form frm in Application.OpenForms)
                 {
@@ -136,6 +139,33 @@ namespace CapaPresentacion
             }
 
         }
+
+
+        //private void ventasToolStripMenuItem2_Click(object sender, EventArgs e)//--MODIFICAR
+        //{
+        //    try
+        //    {
+        //        frmConsultaVenta frmcventa = new frmConsultaVenta();
+        //        frmcventa.MdiParent = this;
+        //        foreach (Form frm in Application.OpenForms)
+        //        {
+        //            if (frm is frmConsultaVenta)
+        //            {
+        //                frm.Show();
+        //                frm.Size = MinimumSize;
+        //                frm.WindowState = FormWindowState.Normal;
+        //                return;
+        //            }
+        //        }
+        //        frmcventa.Show();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message, "Aviso",
+        //                              MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //}
+
         private void acercaDeToolStripMenuItem1_Click(object sender, EventArgs e)//Acerca de
         {
             try
@@ -163,7 +193,7 @@ namespace CapaPresentacion
             try
             {
                 btnVolver.Visible = false;
-                frmVenta frmNotaventa = new frmVenta(u);
+                frmVenta frmNotaventa = new frmVenta(u.Nombre_Usuario);
                 frmNotaventa.MdiParent = this;
                 foreach (Form frm in Application.OpenForms)
                 {
@@ -189,8 +219,8 @@ namespace CapaPresentacion
             btnVolver.Visible = false;
             try
             {
-                frmMesas frmMesa= new frmMesas(u);
-                frmMesa.MdiParent = this;
+                frmMesas frmNotaventa = new frmMesas(/*u.Nombre_Usuario*/);
+                frmNotaventa.MdiParent = this;
                 foreach (Form frm in Application.OpenForms)
                 {
                     if (frm is frmMesas)
@@ -201,13 +231,18 @@ namespace CapaPresentacion
                         return;
                     }
                 }
-                frmMesa.Show();
+                frmNotaventa.Show();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Aviso",
                                       MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)//Cerrar
@@ -217,12 +252,17 @@ namespace CapaPresentacion
 
         }
 
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void tsmSeguridad_Click(object sender, EventArgs e)
         {
             try
             {
                 btnVolver.Visible = false;
-                frmUsuario frmusuario = new frmUsuario(u);//Mnadamos el usuario
+                frmUsuario frmusuario = new frmUsuario(u.Nombre_Usuario);//Mnadamos el nombre de usuario
                 frmusuario.MdiParent = this;//Adquiere el tamaño de la actual
                 foreach (Form frm in Application.OpenForms)//se ven las ventanas que hay y se acomodan
                 {
@@ -264,28 +304,28 @@ namespace CapaPresentacion
         private void btnMesas_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frmMesas fm = new frmMesas(u);
+            frmMesas fm = new frmMesas();
             fm.Show();
         }
 
         private void btnCobroMesa_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frmCobroMesa fcm = new frmCobroMesa(u);
+            frmCobroMesa fcm = new frmCobroMesa("1",1);
             fcm.Show();
         }
 
         private void btnVentaProd_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frmVenta fv = new frmVenta(u);
+            frmVenta fv = new frmVenta("");
             fv.Show();
         }
 
         private void btnInventario_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frmInventario fi = new frmInventario(u);
+            frmInventario fi = new frmInventario(2);
             fi.Show();
         }
 
@@ -298,35 +338,10 @@ namespace CapaPresentacion
         private void btnConfig_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frmUsuario fu = new frmUsuario(u);
+            frmUsuario fu = new frmUsuario("");
             fu.Show();
         }
 
-        private void cobrarMesasToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                btnVolver.Visible = false;
-                frmCobroMesa frmCobro = new frmCobroMesa(u);
-                frmCobro.MdiParent = this;
-                foreach (Form frm in Application.OpenForms)
-                {
-                    if (frm is frmCobroMesa)
-                    {
-                        frm.Show();
-                        frm.Size = MinimumSize;
-                        frm.WindowState = FormWindowState.Normal;
-                        return;
-                    }
-                }
-                frmCobro.Show();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Aviso",
-                                      MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
     }
 }
 

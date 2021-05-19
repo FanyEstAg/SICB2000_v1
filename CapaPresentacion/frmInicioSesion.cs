@@ -63,7 +63,7 @@ namespace CapaPresentacion
                 String password = txtPassword.Text;
                 entUsuario u = null;//crear un objeto tipo usuario(entidad)
                 u = negSeguridad.Instancia.IngresoSisema(usuario, password); //Ir  a la capa del negocio
-                u.Id_Usuario = negSeguridad.Instancia.ObtenerIdUsuario(usuario, password);
+
                 frmPrincipal frmprincipal = new frmPrincipal(u);//mandar el usuario a la venta principal
                 frmprincipal.Show();
             }

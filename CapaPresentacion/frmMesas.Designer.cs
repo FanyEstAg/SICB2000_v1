@@ -36,6 +36,7 @@ namespace CapaPresentacion
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
             this.btnConsultarMesa = new System.Windows.Forms.Button();
             this.txtBuscarMesa = new System.Windows.Forms.TextBox();
             this.dgvMesasCONS = new System.Windows.Forms.DataGridView();
@@ -70,7 +71,6 @@ namespace CapaPresentacion
             this.label5 = new System.Windows.Forms.Label();
             this.btnRegistrar = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.btnVolver)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
@@ -173,6 +173,16 @@ namespace CapaPresentacion
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(658, 327);
             this.panel4.TabIndex = 0;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.IndianRed;
+            this.label6.Location = new System.Drawing.Point(82, 48);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(30, 20);
+            this.label6.TabIndex = 27;
+            this.label6.Text = "Id:";
             // 
             // btnConsultarMesa
             // 
@@ -547,16 +557,6 @@ namespace CapaPresentacion
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(666, 360);
             this.tabControl1.TabIndex = 1;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.IndianRed;
-            this.label6.Location = new System.Drawing.Point(82, 48);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(30, 20);
-            this.label6.TabIndex = 27;
-            this.label6.Text = "Id:";
             // 
             // frmMesas
             // 
