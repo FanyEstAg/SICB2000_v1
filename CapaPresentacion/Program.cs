@@ -1,5 +1,4 @@
-﻿using Entidades;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -17,15 +16,11 @@ namespace CapaPresentacion
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //<<<<<<< HEAD
+//<<<<<<< HEAD
             //Application.Run(new frmInicioSesion());
-            //=======
-            entUsuario u = new entUsuario();//En calidad de mientras
-            u.Id_Usuario = 1;
-            u.Nombre_Usuario = "Admin";
-            Application.Run(new frmVenta(u));
-            //Application.Run(new frmInicioSesion());--FALTA VERIFICAR: cierres y open de ventanas
-            //>>>>>>> 3e2d525048b27929986ef45d854eb46ebdbd18ed
+//=======
+            Application.Run(new frmReportes());
+//>>>>>>> 3e2d525048b27929986ef45d854eb46ebdbd18ed
         }
     }
 }

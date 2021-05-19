@@ -15,20 +15,17 @@ namespace CapaPresentacion
     public partial class frmVenta : Form
     {
         entUsuario us = null;
-        int userId = 0;
-        string userName = "";
+        string user = "";
         AccionesEnControles ac = new AccionesEnControles();
         double total = 0;
         double total2 = 0;
         double total3 = 0;
         double total4 = 0;
-        public frmVenta(entUsuario user)
+        public frmVenta(string user)
         {
             InitializeComponent();
-            this.userId = user.Id_Usuario;
-            this.userName = user.Nombre_Usuario;
-            lblUsuario.Text = userName.ToString();
-            //MessageBox.Show(this.userId.ToString());
+            this.user = user;
+            lblUsuario.Text = user.ToString();
         }
 
         //private void ControlBotones(Boolean nuevo, Boolean guardar, Boolean imprimir, Boolean quitaritem)
@@ -143,8 +140,8 @@ namespace CapaPresentacion
                 fila.Cells[6].Value = Lista[5];
                 dgvVenta.Rows.Add(fila);
                 total += Convert.ToDouble(Lista[5]);
-                
                 lblTotalINS.Text = total.ToString();
+
             }
             catch (Exception)
             {
@@ -158,17 +155,18 @@ namespace CapaPresentacion
         //--Número de equipo Equipo #6        // By Fany Estrada
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            //try
-            //{
+            try
+            {
                 DialogResult r = MessageBox.Show("¿Desea guardar la venta?", "Confirmar",
                     MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (r == DialogResult.Yes)
                 {
+                    double total = 0;
                     entVenta v = new entVenta();
                     entUsuario u = new entUsuario();
                     entProducto p = new entProducto();
                     entEstado es = new entEstado();
-                    u.Id_Usuario = Convert.ToInt32(userId.ToString());
+                    u.Id_Usuario = Convert.ToInt32(lblUsuario.Text);
                     v.usuario = u;
                     v.folio = Convert.ToInt32(lblIdVenta.Text);
                     //MessageBox.Show(Convert.ToInt32(v.folio).ToString());
@@ -192,7 +190,6 @@ namespace CapaPresentacion
                     //dgvVenta.Enabled = false; ControlBotones(true, false, false, false);//pendiente, control de disponibilidad  botones
                     //ac.BloquearText(this.panel1, false);//pendeinte para bloquear texto de determinado panel
 
-                    //Tras la opreacion
                     dgvVenta.Rows.Clear();
                     cbxCantidad.Text = "1";
 
@@ -203,16 +200,16 @@ namespace CapaPresentacion
                     total = 0;
                     lblTotalINS.Text = (total.ToString());
                 }
-//            }//Excepción de la app
-//            catch (ApplicationException ae)
-//            {
-//                MessageBox.Show(ae.Message, "Aviso", MessageBoxButtons.OK,
-//MessageBoxIcon.Warning);
-//            }
-//            catch (Exception ex)//Cualqueir excepción
-//            {
-//                MessageBox.Show(ex.Message, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
-//            }
+            }//Excepción de la app
+            catch (ApplicationException ae)
+            {
+                MessageBox.Show(ae.Message, "Aviso", MessageBoxButtons.OK,
+MessageBoxIcon.Warning);
+            }
+            catch (Exception ex)//Cualqueir excepción
+            {
+                MessageBox.Show(ex.Message, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         //  Método para eliminar Venta - Capa Presentación
@@ -575,7 +572,7 @@ namespace CapaPresentacion
                     entUsuario u = new entUsuario();
                     entProducto p = new entProducto();
                     entEstado es = new entEstado();
-                    u.Id_Usuario = Convert.ToInt32(userId.ToString());
+                    u.Id_Usuario = Convert.ToInt32(lblUsuario.Text);
                     v.usuario = u;
                     v.folio = Convert.ToInt32(lblFolioACT.Text);
                     //MessageBox.Show(Convert.ToInt32(v.folio).ToString());
@@ -654,17 +651,6 @@ MessageBoxIcon.Warning);
                                                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-        }
-
-        private void TabPagesVentas_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void TabPagesVentas_Selecting(object sender, TabControlCancelEventArgs e)
-        {
-            if(e.TabPageIndex==3)
-                dgvVentasCONS.DataSource = negVenta.Instancia.CargarVenta();
         }
     }
 }

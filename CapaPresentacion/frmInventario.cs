@@ -13,14 +13,11 @@ namespace CapaPresentacion
 {
     public partial class frmInventario : Form
     {
-        entUsuario us = null;
-        int userId = 0;
-        string userName = "";
-        public frmInventario(entUsuario user)
+        Int32 idUsuario;
+        public frmInventario(Int32? id_Usuario)
         {
             InitializeComponent();
-            this.userId = user.Id_Usuario;
-            this.userName = user.Nombre_Usuario;
+            idUsuario = (Int32)id_Usuario;
         }
 
         // metodos globales para etiquetas del formulario 
@@ -285,7 +282,7 @@ namespace CapaPresentacion
 
         private void btnAgregarTipo_Click(object sender, EventArgs e)//LISTO
         {
-            frmNuevaMarca nm = new frmNuevaMarca(us);
+            frmNuevaMarca nm = new frmNuevaMarca();
             nm.Show();
         }
 

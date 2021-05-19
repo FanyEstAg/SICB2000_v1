@@ -15,15 +15,13 @@ namespace CapaPresentacion
     {
         // instancia global de la clase AccionesEnControles para control de etiquetas del formulario
         AccionesEnControles ac = new AccionesEnControles();
-        entUsuario us = null;
-        int userId = 0;
-        string userName = "";
-        public frmUsuario(entUsuario user)
+        //int id_Usuario;
+        public frmUsuario(string usuario)
         {
-            
+            //id_Usuario=(int)idusuario;
             InitializeComponent();
-            this.userId = user.Id_Usuario;
-            this.userName = user.Nombre_Usuario;
+            
+            
         }
 
         // metodos globales para etiquetas del formulario 

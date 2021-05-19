@@ -22,34 +22,6 @@ namespace CapaAccesoDatos
 
         #region metodos
 
-        public int ObtenerIdUsuario(string us, string pass)//---listo
-        {
-            SqlCommand cmd = null;
-            SqlDataReader dr = null;
-            int r = 0;
-            try
-            {
-                SqlConnection cn = Conexion.Instancia.Conectar();
-                cmd = new SqlCommand("uspObtenerIdUsuario", cn);
-                cmd.Parameters.AddWithValue("@prmUsuario", us);
-                cmd.Parameters.AddWithValue("@prmContrasena", us);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cn.Open();
-                dr = cmd.ExecuteReader();
-                if (dr.Read())
-                {
-                    r = Convert.ToInt32(dr["Id_Usuario"]);
-                }
-                cn.Close();
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-            finally { cmd.Connection.Close(); }
-            return r;
-        }
 
         public int insertarUsuario(String cadXml)//LISTO
         {
@@ -248,6 +220,92 @@ namespace CapaAccesoDatos
             finally { cmd.Connection.Close(); }
             return dt;
         }
+
+        public DataTable BuscarVentas(String busqueda)
+        {//
+            SqlCommand cmd = null;
+            DataTable dt = new DataTable();
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("uspBuscarVentas", cn);
+                cmd.Parameters.AddWithValue("@prmBusqueda", busqueda);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cn.Open();
+                dt.Load(cmd.ExecuteReader());
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally { cmd.Connection.Close(); }
+            return dt;
+        }
+        public DataTable CargarVentas()
+        {//listo
+            SqlCommand cmd = null;
+            DataTable dt = new DataTable();
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("uspCargarVentas", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cn.Open();
+                dt.Load(cmd.ExecuteReader());
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally { cmd.Connection.Close(); }
+            return dt;
+        }
+        public DataTable BuscarMesas(String busqueda)
+        {//
+            SqlCommand cmd = null;
+            DataTable dt = new DataTable();
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("uspBuscarMesa", cn);
+                cmd.Parameters.AddWithValue("@prmBusqueda", busqueda);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cn.Open();
+                dt.Load(cmd.ExecuteReader());
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally { cmd.Connection.Close(); }
+            return dt;
+        }
+
+        public DataTable BuscarProductos(String busqueda)
+        {//
+            SqlCommand cmd = null;
+            DataTable dt = new DataTable();
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("uspBuscarProducto", cn);
+                cmd.Parameters.AddWithValue("@prmBusqueda", busqueda);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cn.Open();
+                dt.Load(cmd.ExecuteReader());
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally { cmd.Connection.Close(); }
+            return dt;
+        }
+
         public int ObtenerIdEmpleado()//---listo
         {
             SqlCommand cmd = null;
@@ -398,6 +456,8 @@ namespace CapaAccesoDatos
             finally { cmd.Connection.Close(); }
             return u;
         }
+
+        
 
 
         #endregion metodos
