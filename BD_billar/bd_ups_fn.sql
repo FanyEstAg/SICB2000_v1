@@ -10,17 +10,48 @@ CREATE PROC uspIniciar_Sesion--LISTO
 		INNER JOIN Rol AS r ON e.Id_Rol=r.Id_Rol
 		WHERE  u.nombre_Usuario=@prmUsuario AND u.Contrasena_Usuario=@prmContrasena
 GO
+CREATE PROCEDURE [dbo].[uspObtenerIdUsuario] ----Listo
+@prmUsuario VARCHAR(25),
+@prmContrasena VARCHAR(10)
+  AS
+	  BEGIN
+		SELECT u.Id_Usuario FROM Usuario AS u
+		INNER JOIN Empleado AS e ON u.Id_Empleado=e.Id_empleado
+		INNER JOIN Rol AS r ON e.Id_Rol=r.Id_Rol
+		WHERE  u.nombre_Usuario=@prmUsuario AND u.Contrasena_Usuario=@prmContrasena
+	  END 
+GO
 --SELECT * FROM Empleado
+--SELECT * FROM Usuario
 --------------------------------------------------------
-
+GO
 CREATE PROCEDURE [dbo].[uspEliminarVentaXid]---LISTO
-		@prmId_venta int
-		AS
-		 BEGIN
-			 UPDATE Venta set Id_Estado='A'--Anulado
-			 WHERE Id_Venta=@prmId_venta
-		 END
+@prmId_venta int,
+@prmId_producto int
+	AS
+		DECLARE @smsError nvarchar(300) --, @i int=0
+			BEGIN
+				BEGIN TRY
+					BEGIN TRANSACTION
+					PRINT @prmId_producto
+					PRINT @prmId_venta 
+						 UPDATE Venta set Id_Estado='A'--Anulado
+						 WHERE folio=@prmId_venta
+						UPDATE Producto SET Existencia=(SELECT p.Existencia+v.Cantidad FROM Venta AS v 
+													INNER JOIN Producto AS p ON p.Id_Prod=v.Id_Prod
+													WHERE v.folio=@prmId_venta AND P.Id_Prod=@prmId_producto)
+						WHERE Id_Prod=@prmId_producto
+						IF @@TRANCOUNT > 0 COMMIT TRANSACTION
+		
+				 END TRY
 
+				 BEGIN CATCH
+					IF @@TRANCOUNT>0 ROLLBACK TRANSACTION
+					SET @smsError= ERROR_MESSAGE()
+					RAISERROR(@smsError,16,1)
+				 END CATCH
+END
+		 --SELECT * FROM Producto
 GO
 CREATE PROCEDURE [dbo].[uspEliminarUsuario]---LISTO----
 		@prmId_Usuario int
@@ -36,7 +67,7 @@ CREATE PROCEDURE [dbo].[uspEliminarMesa]---LISTO----
 			DELETE Mesa WHERE Id_mesa=@prmId_Mesa
 		 END
 GO
-ALTER PROCEDURE [dbo].[uspEliminarProducto]---LISTO----
+CREATE PROCEDURE [dbo].[uspEliminarProducto]---LISTO----
 		@prmId_Producto	 int
 		AS
 		 BEGIN
@@ -47,47 +78,11 @@ ALTER PROCEDURE [dbo].[uspEliminarProducto]---LISTO----
 		 END
 GO
 --DROP PROCEDURE  [dbo].[uspEliminarProducto]
-SELECT * FROM Producto
-SELECT * FROM Mesa
-SELECT * FROM Usuario
+--SELECT * FROM Producto
+--SELECT * FROM Mesa
+--SELECT * FROM Usuario
 GO
-CREATE PROCEDURE [dbo].[uspBuscarProd] --sin utilizar
-	@prmTipEntrada int,
-	@prmValorEntrada nvarchar(50)
-	as  
-	BEGIN
-	 SET NOCOUNT ON
-	 IF(@prmTipEntrada = 1)
-	  BEGIN -------------------------------------------------------
-	  SELECT p.Id_Prod,Codigo_Prod, p.Nombre_Prod, p.Marca_Prod,c.Nombre_Cat,um.Descripcion_Umed,p.Precio_Prod,p.Stock_Prod,m.Nombre_Material
-	  FROM Producto p INNER JOIN Categoria c ON p.Id_Cat_prod=c.Id_Cat
-	                  INNER JOIN UnidadMedida um ON p.Id_Umed_prod=um.Id_Umed
-					  INNER JOIN Proveedor pr ON p.Id_Proveedor_Producto = pr.Id_Proveedor 
-					  INNER JOIN Material m ON p.IdMaterial = m.Id_Material
-					  where p.Nombre_Prod LIKE '%'+@prmValorEntrada+'%' AND p.Estado_Prod=1		 
-        END ----------------------------------------------------------
-		 ELSE IF(@prmTipEntrada = 2)
-		  BEGIN-------------------------------------------------------
-		   	  SELECT p.Id_Prod,Codigo_Prod, p.Nombre_Prod, p.Marca_Prod,c.Nombre_Cat,um.Descripcion_Umed,p.Precio_Prod,p.Stock_Prod,m.Nombre_Material
-	             FROM Producto p INNER JOIN Categoria c ON p.Id_Cat_prod=c.Id_Cat
-	                  INNER JOIN UnidadMedida um ON p.Id_Umed_prod=um.Id_Umed
-					  INNER JOIN Proveedor pr ON p.Id_Proveedor_Producto = pr.Id_Proveedor 
-					  INNER JOIN Material m ON p.IdMaterial = m.Id_Material
-					  where c.Nombre_Cat LIKE '%'+@prmValorEntrada+'%' AND p.Estado_Prod=1	
-		  END---------------------------------------------------------
-		   ELSE
-		    BEGIN----------------------------------------------------
-				  SELECT p.Id_Prod,Codigo_Prod, p.Nombre_Prod, p.Marca_Prod,c.Nombre_Cat,um.Descripcion_Umed,p.Precio_Prod,p.Stock_Prod,m.Nombre_Material
-	              FROM Producto p INNER JOIN Categoria c ON p.Id_Cat_prod=c.Id_Cat
-	                  INNER JOIN UnidadMedida um ON p.Id_Umed_prod=um.Id_Umed
-					  INNER JOIN Proveedor pr ON p.Id_Proveedor_Producto = pr.Id_Proveedor 
-					  INNER JOIN Material m ON p.IdMaterial = m.Id_Material
-					  where p.Precio_Prod LIKE '%'+@prmValorEntrada+'%' AND p.Estado_Prod=1	
-			END-------------------------------------------------------
-	 SET NOCOUNT OFF
-	END
 
-GO
 CREATE PROCEDURE [dbo].[uspBuscarUsuario] ---LISTO
 	 @prmBusqueda varchar(25)
 	 AS
@@ -119,8 +114,14 @@ CREATE PROCEDURE [dbo].[uspBuscarProducto] ---LISTO
 	 @prmBusqueda varchar(25)
 	 AS
 	   BEGIN
-			SELECT p.Id_Prod AS ID, p.Nom_producto AS Nombre, p.[Descp_producto ] AS Descripcion, um.Descripcion_Umed AS ud_Medida, p.Existencia,
-			m.Nom_marca AS Marca, p.Costo AS Costo, p.Precio AS Precio
+			SELECT p.Id_Prod AS ID, 
+			p.Nom_producto AS Nombre, 
+			um.Descripcion_Umed AS ud_Medida, 
+			p.[Descp_producto ] AS Descripcion, 
+			p.Existencia,
+			m.Nom_marca AS Marca, 
+			p.Costo AS Costo, 
+			p.Precio AS Precio
 			FROM Producto p
 			INNER JOIN Marca AS m ON p.Id_Marca=m.Id_Marca
 			INNER JOIN UnidadMedida AS um ON p.Id_Umed=um.Id_Umed
@@ -141,6 +142,28 @@ CREATE PROCEDURE [dbo].[uspBuscarProductoExistencia] ---LISTO
 			INNER JOIN UnidadMedida AS um ON p.Id_Umed=um.Id_Umed
 			WHERE @prmBusqueda=p.Id_Prod AND p.Estado='C'
 	END
+GO
+CREATE PROCEDURE [dbo].[uspBuscarVentas]  ---LISTO
+@prmIdVenta int
+	 AS
+	   BEGIN
+		SELECT v.folio, v.fecha,p.Id_Prod,p.[Descp_producto ],p.Precio,v.Cantidad,v.Subtotal 
+		FROM Venta v
+		INNER JOIN Producto AS p ON v.Id_Prod=p.Id_Prod
+		WHERE v.Id_Estado='C' AND v.folio=@prmIdVenta
+	END
+GO
+CREATE PROCEDURE [dbo].[uspBuscarCobro]  ---LISTO
+@prmIdCobro int
+	 AS
+	   BEGIN
+		SELECT pm.Id_pagoMesa AS ID, pm.fecha AS Fecha, pm.Id_mesa AS 'Id Mesa', t.Nom_tipo AS Tipo, pm.Tiempo_total AS 'Tiempo Total', pm.PagoTotal AS Pago
+		FROM PagoMesa pm
+		INNER JOIN Mesa AS m ON pm.Id_mesa=m.Id_mesa
+		INNER JOIN Tipo AS t ON m.Id_tipo=t.Id_tipo
+		WHERE pm.Id_pagoMesa=@prmIdCobro
+	END
+GO
 GO
 CREATE PROCEDURE [dbo].[uspCargarUsuarios]  ---LISTO
 	 
@@ -191,63 +214,69 @@ GO
 CREATE PROCEDURE [dbo].[uspCargarVentas]  ---LISTO
 AS
 	   BEGIN
-		SELECT v.folio, v.fecha,p.[Descp_producto ],p.Precio,v.Cantidad,v.Subtotal 
+		SELECT v.folio, v.fecha,p.Id_Prod,p.[Descp_producto ],p.Precio,v.Cantidad,v.Subtotal 
 		FROM Venta v
 		INNER JOIN Producto AS p ON v.Id_Prod=p.Id_Prod
 		WHERE v.Id_Estado='C' 
 	END
 GO
-CREATE PROCEDURE [dbo].[uspBuscarVentas]  ---LISTO
-@prmIdVenta int
-	 AS
+CREATE PROCEDURE [dbo].[uspCargarCobros]  ---LISTO
+AS
 	   BEGIN
-		SELECT v.folio, v.fecha,p.[Descp_producto ],p.Precio,v.Cantidad,v.Subtotal 
-		FROM Venta v
-		INNER JOIN Producto AS p ON v.Id_Prod=p.Id_Prod
-		WHERE v.Id_Estado='C' AND v.folio=@prmIdVenta
+		SELECT pm.Id_pagoMesa AS ID, pm.fecha AS Fecha, pm.Id_mesa AS 'Id Mesa', t.Nom_tipo AS Tipo, pm.Tiempo_total AS 'Tiempo Total', pm.PagoTotal AS Pago
+		FROM PagoMesa pm
+		INNER JOIN Mesa AS m ON pm.Id_mesa=m.Id_mesa
+		INNER JOIN Tipo AS t ON m.Id_tipo=t.Id_tipo
+		
 	END
 GO
-SELECT * FROM Venta
-
+--SELECT * FROM PagoMesa
+GO
+--SELECT * FROM Venta WHERE Id_Estado='C' 
+GO
+--SELECT * FROM Producto
+GO
 CREATE PROCEDURE [dbo].[uspGuardarVenta]----LISTO
 	@Cadxml varchar(max)--se recibe el xml
 	AS
 	 BEGIN
-	  DECLARE @out int, @smsmError nvarchar(500),@idVenta int --se declaran variables que se requeriran
+	  DECLARE @out int, @smsmError nvarchar(500) --se declaran variables que se requeriran
 	   EXEC SP_XML_PREPAREDOCUMENT @out output, @Cadxml --permite procesar un documento XML y obtener una representación del mismo,
 	    BEGIN TRY--inicio de la excepción
 		 BEGIN TRANSACTION--se inicia una transacción
-		 -- Control para venta no sea mayor que stock
-		 IF(SELECT COUNT(*) FROM OpenXML(@out,'root/venta/detalle',1)WITH(
-		   idproducto int,
-		   cantidad int
-		   )dt INNER JOIN Producto p on p.Id_Prod=dt.idproducto WHERE p.Existencia<dt.cantidad)>0
+		  --Control para venta no sea mayor que stock
+		 IF(SELECT COUNT(*) FROM OpenXML(@out,'root/venta',1)WITH(
+			   idproducto int,
+			   cantidad int
+			   )dt INNER JOIN Producto p on p.Id_Prod=dt.idproducto WHERE p.Existencia<dt.cantidad)>0
 		  BEGIN
-		   RAISERROR('Uno ó mas productos no cuentan con existencia suficiente',16,1)
+				RAISERROR('Uno ó mas productos no cuentan con existencia suficiente',16,1)
 		  END
-
-		  INSERT INTO Venta(folio,Id_Usuario,fecha,Cantidad,Subtotal,Id_Prod,Id_Estado)
-           SELECT v.folio, v.idusuario, v.fecha, v.cantidad,v.subtotal, v.idproducto, v.idestado
-		   FROM OpenXML(@out,'root/venta',1)WITH(
-		   folio int,
-		   idusuario int,
-		   fecha date,
-		   cantidad int,
-		   subtotal money,
-		   idproducto int,
-		   idestado varchar(1)
+		ELSE
+			BEGIN
+			  INSERT INTO Venta(folio,Id_Usuario,fecha,Cantidad,Subtotal,Id_Prod,Id_Estado)
+			   SELECT v.folio, v.idusuario, v.fecha, v.cantidad,v.subtotal, v.idproducto, v.idestado
+			   FROM OpenXML(@out,'root/venta',1)WITH(
+			   folio int,
+			   idusuario int,
+			   fecha date,
+			   cantidad int,
+			   subtotal money,
+			   idproducto int,
+			   idestado varchar(1)
 		  
-		   )v  
-		   ---set @idVenta=@@IDENTITY
-		   
-		   --INSERT INTO DetalleVenta(Id_Prod_Det, Id_Venta_Det, PrecProd_Det, Cantidad_Det) 
-		   --SELECT dt.idproducto,@idVenta,dt.precioprod,dt.cantidad
-		   --FROM OpenXML(@h,'root/venta/detalle',1)WITH(
-		   --idproducto int,
-		   --precioprod decimal(5,2),
-		   --cantidad int
-		   --)dt   
-		   
+			   )v  
+				UPDATE p--ACTUALIZAR INVENTARIO
+				  SET 
+				  p.Existencia=(SELECT Existencia-dt.cantidad FROM OpenXML(@out,'root/venta',1)WITH(
+			   idproducto int,
+			   cantidad int
+			   )dt INNER JOIN Producto p on p.Id_Prod=dt.idproducto WHERE p.Id_Prod=dt.idproducto)
+				  FROM OpenXML(@out,'root/venta',1)WITH(idproducto int, existencia int) cp
+			  INNER JOIN Producto p ON cp.idproducto=p.Id_Prod
+			  WHERE cp.idproducto=p.Id_Prod
+		  END
+		 	   
 		   IF(@@TRANCOUNT>0) COMMIT TRANSACTION
 		END TRY
 
@@ -262,7 +291,32 @@ CREATE PROCEDURE [dbo].[uspGuardarVenta]----LISTO
 	 END
 
 GO
+CREATE PROCEDURE [dbo].[uspGuardarCobroMesa] ---LISTO
+  @Cadxml varchar(max)
+  AS
+  BEGIN
+    DECLARE @out int,@smsError nvarchar(300)
+	EXEC SP_XML_PREPAREDOCUMENT @out output, @Cadxml--Crear el xml
+	  BEGIN TRY
+	   BEGIN TRANSACTION
+	      -- Insertando nuevo usuario
+		  INSERT INTO PagoMesa(Id_Usuario, fecha, Id_mesa, Tiempo_inicio, Tiempo_fin, Tiempo_total, PagoTotal)
+		  SELECT  m.idusuario, m.fecha, m.idmesa, m.tiempoInicio, m.tiempoFinal, m.tiempoTotal, m.pagoTotal --seleccionar ciertas partes del XML
+		  FROM OpenXML(@out,'root/cobroMesa', 1) WITH(idusuario int, fecha date, idmesa int, tiempoInicio time,
+		  tiempoFinal time, tiempoTotal int, pagoTotal money) m
+		--SELECT* FROM PagoMesa
+		 
+		 IF @@TRANCOUNT > 0 COMMIT TRANSACTION
+		
+	  END TRY
 
+	  BEGIN CATCH
+	    IF @@TRANCOUNT>0 ROLLBACK TRANSACTION
+		SET @smsError= ERROR_MESSAGE()
+		RAISERROR(@smsError,16,1)
+	  END CATCH
+  END
+GO
 CREATE PROCEDURE [dbo].[uspInsertarProducto] ---LISTO
   @Cadxml varchar(max)
   AS
@@ -414,6 +468,88 @@ CREATE PROCEDURE [dbo].[uspInsertarMarca] ---LISTO
 		RAISERROR(@smsError,16,1)
 	  END CATCH
   END
+GO
+CREATE PROCEDURE [dbo].[uspActualizarVenta]----LISTO
+	@Cadxml varchar(max)--se recibe el xml
+	AS
+	 BEGIN
+	  DECLARE @out int, @smsmError nvarchar(500) --se declaran variables que se requeriran
+	   EXEC SP_XML_PREPAREDOCUMENT @out output, @Cadxml --permite procesar un documento XML y obtener una representación del mismo,
+	    BEGIN TRY--inicio de la excepción
+		 BEGIN TRANSACTION--se inicia una transacción
+		  --Control para venta no sea mayor que stock
+		 IF(SELECT COUNT(*) FROM OpenXML(@out,'root/actVenta',1)WITH(
+			   idproducto int,
+			   cantidad int
+			   )dt INNER JOIN Producto p on p.Id_Prod=dt.idproducto WHERE p.Existencia<dt.cantidad)>0
+		  BEGIN
+				RAISERROR('Uno ó mas productos no cuentan con existencia suficiente',16,1)
+		  END
+		ELSE
+			BEGIN
+			----ANULAR VENTA
+			UPDATE Venta 
+			set Id_Estado='A'--Anulado 
+			FROM OpenXML(@out,'root/actVenta',1)WITH(folio int,
+			   idusuario int,
+			   fecha date,
+			   cantidad int,
+			   subtotal money,
+			   idproducto int,
+			   idestado varchar(1)) va 
+		  INNER JOIN Venta v ON va.folio=v.folio
+		  WHERE v.folio=va.folio
+
+		  --ACTUALIZAR INVENTARIO TRAS ANULACION --verificar funcionamiento
+			UPDATE p
+			SET 
+			 p.Existencia=(SELECT Existencia-dt.cantidad FROM OpenXML(@out,'root/actVenta',1)WITH(
+			   idproducto int,
+			   cantidad int
+			   )dt INNER JOIN Producto p on p.Id_Prod=dt.idproducto WHERE p.Id_Prod=dt.idproducto)
+				  FROM OpenXML(@out,'root/actVenta',1)WITH(idproducto int, existencia int) cp
+			  INNER JOIN Producto p ON cp.idproducto=p.Id_Prod
+			  WHERE cp.idproducto=p.Id_Prod
+
+		  ---INSERTAR/ACTUALIZAR LA VENTA
+			 INSERT INTO Venta(folio,Id_Usuario,fecha,Cantidad,Subtotal,Id_Prod,Id_Estado)
+			   SELECT v.folio, v.idusuario, v.fecha, v.cantidad,v.subtotal, v.idproducto, v.idestado
+			   FROM OpenXML(@out,'root/actVenta',1)WITH(
+			   folio int,
+			   idusuario int,
+			   fecha date,
+			   cantidad int,
+			   subtotal money,
+			   idproducto int,
+			   idestado varchar(1)
+			   )v  
+			 			  
+				UPDATE p--ACTUALIZAR INVENTARIO--verificar funcionamiento
+				  SET 
+				  p.Existencia=(SELECT Existencia-dt.cantidad FROM OpenXML(@out,'root/actVenta',1)WITH(
+			   idproducto int,
+			   cantidad int
+			   )dt INNER JOIN Producto p on p.Id_Prod=dt.idproducto WHERE p.Id_Prod=dt.idproducto)
+				  FROM OpenXML(@out,'root/actVenta',1)WITH(idproducto int, existencia int) cp
+			  INNER JOIN Producto p ON cp.idproducto=p.Id_Prod
+			  WHERE cp.idproducto=p.Id_Prod
+		  END
+		 	   
+		   IF(@@TRANCOUNT>0) COMMIT TRANSACTION
+		END TRY
+
+		BEGIN CATCH
+		 IF(@@TRANCOUNT>0)
+		   BEGIN
+			 ROLLBACK TRANSACTION
+			 SELECT @smsmError = ERROR_MESSAGE()
+			 RAISERROR(@smsmError,16,1)
+		   END
+		END CATCH
+	 END
+
+GO
+--SELECT * FROM Producto WHERE Estado='C'
 GO
   CREATE PROCEDURE [dbo].[uspAgregarExistencia] ---LISTO
   @prmExistencia int,
@@ -611,9 +747,9 @@ CREATE PROC uspVerificarDatosCambioContrasena--LISTO
 		SELECT * FROM Usuario AS u
 		WHERE  u.Id_Usuario=@prmUsuario AND u.Contrasena_Usuario=@prmContrasena
 GO
-SET NOCOUNT ON
-SELECT COUNT(*) FROM Usuario AS u
-		WHERE  u.Id_Usuario=1 AND u.Contrasena_Usuario='A12'
+--SET NOCOUNT ON
+--SELECT COUNT(*) FROM Usuario AS u
+		--WHERE  u.Id_Usuario=1 AND u.Contrasena_Usuario='A12'
 GO
 
 CREATE PROCEDURE [dbo].[uspListaRol] ----Listo
@@ -632,7 +768,15 @@ CREATE PROCEDURE [dbo].[uspListaTipo] ----Listo
 			SELECT * FROM Tipo
 		SET NOCOUNT OFF
 	  END 
-
+GO
+CREATE PROCEDURE [dbo].[uspListaMesas] ----Listo
+  AS
+	  BEGIN
+		SET NOCOUNT ON
+			SELECT m.Id_mesa, m.Id_tipo, t.Nom_tipo FROM Mesa AS m
+			INNER JOIN Tipo AS t ON m.Id_tipo=t.Id_tipo
+		SET NOCOUNT OFF
+	  END 
 GO
 CREATE PROCEDURE [dbo].[uspObtenerIdMesa] ----Listo
   AS
@@ -654,7 +798,7 @@ CREATE PROCEDURE [dbo].[uspObtenerIdVenta] ----Listo
   AS
 	  BEGIN
 		SET NOCOUNT ON
-			SELECT TOP 1 Id_venta FROM Venta ORDER BY Id_venta DESC
+			SELECT TOP 1 folio FROM Venta ORDER BY folio DESC
 		SET NOCOUNT OFF
 	  END 
 GO
@@ -667,10 +811,9 @@ CREATE PROCEDURE [dbo].[uspObtenerIdEmpleadoActualizar] ----Listo
 		SET NOCOUNT OFF
 	  END 
 GO
-SELECT * FROM Usuario
-SELECT * FROM Empleado WHERE Id_empleado=2
-SELECT * FROM Disponibilidad
-
+--SELECT * FROM Usuario
+--SELECT * FROM Empleado WHERE Id_empleado=2
+--SELECT * FROM Disponibilidad
 --DELETE Empleado WHERE Id_empleado= (SELECT TOP 1 Id_empleado FROM Empleado ORDER BY Id_empleado DESC)
 GO
 CREATE PROCEDURE [dbo].[uspInsertarMarca] ---LISTO
@@ -698,30 +841,6 @@ CREATE PROCEDURE [dbo].[uspInsertarMarca] ---LISTO
 	  END CATCH
   END
 GO
-CREATE PROCEDURE [dbo].[usplistarProdIndicador]--modificar
-		  @prmname nvarchar(100)
-		  as
-		   BEGIN
-		   SET NOCOUNT ON
-		   SELECT p.Id_Prod,p.Codigo_Prod,p.Nombre_Prod,p.PrecioCompra_Prod,p.Precio_Prod,p.Stock_Prod,p.StockProm_Prod,p.StockMin_Prod,
-		           c.Nombre_Cat,um.Abreviatura_Umed,m.Nombre_Material FROM Producto p INNER JOIN UnidadMedida um ON p.Id_Umed_prod = um.Id_Umed 
-		                          INNER JOIN Categoria c ON p.Id_Cat_prod = c.Id_Cat 
-								  INNER JOIN Material m ON p.IdMaterial= m.Id_Material WHERE p.Estado_Prod=1
-								  AND Nombre_Prod LIKE '%'+@prmname+'%' ORDER BY p.Stock_Prod
-		   SET NOCOUNT OFF
-		   END
-GO
-
-CREATE PROCEDURE [dbo].[uspListarProducto]--MODIFICAR
-	as
-	 BEGIN
-	  SET NOCOUNT ON
-	  SELECT Id_Prod,Codigo_Prod, Nombre_Prod, Marca_Prod,c.Nombre_Cat,um.Descripcion_Umed,pr.RazSocial_Proveedor
-	  FROM Producto p INNER JOIN Categoria c ON p.Id_Cat_prod=c.Id_Cat
-	                  INNER JOIN UnidadMedida um ON p.Id_Umed_prod=um.Id_Umed
-					  INNER JOIN Proveedor pr ON p.Id_Proveedor_Producto = pr.Id_Proveedor where Estado_Prod=1
-GO
-
 CREATE PROCEDURE [dbo].[uspListarUnidMed]---LISTO
 	AS
 		BEGIN
@@ -740,93 +859,7 @@ CREATE PROCEDURE [dbo].[uspListarMarca]---LISTO
 		 END
 
 GO
-CREATE PROCEDURE [dbo].[uspListaVenta] -- MODIFICAR '2016-11-06','2016-12-08',0 
-		@prmfinicio date,
-		@prmfin date,
-		@prmidsucursal int
-		as
-		 BEGIN
-		   DECLARE @TotalVentas TABLE(Id_Venta int,Codigo_Venta nchar(11),Estado_Venta nchar(1),Id_TipCom int,Nombre_TipCom varchar(50),Correlativo_Venta int,FechaVenta datetime,Igv_Venta int,Descuento_Venta decimal(10,2),Total decimal(10,2),Id_TipPago int,Utilidad decimal(10,2),Inversion decimal(10,2))
-		  if(@prmidsucursal = 0)
-		    BEGIN
-			INSERT INTO @TotalVentas(Id_Venta,Codigo_Venta,Estado_Venta,Id_TipCom ,Nombre_TipCom ,Correlativo_Venta ,FechaVenta ,Igv_Venta ,Descuento_Venta,Total,Id_TipPago)
-				SELECT v.Id_Venta,v.Codigo_Venta,v.Estado_Venta,tc.Id_TipCom,tc.Nombre_TipCom,v.Correlativo_Venta,v.FechaVenta,
-				v.Igv_Venta,v.Descuento_Venta,ISNULL(SUM(dt.Total_Det),0)Total, tp.Id_TipPago
-				FROM Venta v LEFT JOIN DetalleVenta dt ON v.Id_Venta= dt.Id_Venta_Det
-				INNER JOIN TipoComprobante tc ON v.Id_TipCom_Venta = tc.Id_TipCom 
-				INNER JOIN TipoPago tp ON v.Id_TipPago_Venta=tp.Id_TipPago
-				GROUP BY v.Id_Venta,v.Codigo_Venta,v.Igv_Venta,v.Estado_Venta,v.FechaVenta,v.Correlativo_Venta,tc.Nombre_TipCom,
-				tp.Id_TipPago,tc.Id_TipCom,v.Descuento_Venta,v.Id_Suc_Venta
-				HAVING CONVERT(date,v.FechaVenta) BETWEEN @prmfinicio and @prmfin
-				ORDER BY v.FechaVenta DESC 
-			END
-			 ELSE 
-			 BEGIN
 
-			 INSERT INTO @TotalVentas(Id_Venta,Codigo_Venta,Estado_Venta,Id_TipCom ,Nombre_TipCom ,Correlativo_Venta ,FechaVenta ,Igv_Venta ,Descuento_Venta,Total,Id_TipPago)
-			 SELECT v.Id_Venta,v.Codigo_Venta,v.Estado_Venta,tc.Id_TipCom,tc.Nombre_TipCom,v.Correlativo_Venta,v.FechaVenta,
-				v.Igv_Venta,v.Descuento_Venta,ISNULL(SUM(dt.Total_Det),0)Total, tp.Id_TipPago
-				FROM Venta v LEFT JOIN DetalleVenta dt ON v.Id_Venta= dt.Id_Venta_Det
-				INNER JOIN TipoComprobante tc ON v.Id_TipCom_Venta = tc.Id_TipCom INNER JOIN TipoPago tp ON v.Id_TipPago_Venta=tp.Id_TipPago
-				GROUP BY v.Id_Venta,v.Codigo_Venta,v.Igv_Venta,v.Estado_Venta,v.FechaVenta,v.Correlativo_Venta,tc.Nombre_TipCom,
-				tp.Id_TipPago,tc.Id_TipCom,v.Descuento_Venta,v.Id_Suc_Venta
-				HAVING CONVERT(date,v.FechaVenta) BETWEEN @prmfinicio and @prmfin and v.Id_Suc_Venta = @prmidsucursal
-				ORDER BY v.FechaVenta DESC
-			 END
-
-			 /*CREAMOS CURSOR PARA RECORRER Y ACTUALIZAR UTILIDADES POR VENTA*/
-
-			 DECLARE CursorVentas CURSOR FOR SELECT Id_Venta FROM @TotalVentas
-			 OPEN CursorVentas
-			   DECLARE @IDTemp int
-			    FETCH CursorVentas INTO @IDTemp
-				WHILE(@@FETCH_STATUS = 0)
-				 BEGIN
-				  DECLARE @Utilidad decimal(10,2)
-				  DECLARE @MontoVendido decimal(10,2)
-				  DECLARE @MontoComprado decimal(10,2)
-
-				 SET @MontoVendido =  (SELECT Venta.Total - dscto.Descuento_Venta  FROM(SELECT SUM(Total_Det) total  FROM  DetalleVenta WHERE Id_Venta_Det = @IDTemp) AS Venta,  (SELECT Descuento_Venta FROM Venta  WHERE  Id_Venta = @IDTemp)as dscto)
-			--	 SELECT @MontoVendido VENDIDO
-				 SET @MontoComprado = (SELECT SUM(p.PrecioCompra_Prod * dt.Cantidad_Det) FROM Producto p 
-				 INNER JOIN  DetalleVenta dt ON p.Id_Prod = dt.Id_Prod_Det 
-                 WHERE dt.Id_Venta_Det = @IDTemp)
-				-- SELECT @MontoComprado COMRADO
-				 SET  @Utilidad = (@MontoVendido - @MontoComprado)
-				-- SELECT @Utilidad UTILIDAD
-				UPDATE @TotalVentas SET Utilidad = ISNULL(@Utilidad,0), Inversion = ISNULL(@MontoComprado,0) WHERE Id_Venta = @IDTemp
-				 FETCH CursorVentas INTO @IDTemp
-				 END
-			 CLOSE CursorVentas
-			 DEALLOCATE CursorVentas
-
-
-		  SELECT * FROM @TotalVentas
-		 END
-
-GO
-
-CREATE PROCEDURE [dbo].[uspMostrarCabeceraVenta] ---MODIFICAR
-		 @prmid_venta int
-		 as
-		  BEGIN
-		   SELECT v.Codigo_Venta,v.Serie_Venta,v.Correlativo_Venta,v.Igv_Venta,v.FechaVenta,v.Estado_Venta,v.Descuento_Venta,v.Desc_Venta,
-		          c.Nombre_Cliente,td.Nombre_TipDoc,c.NumeroDoc_Cliente,u.Nombre_Usuario,s.Direccion_Suc,tc.Nombre_TipCom,m.Descripcion_Moneda,
-		          tp.Descripcion_TipPago
-		   FROM Venta v INNER JOIN Cliente c ON v.Id_Cliente_Venta=c.Id_Cliente 
-		   INNER JOIN TipDocumento td  ON td.Id_TipDoc=c.Id_TipDoc_Cliente 
-		   INNER JOIN Usuario u ON v.Id_Usuario_Venta = u.Id_Usuario 
-		   INNER JOIN Sucursal s ON v.Id_Suc_Venta = s.Id_Suc
-		   INNER JOIN TipoComprobante TC ON v.Id_TipCom_Venta = tc.Id_TipCom
-		   INNER JOIN Moneda m ON M.Id_Moneda = V.Id_Moneda_Venta
-		   INNER JOIN TipoPago tp ON tp.Id_TipPago = v.Id_TipPago_Venta 
-		   WHERE v.Id_Venta= @prmid_venta
-
-		   SELECT p.Codigo_Prod,p.Nombre_Prod,p.Precio_Prod, dv.PrecProd_Det, dv.Cantidad_Det, dv.Total_Det 
-			FROM DetalleVenta dv INNER JOIN Producto p ON dv.Id_Prod_Det=p.Id_Prod
-			WHERE dv.Id_Venta_Det = @prmid_venta
-		  END
-GO
 CREATE PROCEDURE [dbo].[uspMostrarDescrpRol] --LISTO
  @prmRol int
  AS
@@ -834,11 +867,18 @@ CREATE PROCEDURE [dbo].[uspMostrarDescrpRol] --LISTO
 		  SELECT r.Descrp_rol FROM Rol AS r 
 		  WHERE r.Id_Rol=@prmRol
 	 END
- 
- GO
-
- SELECT * FROM Rol
-
+GO
+CREATE PROCEDURE [dbo].[uspMostrarTipoMesa] --LISTO
+ @prmMesa int
+ AS
+	 BEGIN
+		  SELECT t.Nom_tipo FROM Mesa AS m
+		  INNER JOIN Tipo t ON m.Id_tipo=t.Id_tipo
+		  WHERE m.Id_mesa= @prmMesa
+	 END
+GO
+--SELECT * FROM Rol
+GO
 CREATE PROCEDURE [dbo].[uspVerificarAcceso] --LISTO
   @prmUsuario varchar(25),
   @prmpassword varchar(10)
@@ -852,3 +892,7 @@ CREATE PROCEDURE [dbo].[uspVerificarAcceso] --LISTO
 	    WHERE u.nombre_Usuario = @prmUsuario AND u.Contrasena_Usuario = @prmpassword	                                  
 	 SET NOCOUNT OFF
    END
+GO
+--SELECT * FROM Mesa m
+--INNER JOIN Tipo t
+--ON m.Id_tipo=t.Id_tipo
