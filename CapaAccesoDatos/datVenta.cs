@@ -95,6 +95,9 @@ namespace CapaAccesoDatos
             finally { cmd.Connection.Close(); }
         }
 
+        //  Método para modificar Venta - Capa Datos
+        //--Fecha de creación 16.05.2021         //--Fecha de entrega 19.05.2021
+        //--Número de equipo Equipo #6         // By Fany Estrada
         public int  ActualizarVenta(String cadXml)//LISTO
         {
             SqlCommand cmd = null;
@@ -142,6 +145,9 @@ namespace CapaAccesoDatos
             return r;
         }
 
+        //  Método para consultar Venta por folio (búsqueda) - Capa Datos
+        //--Fecha de creación 16.05.2021         //--Fecha de entrega 19.05.2021
+        //--Número de equipo Equipo #6         // By Fany Estrada
         public DataTable BuscarVenta(int id)//LISTO
         {
             SqlCommand cmd = null;
@@ -150,7 +156,7 @@ namespace CapaAccesoDatos
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();
                 cmd = new SqlCommand("uspBuscarVentas", cn);
-                cmd.Parameters.AddWithValue("@prmIdVenta", id);
+                cmd.Parameters.AddWithValue("@prmIdVenta", id);//Enviar el folio que se busca
                 cmd.CommandType = CommandType.StoredProcedure;
                 cn.Open();
                 dt.Load(cmd.ExecuteReader());
@@ -163,10 +169,14 @@ namespace CapaAccesoDatos
             finally { cmd.Connection.Close(); }
             return dt;
         }
+
+        //  Método para consultar Ventas - Capa Datos
+        //--Fecha de creación 16.05.2021         //--Fecha de entrega 19.05.2021
+        //--Número de equipo Equipo #6         // By Fany Estrada
         public DataTable CargarVenta()//LISTO
         {
             SqlCommand cmd = null;
-            DataTable dt = new DataTable();
+            DataTable dt = new DataTable();//Creaci+on de datatable para guardar los resultados 
             try
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();
@@ -181,7 +191,7 @@ namespace CapaAccesoDatos
                 throw;
             }
             finally { cmd.Connection.Close(); }
-            return dt;
+            return dt;//enviar la datatable con los resultados arrojados
         }
         #endregion metodos
 

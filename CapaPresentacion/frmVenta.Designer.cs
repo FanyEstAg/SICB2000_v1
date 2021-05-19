@@ -185,6 +185,7 @@ namespace CapaPresentacion
             // btnImprimirACT
             // 
             this.btnImprimirACT.BackColor = System.Drawing.Color.Navy;
+            this.btnImprimirACT.Enabled = false;
             this.btnImprimirACT.FlatAppearance.BorderSize = 0;
             this.btnImprimirACT.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnImprimirACT.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

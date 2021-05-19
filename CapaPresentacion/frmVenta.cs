@@ -354,9 +354,17 @@ namespace CapaPresentacion
 
         private void btnCancelarACT_Click(object sender, EventArgs e)
         {
-            if (dgvVentasACT.RowCount != 0)
-                dgvVentasACT.Rows.Clear();
-            actTablasCarga();
+            try
+            {
+                if (dgvVentasACT.RowCount != 0)//Marca error-corregir
+                    dgvVentasACT.Rows.Clear();
+                actTablasCarga();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error",
+                                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
@@ -562,15 +570,19 @@ namespace CapaPresentacion
                 MessageBox.Show("No editable");
             }
         }
-
+        //  Método para modificar Venta - Capa Presentación
+        //--Fecha de creación 17.05.2021 - Modificaciones (refinamiento) 19/05/2021
+        //--Fecha de entrega 19.05.2021
+        //--Número de equipo Equipo #6         // By Fany Estrada
         private void btnActualizar_Click(object sender, EventArgs e)
-        {
+        {//Error en la actualización de ventas con más de 1 producto -verificar
             try
             {
                 DialogResult r = MessageBox.Show("¿Desea actualizar la venta?", "Confirmar",
                     MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (r == DialogResult.Yes)
                 {
+                    //Creación de objetos de las clases involucradas
                     entVenta v = new entVenta();
                     entUsuario u = new entUsuario();
                     entProducto p = new entProducto();
@@ -578,38 +590,34 @@ namespace CapaPresentacion
                     u.Id_Usuario = Convert.ToInt32(userId.ToString());
                     v.usuario = u;
                     v.folio = Convert.ToInt32(lblFolioACT.Text);
-                    //MessageBox.Show(Convert.ToInt32(v.folio).ToString());
                     v.Fecha_Venta = Convert.ToDateTime(lblFecha.Text);
                     es.Id_Estado = "C";//Confirmado
                     v.Estado_Venta = es;
-                    List<entVenta> venta = new List<entVenta>();//se crea una lista de los productso vendidos
                     foreach (DataGridViewRow row in dgvVentasACT.Rows)//se extraen los datos de la tabla
                     {
                         p.Id_Prod = Convert.ToInt32(row.Cells[2].Value);
                         v.Id_producto = p;
                         v.cantidad = Convert.ToInt32(row.Cells[5].Value);
                         v.Subtotal_Venta = Convert.ToInt32(row.Cells[6].Value);
-                        int result = negVenta.Instancia.ActualizarVenta(v);
-                        //venta.Add(v);//se añaden los datos a la lista
+                        int result = negVenta.Instancia.ActualizarVenta(v);//Y se van enviando a la BD para su modificación
+                        
                     }
-                    //v.productos = venta;//se adjudica la lista a productos dela venta
-
-
                     MessageBox.Show("Venta actualizada", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    //dgvVenta.Enabled = false; ControlBotones(true, false, false, false);//pendiente, control de disponibilidad  botones
+                    //Pendiente la verificación de entradas de los componentes y las acciones tras la actualización
+                    //dgvVenta.Enabled = false; ControlBotones(true, false, false, false);
                     //ac.BloquearText(this.panel1, false);//pendeinte para bloquear texto de determinado panel
 
-                    //cbxCantidad.Text = "1";
-                    total3 = 0;
+                    //cbxCantidad.Text="";
+                    total3 = 0;//Reestablecemos el total en 0
                     btnImprimir.Enabled = true;
-                    actTablasCarga();
+                    actTablasCarga();//Actualizamos las tablas involucradas
                     lblTotalACT.Text = (total3.ToString());
                 }
             }//Excepción de la app
             catch (ApplicationException ae)
             {
                 MessageBox.Show(ae.Message, "Aviso", MessageBoxButtons.OK,
-MessageBoxIcon.Warning);
+                                MessageBoxIcon.Warning);
             }
             catch (Exception ex)//Cualqueir excepción
             {
@@ -624,22 +632,27 @@ MessageBoxIcon.Warning);
 
         }
 
+        //  Método para consultar Venta por folio (búsqueda) - Capa Presentación
+        //--Fecha de creación 16.05.2021 
+        //--Fecha de entrega 19.05.2021
+        //--Número de equipo Equipo #6         // By Fany Estrada
         private void txtIdCONS_TextChanged_1(object sender, EventArgs e)
-        {
-            if (txtIdCONS.Text == "")
+        {//Activación por cambio de texto en el textbox
+            if (txtIdCONS.Text == "")//Si el textbox está vacio cargar todas las ventas
                 dgvVentasCONS.DataSource = negVenta.Instancia.CargarVenta();
             else
             {
                 try
                 {
-                    total4 = 0;
+                    total4 = 0;//variable para lanzar le total (exclusiva de las consultas)
+                    //cargar los datos en la tabla de acuerdo a los resultados de la búsqueda
                     dgvVentasCONS.DataSource = negVenta.Instancia.BuscarVenta(Convert.ToInt32(txtIdCONS.Text));
-                    lblFolioCONS.Text = txtIdCONS.Text;
+                    lblFolioCONS.Text = txtIdCONS.Text;//Mostrar el folio en el label de la ventana
                     foreach (DataGridViewRow row in dgvVentasCONS.Rows)//se extraen los datos de la tabla
                     {
-                        total4+= Convert.ToInt32(row.Cells[6].Value);
+                        total4+= Convert.ToInt32(row.Cells[6].Value);//calcular el total
                     }
-                    lblTotalCONS.Text = total4.ToString();
+                    lblTotalCONS.Text = total4.ToString();//Mostrar el total
                     //ControlBotones(true, true, false, true, false, true);
                     //ac.BloquearText(this.panel1, false);
                 }
@@ -661,9 +674,13 @@ MessageBoxIcon.Warning);
             
         }
 
+        //  Método para consultar Ventas - Capa Presentación
+        //--Fecha de creación 16.05.2021 
+        //--Fecha de entrega 19.05.2021
+        //--Número de equipo Equipo #6         // By Fany Estrada
         private void TabPagesVentas_Selecting(object sender, TabControlCancelEventArgs e)
         {
-            if(e.TabPageIndex==3)
+            if(e.TabPageIndex==3)//Si la pestaña seleccionada es la de consulta mostrar los datos
                 dgvVentasCONS.DataSource = negVenta.Instancia.CargarVenta();
         }
     }

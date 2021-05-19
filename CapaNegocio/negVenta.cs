@@ -76,23 +76,25 @@ namespace CapaNegocio
                 throw;
             }
         }
-        //Modificaicón de ventas a aprtir de XML
+        //  Método para modificar Venta - Capa Negocio
+        //--Fecha de creación 17.05.2021         //--Fecha de entrega 19.05.2021
+        //--Número de equipo Equipo #6         // By Fany Estrada
         public int ActualizarVenta(entVenta v)//listo
         {
             try
             {
                 String Cadxml = "";//Variable donde se guardar la generaicon del texto xml
                 Cadxml += "<actVenta ";
-                Cadxml += "folio='" + v.folio + "' ";
+                Cadxml += "folio='" + v.folio + "' ";//Asiganación de cada atributo asociado
                 Cadxml += "idusuario='" + v.usuario.Id_Usuario + "' ";
                 Cadxml += "fecha='" + v.Fecha_Venta + "' ";
                 Cadxml += "idproducto='" + v.Id_producto.Id_Prod + "' ";
                 Cadxml += "cantidad='" + v.cantidad + "' ";
                 Cadxml += "subtotal='" + v.Subtotal_Venta + "' ";
                 Cadxml += "idestado='" + v.Estado_Venta.Id_Estado + "'/>";
-                //Cadxml += "</venta>";
                 Cadxml = "<root>" + Cadxml + "</root>";
                 int i = datVenta.Instancia.ActualizarVenta(Cadxml);// se envia la cadena
+                //Si no hay filas afectadas mandar excepción
                 if (i <= 0) throw new ApplicationException("Ocurrio un error al guardar venta actual");
                 return i;
             }
@@ -101,35 +103,44 @@ namespace CapaNegocio
                 throw;
             }
         }
+
+        //  Método para consultar Venta por folio (Búsqueda) - Capa Negocio
+        //--Fecha de creación 16.05.2021         //--Fecha de entrega 19.05.2021
+        //--Número de equipo Equipo #6         // By Fany Estrada
         public DataTable BuscarVenta(int id)
         {
             try
             {
-                DataTable dt = datVenta.Instancia.BuscarVenta(id);
+                DataTable dt = datVenta.Instancia.BuscarVenta(id);//Se envia el folio a buscar
 
                 if (dt.Rows.Count == 0)
                 {
+                    //Enc caso de que la tabla resultante no tenga filas enviar mensaje
                     throw new ApplicationException("No se encontraron registros");
                 }
                 return dt;
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
+
+        //  Método para consultar Ventas - Capa Negocio
+        //--Fecha de creación 16.05.2021         //--Fecha de entrega 19.05.2021
+        //--Número de equipo Equipo #6         // By Fany Estrada
         public DataTable CargarVenta()
         {
             try
             {
-                DataTable dt = datVenta.Instancia.CargarVenta();
+                DataTable dt = datVenta.Instancia.CargarVenta();//Llamar el método de acceso a datos
 
                 if (dt.Rows.Count == 0)
                 {
+                    //Pendiente: Mandar o no mensaje, en caso de no haber venta deja la tabla vacia
                     //throw new ApplicationException("No se encontraron registros");
                 }
-                return dt;
+                return dt;//Enviar la tabla resultante
             }
             catch (Exception)
             {
