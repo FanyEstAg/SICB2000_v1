@@ -285,7 +285,7 @@ namespace CapaPresentacion
 
         private void btnAgregarTipo_Click(object sender, EventArgs e)//LISTO
         {
-            frmNuevaMarca nm = new frmNuevaMarca();
+            frmNuevaMarca nm = new frmNuevaMarca(us);
             nm.Show();
         }
 

@@ -13,9 +13,14 @@ namespace CapaPresentacion
 {
     public partial class frmNuevaMarca : Form
     {
-        public frmNuevaMarca()
+        entUsuario us = null;
+        int userId = 0;
+        string userName = "";
+        public frmNuevaMarca(entUsuario user)
         {
             InitializeComponent();
+            this.userId = user.Id_Usuario;
+            this.userName = user.Nombre_Usuario;
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
@@ -55,7 +60,7 @@ namespace CapaPresentacion
         private void btnVolver_Click(object sender, EventArgs e)
         {
             this.Close();
-            frmInventario fi = new frmInventario(1);
+            frmInventario fi = new frmInventario(us);
             fi.Show();
         }
     }

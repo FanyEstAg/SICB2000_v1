@@ -67,8 +67,9 @@ namespace CapaPresentacion
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.dgvELI = new System.Windows.Forms.TabControl();
+            this.TabPagesVentas = new System.Windows.Forms.TabControl();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.btnBuscar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvVentasCONS = new System.Windows.Forms.DataGridView();
             this.lblTotalCONS = new System.Windows.Forms.Label();
@@ -87,7 +88,6 @@ namespace CapaPresentacion
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.btnBuscar = new System.Windows.Forms.Button();
             this.tabPage1.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVentasACT)).BeginInit();
@@ -98,7 +98,7 @@ namespace CapaPresentacion
             ((System.ComponentModel.ISupportInitialize)(this.dgvVenta)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
-            this.dgvELI.SuspendLayout();
+            this.TabPagesVentas.SuspendLayout();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVentasCONS)).BeginInit();
             this.panel1.SuspendLayout();
@@ -598,18 +598,20 @@ namespace CapaPresentacion
             this.label5.Size = new System.Drawing.Size(0, 20);
             this.label5.TabIndex = 4;
             // 
-            // dgvELI
+            // TabPagesVentas
             // 
-            this.dgvELI.Controls.Add(this.Registrar);
-            this.dgvELI.Controls.Add(this.tabPage1);
-            this.dgvELI.Controls.Add(this.tabPage3);
-            this.dgvELI.Controls.Add(this.tabPage4);
-            this.dgvELI.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvELI.Location = new System.Drawing.Point(0, 68);
-            this.dgvELI.Name = "dgvELI";
-            this.dgvELI.SelectedIndex = 0;
-            this.dgvELI.Size = new System.Drawing.Size(918, 456);
-            this.dgvELI.TabIndex = 2;
+            this.TabPagesVentas.Controls.Add(this.Registrar);
+            this.TabPagesVentas.Controls.Add(this.tabPage1);
+            this.TabPagesVentas.Controls.Add(this.tabPage3);
+            this.TabPagesVentas.Controls.Add(this.tabPage4);
+            this.TabPagesVentas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TabPagesVentas.Location = new System.Drawing.Point(0, 68);
+            this.TabPagesVentas.Name = "TabPagesVentas";
+            this.TabPagesVentas.SelectedIndex = 0;
+            this.TabPagesVentas.Size = new System.Drawing.Size(918, 456);
+            this.TabPagesVentas.TabIndex = 2;
+            this.TabPagesVentas.SelectedIndexChanged += new System.EventHandler(this.TabPagesVentas_SelectedIndexChanged);
+            this.TabPagesVentas.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.TabPagesVentas_Selecting);
             // 
             // tabPage4
             // 
@@ -629,6 +631,22 @@ namespace CapaPresentacion
             this.tabPage4.TabIndex = 5;
             this.tabPage4.Text = "Consultar";
             this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.BackColor = System.Drawing.Color.Navy;
+            this.btnBuscar.FlatAppearance.BorderSize = 0;
+            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnBuscar.Image = global::CapaPresentacion.Properties.Resources.lupachica;
+            this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBuscar.Location = new System.Drawing.Point(661, 17);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(33, 30);
+            this.btnBuscar.TabIndex = 46;
+            this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // label2
             // 
@@ -829,22 +847,6 @@ namespace CapaPresentacion
             this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
             this.dataGridViewImageColumn1.Width = 20;
             // 
-            // btnBuscar
-            // 
-            this.btnBuscar.BackColor = System.Drawing.Color.Navy;
-            this.btnBuscar.FlatAppearance.BorderSize = 0;
-            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnBuscar.Image = global::CapaPresentacion.Properties.Resources.lupachica;
-            this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscar.Location = new System.Drawing.Point(661, 17);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(33, 30);
-            this.btnBuscar.TabIndex = 46;
-            this.btnBuscar.UseVisualStyleBackColor = false;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
-            // 
             // frmVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -852,7 +854,7 @@ namespace CapaPresentacion
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.ClientSize = new System.Drawing.Size(922, 528);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.dgvELI);
+            this.Controls.Add(this.TabPagesVentas);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmVenta";
             this.Text = "Venta de Productos";
@@ -871,7 +873,7 @@ namespace CapaPresentacion
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
-            this.dgvELI.ResumeLayout(false);
+            this.TabPagesVentas.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVentasCONS)).EndInit();
@@ -897,7 +899,7 @@ namespace CapaPresentacion
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TabControl dgvELI;
+        private System.Windows.Forms.TabControl TabPagesVentas;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblUsuario;

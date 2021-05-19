@@ -28,6 +28,7 @@ namespace CapaPresentacion
             this.userId = user.Id_Usuario;
             this.userName = user.Nombre_Usuario;
             lblUsuario.Text = userName.ToString();
+            //MessageBox.Show(this.userId.ToString());
         }
 
         //private void ControlBotones(Boolean nuevo, Boolean guardar, Boolean imprimir, Boolean quitaritem)
@@ -125,7 +126,7 @@ namespace CapaPresentacion
         }
 
 
-        private void CargarGridVenta(List<string> Lista, double total0)
+        private void CargarGridVenta(List<string> Lista)
         {
 
             try
@@ -141,9 +142,8 @@ namespace CapaPresentacion
                 fila.Cells[5].Value = Lista[4];
                 fila.Cells[6].Value = Lista[5];
                 dgvVenta.Rows.Add(fila);
-                total0 += Convert.ToDouble(Lista[5]);
+                total += Convert.ToDouble(Lista[5]);
                 
-                total += total0;
                 lblTotalINS.Text = total.ToString();
             }
             catch (Exception)
@@ -164,7 +164,6 @@ namespace CapaPresentacion
                     MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (r == DialogResult.Yes)
                 {
-                    double total = 0;
                     entVenta v = new entVenta();
                     entUsuario u = new entUsuario();
                     entProducto p = new entProducto();
@@ -343,7 +342,7 @@ namespace CapaPresentacion
                     lista.Add(cbxCantidad.Text);//cantidad
                     lista.Add((Convert.ToInt32(cbxCantidad.Text) * Convert.ToDouble(row.Cells[7].Value)).ToString());//subtotal
                     //MessageBox.Show((Convert.ToInt32(cbxCantidad.Text) * Convert.ToDouble(row.Cells[6].Value)).ToString());
-                    CargarGridVenta(lista, 0);
+                    CargarGridVenta(lista);
                 }
             }
         }
@@ -655,6 +654,17 @@ MessageBoxIcon.Warning);
                                                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private void TabPagesVentas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void TabPagesVentas_Selecting(object sender, TabControlCancelEventArgs e)
+        {
+            if(e.TabPageIndex==3)
+                dgvVentasCONS.DataSource = negVenta.Instancia.CargarVenta();
         }
     }
 }

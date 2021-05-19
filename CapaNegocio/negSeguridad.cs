@@ -24,11 +24,11 @@ namespace CapaNegocio
         {
             if (us == "") throw new ApplicationException("Ingrese un usuario");
             if (pass == "") throw new ApplicationException("Ingrese una contraseña");
-            entUsuario u = null;
-            u = datSeguridad.Instancia.ObtenerIdUsuario(usuario, password);
+            int u = 0;
+            u = datSeguridad.Instancia.ObtenerIdUsuario(us, pass);
             if (u == null)
             {
-                throw //new ApplicationException("Usuario ó contraseña inválido");
+                throw new ApplicationException("No se encontró el Id de usuario");
             }
 
             return u;
