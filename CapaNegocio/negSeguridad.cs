@@ -20,8 +20,19 @@ namespace CapaNegocio
 
         #endregion singleton
 
+        public int ObtenerIdUsuario(string us, string pass)//--listo
+        {
+            if (us == "") throw new ApplicationException("Ingrese un usuario");
+            if (pass == "") throw new ApplicationException("Ingrese una contraseña");
+            entUsuario u = null;
+            u = datSeguridad.Instancia.ObtenerIdUsuario(usuario, password);
+            if (u == null)
+            {
+                throw //new ApplicationException("Usuario ó contraseña inválido");
+            }
 
-        
+            return u;
+        }
         public int insertarEmpleado( entEmpleado e)//listo
         {
             try
@@ -248,7 +259,6 @@ namespace CapaNegocio
                 throw;
             }
         }
-
         public List<entRol> ListarRol()//--listo
         {
             try
@@ -261,7 +271,6 @@ namespace CapaNegocio
             }
         }
 
-        
         public entUsuario IngresoSisema(String usuario,String password)//--listo
         {
             try

@@ -15,17 +15,19 @@ namespace CapaPresentacion
     public partial class frmVenta : Form
     {
         entUsuario us = null;
-        string user = "";
+        int userId = 0;
+        string userName = "";
         AccionesEnControles ac = new AccionesEnControles();
         double total = 0;
         double total2 = 0;
         double total3 = 0;
         double total4 = 0;
-        public frmVenta(string user)
+        public frmVenta(entUsuario user)
         {
             InitializeComponent();
-            this.user = user;
-            lblUsuario.Text = user.ToString();
+            this.userId = user.Id_Usuario;
+            this.userName = user.Nombre_Usuario;
+            lblUsuario.Text = userName.ToString();
         }
 
         //private void ControlBotones(Boolean nuevo, Boolean guardar, Boolean imprimir, Boolean quitaritem)
@@ -123,7 +125,7 @@ namespace CapaPresentacion
         }
 
 
-        private void CargarGridVenta(List<string> Lista)
+        private void CargarGridVenta(List<string> Lista, double total0)
         {
 
             try
@@ -139,9 +141,10 @@ namespace CapaPresentacion
                 fila.Cells[5].Value = Lista[4];
                 fila.Cells[6].Value = Lista[5];
                 dgvVenta.Rows.Add(fila);
-                total += Convert.ToDouble(Lista[5]);
+                total0 += Convert.ToDouble(Lista[5]);
+                
+                total += total0;
                 lblTotalINS.Text = total.ToString();
-
             }
             catch (Exception)
             {
@@ -155,8 +158,8 @@ namespace CapaPresentacion
         //--Número de equipo Equipo #6        // By Fany Estrada
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            try
-            {
+            //try
+            //{
                 DialogResult r = MessageBox.Show("¿Desea guardar la venta?", "Confirmar",
                     MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (r == DialogResult.Yes)
@@ -166,7 +169,7 @@ namespace CapaPresentacion
                     entUsuario u = new entUsuario();
                     entProducto p = new entProducto();
                     entEstado es = new entEstado();
-                    u.Id_Usuario = Convert.ToInt32(lblUsuario.Text);
+                    u.Id_Usuario = Convert.ToInt32(userId.ToString());
                     v.usuario = u;
                     v.folio = Convert.ToInt32(lblIdVenta.Text);
                     //MessageBox.Show(Convert.ToInt32(v.folio).ToString());
@@ -190,6 +193,7 @@ namespace CapaPresentacion
                     //dgvVenta.Enabled = false; ControlBotones(true, false, false, false);//pendiente, control de disponibilidad  botones
                     //ac.BloquearText(this.panel1, false);//pendeinte para bloquear texto de determinado panel
 
+                    //Tras la opreacion
                     dgvVenta.Rows.Clear();
                     cbxCantidad.Text = "1";
 
@@ -200,16 +204,16 @@ namespace CapaPresentacion
                     total = 0;
                     lblTotalINS.Text = (total.ToString());
                 }
-            }//Excepción de la app
-            catch (ApplicationException ae)
-            {
-                MessageBox.Show(ae.Message, "Aviso", MessageBoxButtons.OK,
-MessageBoxIcon.Warning);
-            }
-            catch (Exception ex)//Cualqueir excepción
-            {
-                MessageBox.Show(ex.Message, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+//            }//Excepción de la app
+//            catch (ApplicationException ae)
+//            {
+//                MessageBox.Show(ae.Message, "Aviso", MessageBoxButtons.OK,
+//MessageBoxIcon.Warning);
+//            }
+//            catch (Exception ex)//Cualqueir excepción
+//            {
+//                MessageBox.Show(ex.Message, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
+//            }
         }
 
         //  Método para eliminar Venta - Capa Presentación
@@ -339,7 +343,7 @@ MessageBoxIcon.Warning);
                     lista.Add(cbxCantidad.Text);//cantidad
                     lista.Add((Convert.ToInt32(cbxCantidad.Text) * Convert.ToDouble(row.Cells[7].Value)).ToString());//subtotal
                     //MessageBox.Show((Convert.ToInt32(cbxCantidad.Text) * Convert.ToDouble(row.Cells[6].Value)).ToString());
-                    CargarGridVenta(lista);
+                    CargarGridVenta(lista, 0);
                 }
             }
         }
@@ -572,7 +576,7 @@ MessageBoxIcon.Warning);
                     entUsuario u = new entUsuario();
                     entProducto p = new entProducto();
                     entEstado es = new entEstado();
-                    u.Id_Usuario = Convert.ToInt32(lblUsuario.Text);
+                    u.Id_Usuario = Convert.ToInt32(userId.ToString());
                     v.usuario = u;
                     v.folio = Convert.ToInt32(lblFolioACT.Text);
                     //MessageBox.Show(Convert.ToInt32(v.folio).ToString());

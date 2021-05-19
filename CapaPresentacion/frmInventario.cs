@@ -13,11 +13,14 @@ namespace CapaPresentacion
 {
     public partial class frmInventario : Form
     {
-        Int32 idUsuario;
-        public frmInventario(Int32? id_Usuario)
+        entUsuario us = null;
+        int userId = 0;
+        string userName = "";
+        public frmInventario(entUsuario user)
         {
             InitializeComponent();
-            idUsuario = (Int32)id_Usuario;
+            this.userId = user.Id_Usuario;
+            this.userName = user.Nombre_Usuario;
         }
 
         // metodos globales para etiquetas del formulario 

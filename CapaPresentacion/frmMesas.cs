@@ -14,10 +14,14 @@ namespace CapaPresentacion
     public partial class frmMesas : Form
     {
         //FALTAN VALIDACIONES DE CAJAS DE TEXTO
-        public frmMesas()
+        entUsuario us = null;
+        int userId = 0;
+        string userName = "";
+        public frmMesas(entUsuario user)
         {
             InitializeComponent();
-            //Falta jalar usuario
+            this.userId = user.Id_Usuario;
+            this.userName = user.Nombre_Usuario;
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)//LISTO
