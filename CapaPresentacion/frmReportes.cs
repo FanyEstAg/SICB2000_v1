@@ -33,7 +33,7 @@ namespace CapaPresentacion
             try
             {
                 dgvVentasR.DataSource = negVenta.Instancia.BuscarVenta(Convert.ToInt32(txtIdVentasR.Text));
-                
+
             }
             catch (ApplicationException ae)
             {
@@ -49,7 +49,7 @@ namespace CapaPresentacion
 
         private void btnImprimirV_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void btnMinimizar_Click(object sender, EventArgs e)
@@ -87,31 +87,30 @@ namespace CapaPresentacion
             }
         }
 
-        private void btnBuscarP_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                dgvProductosR.DataSource = negProducto.Instancia.BuscarProducto(txtIdProductoR.Text);
-
-                //ac.BloquearText(this.panel2, false);
-            }
-            catch (ApplicationException ae)
-            {
-                MessageBox.Show(ae.Message, "Aviso",
-                                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error",
-                                                MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
         private void frmReportes_Load(object sender, EventArgs e)
         {
             dgvMesasR.DataSource = negMesa.Instancia.CargarMesas();
-            dgvProductosR.DataSource = negProducto.Instancia.CargarProducto();
             dgvVentasR.DataSource = negVenta.Instancia.CargarVenta();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtIdVentasR_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -34,47 +34,41 @@ namespace CapaPresentacion
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.Ventas = new System.Windows.Forms.TabPage();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.btnImprimirV = new System.Windows.Forms.Button();
-            this.dgvVentasR = new System.Windows.Forms.DataGridView();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btnBuscarV = new System.Windows.Forms.Button();
-            this.txtIdVentasR = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.Mesas = new System.Windows.Forms.TabPage();
-            this.btnImprimirM = new System.Windows.Forms.Button();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.btnBuscarM = new System.Windows.Forms.Button();
-            this.txtIdMesaR = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.dgvMesasR = new System.Windows.Forms.DataGridView();
-            this.Productos = new System.Windows.Forms.TabPage();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.btnImprimirP = new System.Windows.Forms.Button();
-            this.dgvProductosR = new System.Windows.Forms.DataGridView();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.btnBuscarP = new System.Windows.Forms.Button();
-            this.txtIdProductoR = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtIdMesaR = new System.Windows.Forms.TextBox();
+            this.btnBuscarM = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.btnImprimirM = new System.Windows.Forms.Button();
+            this.Ventas = new System.Windows.Forms.TabPage();
+            this.pickerVenta = new System.Windows.Forms.TabControl();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtIdVentasR = new System.Windows.Forms.TextBox();
+            this.btnBuscarV = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dgvVentasR = new System.Windows.Forms.DataGridView();
+            this.btnImprimirV = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.pickerMesas = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.btnVolver)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.tabControl1.SuspendLayout();
-            this.Ventas.SuspendLayout();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvVentasR)).BeginInit();
-            this.panel1.SuspendLayout();
             this.Mesas.SuspendLayout();
-            this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMesasR)).BeginInit();
-            this.Productos.SuspendLayout();
-            this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProductosR)).BeginInit();
-            this.panel8.SuspendLayout();
+            this.panel6.SuspendLayout();
+            this.Ventas.SuspendLayout();
+            this.pickerVenta.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvVentasR)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnVolver
@@ -137,17 +131,105 @@ namespace CapaPresentacion
             this.label4.Text = "REPORTES";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // tabControl1
+            // Mesas
             // 
-            this.tabControl1.Controls.Add(this.Ventas);
-            this.tabControl1.Controls.Add(this.Mesas);
-            this.tabControl1.Controls.Add(this.Productos);
-            this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControl1.Location = new System.Drawing.Point(12, 75);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(666, 360);
-            this.tabControl1.TabIndex = 30;
+            this.Mesas.BackgroundImage = global::CapaPresentacion.Properties.Resources.OIP;
+            this.Mesas.Controls.Add(this.btnImprimirM);
+            this.Mesas.Controls.Add(this.panel6);
+            this.Mesas.Controls.Add(this.dgvMesasR);
+            this.Mesas.Location = new System.Drawing.Point(4, 29);
+            this.Mesas.Name = "Mesas";
+            this.Mesas.Padding = new System.Windows.Forms.Padding(3);
+            this.Mesas.Size = new System.Drawing.Size(658, 327);
+            this.Mesas.TabIndex = 2;
+            this.Mesas.Text = "Mesas";
+            this.Mesas.UseVisualStyleBackColor = true;
+            // 
+            // dgvMesasR
+            // 
+            this.dgvMesasR.AllowUserToAddRows = false;
+            this.dgvMesasR.AllowUserToDeleteRows = false;
+            this.dgvMesasR.AllowUserToResizeRows = false;
+            this.dgvMesasR.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            this.dgvMesasR.BackgroundColor = System.Drawing.Color.IndianRed;
+            this.dgvMesasR.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMesasR.Location = new System.Drawing.Point(32, 93);
+            this.dgvMesasR.Name = "dgvMesasR";
+            this.dgvMesasR.Size = new System.Drawing.Size(588, 182);
+            this.dgvMesasR.TabIndex = 24;
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.IndianRed;
+            this.panel6.Controls.Add(this.label6);
+            this.panel6.Controls.Add(this.pickerMesas);
+            this.panel6.Controls.Add(this.comboBox1);
+            this.panel6.Controls.Add(this.btnBuscarM);
+            this.panel6.Controls.Add(this.txtIdMesaR);
+            this.panel6.Controls.Add(this.label1);
+            this.panel6.Location = new System.Drawing.Point(32, 6);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(588, 81);
+            this.panel6.TabIndex = 25;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(9, 40);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(78, 20);
+            this.label1.TabIndex = 23;
+            this.label1.Text = "Id mesa:";
+            // 
+            // txtIdMesaR
+            // 
+            this.txtIdMesaR.Location = new System.Drawing.Point(90, 37);
+            this.txtIdMesaR.Name = "txtIdMesaR";
+            this.txtIdMesaR.Size = new System.Drawing.Size(95, 26);
+            this.txtIdMesaR.TabIndex = 22;
+            // 
+            // btnBuscarM
+            // 
+            this.btnBuscarM.BackColor = System.Drawing.Color.Navy;
+            this.btnBuscarM.FlatAppearance.BorderSize = 0;
+            this.btnBuscarM.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscarM.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarM.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnBuscarM.Image = global::CapaPresentacion.Properties.Resources.lupachica;
+            this.btnBuscarM.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBuscarM.Location = new System.Drawing.Point(191, 31);
+            this.btnBuscarM.Name = "btnBuscarM";
+            this.btnBuscarM.Size = new System.Drawing.Size(38, 38);
+            this.btnBuscarM.TabIndex = 27;
+            this.btnBuscarM.UseVisualStyleBackColor = false;
+            this.btnBuscarM.Click += new System.EventHandler(this.btnBuscarM_Click);
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Tiempo de uso",
+            "Tipo de mesas"});
+            this.comboBox1.Location = new System.Drawing.Point(249, 40);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 28);
+            this.comboBox1.TabIndex = 28;
+            this.comboBox1.Text = "Filtro";
+            // 
+            // btnImprimirM
+            // 
+            this.btnImprimirM.BackColor = System.Drawing.Color.Navy;
+            this.btnImprimirM.FlatAppearance.BorderSize = 0;
+            this.btnImprimirM.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnImprimirM.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImprimirM.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnImprimirM.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnImprimirM.Location = new System.Drawing.Point(410, 281);
+            this.btnImprimirM.Name = "btnImprimirM";
+            this.btnImprimirM.Size = new System.Drawing.Size(153, 38);
+            this.btnImprimirM.TabIndex = 27;
+            this.btnImprimirM.Text = "Imprimir";
+            this.btnImprimirM.UseVisualStyleBackColor = false;
             // 
             // Ventas
             // 
@@ -161,17 +243,105 @@ namespace CapaPresentacion
             this.Ventas.Text = "Ventas";
             this.Ventas.UseVisualStyleBackColor = true;
             // 
-            // panel2
+            // pickerVenta
             // 
-            this.panel2.BackgroundImage = global::CapaPresentacion.Properties.Resources.OIP;
-            this.panel2.Controls.Add(this.btnImprimirV);
-            this.panel2.Controls.Add(this.dgvVentasR);
-            this.panel2.Controls.Add(this.panel1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(3, 3);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(652, 321);
-            this.panel2.TabIndex = 0;
+            this.pickerVenta.Controls.Add(this.Ventas);
+            this.pickerVenta.Controls.Add(this.Mesas);
+            this.pickerVenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pickerVenta.Location = new System.Drawing.Point(12, 75);
+            this.pickerVenta.Name = "pickerVenta";
+            this.pickerVenta.SelectedIndex = 0;
+            this.pickerVenta.Size = new System.Drawing.Size(666, 360);
+            this.pickerVenta.TabIndex = 30;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.IndianRed;
+            this.panel1.Controls.Add(this.label7);
+            this.panel1.Controls.Add(this.dateTimePicker1);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.btnBuscarV);
+            this.panel1.Controls.Add(this.txtIdVentasR);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel1.Location = new System.Drawing.Point(44, 14);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(528, 76);
+            this.panel1.TabIndex = 21;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(172, 37);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(0, 20);
+            this.label5.TabIndex = 4;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(14, 38);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(71, 18);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Id venta:";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // txtIdVentasR
+            // 
+            this.txtIdVentasR.Location = new System.Drawing.Point(91, 35);
+            this.txtIdVentasR.Name = "txtIdVentasR";
+            this.txtIdVentasR.Size = new System.Drawing.Size(100, 24);
+            this.txtIdVentasR.TabIndex = 0;
+            this.txtIdVentasR.TextChanged += new System.EventHandler(this.txtIdVentasR_TextChanged);
+            // 
+            // btnBuscarV
+            // 
+            this.btnBuscarV.BackColor = System.Drawing.Color.Navy;
+            this.btnBuscarV.FlatAppearance.BorderSize = 0;
+            this.btnBuscarV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscarV.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarV.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnBuscarV.Image = global::CapaPresentacion.Properties.Resources.lupachica;
+            this.btnBuscarV.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBuscarV.Location = new System.Drawing.Point(197, 28);
+            this.btnBuscarV.Name = "btnBuscarV";
+            this.btnBuscarV.Size = new System.Drawing.Size(38, 38);
+            this.btnBuscarV.TabIndex = 15;
+            this.btnBuscarV.UseVisualStyleBackColor = false;
+            this.btnBuscarV.Click += new System.EventHandler(this.btnBuscarV_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(254, 37);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(52, 18);
+            this.label3.TabIndex = 17;
+            this.label3.Text = "Filtro:";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(312, 33);
+            this.dateTimePicker1.MinDate = new System.DateTime(2020, 1, 1, 0, 0, 0, 0);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 24);
+            this.dateTimePicker1.TabIndex = 18;
+            this.dateTimePicker1.Value = new System.DateTime(2021, 5, 23, 0, 0, 0, 0);
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            // 
+            // dgvVentasR
+            // 
+            this.dgvVentasR.BackgroundColor = System.Drawing.Color.IndianRed;
+            this.dgvVentasR.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvVentasR.Location = new System.Drawing.Point(44, 96);
+            this.dgvVentasR.Name = "dgvVentasR";
+            this.dgvVentasR.Size = new System.Drawing.Size(528, 150);
+            this.dgvVentasR.TabIndex = 22;
             // 
             // btnImprimirV
             // 
@@ -189,243 +359,45 @@ namespace CapaPresentacion
             this.btnImprimirV.UseVisualStyleBackColor = false;
             this.btnImprimirV.Click += new System.EventHandler(this.btnImprimirV_Click);
             // 
-            // dgvVentasR
+            // panel2
             // 
-            this.dgvVentasR.BackgroundColor = System.Drawing.Color.IndianRed;
-            this.dgvVentasR.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvVentasR.Location = new System.Drawing.Point(44, 96);
-            this.dgvVentasR.Name = "dgvVentasR";
-            this.dgvVentasR.Size = new System.Drawing.Size(528, 150);
-            this.dgvVentasR.TabIndex = 22;
+            this.panel2.BackgroundImage = global::CapaPresentacion.Properties.Resources.OIP;
+            this.panel2.Controls.Add(this.btnImprimirV);
+            this.panel2.Controls.Add(this.dgvVentasR);
+            this.panel2.Controls.Add(this.panel1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(3, 3);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(652, 321);
+            this.panel2.TabIndex = 0;
             // 
-            // panel1
+            // label6
             // 
-            this.panel1.BackColor = System.Drawing.Color.IndianRed;
-            this.panel1.Controls.Add(this.btnBuscarV);
-            this.panel1.Controls.Add(this.txtIdVentasR);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel1.Location = new System.Drawing.Point(44, 14);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(528, 49);
-            this.panel1.TabIndex = 21;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(10, 11);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(331, 15);
+            this.label6.TabIndex = 30;
+            this.label6.Text = "Elige el filtro que deseas ejecutar o la mesa que deseas ver";
             // 
-            // btnBuscarV
+            // label7
             // 
-            this.btnBuscarV.BackColor = System.Drawing.Color.Navy;
-            this.btnBuscarV.FlatAppearance.BorderSize = 0;
-            this.btnBuscarV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscarV.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscarV.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnBuscarV.Image = global::CapaPresentacion.Properties.Resources.lupachica;
-            this.btnBuscarV.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscarV.Location = new System.Drawing.Point(363, 6);
-            this.btnBuscarV.Name = "btnBuscarV";
-            this.btnBuscarV.Size = new System.Drawing.Size(38, 38);
-            this.btnBuscarV.TabIndex = 15;
-            this.btnBuscarV.UseVisualStyleBackColor = false;
-            this.btnBuscarV.Click += new System.EventHandler(this.btnBuscarV_Click);
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(14, 10);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(329, 15);
+            this.label7.TabIndex = 31;
+            this.label7.Text = "Elige el filtro que deseas ejecutar o la venta que deseas ver";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
-            // txtIdVentasR
+            // pickerMesas
             // 
-            this.txtIdVentasR.Location = new System.Drawing.Point(202, 14);
-            this.txtIdVentasR.Name = "txtIdVentasR";
-            this.txtIdVentasR.Size = new System.Drawing.Size(155, 24);
-            this.txtIdVentasR.TabIndex = 0;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(125, 17);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(71, 18);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Id venta:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(172, 37);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(0, 20);
-            this.label5.TabIndex = 4;
-            // 
-            // Mesas
-            // 
-            this.Mesas.BackgroundImage = global::CapaPresentacion.Properties.Resources.OIP;
-            this.Mesas.Controls.Add(this.btnImprimirM);
-            this.Mesas.Controls.Add(this.panel6);
-            this.Mesas.Controls.Add(this.dgvMesasR);
-            this.Mesas.Location = new System.Drawing.Point(4, 29);
-            this.Mesas.Name = "Mesas";
-            this.Mesas.Padding = new System.Windows.Forms.Padding(3);
-            this.Mesas.Size = new System.Drawing.Size(658, 327);
-            this.Mesas.TabIndex = 2;
-            this.Mesas.Text = "Mesas";
-            this.Mesas.UseVisualStyleBackColor = true;
-            // 
-            // btnImprimirM
-            // 
-            this.btnImprimirM.BackColor = System.Drawing.Color.Navy;
-            this.btnImprimirM.FlatAppearance.BorderSize = 0;
-            this.btnImprimirM.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnImprimirM.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnImprimirM.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnImprimirM.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnImprimirM.Location = new System.Drawing.Point(410, 281);
-            this.btnImprimirM.Name = "btnImprimirM";
-            this.btnImprimirM.Size = new System.Drawing.Size(153, 38);
-            this.btnImprimirM.TabIndex = 27;
-            this.btnImprimirM.Text = "Imprimir";
-            this.btnImprimirM.UseVisualStyleBackColor = false;
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.Color.IndianRed;
-            this.panel6.Controls.Add(this.btnBuscarM);
-            this.panel6.Controls.Add(this.txtIdMesaR);
-            this.panel6.Controls.Add(this.label1);
-            this.panel6.Location = new System.Drawing.Point(32, 6);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(588, 81);
-            this.panel6.TabIndex = 25;
-            // 
-            // btnBuscarM
-            // 
-            this.btnBuscarM.BackColor = System.Drawing.Color.Navy;
-            this.btnBuscarM.FlatAppearance.BorderSize = 0;
-            this.btnBuscarM.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscarM.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscarM.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnBuscarM.Image = global::CapaPresentacion.Properties.Resources.lupachica;
-            this.btnBuscarM.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscarM.Location = new System.Drawing.Point(403, 16);
-            this.btnBuscarM.Name = "btnBuscarM";
-            this.btnBuscarM.Size = new System.Drawing.Size(38, 38);
-            this.btnBuscarM.TabIndex = 27;
-            this.btnBuscarM.UseVisualStyleBackColor = false;
-            this.btnBuscarM.Click += new System.EventHandler(this.btnBuscarM_Click);
-            // 
-            // txtIdMesaR
-            // 
-            this.txtIdMesaR.Location = new System.Drawing.Point(191, 21);
-            this.txtIdMesaR.Name = "txtIdMesaR";
-            this.txtIdMesaR.Size = new System.Drawing.Size(206, 26);
-            this.txtIdMesaR.TabIndex = 22;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(110, 24);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(78, 20);
-            this.label1.TabIndex = 23;
-            this.label1.Text = "Id mesa:";
-            // 
-            // dgvMesasR
-            // 
-            this.dgvMesasR.AllowUserToAddRows = false;
-            this.dgvMesasR.AllowUserToDeleteRows = false;
-            this.dgvMesasR.AllowUserToResizeRows = false;
-            this.dgvMesasR.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
-            this.dgvMesasR.BackgroundColor = System.Drawing.Color.IndianRed;
-            this.dgvMesasR.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMesasR.Location = new System.Drawing.Point(32, 93);
-            this.dgvMesasR.Name = "dgvMesasR";
-            this.dgvMesasR.Size = new System.Drawing.Size(588, 182);
-            this.dgvMesasR.TabIndex = 24;
-            // 
-            // Productos
-            // 
-            this.Productos.Controls.Add(this.panel5);
-            this.Productos.Location = new System.Drawing.Point(4, 29);
-            this.Productos.Name = "Productos";
-            this.Productos.Size = new System.Drawing.Size(658, 327);
-            this.Productos.TabIndex = 3;
-            this.Productos.Text = "Productos";
-            this.Productos.UseVisualStyleBackColor = true;
-            // 
-            // panel5
-            // 
-            this.panel5.BackgroundImage = global::CapaPresentacion.Properties.Resources.OIP;
-            this.panel5.Controls.Add(this.btnImprimirP);
-            this.panel5.Controls.Add(this.dgvProductosR);
-            this.panel5.Controls.Add(this.panel8);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(0, 0);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(658, 327);
-            this.panel5.TabIndex = 0;
-            // 
-            // btnImprimirP
-            // 
-            this.btnImprimirP.BackColor = System.Drawing.Color.Navy;
-            this.btnImprimirP.FlatAppearance.BorderSize = 0;
-            this.btnImprimirP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnImprimirP.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnImprimirP.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnImprimirP.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnImprimirP.Location = new System.Drawing.Point(408, 285);
-            this.btnImprimirP.Name = "btnImprimirP";
-            this.btnImprimirP.Size = new System.Drawing.Size(153, 38);
-            this.btnImprimirP.TabIndex = 33;
-            this.btnImprimirP.Text = "Imprimir";
-            this.btnImprimirP.UseVisualStyleBackColor = false;
-            // 
-            // dgvProductosR
-            // 
-            this.dgvProductosR.BackgroundColor = System.Drawing.Color.IndianRed;
-            this.dgvProductosR.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProductosR.Location = new System.Drawing.Point(40, 131);
-            this.dgvProductosR.Name = "dgvProductosR";
-            this.dgvProductosR.Size = new System.Drawing.Size(528, 150);
-            this.dgvProductosR.TabIndex = 32;
-            // 
-            // panel8
-            // 
-            this.panel8.BackColor = System.Drawing.Color.IndianRed;
-            this.panel8.Controls.Add(this.btnBuscarP);
-            this.panel8.Controls.Add(this.txtIdProductoR);
-            this.panel8.Controls.Add(this.label10);
-            this.panel8.Location = new System.Drawing.Point(33, 28);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(528, 82);
-            this.panel8.TabIndex = 31;
-            // 
-            // btnBuscarP
-            // 
-            this.btnBuscarP.BackColor = System.Drawing.Color.Navy;
-            this.btnBuscarP.FlatAppearance.BorderSize = 0;
-            this.btnBuscarP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscarP.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscarP.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnBuscarP.Image = global::CapaPresentacion.Properties.Resources.lupachica;
-            this.btnBuscarP.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscarP.Location = new System.Drawing.Point(397, 22);
-            this.btnBuscarP.Name = "btnBuscarP";
-            this.btnBuscarP.Size = new System.Drawing.Size(38, 38);
-            this.btnBuscarP.TabIndex = 28;
-            this.btnBuscarP.UseVisualStyleBackColor = false;
-            this.btnBuscarP.Click += new System.EventHandler(this.btnBuscarP_Click);
-            // 
-            // txtIdProductoR
-            // 
-            this.txtIdProductoR.Location = new System.Drawing.Point(197, 29);
-            this.txtIdProductoR.Name = "txtIdProductoR";
-            this.txtIdProductoR.Size = new System.Drawing.Size(194, 26);
-            this.txtIdProductoR.TabIndex = 19;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(60, 29);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(121, 20);
-            this.label10.TabIndex = 22;
-            this.label10.Text = "Palabra clave:";
+            this.pickerMesas.Location = new System.Drawing.Point(376, 40);
+            this.pickerMesas.Name = "pickerMesas";
+            this.pickerMesas.Size = new System.Drawing.Size(200, 26);
+            this.pickerMesas.TabIndex = 29;
             // 
             // frmReportes
             // 
@@ -433,7 +405,7 @@ namespace CapaPresentacion
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.ClientSize = new System.Drawing.Size(690, 460);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.pickerVenta);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.btnMinimizar);
             this.Controls.Add(this.btnCerrar);
@@ -448,21 +420,16 @@ namespace CapaPresentacion
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.tabControl1.ResumeLayout(false);
-            this.Ventas.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvVentasR)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.Mesas.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMesasR)).EndInit();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMesasR)).EndInit();
-            this.Productos.ResumeLayout(false);
-            this.panel5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProductosR)).EndInit();
-            this.panel8.ResumeLayout(false);
-            this.panel8.PerformLayout();
+            this.Ventas.ResumeLayout(false);
+            this.pickerVenta.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvVentasR)).EndInit();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -474,30 +441,28 @@ namespace CapaPresentacion
         private System.Windows.Forms.PictureBox btnCerrar;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage Mesas;
+        private System.Windows.Forms.Button btnImprimirM;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Button btnBuscarM;
+        private System.Windows.Forms.TextBox txtIdMesaR;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridView dgvMesasR;
         private System.Windows.Forms.TabPage Ventas;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnImprimirV;
         private System.Windows.Forms.DataGridView dgvVentasR;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnBuscarV;
         private System.Windows.Forms.TextBox txtIdVentasR;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TabPage Mesas;
-        private System.Windows.Forms.Button btnImprimirM;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Button btnBuscarM;
-        private System.Windows.Forms.TextBox txtIdMesaR;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dgvMesasR;
-        private System.Windows.Forms.TabPage Productos;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.DataGridView dgvProductosR;
-        private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.TextBox txtIdProductoR;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Button btnBuscarV;
-        private System.Windows.Forms.Button btnImprimirP;
-        private System.Windows.Forms.Button btnBuscarP;
+        private System.Windows.Forms.TabControl pickerVenta;
+        private System.Windows.Forms.DateTimePicker pickerMesas;
     }
 }

@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="negMesa.cs" />
     <Compile Include="negProducto.cs" />
+    <Compile Include="negReporte.cs" />
     <Compile Include="negSeguridad.cs" />
     <Compile Include="negVenta.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
