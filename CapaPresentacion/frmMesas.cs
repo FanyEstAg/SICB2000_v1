@@ -14,9 +14,14 @@ namespace CapaPresentacion
     public partial class frmMesas : Form
     {
         //FALTAN VALIDACIONES DE CAJAS DE TEXTO
-        public frmMesas()
+        entUsuario us = null;
+        int userId = 0;
+        string userName = "";
+        public frmMesas(entUsuario user)
         {
             InitializeComponent();
+            this.userId = user.Id_Usuario;
+            this.userName = user.Nombre_Usuario;
             //Falta jalar usuario
         }
 
@@ -128,6 +133,7 @@ namespace CapaPresentacion
                 entDisponibilidad d = new entDisponibilidad();
                 m.Id_Mesa= Convert.ToInt32(txtIdMesaACT.Text);
                 t.Id_Tipo= Convert.ToInt32(cbxTipoMesaACT.SelectedIndex + 1);
+                MessageBox.Show(t.Id_Tipo.ToString());
                 m.id_tipo = t;
                 if (cbxDispoACT.SelectedItem.Equals("Ocupada") )
                     d.Id_Disponibilidad = "No";
@@ -168,10 +174,6 @@ namespace CapaPresentacion
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnVolver_Click(object sender, EventArgs e)
         {
@@ -182,6 +184,11 @@ namespace CapaPresentacion
         {
             //Minimizar ventana
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

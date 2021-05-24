@@ -33,11 +33,9 @@ namespace CapaPresentacion
                     tsmInventario.Enabled = true;
                     tsmMesas.Enabled = true;
                     tsmVentas.Enabled = true;
-                    tsmConsultaProd.Enabled = true;
-                    tsmConsultaVenta.Enabled = true;
-                    tsmreporteproductos.Enabled = true;
-                    tsmreporteventas.Enabled = true;
-                    tsmReporteMesas.Enabled = true;
+                    tsmCobrarMesa.Enabled = true;
+                    tsmReportes.Enabled = true;
+
                     //-------------------Acceso a todo
                 }
                 if (u.Id_empleado.Id_Rol.Nom_Puesto == "Cajero")
@@ -45,13 +43,11 @@ namespace CapaPresentacion
                     tsmSeguridad.Enabled = false;
                     tsmInventario.Enabled = false;
                     tsmMesas.Enabled = true;
-                    tsmVentas.Enabled = true;
-                    tsmConsultaProd.Enabled = true;
-                    tsmConsultaVenta.Enabled = false;
-                    tsmreporteproductos.Enabled = false;
-                    tsmreporteventas.Enabled = false;
-                    tsmReporteMesas.Enabled = false;
-
+                    tsmVentas.Enabled = true; 
+                    tsmCobrarMesa.Enabled = true;
+                    tsmReportes.Enabled = true;
+                    btnConfig.Enabled = false;
+                    btnInventario.Enabled = false;
                 }
                 if (u.Id_empleado.Id_Rol.Nom_Puesto == "Jefe Inventario")
                 {
@@ -59,12 +55,11 @@ namespace CapaPresentacion
                     tsmInventario.Enabled = true;
                     tsmMesas.Enabled = false;
                     tsmVentas.Enabled = false;
-                    tsmreporteproductos.Enabled = true;
-                    tsmreporteventas.Enabled = false;
-                    tsmReporteMesas.Enabled = false;
-                    tsmConsultaProd.Enabled = true;
-                    tsmConsultaVenta.Enabled = false;
-
+                    tsmCobrarMesa.Enabled = true;
+                    tsmReportes.Enabled = true;
+                    btnConfig.Enabled = false;
+                    btnMesas.Enabled = false;
+                    btnVentaProd.Enabled = false;
                 }
             }
             catch (Exception)
@@ -115,11 +110,12 @@ namespace CapaPresentacion
 
         private void productosToolStripMenuItem_Click(object sender, EventArgs e)//Abrir inventario
         {
+            
             try
             {
                 btnVolver.Visible = false;
-                frmInventario frmProducto = new frmInventario(u.Id_Usuario);//
-                frmProducto.MdiParent = this;
+                frmInventario frmProducto = new frmInventario(u);//
+                frmProducto.Parent = this.MdiParent;
                 foreach (Form frm in Application.OpenForms)
                 {
                     if (frm is frmInventario)
@@ -132,39 +128,13 @@ namespace CapaPresentacion
                 }
                 frmProducto.Show();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show(ex.Message, "Aviso",
-                                   MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
 
+                throw;
+            }
         }
 
-
-        //private void ventasToolStripMenuItem2_Click(object sender, EventArgs e)//--MODIFICAR
-        //{
-        //    try
-        //    {
-        //        frmConsultaVenta frmcventa = new frmConsultaVenta();
-        //        frmcventa.MdiParent = this;
-        //        foreach (Form frm in Application.OpenForms)
-        //        {
-        //            if (frm is frmConsultaVenta)
-        //            {
-        //                frm.Show();
-        //                frm.Size = MinimumSize;
-        //                frm.WindowState = FormWindowState.Normal;
-        //                return;
-        //            }
-        //        }
-        //        frmcventa.Show();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message, "Aviso",
-        //                              MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-        //}
 
         private void acercaDeToolStripMenuItem1_Click(object sender, EventArgs e)//Acerca de
         {
@@ -193,24 +163,22 @@ namespace CapaPresentacion
             try
             {
                 btnVolver.Visible = false;
-                frmVenta frmNotaventa = new frmVenta(u.Nombre_Usuario);
-                frmNotaventa.MdiParent = this;
+                frmVenta frmventa = new frmVenta(u);
+                frmventa.Parent = this.MdiParent;
                 foreach (Form frm in Application.OpenForms)
                 {
                     if (frm is frmVenta)
                     {
                         frm.Show();
-                        frm.Size = MinimumSize;
-                        frm.WindowState = FormWindowState.Normal;
                         return;
                     }
                 }
-                frmNotaventa.Show();
+                frmventa.Show();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show(ex.Message, "Aviso",
-                                      MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                throw;
             }
         }
        
@@ -219,129 +187,272 @@ namespace CapaPresentacion
             btnVolver.Visible = false;
             try
             {
-                frmMesas frmNotaventa = new frmMesas(/*u.Nombre_Usuario*/);
-                frmNotaventa.MdiParent = this;
+                btnVolver.Visible = false;
+                frmMesas frmMesa = new frmMesas(u);
+                frmMesa.Parent = this.MdiParent;
                 foreach (Form frm in Application.OpenForms)
                 {
                     if (frm is frmMesas)
                     {
                         frm.Show();
-                        frm.Size = MinimumSize;
-                        frm.WindowState = FormWindowState.Normal;
                         return;
                     }
                 }
-                frmNotaventa.Show();
+                frmMesa.Show();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show(ex.Message, "Aviso",
-                                      MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                throw;
             }
+            
         }
 
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox3_Click(object sender, EventArgs e)//Cerrar
-        {
-            this.Close();
-            Application.Exit();
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void tsmSeguridad_Click(object sender, EventArgs e)
         {
             try
             {
                 btnVolver.Visible = false;
-                frmUsuario frmusuario = new frmUsuario(u.Nombre_Usuario);//Mnadamos el nombre de usuario
-                frmusuario.MdiParent = this;//Adquiere el tamaño de la actual
-                foreach (Form frm in Application.OpenForms)//se ven las ventanas que hay y se acomodan
+                frmUsuario frmusuario = new frmUsuario(u);
+                frmusuario.Parent = this.MdiParent;
+                foreach (Form frm in Application.OpenForms)
                 {
                     if (frm is frmUsuario)
                     {
                         frm.Show();
-                        frm.Size = MinimumSize;
-                        frm.WindowState = FormWindowState.Normal;
                         return;
                     }
                 }
                 frmusuario.Show();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show(ex.Message, "Aviso",
-                                   MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                throw;
             }
         }
 
-        private void btnCerrar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            Application.Exit();
-        }
 
-        private void btnMinimizar_Click(object sender, EventArgs e)
-        {   //Minimizar ventana
-            this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void btnVolver_Click(object sender, EventArgs e)
-        {   //mandar el usuario al logearse
-            frmInicioSesion frmInicioSesion = new frmInicioSesion();
-            frmInicioSesion.Show();
-        }
 
         //BOTONES DEL MENÚ
         private void btnMesas_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            frmMesas fm = new frmMesas();
-            fm.Show();
+            //this.Hide();
+            try
+            {
+                btnVolver.Visible = false;
+                frmMesas frmMesa = new frmMesas(u);
+                frmMesa.Parent = this.MdiParent;
+                foreach (Form frm in Application.OpenForms)
+                {
+                    if (frm is frmMesas)
+                    {
+                        frm.Show();
+                        return;
+                    }
+                }
+                frmMesa.Show();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         private void btnCobroMesa_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            frmCobroMesa fcm = new frmCobroMesa("1",1);
-            fcm.Show();
+            //this.Hide();
+            try
+            {
+                btnVolver.Visible = false;
+                frmCobroMesa frmcobro = new frmCobroMesa(u);
+                frmcobro.Parent = this.MdiParent;
+                foreach (Form frm in Application.OpenForms)
+                {
+                    if (frm is frmInfoApp)
+                    {
+                        frm.Show();
+                        return;
+                    }
+                }
+                frmcobro.Show();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        
         }
 
         private void btnVentaProd_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            frmVenta fv = new frmVenta("");
-            fv.Show();
+            //this.Hide();
+            try
+            {
+                btnVolver.Visible = false;
+                frmVenta frmventa = new frmVenta(u);
+                frmventa.Parent = this.MdiParent;
+                foreach (Form frm in Application.OpenForms)
+                {
+                    if (frm is frmVenta)
+                    {
+                        frm.Show();
+                        return;
+                    }
+                }
+                frmventa.Show();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         private void btnInventario_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frmInventario fi = new frmInventario(2);
-            fi.Show();
+            try
+            {
+                btnVolver.Visible = false;
+                frmInventario frmProducto = new frmInventario(u);//
+                frmProducto.Parent = this.MdiParent;
+                foreach (Form frm in Application.OpenForms)
+                {
+                    if (frm is frmInventario)
+                    {
+                        frm.Show();
+                        return;
+                    }
+                }
+                frmProducto.Show();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         private void btnReporte_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            ///??
+            //this.Hide();
+            try
+            {
+                btnVolver.Visible = false;
+                frmReportes frmreporte = new frmReportes(u);
+                frmreporte.Parent = this.MdiParent;
+                foreach (Form frm in Application.OpenForms)
+                {
+                    if (frm is frmReportes)
+                    {
+                        frm.Show();
+                        return;
+                    }
+                }
+                frmreporte.Show();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         private void btnConfig_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            frmUsuario fu = new frmUsuario("");
-            fu.Show();
+            //this.Hide();
+            try
+            {
+                btnVolver.Visible = false;
+                frmUsuario frmusuario = new frmUsuario(u);
+                frmusuario.Parent = this.MdiParent;
+                foreach (Form frm in Application.OpenForms)
+                {
+                    if (frm is frmUsuario)
+                    {
+                        frm.Show();
+                        return;
+                    }
+                }
+                frmusuario.Show();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
+        private void btnCerrar_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+            Application.Exit();
+        }
+
+        private void btnMinimizar_Click_1(object sender, EventArgs e)
+        {
+            //Minimizar ventana
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void btnVolver_Click_1(object sender, EventArgs e)
+        {
+            //mandar el usuario al logearse
+            frmInicioSesion frmInicioSesion = new frmInicioSesion();
+            frmInicioSesion.Show();
+        }
+
+        private void tsmCobrarMesa_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                btnVolver.Visible = false;
+                frmCobroMesa frmcobro = new frmCobroMesa(u);
+                frmcobro.Parent = this.MdiParent;
+                foreach (Form frm in Application.OpenForms)
+                {
+                    if (frm is frmInfoApp)
+                    {
+                        frm.Show();
+                        return;
+                    }
+                }
+                frmcobro.Show();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private void tsmReportes_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                btnVolver.Visible = false;
+                frmReportes frmreporte = new frmReportes(u);
+                frmreporte.Parent = this.MdiParent;
+                foreach (Form frm in Application.OpenForms)
+                {
+                    if (frm is frmReportes)
+                    {
+                        frm.Show();
+                        return;
+                    }
+                }
+                frmreporte.Show();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }
 

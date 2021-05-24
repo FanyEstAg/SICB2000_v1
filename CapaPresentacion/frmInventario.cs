@@ -13,11 +13,14 @@ namespace CapaPresentacion
 {
     public partial class frmInventario : Form
     {
-        Int32 idUsuario;
-        public frmInventario(Int32? id_Usuario)
+        entUsuario us = null;
+        int userId = 0;
+        string userName = "";
+        public frmInventario(entUsuario user)
         {
             InitializeComponent();
-            idUsuario = (Int32)id_Usuario;
+            this.userId = user.Id_Usuario;
+            this.userName = user.Nombre_Usuario;
         }
 
         // metodos globales para etiquetas del formulario 
@@ -282,7 +285,7 @@ namespace CapaPresentacion
 
         private void btnAgregarTipo_Click(object sender, EventArgs e)//LISTO
         {
-            frmNuevaMarca nm = new frmNuevaMarca();
+            frmNuevaMarca nm = new frmNuevaMarca(us);
             nm.Show();
         }
 
@@ -368,6 +371,8 @@ namespace CapaPresentacion
                     throw new ApplicationException("Deber tener seleccionada una Marca");
                 p.Id_Prod = Convert.ToInt32(txtIdProductoACT.Text);
                 p.Nombre_Prod = txtNombreACT.Text;
+                //MessageBox.Show(p.Nombre_Prod);
+                p.Descripcion_Prod = txtDescrpACT.Text;
                 um.Id_Umed = Convert.ToInt32(cbxUnmedACT.SelectedIndex + 1);
                 p.Id_umed = um;
                 if (txtExistenciaACT.Text == "")

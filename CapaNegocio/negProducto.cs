@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Entidades;
 using CapaAccesoDatos;
 using System.Data;
+using System.Windows.Forms;
 
 namespace CapaNegocio
 {
@@ -281,6 +282,7 @@ namespace CapaNegocio
                 cadXml += "precio='" + p.Precio_Prod + "' ";
                 cadXml += "descripcion='" + p.Descripcion_Prod + "'/>";
                 cadXml = "<root>" + cadXml + "</root>";
+                //MessageBox.Show(p.Nombre_Prod);
                 int result = datProducto.Instancia.actualizarProducto(cadXml);
                 if (result == 0) throw new ApplicationException("Ocurrio un error al actualizar, intentelo nuevamente");
 

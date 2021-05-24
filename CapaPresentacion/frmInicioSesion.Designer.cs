@@ -36,7 +36,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.linkPassword = new System.Windows.Forms.LinkLabel();
             this.btnMinimizar = new System.Windows.Forms.PictureBox();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
@@ -48,11 +47,11 @@
             // chkmostrarPass
             // 
             this.chkmostrarPass.AutoSize = true;
-            this.chkmostrarPass.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkmostrarPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkmostrarPass.ForeColor = System.Drawing.SystemColors.AppWorkspace;
             this.chkmostrarPass.Location = new System.Drawing.Point(417, 206);
             this.chkmostrarPass.Name = "chkmostrarPass";
-            this.chkmostrarPass.Size = new System.Drawing.Size(132, 20);
+            this.chkmostrarPass.Size = new System.Drawing.Size(117, 17);
             this.chkmostrarPass.TabIndex = 4;
             this.chkmostrarPass.Text = "Mostrar contraseña";
             this.chkmostrarPass.UseVisualStyleBackColor = true;
@@ -62,12 +61,12 @@
             // 
             this.txtUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.txtUsuario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtUsuario.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsuario.ForeColor = System.Drawing.Color.DimGray;
             this.txtUsuario.Location = new System.Drawing.Point(302, 85);
             this.txtUsuario.MaxLength = 8;
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(247, 27);
+            this.txtUsuario.Size = new System.Drawing.Size(247, 26);
             this.txtUsuario.TabIndex = 2;
             this.txtUsuario.Text = "USUARIO";
             this.txtUsuario.Enter += new System.EventHandler(this.txtUsuario_Enter);
@@ -76,11 +75,11 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.AppWorkspace;
             this.label3.Location = new System.Drawing.Point(299, 144);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(139, 17);
+            this.label3.Size = new System.Drawing.Size(130, 16);
             this.label3.TabIndex = 5;
             this.label3.Text = "Ingresar contraseña:";
             // 
@@ -88,11 +87,11 @@
             // 
             this.txtPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPassword.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPassword.ForeColor = System.Drawing.Color.DimGray;
             this.txtPassword.Location = new System.Drawing.Point(302, 164);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(247, 27);
+            this.txtPassword.Size = new System.Drawing.Size(247, 26);
             this.txtPassword.TabIndex = 3;
             this.txtPassword.Text = "x";
             this.txtPassword.UseSystemPasswordChar = true;
@@ -117,11 +116,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.AppWorkspace;
             this.label2.Location = new System.Drawing.Point(299, 65);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(112, 17);
+            this.label2.Size = new System.Drawing.Size(107, 16);
             this.label2.TabIndex = 4;
             this.label2.Text = "Ingresar usuario:";
             this.label2.Click += new System.EventHandler(this.label2_Click);
@@ -146,18 +145,6 @@
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 0;
             this.pictureBox3.TabStop = false;
-            // 
-            // linkPassword
-            // 
-            this.linkPassword.ActiveLinkColor = System.Drawing.Color.SeaGreen;
-            this.linkPassword.AutoSize = true;
-            this.linkPassword.LinkColor = System.Drawing.Color.DimGray;
-            this.linkPassword.Location = new System.Drawing.Point(367, 275);
-            this.linkPassword.Name = "linkPassword";
-            this.linkPassword.Size = new System.Drawing.Size(113, 13);
-            this.linkPassword.TabIndex = 1;
-            this.linkPassword.TabStop = true;
-            this.linkPassword.Text = "Recuperar contraseña";
             // 
             // btnMinimizar
             // 
@@ -189,7 +176,6 @@
             this.ClientSize = new System.Drawing.Size(600, 300);
             this.Controls.Add(this.btnMinimizar);
             this.Controls.Add(this.btnCerrar);
-            this.Controls.Add(this.linkPassword);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.txtPassword);
@@ -224,7 +210,6 @@
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.LinkLabel linkPassword;
         private System.Windows.Forms.PictureBox btnCerrar;
         private System.Windows.Forms.PictureBox btnMinimizar;
         private System.Windows.Forms.PictureBox pictureBox3;

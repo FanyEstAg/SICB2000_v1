@@ -20,8 +20,20 @@ namespace CapaNegocio
 
         #endregion singleton
 
+        public int ObtenerIdUsuario(string us, string pass)//--listo
+        {
+            if (us == "") throw new ApplicationException("Ingrese un usuario");
+            if (pass == "") throw new ApplicationException("Ingrese una contraseña");
+            int u = 0;
+            u = datSeguridad.Instancia.ObtenerIdUsuario(us, pass);
+            if (u == null)
+            {
+                throw new ApplicationException("No se encontró el Id de usuario");
+            }
 
-        
+            return u;
+        }
+
         public int insertarEmpleado( entEmpleado e)//listo
         {
             try

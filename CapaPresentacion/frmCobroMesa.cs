@@ -21,14 +21,14 @@ namespace CapaPresentacion
         List<string> mesasOcupadas = new List<string>();//para el cbx
         List<string> mesasDesocupadas = new List<string>();
 
-        string user = "";
-        int iduser = 0;
-
-        public frmCobroMesa(string user, int iduser)
+        entUsuario us = null;
+        int userId = 0;
+        string userName = "";
+        public frmCobroMesa(entUsuario user)
         {
             InitializeComponent();
-            this.user = user;
-            this.iduser = iduser;
+            this.userId = user.Id_Usuario;
+            this.userName = user.Nombre_Usuario;
         }
 
 
@@ -52,8 +52,8 @@ namespace CapaPresentacion
                 entCobroMesa co = new entCobroMesa();//Traer clase
                 entMesa m = new entMesa();//Traer clase
                 entUsuario u = new entUsuario();//Traer clase
-                int tiempototal = 0;
-                u.Id_Usuario = iduser;
+                int tiempototal = 0; 
+                u.Id_Usuario = userId;
                 co.Id_Usuario = u;
                 co.fecha = Convert.ToDateTime(DateTime.Now.ToShortDateString());
                 foreach (entCobroMesa item in mesasAsignadas)

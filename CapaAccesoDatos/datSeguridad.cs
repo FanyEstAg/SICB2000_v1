@@ -22,7 +22,34 @@ namespace CapaAccesoDatos
 
         #region metodos
 
+        public int ObtenerIdUsuario(string us, string pass)//---listo
+        {
+            SqlCommand cmd = null;
+            SqlDataReader dr = null;
+            int r = 0;
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("uspObtenerIdUsuario", cn);
+                cmd.Parameters.AddWithValue("@prmUsuario", us);
+                cmd.Parameters.AddWithValue("@prmContrasena", us);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cn.Open();
+                dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    r = Convert.ToInt32(dr["Id_Usuario"]);
+                }
+                cn.Close();
+            }
+            catch (Exception)
+            {
 
+                throw;
+            }
+            finally { cmd.Connection.Close(); }
+            return r;
+        }
         public int insertarUsuario(String cadXml)//LISTO
         {
             SqlCommand cmd = null;

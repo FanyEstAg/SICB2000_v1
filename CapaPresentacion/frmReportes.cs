@@ -11,23 +11,28 @@ using System.Windows.Forms;
 //using iTextSharp.text.pdf;
 using System.Diagnostics;
 using System.IO;
-
+using Entidades;
 
 namespace CapaPresentacion
 {
     public partial class frmReportes : Form
     {
         AccionesEnControles ac = new AccionesEnControles();
-        public frmReportes()
+        entUsuario us = null;
+        int userId = 0;
+        string userName = "";
+        public frmReportes(entUsuario user)
         {
             InitializeComponent();
+            this.userId = user.Id_Usuario;
+            this.userName = user.Nombre_Usuario;
         }
 
         private void btnBuscarV_Click(object sender, EventArgs e)
         {
             try
             {
-                dgvVentasR.DataSource = negSeguridad.Instancia.BuscarVentas(txtIdVentasR.Text);
+                dgvVentasR.DataSource = negVenta.Instancia.BuscarVenta(Convert.ToInt32(txtIdVentasR.Text));
                 
             }
             catch (ApplicationException ae)
@@ -66,7 +71,7 @@ namespace CapaPresentacion
         {
             try
             {
-                dgvVentasR.DataSource = negSeguridad.Instancia.BuscarMesas(txtIdMesaR.Text);
+                dgvMesasR.DataSource = negMesa.Instancia.BuscarMesa(txtIdMesaR.Text);
 
                 //ac.BloquearText(this.panel2, false);
             }
@@ -86,7 +91,7 @@ namespace CapaPresentacion
         {
             try
             {
-                dgvVentasR.DataSource = negSeguridad.Instancia.BuscarProductos(txtIdProductoR.Text);
+                dgvProductosR.DataSource = negProducto.Instancia.BuscarProducto(txtIdProductoR.Text);
 
                 //ac.BloquearText(this.panel2, false);
             }
@@ -100,6 +105,13 @@ namespace CapaPresentacion
                 MessageBox.Show(ex.Message, "Error",
                                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void frmReportes_Load(object sender, EventArgs e)
+        {
+            dgvMesasR.DataSource = negMesa.Instancia.CargarMesas();
+            dgvProductosR.DataSource = negProducto.Instancia.CargarProducto();
+            dgvVentasR.DataSource = negVenta.Instancia.CargarVenta();
         }
     }
 }

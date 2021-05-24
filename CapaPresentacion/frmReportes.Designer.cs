@@ -128,7 +128,7 @@ namespace CapaPresentacion
             // 
             this.label4.BackColor = System.Drawing.Color.SeaGreen;
             this.label4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label4.Location = new System.Drawing.Point(0, 0);
             this.label4.Name = "label4";
@@ -142,7 +142,7 @@ namespace CapaPresentacion
             this.tabControl1.Controls.Add(this.Ventas);
             this.tabControl1.Controls.Add(this.Mesas);
             this.tabControl1.Controls.Add(this.Productos);
-            this.tabControl1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.Location = new System.Drawing.Point(12, 75);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -153,10 +153,10 @@ namespace CapaPresentacion
             // 
             this.Ventas.Controls.Add(this.panel2);
             this.Ventas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Ventas.Location = new System.Drawing.Point(4, 28);
+            this.Ventas.Location = new System.Drawing.Point(4, 29);
             this.Ventas.Name = "Ventas";
             this.Ventas.Padding = new System.Windows.Forms.Padding(3);
-            this.Ventas.Size = new System.Drawing.Size(658, 328);
+            this.Ventas.Size = new System.Drawing.Size(658, 327);
             this.Ventas.TabIndex = 0;
             this.Ventas.Text = "Ventas";
             this.Ventas.UseVisualStyleBackColor = true;
@@ -170,7 +170,7 @@ namespace CapaPresentacion
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(652, 322);
+            this.panel2.Size = new System.Drawing.Size(652, 321);
             this.panel2.TabIndex = 0;
             // 
             // btnImprimirV
@@ -178,7 +178,7 @@ namespace CapaPresentacion
             this.btnImprimirV.BackColor = System.Drawing.Color.Navy;
             this.btnImprimirV.FlatAppearance.BorderSize = 0;
             this.btnImprimirV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnImprimirV.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImprimirV.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnImprimirV.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnImprimirV.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnImprimirV.Location = new System.Drawing.Point(407, 270);
@@ -216,7 +216,7 @@ namespace CapaPresentacion
             this.btnBuscarV.BackColor = System.Drawing.Color.Navy;
             this.btnBuscarV.FlatAppearance.BorderSize = 0;
             this.btnBuscarV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscarV.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarV.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscarV.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnBuscarV.Image = global::CapaPresentacion.Properties.Resources.lupachica;
             this.btnBuscarV.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -231,14 +231,13 @@ namespace CapaPresentacion
             // 
             this.txtIdVentasR.Location = new System.Drawing.Point(202, 14);
             this.txtIdVentasR.Name = "txtIdVentasR";
-            this.txtIdVentasR.ReadOnly = true;
             this.txtIdVentasR.Size = new System.Drawing.Size(155, 24);
             this.txtIdVentasR.TabIndex = 0;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(125, 17);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(71, 18);
@@ -260,10 +259,10 @@ namespace CapaPresentacion
             this.Mesas.Controls.Add(this.btnImprimirM);
             this.Mesas.Controls.Add(this.panel6);
             this.Mesas.Controls.Add(this.dgvMesasR);
-            this.Mesas.Location = new System.Drawing.Point(4, 28);
+            this.Mesas.Location = new System.Drawing.Point(4, 29);
             this.Mesas.Name = "Mesas";
             this.Mesas.Padding = new System.Windows.Forms.Padding(3);
-            this.Mesas.Size = new System.Drawing.Size(658, 328);
+            this.Mesas.Size = new System.Drawing.Size(658, 327);
             this.Mesas.TabIndex = 2;
             this.Mesas.Text = "Mesas";
             this.Mesas.UseVisualStyleBackColor = true;
@@ -273,7 +272,7 @@ namespace CapaPresentacion
             this.btnImprimirM.BackColor = System.Drawing.Color.Navy;
             this.btnImprimirM.FlatAppearance.BorderSize = 0;
             this.btnImprimirM.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnImprimirM.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImprimirM.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnImprimirM.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnImprimirM.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnImprimirM.Location = new System.Drawing.Point(410, 281);
@@ -299,7 +298,7 @@ namespace CapaPresentacion
             this.btnBuscarM.BackColor = System.Drawing.Color.Navy;
             this.btnBuscarM.FlatAppearance.BorderSize = 0;
             this.btnBuscarM.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscarM.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarM.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscarM.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnBuscarM.Image = global::CapaPresentacion.Properties.Resources.lupachica;
             this.btnBuscarM.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -314,7 +313,7 @@ namespace CapaPresentacion
             // 
             this.txtIdMesaR.Location = new System.Drawing.Point(191, 21);
             this.txtIdMesaR.Name = "txtIdMesaR";
-            this.txtIdMesaR.Size = new System.Drawing.Size(206, 27);
+            this.txtIdMesaR.Size = new System.Drawing.Size(206, 26);
             this.txtIdMesaR.TabIndex = 22;
             // 
             // label1
@@ -322,7 +321,7 @@ namespace CapaPresentacion
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(110, 24);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 19);
+            this.label1.Size = new System.Drawing.Size(78, 20);
             this.label1.TabIndex = 23;
             this.label1.Text = "Id mesa:";
             // 
@@ -342,9 +341,9 @@ namespace CapaPresentacion
             // Productos
             // 
             this.Productos.Controls.Add(this.panel5);
-            this.Productos.Location = new System.Drawing.Point(4, 28);
+            this.Productos.Location = new System.Drawing.Point(4, 29);
             this.Productos.Name = "Productos";
-            this.Productos.Size = new System.Drawing.Size(658, 328);
+            this.Productos.Size = new System.Drawing.Size(658, 327);
             this.Productos.TabIndex = 3;
             this.Productos.Text = "Productos";
             this.Productos.UseVisualStyleBackColor = true;
@@ -358,7 +357,7 @@ namespace CapaPresentacion
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(658, 328);
+            this.panel5.Size = new System.Drawing.Size(658, 327);
             this.panel5.TabIndex = 0;
             // 
             // btnImprimirP
@@ -366,7 +365,7 @@ namespace CapaPresentacion
             this.btnImprimirP.BackColor = System.Drawing.Color.Navy;
             this.btnImprimirP.FlatAppearance.BorderSize = 0;
             this.btnImprimirP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnImprimirP.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImprimirP.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnImprimirP.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnImprimirP.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnImprimirP.Location = new System.Drawing.Point(408, 285);
@@ -401,7 +400,7 @@ namespace CapaPresentacion
             this.btnBuscarP.BackColor = System.Drawing.Color.Navy;
             this.btnBuscarP.FlatAppearance.BorderSize = 0;
             this.btnBuscarP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscarP.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarP.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscarP.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnBuscarP.Image = global::CapaPresentacion.Properties.Resources.lupachica;
             this.btnBuscarP.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -416,17 +415,17 @@ namespace CapaPresentacion
             // 
             this.txtIdProductoR.Location = new System.Drawing.Point(197, 29);
             this.txtIdProductoR.Name = "txtIdProductoR";
-            this.txtIdProductoR.Size = new System.Drawing.Size(194, 27);
+            this.txtIdProductoR.Size = new System.Drawing.Size(194, 26);
             this.txtIdProductoR.TabIndex = 19;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(88, 32);
+            this.label10.Location = new System.Drawing.Point(60, 29);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(103, 19);
+            this.label10.Size = new System.Drawing.Size(121, 20);
             this.label10.TabIndex = 22;
-            this.label10.Text = "Id producto:";
+            this.label10.Text = "Palabra clave:";
             // 
             // frmReportes
             // 
@@ -444,6 +443,7 @@ namespace CapaPresentacion
             this.Name = "frmReportes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmReportes";
+            this.Load += new System.EventHandler(this.frmReportes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.btnVolver)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
