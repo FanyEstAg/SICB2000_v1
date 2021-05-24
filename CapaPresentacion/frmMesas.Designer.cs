@@ -293,6 +293,7 @@ namespace CapaPresentacion
             this.txtIdMesaACT.Name = "txtIdMesaACT";
             this.txtIdMesaACT.Size = new System.Drawing.Size(121, 26);
             this.txtIdMesaACT.TabIndex = 19;
+            this.txtIdMesaACT.TextChanged += new System.EventHandler(this.txtIdMesaACT_TextChanged);
             // 
             // label9
             // 

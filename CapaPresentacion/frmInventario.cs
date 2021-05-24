@@ -480,5 +480,40 @@ namespace CapaPresentacion
             //Minimizar ventana
             this.WindowState = FormWindowState.Minimized;
         }
+
+        private void txtIdProductoACT_TextChanged(object sender, EventArgs e)
+        {
+            try { 
+            txtNombreACT.Text = "";
+            cbxMarcaACT.SelectedItem = "";
+            cbxUnmedACT.SelectedItem = "";
+            txtDescrpACT.Text = "";
+            txtCostoACT.Text = "";
+            txtPrecioACT.Text = "";
+            txtExistenciaACT.Text = "";
+            List<entProducto> Lista = negProducto.Instancia.ActExtraerProductos(Convert.ToInt32(txtIdProductoACT.Text));
+            
+            for (int i = 0; i < Lista.Count(); i++)
+            {
+                txtNombreACT.Text = Lista[i].Nombre_Prod;
+                cbxMarcaACT.SelectedItem = Lista[i].id_marca.Nombre_Marca;
+                cbxUnmedACT.SelectedItem = Lista[i].Id_umed.Abreviatura_Umed;
+                txtDescrpACT.Text = Lista[i].Descripcion_Prod;
+                txtCostoACT.Text = Lista[i].Costo_Prod.ToString();
+                txtPrecioACT.Text = Lista[i].Precio_Prod.ToString();
+                txtExistenciaACT.Text = Lista[i].existencia.ToString();
+            }
+            }
+            catch (ApplicationException ae)
+            {
+                MessageBox.Show(ae.Message, "Aviso",
+                                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error",
+                                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

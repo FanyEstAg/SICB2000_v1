@@ -38,12 +38,12 @@ namespace CapaNegocio
             }
         }
 
-        public List<entProducto> ListarProducto()
+        public List<entProducto> ActExtraerProductos(int id)
         {
             try
             {
                 List<entProducto> Lista = null;
-                Lista = datProducto.Instancia.ListarProducto();
+                Lista = datProducto.Instancia.ActExtraerProductos(id);
                 if (Lista.Count == 0) throw new ApplicationException("Lista de productos vacia");
                 else if (Lista == null) throw new ApplicationException("Se produjo un error en la carga de la lista de productos");
                 return Lista;

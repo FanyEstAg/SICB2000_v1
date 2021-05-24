@@ -20,6 +20,22 @@ namespace CapaNegocio
 
         #endregion singleton
 
+        public List<entUsuario> ActExtraerUsuarios(int id)
+        {
+            try
+            {
+                List<entUsuario> Lista = null;
+                Lista = datSeguridad.Instancia.ActExtraerUsuarios(id);
+                if (Lista.Count == 0) throw new ApplicationException("Lista de usuarios vacia");
+                else if (Lista == null) throw new ApplicationException("Se produjo un error en la carga de la lista de productos");
+                return Lista;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
         public int ObtenerIdUsuario(string us, string pass)//--listo
         {
             if (us == "") throw new ApplicationException("Ingrese un usuario");

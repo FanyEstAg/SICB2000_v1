@@ -264,7 +264,43 @@ namespace CapaPresentacion
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
+            try
+            {
+                txtNombreACT.Text = "";
+                txtPasswordACT.Text = "";
+                txtUsuarioACT.Text = "";
+                txtTelefonoACT.Text = "";
+                txtApepatACT.Text = "";
+                txtApematACT.Text = "";
+                txtDireccionACT.Text = "";
+                cbxRolACT.SelectedItem = "";
+                txtDireccionACT.Text = "";
 
+                List<entUsuario> Lista = negSeguridad.Instancia.ActExtraerUsuarios(Convert.ToInt32(txtIdUsuarioACT.Text));
+                for (int i = 0; i < Lista.Count(); i++)
+                {
+                    txtNombreACT.Text = Lista[i].Id_empleado.Nombre_empleado;
+                    txtPasswordACT.Text = Lista[i].Password_Usuario;
+                    txtUsuarioACT.Text = Lista[i].Nombre_Usuario;
+                    txtTelefonoACT.Text = Lista[i].Id_empleado.telefono_empleado;
+                    txtApepatACT.Text = Lista[i].Id_empleado.apepat_empelado;
+                    txtApematACT.Text = Lista[i].Id_empleado.apemat_empleado;
+                    txtDireccionACT.Text = Lista[i].Id_empleado.direccion_empleado;
+                    cbxRolACT.SelectedItem = Lista[i].Id_empleado.Id_Rol.Nom_Puesto;
+                    txtDescrpACT.Text = Lista[i].Id_empleado.Id_Rol.Descripcion_Rol;
+
+                }
+            }
+            catch (ApplicationException ae)
+            {
+                MessageBox.Show(ae.Message, "Aviso",
+                                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error",
+                                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnModificar_Click(object sender, EventArgs e)

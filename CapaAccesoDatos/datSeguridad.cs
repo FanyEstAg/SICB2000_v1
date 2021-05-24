@@ -21,6 +21,50 @@ namespace CapaAccesoDatos
         #endregion singleton
 
         #region metodos
+        public List<entUsuario> ActExtraerUsuarios(int Id)
+        {
+            SqlCommand cmd = null;
+            List<entUsuario> Lista = null;
+            SqlDataReader dr = null;
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("uspBuscarUsuarioxId", cn);
+                cmd.Parameters.AddWithValue("@prmId", Id);
+
+                cmd.CommandType = CommandType.StoredProcedure;
+                cn.Open();
+                dr = cmd.ExecuteReader();
+                Lista = new List<entUsuario>();
+                while (dr.Read())
+                {
+                    entUsuario u = new entUsuario();
+                    entEmpleado e = new entEmpleado();
+                    entRol r = new entRol();
+                    u.Id_Usuario = Convert.ToInt32(dr["Id_Usuario"]);
+                    u.Nombre_Usuario = dr["nombre_Usuario"].ToString();
+                    u.Password_Usuario = dr["Contrasena_Usuario"].ToString();
+                    e.Nombre_empleado = dr["Nom_empleado"].ToString();
+                    e.apepat_empelado= dr["apepatEmpleado"].ToString();
+                    e.apemat_empleado= dr["apematEmpleado"].ToString();
+                    e.direccion_empleado= dr["direccionEmpleado"].ToString();
+                    e.telefono_empleado= dr["telefonoEmpleado"].ToString();
+                    r.Id_Rol = Convert.ToInt32(dr["Id_Rol"]);
+                    r.Nom_Puesto= dr["Nom_puesto"].ToString();
+                    r.Descripcion_Rol= dr["Descrp_rol"].ToString();
+                    u.Id_empleado = e;
+                    e.Id_Rol = r;
+                    Lista.Add(u);
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally { cmd.Connection.Close(); }
+            return Lista;
+        }
 
         public int ObtenerIdUsuario(string us, string pass)//---listo
         {

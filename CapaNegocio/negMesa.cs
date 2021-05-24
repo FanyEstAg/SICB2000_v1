@@ -22,6 +22,22 @@ namespace CapaNegocio
 
         #endregion singleton
         #region MESAS
+        public List<entMesa> ActExtraerMesas(int id)
+        {
+            try
+            {
+                List<entMesa> Lista = null;
+                Lista = datMesa.Instancia.ActExtraerMesas(id);
+                if (Lista.Count == 0) throw new ApplicationException("Lista de mesas vacia");
+                else if (Lista == null) throw new ApplicationException("Se produjo un error en la carga de la lista de productos");
+                return Lista;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
         public int insertarMesa(entMesa m)//LISTO
         {
             try

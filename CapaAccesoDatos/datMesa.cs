@@ -19,7 +19,46 @@ namespace CapaAccesoDatos
         #endregion singleton
 
         #region metodos mesa
-       
+        public List<entMesa> ActExtraerMesas(int Id)
+        {
+            SqlCommand cmd = null;
+            List<entMesa> Lista = null;
+            SqlDataReader dr = null;
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("uspBuscarMesaxId", cn);
+                cmd.Parameters.AddWithValue("@prmId", Id);
+
+                cmd.CommandType = CommandType.StoredProcedure;
+                cn.Open();
+                dr = cmd.ExecuteReader();
+                Lista = new List<entMesa>();
+                while (dr.Read())
+                {
+                    entMesa m = new entMesa();
+                    m.Id_Mesa= Convert.ToInt32(dr["Id_mesa"]);
+                    entTipo t = new entTipo();
+                    t.Id_Tipo= Convert.ToInt32(dr["Id_tipo"]);
+                    t.Nom_Tipo= dr["Nom_tipo"].ToString();
+                    entDisponibilidad d = new entDisponibilidad();
+                    d.Id_Disponibilidad= (dr["Id_Disponibilidad"]).ToString();
+                    d.Descp_Disponibilidad= dr["Descp_disponibilidad"].ToString();
+                    m.id_tipo = t;
+                    m.Id_disponibilidad=d;
+                                       
+                    Lista.Add(m);
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally { cmd.Connection.Close(); }
+            return Lista;
+        }
+
         public int EliminarMesa(int id_mesa)
         {//LISTO
             SqlCommand cmd = null;

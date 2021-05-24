@@ -23,7 +23,7 @@ namespace CapaAccesoDatos
         #region metodos
 
         
-        public List<entProducto> LstProdIndicadorAvanzada(String name)
+        public List<entProducto> ActExtraerProductos(int Id)
         {
             SqlCommand cmd = null;
             List<entProducto> Lista = null;
@@ -31,8 +31,8 @@ namespace CapaAccesoDatos
             try
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();
-                cmd = new SqlCommand("splistarProdIndicador", cn);
-                cmd.Parameters.AddWithValue("@prmname", name);
+                cmd = new SqlCommand("uspBuscarProductoxId", cn);
+                cmd.Parameters.AddWithValue("@prmId", Id);
 
                 cmd.CommandType = CommandType.StoredProcedure;
                 cn.Open();
@@ -46,15 +46,15 @@ namespace CapaAccesoDatos
                     p.existencia= Convert.ToInt32(dr["Existencia"]);
                     p.Costo_Prod = Convert.ToDouble(dr["Costo"]);
                     p.Precio_Prod = Convert.ToDouble(dr["Precio"]);
-                    p.Descripcion_Prod = dr["Descrp_producto"].ToString();
+                    p.Descripcion_Prod = dr["Descp_producto "].ToString();
                     entUnidadMedida um = new entUnidadMedida();
-                    //um.Id_Umed = Convert.ToInt32(dr.["Id_Umed"]);
+                    um.Id_Umed = Convert.ToInt32(dr["Id_Umed"]);
                     um.Abreviatura_Umed = dr["Abreviatura_Umed"].ToString();
                     p.Id_umed = um;
                     entMarca m = new entMarca();
                     m.Id_Marca = Convert.ToInt32(dr["Id_Marca"]);
                     m.Nombre_Marca = dr["Nom_marca"].ToString();
-                    //p.Marca_Prod = m;--verificar error
+                    p.id_marca = m;//--verificar error
                     Lista.Add(p);
                 }
             }

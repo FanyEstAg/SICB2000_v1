@@ -190,5 +190,32 @@ namespace CapaPresentacion
         {
             this.Close();
         }
+
+        private void txtIdMesaACT_TextChanged(object sender, EventArgs e)
+        {
+            try { 
+            cbxTipoMesaACT.SelectedItem = "";
+            cbxDispoACT.SelectedItem = "";
+
+            List<entMesa> Lista = negMesa.Instancia.ActExtraerMesas(Convert.ToInt32(txtIdMesaACT.Text));
+            for (int i = 0; i < Lista.Count(); i++)
+            {
+                txtIdMesaACT.Text = Lista[i].Id_Mesa.ToString();
+                cbxTipoMesaACT.SelectedItem = Lista[i].id_tipo.Nom_Tipo;
+                cbxDispoACT.SelectedItem = Lista[i].Id_disponibilidad.Descp_Disponibilidad;
+               
+            }
+            }
+            catch (ApplicationException ae)
+            {
+                MessageBox.Show(ae.Message, "Aviso",
+                                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error",
+                                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
