@@ -150,7 +150,7 @@ namespace CapaPresentacion
             this.dgvMesasR.AllowUserToAddRows = false;
             this.dgvMesasR.AllowUserToDeleteRows = false;
             this.dgvMesasR.AllowUserToResizeRows = false;
-            this.dgvMesasR.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            this.dgvMesasR.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dgvMesasR.BackgroundColor = System.Drawing.Color.IndianRed;
             this.dgvMesasR.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMesasR.Location = new System.Drawing.Point(32, 93);
@@ -215,6 +215,7 @@ namespace CapaPresentacion
             this.comboBox1.Size = new System.Drawing.Size(121, 28);
             this.comboBox1.TabIndex = 28;
             this.comboBox1.Text = "Filtro";
+            this.comboBox1.SelectionChangeCommitted += new System.EventHandler(this.comboBox1_SelectionChangeCommitted);
             // 
             // btnImprimirM
             // 
@@ -336,6 +337,7 @@ namespace CapaPresentacion
             // 
             // dgvVentasR
             // 
+            this.dgvVentasR.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dgvVentasR.BackgroundColor = System.Drawing.Color.IndianRed;
             this.dgvVentasR.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvVentasR.Location = new System.Drawing.Point(44, 96);
@@ -398,6 +400,7 @@ namespace CapaPresentacion
             this.pickerMesas.Name = "pickerMesas";
             this.pickerMesas.Size = new System.Drawing.Size(200, 26);
             this.pickerMesas.TabIndex = 29;
+            this.pickerMesas.ValueChanged += new System.EventHandler(this.pickerMesas_ValueChanged);
             // 
             // frmReportes
             // 

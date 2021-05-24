@@ -105,12 +105,29 @@ namespace CapaPresentacion
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
-           
+            dgvVentasR.DataSource= negReporte.Instancia.ConsultarVentasxFecha(dateTimePicker1.Value.Day,dateTimePicker1.Value.Month, dateTimePicker1.Value.Year);
         }
 
         private void label7_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void comboBox1_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            if (comboBox1.SelectedIndex == 0)
+            {
+                dgvMesasR.DataSource = negReporte.Instancia.ConsultarCobroxTiempo();
+            }
+            else
+            {
+                dgvMesasR.DataSource = negReporte.Instancia.ConsultarCobroxTipo();
+            }
+        }
+
+        private void pickerMesas_ValueChanged(object sender, EventArgs e)
+        {
+            dgvMesasR.DataSource = negReporte.Instancia.ConsultarCobroxFecha(pickerMesas.Value.Day,pickerMesas.Value.Month,pickerMesas.Value.Year);
         }
     }
 }
