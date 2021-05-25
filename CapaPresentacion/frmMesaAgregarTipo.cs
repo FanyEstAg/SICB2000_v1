@@ -19,22 +19,6 @@ namespace CapaPresentacion
         }
         //Faltan verificaciones de textbox
 
-        private void btnGuardar_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                
-                int mesa = negMesa.Instancia.insertarTipoMesa(txtNuevoTipo.Text);
-                MessageBox.Show("¡Registro Correcto!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //ControlBotones(true, false, false, false, false, true);
-                //ac.BloquearText(this.panel1, false);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error",
-                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
@@ -64,7 +48,20 @@ namespace CapaPresentacion
 
         private void btnGuardar_Click_1(object sender, EventArgs e)
         {
+            try
+            {
 
+                int mesa = negMesa.Instancia.insertarTipoMesa(txtNuevoTipo.Text);
+                MessageBox.Show("¡Registro Correcto!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //ControlBotones(true, false, false, false, false, true);
+                //ac.BloquearText(this.panel1, false);
+                txtNuevoTipo.Text = "";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error",
+                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

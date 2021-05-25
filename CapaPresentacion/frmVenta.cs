@@ -154,7 +154,7 @@ namespace CapaPresentacion
         }
 
         //  Método para registrar Venta - Capa Presentación
-        //--Fecha de creación 04.05.2021        //--Fecha de entrega 06.05.2021
+        //--Fecha de creación 04.05.2021        //--Fecha de entrega 06.05.2021     //Modificacion 17.05.2021
         //--Número de equipo Equipo #6        // By Fany Estrada
         private void btnGuardar_Click(object sender, EventArgs e)
         {
@@ -207,7 +207,7 @@ namespace CapaPresentacion
 //            catch (ApplicationException ae)
 //            {
 //                MessageBox.Show(ae.Message, "Aviso", MessageBoxButtons.OK,
-//MessageBoxIcon.Warning);
+//                  MessageBoxIcon.Warning);
 //            }
 //            catch (Exception ex)//Cualqueir excepción
 //            {
@@ -486,6 +486,7 @@ namespace CapaPresentacion
             dgvVentasELI.DataSource = negVenta.Instancia.CargarVenta();
             dgvVentasACT.DataSource = negVenta.Instancia.CargarVenta();
             dgvProductos.DataSource = negProducto.Instancia.CargarProducto();
+            dgvVentasCONS.DataSource = negProducto.Instancia.CargarProducto();
 
         }
 

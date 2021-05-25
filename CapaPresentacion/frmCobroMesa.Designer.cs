@@ -30,6 +30,7 @@ namespace CapaPresentacion
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCobroMesa));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.Asignar = new System.Windows.Forms.TabPage();
             this.panel9 = new System.Windows.Forms.Panel();
@@ -66,6 +67,7 @@ namespace CapaPresentacion
             this.label19 = new System.Windows.Forms.Label();
             this.Registrar = new System.Windows.Forms.TabPage();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.dgvMesaINS = new System.Windows.Forms.DataGridView();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.cbxIdMesaINS = new System.Windows.Forms.ComboBox();
@@ -82,6 +84,13 @@ namespace CapaPresentacion
             this.cbxMesasCONS_Ocupadas = new System.Windows.Forms.ComboBox();
             this.dgvMesasCONS_Ocupadas = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.txtIdCobro = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.dgvCobrosCONS = new System.Windows.Forms.DataGridView();
+            this.label9 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnVolver = new System.Windows.Forms.PictureBox();
             this.btnMinimizar = new System.Windows.Forms.PictureBox();
@@ -89,14 +98,6 @@ namespace CapaPresentacion
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.horaFecha = new System.Windows.Forms.Timer(this.components);
-            this.dgvMesaINS = new System.Windows.Forms.DataGridView();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.panel12 = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.dgvCobrosCONS = new System.Windows.Forms.DataGridView();
-            this.label9 = new System.Windows.Forms.Label();
-            this.txtIdCobro = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.Asignar.SuspendLayout();
             this.panel9.SuspendLayout();
@@ -107,6 +108,7 @@ namespace CapaPresentacion
             this.panel10.SuspendLayout();
             this.Registrar.SuspendLayout();
             this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMesaINS)).BeginInit();
             this.panel6.SuspendLayout();
             this.ConsultarTiempo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMesaCONS_Tiempo)).BeginInit();
@@ -114,16 +116,15 @@ namespace CapaPresentacion
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMesasCONS_Ocupadas)).BeginInit();
+            this.tabPage1.SuspendLayout();
+            this.panel7.SuspendLayout();
+            this.panel12.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCobrosCONS)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnVolver)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMesaINS)).BeginInit();
-            this.tabPage1.SuspendLayout();
-            this.panel7.SuspendLayout();
-            this.panel12.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCobrosCONS)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -515,6 +516,15 @@ namespace CapaPresentacion
             this.panel5.Size = new System.Drawing.Size(654, 312);
             this.panel5.TabIndex = 0;
             // 
+            // dgvMesaINS
+            // 
+            this.dgvMesaINS.BackgroundColor = System.Drawing.Color.IndianRed;
+            this.dgvMesaINS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMesaINS.Location = new System.Drawing.Point(89, 70);
+            this.dgvMesaINS.Name = "dgvMesaINS";
+            this.dgvMesaINS.Size = new System.Drawing.Size(482, 194);
+            this.dgvMesaINS.TabIndex = 37;
+            // 
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.IndianRed;
@@ -691,6 +701,77 @@ namespace CapaPresentacion
             this.label5.Size = new System.Drawing.Size(0, 20);
             this.label5.TabIndex = 4;
             // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.panel7);
+            this.tabPage1.Location = new System.Drawing.Point(4, 29);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Size = new System.Drawing.Size(654, 312);
+            this.tabPage1.TabIndex = 8;
+            this.tabPage1.Text = "Consultar Cobros";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // panel7
+            // 
+            this.panel7.BackgroundImage = global::CapaPresentacion.Properties.Resources.OIP;
+            this.panel7.Controls.Add(this.panel12);
+            this.panel7.Controls.Add(this.dgvCobrosCONS);
+            this.panel7.Controls.Add(this.label9);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel7.Location = new System.Drawing.Point(0, 0);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(654, 312);
+            this.panel7.TabIndex = 1;
+            // 
+            // panel12
+            // 
+            this.panel12.BackColor = System.Drawing.Color.IndianRed;
+            this.panel12.Controls.Add(this.txtIdCobro);
+            this.panel12.Controls.Add(this.label7);
+            this.panel12.Location = new System.Drawing.Point(140, 33);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(360, 46);
+            this.panel12.TabIndex = 26;
+            // 
+            // txtIdCobro
+            // 
+            this.txtIdCobro.Location = new System.Drawing.Point(175, 12);
+            this.txtIdCobro.Name = "txtIdCobro";
+            this.txtIdCobro.Size = new System.Drawing.Size(168, 26);
+            this.txtIdCobro.TabIndex = 25;
+            this.txtIdCobro.TextChanged += new System.EventHandler(this.txtIdCobro_TextChanged);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(12, 13);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(156, 20);
+            this.label7.TabIndex = 24;
+            this.label7.Text = "Id Cobro de Mesa:";
+            // 
+            // dgvCobrosCONS
+            // 
+            this.dgvCobrosCONS.BackgroundColor = System.Drawing.Color.IndianRed;
+            this.dgvCobrosCONS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCobrosCONS.Location = new System.Drawing.Point(31, 101);
+            this.dgvCobrosCONS.Name = "dgvCobrosCONS";
+            this.dgvCobrosCONS.ReadOnly = true;
+            this.dgvCobrosCONS.RowHeadersVisible = false;
+            this.dgvCobrosCONS.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvCobrosCONS.Size = new System.Drawing.Size(584, 190);
+            this.dgvCobrosCONS.TabIndex = 17;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(389, 59);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(0, 20);
+            this.label9.TabIndex = 4;
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.SeaGreen;
@@ -770,86 +851,6 @@ namespace CapaPresentacion
             this.horaFecha.Enabled = true;
             this.horaFecha.Tick += new System.EventHandler(this.horaFecha_Tick);
             // 
-            // dgvMesaINS
-            // 
-            this.dgvMesaINS.BackgroundColor = System.Drawing.Color.IndianRed;
-            this.dgvMesaINS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMesaINS.Location = new System.Drawing.Point(89, 70);
-            this.dgvMesaINS.Name = "dgvMesaINS";
-            this.dgvMesaINS.Size = new System.Drawing.Size(482, 194);
-            this.dgvMesaINS.TabIndex = 37;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.panel7);
-            this.tabPage1.Location = new System.Drawing.Point(4, 29);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(654, 312);
-            this.tabPage1.TabIndex = 8;
-            this.tabPage1.Text = "Consultar Cobros";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // panel7
-            // 
-            this.panel7.BackgroundImage = global::CapaPresentacion.Properties.Resources.OIP;
-            this.panel7.Controls.Add(this.panel12);
-            this.panel7.Controls.Add(this.dgvCobrosCONS);
-            this.panel7.Controls.Add(this.label9);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel7.Location = new System.Drawing.Point(0, 0);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(654, 312);
-            this.panel7.TabIndex = 1;
-            // 
-            // panel12
-            // 
-            this.panel12.BackColor = System.Drawing.Color.IndianRed;
-            this.panel12.Controls.Add(this.txtIdCobro);
-            this.panel12.Controls.Add(this.label7);
-            this.panel12.Location = new System.Drawing.Point(140, 33);
-            this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(360, 46);
-            this.panel12.TabIndex = 26;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(12, 13);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(156, 20);
-            this.label7.TabIndex = 24;
-            this.label7.Text = "Id Cobro de Mesa:";
-            // 
-            // dgvCobrosCONS
-            // 
-            this.dgvCobrosCONS.BackgroundColor = System.Drawing.Color.IndianRed;
-            this.dgvCobrosCONS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCobrosCONS.Location = new System.Drawing.Point(31, 101);
-            this.dgvCobrosCONS.Name = "dgvCobrosCONS";
-            this.dgvCobrosCONS.ReadOnly = true;
-            this.dgvCobrosCONS.RowHeadersVisible = false;
-            this.dgvCobrosCONS.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCobrosCONS.Size = new System.Drawing.Size(584, 190);
-            this.dgvCobrosCONS.TabIndex = 17;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(389, 59);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(0, 20);
-            this.label9.TabIndex = 4;
-            // 
-            // txtIdCobro
-            // 
-            this.txtIdCobro.Location = new System.Drawing.Point(175, 12);
-            this.txtIdCobro.Name = "txtIdCobro";
-            this.txtIdCobro.Size = new System.Drawing.Size(168, 26);
-            this.txtIdCobro.TabIndex = 25;
-            this.txtIdCobro.TextChanged += new System.EventHandler(this.txtIdCobro_TextChanged);
-            // 
             // frmCobroMesa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -859,6 +860,7 @@ namespace CapaPresentacion
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmCobroMesa";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmCobroMesa";
@@ -879,6 +881,7 @@ namespace CapaPresentacion
             this.Registrar.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMesaINS)).EndInit();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.ConsultarTiempo.ResumeLayout(false);
@@ -889,18 +892,17 @@ namespace CapaPresentacion
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMesasCONS_Ocupadas)).EndInit();
-            this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.btnVolver)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMesaINS)).EndInit();
             this.tabPage1.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCobrosCONS)).EndInit();
+            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.btnVolver)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

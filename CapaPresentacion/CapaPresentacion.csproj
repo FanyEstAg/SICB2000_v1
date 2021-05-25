@@ -212,6 +212,7 @@
     <None Include="Resources\Logo CLUB BILLAR.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Yami.jpg" />
     <None Include="Resources\b4.png" />
     <None Include="Resources\b6.png" />
     <None Include="Resources\b7.png" />
@@ -222,7 +223,9 @@
     <None Include="Resources\019-close.png" />
     <Content Include="Resources\cerrar.png" />
     <None Include="Resources\cerrar1.png" />
+    <None Include="Resources\Fany.jpg" />
     <Content Include="Resources\ir.png" />
+    <None Include="Resources\Lizzie.jpg" />
     <Content Include="Resources\lupa.png" />
     <None Include="Resources\lupachica.png" />
     <Content Include="Resources\mini.png" />
@@ -230,6 +233,7 @@
     <None Include="Resources\OIP %282%29.jpg" />
     <None Include="Resources\OIP.jpg" />
     <None Include="Resources\OIP verdeBandera.jpg" />
+    <None Include="Resources\Nes.jpg" />
     <Content Include="Resources\regresar.png" />
     <Content Include="Resources\usuario.png" />
   </ItemGroup>

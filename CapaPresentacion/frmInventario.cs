@@ -285,7 +285,7 @@ namespace CapaPresentacion
 
         private void btnAgregarTipo_Click(object sender, EventArgs e)//LISTO
         {
-            frmNuevaMarca nm = new frmNuevaMarca(us);
+            frmNuevaMarca nm = new frmNuevaMarca();
             nm.Show();
         }
 
@@ -513,6 +513,17 @@ namespace CapaPresentacion
             {
                 MessageBox.Show(ex.Message, "Error",
                                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void cbxMarca_Click(object sender, EventArgs e)
+        {
+            cbxMarca.Items.Clear();
+            cbxMarcaACT.Items.Clear();
+            foreach (var dat in negProducto.Instancia.ListarMarca())
+            {
+                cbxMarca.Items.Add(dat.Nombre_Marca);
+                cbxMarcaACT.Items.Add(dat.Nombre_Marca);
             }
         }
     }

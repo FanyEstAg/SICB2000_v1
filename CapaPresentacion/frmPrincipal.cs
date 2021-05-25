@@ -22,6 +22,7 @@ namespace CapaPresentacion
         {
             InitializeComponent();
             u = usuario;//recibimoas al usuario de la ventana anterior
+            //MessageBox.Show(u.Id_Usuario.ToString());
         }
         private void RestriccionesUsuario()
         {//Acessos--modificar
@@ -314,7 +315,7 @@ namespace CapaPresentacion
 
         private void btnInventario_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            //this.Hide();
             try
             {
                 btnVolver.Visible = false;
@@ -446,6 +447,30 @@ namespace CapaPresentacion
                     }
                 }
                 frmreporte.Show();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                btnVolver.Visible = false;
+                frmInfoApp frminfo = new frmInfoApp();
+                frminfo.Parent = this.MdiParent;
+                foreach (Form frm in Application.OpenForms)
+                {
+                    if (frm is frmInfoApp)
+                    {
+                        frm.Show();
+                        return;
+                    }
+                }
+                frminfo.Show();
             }
             catch (Exception)
             {

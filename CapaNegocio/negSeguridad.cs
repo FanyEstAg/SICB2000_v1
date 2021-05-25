@@ -40,7 +40,8 @@ namespace CapaNegocio
         {
             if (us == "") throw new ApplicationException("Ingrese un usuario");
             if (pass == "") throw new ApplicationException("Ingrese una contraseña");
-            int u = 0;
+            int u;
+            
             u = datSeguridad.Instancia.ObtenerIdUsuario(us, pass);
             if (u == null)
             {

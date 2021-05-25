@@ -76,7 +76,7 @@ namespace CapaAccesoDatos
                 SqlConnection cn = Conexion.Instancia.Conectar();
                 cmd = new SqlCommand("uspObtenerIdUsuario", cn);
                 cmd.Parameters.AddWithValue("@prmUsuario", us);
-                cmd.Parameters.AddWithValue("@prmContrasena", us);
+                cmd.Parameters.AddWithValue("@prmContrasena", pass);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cn.Open();
                 dr = cmd.ExecuteReader();
@@ -84,7 +84,6 @@ namespace CapaAccesoDatos
                 {
                     r = Convert.ToInt32(dr["Id_Usuario"]);
                 }
-                cn.Close();
             }
             catch (Exception)
             {

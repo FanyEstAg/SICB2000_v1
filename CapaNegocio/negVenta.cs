@@ -42,7 +42,7 @@ namespace CapaNegocio
         }
 
         //  Método para registrar Venta - Capa Negocio
-        //--Fecha de creación 04.05.2021      //--Fecha de entrega 06.05.2021
+        //--Fecha de creación 04.05.2021      //--Fecha de entrega 06.05.2021   //Modificaicón 17.05.2021
         //--Número de equipo Equipo #6         // By Fany Estrada
         public int GuardarVenta(entVenta v)//listo
         {//Método en el que se hace Altas a partir de un xml
@@ -54,17 +54,9 @@ namespace CapaNegocio
                 Cadxml += "idusuario='" + v.usuario.Id_Usuario + "' ";
                 Cadxml += "fecha='" + DateTime.Now.ToString() + "' ";
                 Cadxml += "idestado='" + v.Estado_Venta.Id_Estado + "' "; /*"'>";*/
-                //foreach (entVenta pr in v.productos)//Se añade cada producto de la lista de productos
-                //{
-                //Cadxml += "<detalle ";
                 Cadxml += "idproducto='" + v.Id_producto.Id_Prod + "' ";
                 Cadxml += "cantidad='" + v.cantidad + "' ";
                 Cadxml += "subtotal='" + v.Subtotal_Venta + "'/>";
-                //Cadxml += "idproducto='" + pr.Id_producto + "' ";
-                //Cadxml += "cantidad='" + pr.cantidad + "' ";
-                //Cadxml += "subtotal='" + v.Subtotal_Venta +  "'/>";
-                //}
-                //Cadxml += "</venta>";
                 Cadxml = "<root>" + Cadxml + "</root>";
                 int i = datVenta.Instancia.GuardarVenta(Cadxml);// se envia la cadena y se guarda el resultado en i
                 if (i <= 0) throw new ApplicationException("Ocurrio un error al guardar venta actual");
@@ -116,7 +108,7 @@ namespace CapaNegocio
                 if (dt.Rows.Count == 0)
                 {
                     //Enc caso de que la tabla resultante no tenga filas enviar mensaje
-                    throw new ApplicationException("No se encontraron registros");
+                    //throw new ApplicationException("No se encontraron registros");
                 }
                 return dt;
             }

@@ -22,22 +22,6 @@ namespace CapaNegocio
 
         #region metodos
 
-        public entProducto BuscarProducto(int id_producto)
-        {
-            try
-            {
-                entProducto p = null;
-                p = datProducto.Instancia.BuscarProducto(id_producto);
-                if (p == null) throw new ApplicationException("No se encontro producto seleccionado en la BD");
-                return p;
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
-
         public List<entProducto> ActExtraerProductos(int id)
         {
             try
@@ -219,7 +203,7 @@ namespace CapaNegocio
 
                 if (dt.Rows.Count == 0)
                 {
-                    throw new ApplicationException("No se encontraron registros");
+                    //throw new ApplicationException("No se encontraron registros");
                 }
                 return dt;
             }
@@ -238,7 +222,7 @@ namespace CapaNegocio
 
                 if (dt.Rows.Count == 0)
                 {
-                    throw new ApplicationException("No se encontraron registros");
+                    //throw new ApplicationException("No se encontraron registros");
                 }
                 return dt;
             }
@@ -257,7 +241,7 @@ namespace CapaNegocio
 
                 if (dt.Rows.Count == 0)
                 {
-                    throw new ApplicationException("No se encontraron registros");
+                    //throw new ApplicationException("No se encontraron registros");
                 }
                 return dt;
             }

@@ -127,9 +127,18 @@ namespace CapaPresentacion
                 
                 int us = negSeguridad.Instancia.insertarUsuario(u);
                 MessageBox.Show("¡Registro Correcto!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //ControlBotones(true, false, false, false, false, true);
-            ac.BloquearText(this.panel1, false);
-        }
+                txtNombreINS.Text = "";
+                txtApepatINS.Text="";
+                txtApematINS.Text="";
+                txtDireccionINS.Text="";
+                txtTelefonoINS.Text="";
+                txtUusuarioINS.Text="";
+                txtPasswordINS.Text="";
+                dgvUsuarios.DataSource = negSeguridad.Instancia.CargarUsuarios();
+                //ControlBotones(true, true, false, true, false, true);
+                //ControlBotones(true, false, false, false, false, true);
+                //ac.BloquearText(this.panel1, false);
+            }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error",
@@ -148,6 +157,7 @@ namespace CapaPresentacion
                 {
                     int result = negSeguridad.Instancia.EliminarUsuarioxId(Convert.ToInt32(txtIdEliminar.Text));//enviar id
                     MessageBox.Show("Usuario Eliminado con éxito", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    dgvUsuarios.DataSource = negSeguridad.Instancia.CargarUsuarios();
                 }
                 //ControlBotones(true, false, false, false, false, true);//pendiente
                 //ac.BloquearText(this.panel1, false);//pendiente
@@ -210,7 +220,12 @@ namespace CapaPresentacion
                         MessageBox.Show("¡Actualización de contraseña Correcto!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         //ControlBotones(true, false, false, false, false, true);
                         ac.BloquearText(this.panel1, false);
-                    }
+                    txtConfirmarCC.Text = "";
+                    txtContrasenaCC.Text = "";
+                    txtContrasenaNuevaCC.Text = "";
+                    txtIdCC.Text = "";
+                    dgvUsuarios.DataSource = negSeguridad.Instancia.CargarUsuarios();
+                }
             }
             catch (Exception ex)
             {
@@ -311,7 +326,7 @@ namespace CapaPresentacion
                 entEmpleado em = new entEmpleado();
                 entRol ro = new entRol();
                 u.Id_Usuario = Convert.ToInt32(txtIdUsuarioACT.Text);
-                MessageBox.Show(u.Id_Usuario.ToString());
+                //MessageBox.Show(u.Id_Usuario.ToString());
                 ro.Id_Rol = Convert.ToInt32(cbxRolACT.SelectedIndex + 1);
                 em.Id_Rol = ro;
                 em.Nombre_empleado = txtNombreACT.Text;
@@ -329,6 +344,15 @@ namespace CapaPresentacion
                 MessageBox.Show("¡Actualización de usuario Correcto!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 //ControlBotones(true, false, false, false, false, true);
                 //ac.BloquearText(this.panel1, false);
+                txtNombreACT.Text = "";
+                txtApepatACT.Text = "";
+                txtApematACT.Text = "";
+                txtDireccionACT.Text = "";
+                txtTelefonoACT.Text = "";
+                txtUsuarioACT.Text = "";
+                txtPasswordACT.Text = "";
+                txtIdUsuarioACT.Text = "";
+                dgvUsuarios.DataSource = negSeguridad.Instancia.CargarUsuarios();
             }
             catch (Exception ex)
             {

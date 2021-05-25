@@ -29,6 +29,7 @@ namespace CapaPresentacion
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMesas));
             this.label4 = new System.Windows.Forms.Label();
             this.btnVolver = new System.Windows.Forms.PictureBox();
             this.btnMinimizar = new System.Windows.Forms.PictureBox();
@@ -504,6 +505,7 @@ namespace CapaPresentacion
             this.cbxTipoMesa.Size = new System.Drawing.Size(121, 26);
             this.cbxTipoMesa.TabIndex = 18;
             this.cbxTipoMesa.SelectedIndexChanged += new System.EventHandler(this.cbxTipoMesa_SelectedIndexChanged);
+            this.cbxTipoMesa.Click += new System.EventHandler(this.cbxTipoMesa_Click);
             // 
             // label2
             // 
@@ -573,6 +575,7 @@ namespace CapaPresentacion
             this.Controls.Add(this.label4);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmMesas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "7";

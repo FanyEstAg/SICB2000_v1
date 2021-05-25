@@ -50,6 +50,10 @@ namespace CapaPresentacion
                 MessageBox.Show("¡Registro Correcto!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 //ControlBotones(true, false, false, false, false, true);
                 //ac.BloquearText(this.panel1, false);
+                dgvMesasELI.DataSource = negMesa.Instancia.CargarMesas();
+                dgvMesasCONS.DataSource = negMesa.Instancia.CargarMesas();
+                txtIdMesa.Text = "";
+
             }
             catch (Exception ex)
             {
@@ -71,6 +75,7 @@ namespace CapaPresentacion
                 dgvMesasELI.DataSource = negMesa.Instancia.CargarMesas();
                 //ControlBotones(true, false, false, false, false, true);//pendiente
                 //ac.BloquearText(this.panel1, false);//pendiente
+                dgvMesasCONS.DataSource = negMesa.Instancia.CargarMesas();
             }
             catch (Exception ex)
             {
@@ -133,7 +138,7 @@ namespace CapaPresentacion
                 entDisponibilidad d = new entDisponibilidad();
                 m.Id_Mesa= Convert.ToInt32(txtIdMesaACT.Text);
                 t.Id_Tipo= Convert.ToInt32(cbxTipoMesaACT.SelectedIndex + 1);
-                MessageBox.Show(t.Id_Tipo.ToString());
+                //MessageBox.Show(t.Id_Tipo.ToString());
                 m.id_tipo = t;
                 if (cbxDispoACT.SelectedItem.Equals("Ocupada") )
                     d.Id_Disponibilidad = "No";
@@ -145,7 +150,10 @@ namespace CapaPresentacion
                 MessageBox.Show("¡Actualización de mesa Correcto!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 //ControlBotones(true, false, false, false, false, true);
                 //ac.BloquearText(this.panel1, false);
-                
+                dgvMesasELI.DataSource = negMesa.Instancia.CargarMesas();
+                dgvMesasCONS.DataSource = negMesa.Instancia.CargarMesas();
+                txtIdMesaACT.Text = "";
+
             }
             catch (Exception ex)
             {
@@ -215,6 +223,17 @@ namespace CapaPresentacion
             {
                 MessageBox.Show(ex.Message, "Error",
                                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void cbxTipoMesa_Click(object sender, EventArgs e)
+        {
+            cbxTipoMesa.Items.Clear();
+            cbxTipoMesaACT.Items.Clear();
+            foreach (var dat in negMesa.Instancia.ListarTipo())
+            {
+                cbxTipoMesa.Items.Add(dat.Nom_Tipo);
+                cbxTipoMesaACT.Items.Add(dat.Nom_Tipo);
             }
         }
     }

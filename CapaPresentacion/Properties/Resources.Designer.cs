@@ -343,6 +343,16 @@ namespace CapaPresentacion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Fany {
+            get {
+                object obj = ResourceManager.GetObject("Fany", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap fondo {
             get {
                 object obj = ResourceManager.GetObject("fondo", resourceCulture);
@@ -403,6 +413,16 @@ namespace CapaPresentacion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Lizzie {
+            get {
+                object obj = ResourceManager.GetObject("Lizzie", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Logo_CLUB_BILLAR {
             get {
                 object obj = ResourceManager.GetObject("Logo CLUB BILLAR", resourceCulture);
@@ -446,6 +466,16 @@ namespace CapaPresentacion.Properties {
         internal static System.Drawing.Bitmap mini {
             get {
                 object obj = ResourceManager.GetObject("mini", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Nes {
+            get {
+                object obj = ResourceManager.GetObject("Nes", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -596,6 +626,16 @@ namespace CapaPresentacion.Properties {
         internal static System.Drawing.Bitmap window_remove_24x24_32 {
             get {
                 object obj = ResourceManager.GetObject("window-remove_24x24-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Yami {
+            get {
+                object obj = ResourceManager.GetObject("Yami", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
